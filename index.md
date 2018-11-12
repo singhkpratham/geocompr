@@ -26,7 +26,8 @@ url: 'https\://geocompr.robinlovelace.net/'
 # Welcome {-}
 
 This is the online home of *Geocomputation with R*, a book on geographic data analysis, visualization and modeling.
-It is published online here and by CRC Press in the [R Series](https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER).
+
+
 
 Inspired by [**bookdown**](https://github.com/rstudio/bookdown) and the Free and Open Source Software for Geospatial ([FOSS4G](http://foss4g.org/)) movement, this book is open source.
 This ensures its contents are reproducible and publicly accessible for people worldwide.
