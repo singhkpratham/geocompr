@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-11-21">
+<meta name="date" content="2018-11-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -424,9 +424,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
 <a class="sourceLine" id="cb146-2" data-line-number="2"><span class="kw">library</span>(raster)</a>
-<a class="sourceLine" id="cb146-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb146-4" data-line-number="4"><span class="kw">library</span>(spData)</a>
-<a class="sourceLine" id="cb146-5" data-line-number="5"><span class="kw">library</span>(spDataLarge)</a></code></pre></div>
+<a class="sourceLine" id="cb146-3" data-line-number="3"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb146-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb146-5" data-line-number="5"><span class="kw">library</span>(spData)</a>
+<a class="sourceLine" id="cb146-6" data-line-number="6"><span class="kw">library</span>(spDataLarge)</a></code></pre></div>
 </div>
 <div id="introduction-2" class="section level2">
 <h2><span class="header-section-number">5.1</span> Introduction</h2>
@@ -1093,7 +1094,7 @@ The method demonstrated below provides an ‘elevation profile’ of the route (
 The result is a list containing a matrix of cell IDs in the first column and elevation values in the second.
 The number of list elements is equal to the number of lines or polygons from which we are extracting values.
 The subsequent code chunk first converts this tricky matrix-in-a-list object into a simple data frame, returns the coordinates associated with each extracted cell and finds the associated distances along the transect (see <code>?geosphere::distGeo()</code> for details):</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">transect_df =<span class="st"> </span><span class="kw">map_dfr</span>(transect, as_data_frame, <span class="dt">.id =</span> <span class="st">&quot;ID&quot;</span>)</a>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">transect_df =<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map_dfr</span>(transect, as_data_frame, <span class="dt">.id =</span> <span class="st">&quot;ID&quot;</span>)</a>
 <a class="sourceLine" id="cb190-2" data-line-number="2">transect_coords =<span class="st"> </span><span class="kw">xyFromCell</span>(srtm, transect_df<span class="op">$</span>cell)</a>
 <a class="sourceLine" id="cb190-3" data-line-number="3">transect_df<span class="op">$</span>dist =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">cumsum</span>(geosphere<span class="op">::</span><span class="kw">distGeo</span>(transect_coords)))    </a></code></pre></div>
 <p>The resulting <code>transect_df</code> can be used to create elevation profiles, as illustrated in Figure <a href="geometric-operations.html#fig:lineextr">5.19</a>:B.</p>
@@ -1122,10 +1123,10 @@ Because there is only one polygon in the example a data frame with a single row 
 This is illustrated with a land cover dataset (<code>nlcd</code>) from the <strong>spDataLarge</strong> package in <a href="geometric-operations.html#fig:polyextr">5.20</a>:B and demonstrated in the code below:</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1">zion_nlcd =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(nlcd, <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>), <span class="dt">df =</span> <span class="ot">TRUE</span>, <span class="dt">factors =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb193-2" data-line-number="2">dplyr<span class="op">::</span><span class="kw">select</span>(zion_nlcd, ID, levels) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb193-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(key, value, <span class="op">-</span>ID) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb193-3" data-line-number="3"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(key, value, <span class="op">-</span>ID) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb193-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(ID, key, value) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb193-5" data-line-number="5"><span class="st">  </span><span class="kw">tally</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb193-6" data-line-number="6"><span class="st">  </span><span class="kw">spread</span>(value, n, <span class="dt">fill =</span> <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb193-6" data-line-number="6"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(value, n, <span class="dt">fill =</span> <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb193-7" data-line-number="7"><span class="co">#&gt; # A tibble: 1 x 9</span></a>
 <a class="sourceLine" id="cb193-8" data-line-number="8"><span class="co">#&gt; # Groups:   ID, key [1]</span></a>
 <a class="sourceLine" id="cb193-9" data-line-number="9"><span class="co">#&gt;      ID key   Barren Cultivated Developed Forest Herbaceous Shrubland</span></a>

@@ -9,7 +9,8 @@
 ```r
 library(sf)
 library(raster)
-library(tidyverse)
+library(dplyr)
+
 library(spData)
 library(spDataLarge)
 ```
@@ -842,7 +843,7 @@ The subsequent code chunk first converts this tricky matrix-in-a-list object int
 
 
 ```r
-transect_df = map_dfr(transect, as_data_frame, .id = "ID")
+transect_df = purrr::map_dfr(transect, as_data_frame, .id = "ID")
 transect_coords = xyFromCell(srtm, transect_df$cell)
 transect_df$dist = c(0, cumsum(geosphere::distGeo(transect_coords)))    
 ```
@@ -889,10 +890,10 @@ This is illustrated with a land cover dataset (`nlcd`) from the **spDataLarge** 
 ```r
 zion_nlcd = raster::extract(nlcd, as(zion, "Spatial"), df = TRUE, factors = TRUE)
 dplyr::select(zion_nlcd, ID, levels) %>% 
-  gather(key, value, -ID) %>%
+  tidyr::gather(key, value, -ID) %>%
   group_by(ID, key, value) %>%
   tally() %>% 
-  spread(value, n, fill = 0)
+  tidyr::spread(value, n, fill = 0)
 #> # A tibble: 1 x 9
 #> # Groups:   ID, key [1]
 #>      ID key   Barren Cultivated Developed Forest Herbaceous Shrubland

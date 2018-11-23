@@ -15,7 +15,7 @@ Package **kernlab**, **pROC**, **RSAGA** and **spDataLarge** must also be instal
 library(sf)
 library(raster)
 library(mlr)
-library(tidyverse)
+library(dplyr)
 library(parallelMap)
 ```
 

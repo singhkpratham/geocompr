@@ -12,7 +12,7 @@
 
 ```r
 library(sf)
-library(tidyverse)
+library(dplyr)
 library(spDataLarge)
 library(stplanr)      # a package for transport data
 library(tmap)         # a visualization package

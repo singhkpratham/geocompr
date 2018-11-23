@@ -9,7 +9,7 @@ This chapter requires the following packages:
 ```r
 library(sf)
 library(raster)
-library(tidyverse)
+library(dplyr)
 library(spData)
 ```
 

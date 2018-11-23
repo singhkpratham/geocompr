@@ -9,7 +9,7 @@
 ```r
 library(sf)
 library(raster)
-library(tidyverse)
+library(dplyr)
 library(spData)
 library(spDataLarge)
 ```

@@ -8,8 +8,9 @@
 
 ```r
 library(sf)
+library(dplyr)
+library(purrr)
 library(raster)
-library(tidyverse)
 library(osmdata)
 library(spDataLarge)
 ```
