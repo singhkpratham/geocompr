@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-11-23">
+<meta name="date" content="2018-12-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -420,7 +420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prerequisites-10" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <ul>
-<li>This chapter requires the following packages to be attached:<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a></li>
+<li>This chapter uses the following packages:<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a></li>
 </ul>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
 <a class="sourceLine" id="cb392-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
@@ -481,7 +481,7 @@ It has a vibrant economy with aerospace, media, financial service and tourism co
 Bristol shows a high average income per capita but also contains areas of severe deprivation <span class="citation">(Bristol City Council <a href="#ref-bristol_city_council_deprivation_2015">2015</a>)</span>.</p>
 <p>In terms of transport, Bristol is well served by rail and road links, and has a relatively high level of active travel.
 19% of its citizens cycle and 88% walk at least once per month according to the <a href="https://www.gov.uk/government/statistical-data-sets/how-often-and-time-spent-walking-and-cycling-at-local-authority-level-cw010#table-cw0103">Active People Survey</a> (the national average is 15% and 81%, respectively).
-8% of the population reported to cycle to work in the 2011 census, compared with only 3% nationwide.</p>
+8% of the population said they cycled work in the 2011 census, compared with only 3% nationwide.</p>
 <p>Despite impressive walking and cycling statistics, the city has a major congestion problem.
 Part of the solution is to continue to increase the proportion of trips made by cycling.
 Cycling has a greater potential to replace car trips than walking because of the speed of this mode, around 3-4 times faster than walking (with typical <a href="https://en.wikipedia.org/wiki/Bicycle_performance">speeds</a> of 15-20 km/h vs 4-6 km/h for walking).
@@ -491,8 +491,8 @@ This high-level aim will be met via the following objectives:</p>
 <ul>
 <li>Describe the geographical pattern of transport behavior in the city.</li>
 <li>Identify key public transport nodes and routes along which cycling to rail stations could be encouraged, as the first stage in multi-model trips.</li>
-<li>Analyze travel ‘desire lines’ in the city to identify those with greatest potential for modal shift.</li>
-<li>Building on the desire-line level analysis, identify which routes would most benefit from having dedicated cycleways and improved provision for pedestrians.</li>
+<li>Analyze travel ‘desire lines’ to, to find where many people drive short distances.</li>
+<li>Identify cycle route locations that will encourage less car driving and more cycling.</li>
 </ul>
 <p>To get the wheels rolling on the practical aspects of this chapter, we begin by loading zonal data on travel patterns.
 These zone-level data are small but often vital for gaining a basic understanding of a settlement’s overall transport system.</p>
@@ -732,8 +732,8 @@ Making the width of the routes proportional to the number of car journeys that c
 <!-- Note also that routes are assumed to originate in the zone centroids, a simplifying assumption which is used in transport models to reduce the computational resources needed to calculate the shortest path between all combinations of possible origins and destinations [@hollander_transport_2016]. -->
 <!-- ]: -->
 <p>Plotting the results on an interactive map, with <code>mapview::mapview(desire_carshort$geom_car)</code> for example, shows that many short car trips take place in and around Bradley Stoke.
-Some internet research helps explain why this location has high car dependency: according to its <a href="https://en.wikipedia.org/wiki/Bradley_Stoke">Wikipedia</a>, entry Bradley Stoke is “Europe’s largest new town built with private investment”, suggesting limited public transport provision.
-The excessive number of short car journeys in this area can also be understood in terms of the car-orientated transport infrastructure surrounding this northern ‘edge city’ which includes “major transport nodes such as junctions on both the M4 and M5 motorways”, large inter-city roads <span class="citation">(Tallon <a href="#ref-tallon_bristol_2007">2007</a>)</span>.</p>
+It is easy to find explanations for the area’s high level of car dependency: according to <a href="https://en.wikipedia.org/wiki/Bradley_Stoke">Wikipedia</a>, Bradley Stoke is “Europe’s largest new town built with private investment”, suggesting limited public transport provision.
+Furthermore, the town is surrounded by large (cycling unfriendly) road structures, “such as junctions on both the M4 and M5 motorways” <span class="citation">(Tallon <a href="#ref-tallon_bristol_2007">2007</a>)</span>.</p>
 <p>There are many benefits of converting travel desire lines into likely routes of travel from a policy perspective, primary among them the ability to understand what it is about the surrounding environment that makes people travel by a particular mode.
 We discuss future directions of research building on the routes in section <a href="transport.html#future-directions-of-travel">12.9</a>.
 For the purposes of this case study, suffice to say that the roads along which these short car journeys travel should be prioritized for investigation to understand how they can be made more conducive to sustainable transport modes.
@@ -748,11 +748,10 @@ There are two types of transport nodes:</p>
 <li>Nodes not directly on the network such as zone centroids — covered in the next section — or individual origins and destinations such as houses and workplaces.</li>
 <li>Nodes that are a part of transport networks, representing individual pathways, intersections between pathways (junctions) and points for entering or exiting a transport network such as bus stops and train stations.</li>
 </ol>
-<p>From a mathematical perspective transport networks can be represented as graphs, in which each segment is connected (via edges representing geographic lines) to one or more other edges in the network.
-The first type of node can be connected to the network with “centroid connectors”, new route segments joining nodes outside the network with one or more nearby nodes on the network <span class="citation">(Hollander <a href="#ref-hollander_transport_2016">2016</a>)</span>.
-The location of these connectors should be chosen carefully because they can lead to over-estimates of traffic volumes in their immediate surroundings <span class="citation">(Jafari et al. <a href="#ref-jafari_investigation_2015">2015</a>)</span>.
-The second type of nodes are nodes on the graph, each of which is connected by one or more straight ‘edges’ that represent individual segments on the network.
-We will see how transport networks can be represented as mathematical graphs in section <a href="transport.html#route-networks">12.7</a>.</p>
+<p>Transport networks can be represented as graphs, in which each segment is connected (via edges representing geographic lines) to one or more other edges in the network.
+Nodes outside the network can be added with “centroid connectors”, new route segments to nearby nodes on the network <span class="citation">(Hollander <a href="#ref-hollander_transport_2016">2016</a>)</span>.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a>
+Every node in the network is then connected by one or more ‘edges’ that represent individual segments on the network.
+We will see how transport networks can be represented as graphs in section <a href="transport.html#route-networks">12.7</a>.</p>
 <p>Public transport stops are particularly important nodes that can be represented as either type of node: a bus stop that is part of a road, or a large rail station that is represented by its pedestrian entry point hundreds of meters from railway tracks.
 We will use railway stations to illustrate public transport nodes, in relation to the research question of increasing cycling in Bristol.
 These stations are provided by <strong>spDataLarge</strong> in <code>bristol_stations</code>.</p>
@@ -966,9 +965,6 @@ Similar tools could be used to encourage evidence-based transport policies relat
 <div id="ref-tallon_bristol_2007">
 <p>Tallon, Andrew R. 2007. “Bristol.” <em>Cities</em> 24 (1): 74–88. <a href="https://doi.org/10.1016/j.cities.2006.10.004" class="uri">https://doi.org/10.1016/j.cities.2006.10.004</a>.</p>
 </div>
-<div id="ref-jafari_investigation_2015">
-<p>Jafari, Ehsan, Mason D. Gemar, Natalia Ruiz Juri, and Jennifer Duthie. 2015. “Investigation of Centroid Connector Placement for Advanced Traffic Assignment Models with Added Network Detail.” <em>Transportation Research Record: Journal of the Transportation Research Board</em> 2498 (June): 19–26. <a href="https://doi.org/10.3141/2498-03" class="uri">https://doi.org/10.3141/2498-03</a>.</p>
-</div>
 <div id="ref-hickman_transitions_2011">
 <p>Hickman, Robin, Olu Ashiru, and David Banister. 2011. “Transitions to Low Carbon Transport Futures: Strategic Conversations from London and Delhi.” <em>Journal of Transport Geography</em>, Special section on alternative travel futures, 19 (6): 1553–62. <a href="https://doi.org/10.1016/j.jtrangeo.2011.03.013" class="uri">https://doi.org/10.1016/j.jtrangeo.2011.03.013</a>.</p>
 </div>
@@ -990,6 +986,8 @@ This could be done by reversing the order of the ID’s in the commend — <code
 Note that the operation emits a warning because <code>od2line()</code> works by allocating the start and end points of each origin-destination pair to the <em>centroid</em> of its zone of origin and destination.
 <!-- This represents a straight line between the centroid of zone `E02003047` and the centroid of `E02003043` for the second origin-destination pair represented in Table \@ref(tab:od), for example. -->
 For real-world use one would use centroid values generated from projected data or, preferably, use <em>population-weighted</em> centroids <span class="citation">(Lovelace et al. <a href="#ref-lovelace_propensity_2017">2017</a>)</span>.<a href="transport.html#fnref72" class="footnote-back">↩</a></p></li>
+<li id="fn73"><p>
+The location of these connectors should be chosen carefully because they can lead to over-estimates of traffic volumes in their immediate surroundings <span class="citation">(Jafari et al. <a href="#ref-jafari_investigation_2015">2015</a>)</span>.<a href="transport.html#fnref73" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <script>
