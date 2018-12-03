@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-01">
+<meta name="date" content="2018-12-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -794,13 +794,13 @@ Figure 12.4: Station nodes (red dots) used as intermediary points that convert s
 To avoid having to request the data from OSM repeatedly, we will use the <code>bristol_ways</code> object, which contains point and line data for the case study area (see <code>?bristol_ways</code>):</p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="kw">summary</span>(bristol_ways)</a>
 <a class="sourceLine" id="cb410-2" data-line-number="2"><span class="co">#&gt;      highway        maxspeed         ref                geometry   </span></a>
-<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="co">#&gt;  cycleway:1262   30 mph : 834   A38    : 202   LINESTRING   :4619  </span></a>
-<a class="sourceLine" id="cb410-4" data-line-number="4"><span class="co">#&gt;  rail    : 813   20 mph : 456   M5     : 138   epsg:4326    :   0  </span></a>
-<a class="sourceLine" id="cb410-5" data-line-number="5"><span class="co">#&gt;  road    :2544   40 mph : 332   A432   : 131   +proj=long...:   0  </span></a>
-<a class="sourceLine" id="cb410-6" data-line-number="6"><span class="co">#&gt;                  70 mph : 323   A4018  : 120                       </span></a>
-<a class="sourceLine" id="cb410-7" data-line-number="7"><span class="co">#&gt;                  50 mph : 137   A420   : 114                       </span></a>
-<a class="sourceLine" id="cb410-8" data-line-number="8"><span class="co">#&gt;                  (Other): 470   (Other):1697                       </span></a>
-<a class="sourceLine" id="cb410-9" data-line-number="9"><span class="co">#&gt;                  NA&#39;s   :2067   NA&#39;s   :2217</span></a></code></pre></div>
+<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="co">#&gt;  cycleway:1317   30 mph : 925   A38    : 214   LINESTRING   :4915  </span></a>
+<a class="sourceLine" id="cb410-4" data-line-number="4"><span class="co">#&gt;  rail    : 832   20 mph : 556   A432   : 146   epsg:4326    :   0  </span></a>
+<a class="sourceLine" id="cb410-5" data-line-number="5"><span class="co">#&gt;  road    :2766   40 mph : 397   M5     : 144   +proj=long...:   0  </span></a>
+<a class="sourceLine" id="cb410-6" data-line-number="6"><span class="co">#&gt;                  70 mph : 328   A4018  : 124                       </span></a>
+<a class="sourceLine" id="cb410-7" data-line-number="7"><span class="co">#&gt;                  50 mph : 158   A420   : 115                       </span></a>
+<a class="sourceLine" id="cb410-8" data-line-number="8"><span class="co">#&gt;                  (Other): 490   (Other):1877                       </span></a>
+<a class="sourceLine" id="cb410-9" data-line-number="9"><span class="co">#&gt;                  NA&#39;s   :2061   NA&#39;s   :2295</span></a></code></pre></div>
 <p>The above code chunk loaded a simple feature object representing around 3,000 segments on the transport network.
 This an easily manageable dataset size (transport datasets can be large but it’s best to start small).</p>
 <p>As mentioned, route networks can usefully be represented as mathematical graphs, with nodes on the network connected by edges.

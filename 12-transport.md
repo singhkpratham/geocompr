@@ -460,13 +460,13 @@ To avoid having to request the data from OSM repeatedly, we will use the `bristo
 ```r
 summary(bristol_ways)
 #>      highway        maxspeed         ref                geometry   
-#>  cycleway:1262   30 mph : 834   A38    : 202   LINESTRING   :4619  
-#>  rail    : 813   20 mph : 456   M5     : 138   epsg:4326    :   0  
-#>  road    :2544   40 mph : 332   A432   : 131   +proj=long...:   0  
-#>                  70 mph : 323   A4018  : 120                       
-#>                  50 mph : 137   A420   : 114                       
-#>                  (Other): 470   (Other):1697                       
-#>                  NA's   :2067   NA's   :2217
+#>  cycleway:1317   30 mph : 925   A38    : 214   LINESTRING   :4915  
+#>  rail    : 832   20 mph : 556   A432   : 146   epsg:4326    :   0  
+#>  road    :2766   40 mph : 397   M5     : 144   +proj=long...:   0  
+#>                  70 mph : 328   A4018  : 124                       
+#>                  50 mph : 158   A420   : 115                       
+#>                  (Other): 490   (Other):1877                       
+#>                  NA's   :2061   NA's   :2295
 ```
 
 The above code chunk loaded a simple feature object representing around 3,000 segments on the transport network.
