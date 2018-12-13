@@ -27,20 +27,20 @@ Unary operations work on a single geometry in isolation.
 This includes simplification (of lines and polygons), the creation of buffers and centroids, and shifting/scaling/rotating single geometries using 'affine transformations' (sections \@ref(simplification) to \@ref(affine-transformations)).
 Binary transformations modify one geometry based on the shape of another.
 This includes clipping and geometry unions, covered in sections \@ref(clipping) and \@ref(geometry-unions) respectively.
-Type transformations (from a polygon to a line, for example) are demonstrated in section \@ref(type-trans).
+Type transformations (from a polygon to a line, for example) are demonstrated in Section \@ref(type-trans).
 
 Section \@ref(geo-ras) covers geometric transformations on raster objects.
 This involves changing the size and number of the underlying pixels, and assigning them new values.
 It teaches how to change the resolution (also called raster aggregation and dis-aggregation), the extent and the origin of a raster.
 These operations are especially useful if one would like to align raster datasets from diverse sources.
-Aligned raster objects share a one-to-one correspondence between pixels, allowing them to be processed using map algebra operations, described in section \@ref(map-algebra). The final section (\@ref(raster-vector)) connects vector and raster objects. 
+Aligned raster objects share a one-to-one correspondence between pixels, allowing them to be processed using map algebra operations, described in Section \@ref(map-algebra). The final section (\@ref(raster-vector)) connects vector and raster objects. 
 It shows how raster values can be 'masked' and 'extracted' by vector geometries.
 Importantly it shows how to 'polygonize' rasters and 'rasterize' vector datasets, making the two data models more interchangeable.
 
 ## Geometric operations on vector data {#geo-vec}
 
 This section is about operations that in some way change the geometry of vector (`sf`) objects.
-It is more advanced than the spatial data operations presented in the previous chapter (in section \@ref(spatial-vec)) because here we drill down into the geometry:
+It is more advanced than the spatial data operations presented in the previous chapter (in Section \@ref(spatial-vec)) because here we drill down into the geometry:
 the functions discussed in this section work on objects of class `sfc` in addition to objects of class `sf`.
 
 ### Simplification
@@ -363,7 +363,7 @@ identical(p_xy1, p_xy2)
 
 ### Geometry unions
 
-As we saw in section \@ref(vector-attribute-aggregation), spatial aggregation can silently dissolve the geometries of touching polygons in the same group.
+As we saw in Section \@ref(vector-attribute-aggregation), spatial aggregation can silently dissolve the geometries of touching polygons in the same group.
 This is demonstrated in the code chunk below in which 49 `us_states` are aggregated into 4 regions using base and **tidyverse** functions (see results in Figure \@ref(fig:us-regions)):
 
 
@@ -517,7 +517,7 @@ linestring_sf2
 <p class="caption">(\#fig:line-cast)Examples of type casting between MULTILINESTRING (left) and LINESTRING (right).</p>
 </div>
 
-The newly created object allows for attributes creation (see more in section \@ref(vec-attr-creation)) and length measurements:
+The newly created object allows for attributes creation (see more in Section \@ref(vec-attr-creation)) and length measurements:
 
 
 ```r
@@ -552,17 +552,17 @@ Registration becomes necessary for images from the same scene but shot from diff
 R is unsuitable for the first two points since these often require manual intervention which is why they are usually done with the help of a Desktop GIS (see also Chapter \@ref(gis)).
 On the other hand, aligning several images is possible in R and this section shows among other how to do so.
 This often includes changing the extent, the resolution and the origin of an image.
-A matching projection is of course also required but is already covered in section \@ref(reprojecting-raster-geometries).
+A matching projection is of course also required but is already covered in Section \@ref(reprojecting-raster-geometries).
 In any case, there are other reasons why to perform a geometric operation on a single raster image.
 For instance, in chapter \@ref(location) we define metropolitan areas in Germany as 20 km^2^ pixels with more than 500,000 inhabitants. 
-The original inhabitant raster, however, has a resolution of 1 km^2^ which is why we will decrease (aggregate) the resolution by a factor of 20 (see section \@ref(define-metropolitan-areas)).
+The original inhabitant raster, however, has a resolution of 1 km^2^ which is why we will decrease (aggregate) the resolution by a factor of 20 (see Section \@ref(define-metropolitan-areas)).
 Another reason for aggregating a raster is simply to decrease run-time or save disk space.
 Of course, this is only possible if the task at hand allows a coarser resolution.
 Sometimes a coarser resolution is sufficient for the task at hand.
 
 ### Geometric intersections
 
-In section \@ref(spatial-raster-subsetting) we have shown how to extract values from a raster overlaid by other spatial objects.
+In Section \@ref(spatial-raster-subsetting) we have shown how to extract values from a raster overlaid by other spatial objects.
 To retrieve a spatial output, we can use almost the same subsetting syntax.
 The only difference is that we have to make clear that we would like to keep the matrix structure by setting the `drop`-parameter to `FALSE`.
 This will return a raster object containing the cells whose midpoints overlap with `clip`.
@@ -726,8 +726,8 @@ Additionally, check out the *Multi-core functions* section in `vignette("functio
 
 This section focuses on interactions between raster and vector geographic data models, introduced in Chapter \@ref(spatial-class).
 It includes four main techniques:
-raster cropping and masking using vector objects (section \@ref(raster-cropping));
-extracting raster values using different types of vector data (section \@ref(raster-extraction));
+raster cropping and masking using vector objects (Section \@ref(raster-cropping));
+extracting raster values using different types of vector data (Section \@ref(raster-extraction));
 and raster-vector conversion (sections \@ref(rasterization) and \@ref(spatial-vectorization)).
 <!-- operations are not symmetrical, for example: -->
 <!-- - raster clipping - no vector counterpart -->
@@ -749,7 +749,7 @@ We will use two objects to illustrate raster cropping:
 
 Both target and cropping objects must have the same projection.
 The following code chunk therefore not only loads the datasets, from the **spDataLarge** package installed in Chapter \@ref(spatial-class).
-It also reprojects `zion` (see section \@ref(reproj-geo-data) for more on reprojection):
+It also reprojects `zion` (see Section \@ref(reproj-geo-data) for more on reprojection):
 
 
 ```r
@@ -792,7 +792,7 @@ srtm_inv_masked = mask(srtm, as(zion, "Spatial"), inverse = TRUE)
 
 Raster extraction is the process of identifying and returning the values associated with a 'target' raster at specific locations, based on a (typically vector) geographic 'selector' object.
 The results depend on the type of selector used (points, lines or polygons) and arguments passed to the `raster::extract()` function, which we use to demonstrate raster extraction.
-The reverse of raster extraction --- assigning raster cell values based on vector objects --- is rasterization, described in section \@ref(rasterization).
+The reverse of raster extraction --- assigning raster cell values based on vector objects --- is rasterization, described in Section \@ref(rasterization).
 
 The simplest example is extracting the value of a raster cell at specific **points**.
 For this purpose we will use `zion_points`, which contain a sample of 30 locations within the Zion National Park (Figure \@ref(fig:pointextr)). 
@@ -815,7 +815,7 @@ In practice this example is a special case of extraction with a polygon selector
 </div>
 
 Raster extraction also works with **line** selectors.
-To demonstrate this, the code below creates `zion_transect`, a straight line going from northwest to southeast of the Zion National Park, illustrated in Figure \@ref(fig:lineextr):A (see section \@ref(vector-data) for a recap on the vector data model):
+To demonstrate this, the code below creates `zion_transect`, a straight line going from northwest to southeast of the Zion National Park, illustrated in Figure \@ref(fig:lineextr):A (see Section \@ref(vector-data) for a recap on the vector data model):
 
 
 ```r
@@ -1088,7 +1088,7 @@ The final type of vectorization involves conversion of rasters to polygons.
 This can be done with `raster::rasterToPolygons()`, which converts each raster cell into a polygon consisting of five coordinates, all of which are stored in memory (explaining why rasters are often fast compared with vectors!).
 
 This is illustrated below by converting the `grain` object into polygons and subsequently dissolving borders between polygons with the same attribute values (also see the `dissolve` argument in `rasterToPolygons()`).
-Attributes in this case are stored in a column called `layer` (see section \@ref(geometry-unions) and Figure \@ref(fig:raster-vectorization2)).
+Attributes in this case are stored in a column called `layer` (see Section \@ref(geometry-unions) and Figure \@ref(fig:raster-vectorization2)).
 (Note: a convenient alternative for converting rasters into polygons is `spex::polygonize()` which by default returns an `sf` object.)
 
 
@@ -1136,7 +1136,7 @@ Write code to do so.
 Hint: you need to use a two-element vector for this transformation.
     - Bonus: create a upside down map of your country.
 
-1. Subset the point in `p` that is contained within `x` *and* `y` (see section \@ref(clipping) and Figure \@ref(fig:venn-clip)).
+1. Subset the point in `p` that is contained within `x` *and* `y` (see Section \@ref(clipping) and Figure \@ref(fig:venn-clip)).
     - Using base subsetting operators.
     - Using an intermediary object created with `st_intersection()`.
 

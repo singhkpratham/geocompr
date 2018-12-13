@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -434,11 +434,11 @@ For others to benefit from the results of your work, data <em>output</em> is als
 Taken together, we refer to these processes as I/O, short for input/output.</p>
 <p>Geographic data I/O is almost always part of a wider process.
 It depends on knowing which datasets are <em>available</em>, where they can be <em>found</em> and how to <em>retrieve</em> them.
-These topics are covered in section <a href="read-write.html#retrieving-data">7.2</a>, which describes various <em>geoportals</em>, which collectively contain many terabytes of data, and how to use them.
+These topics are covered in Section <a href="read-write.html#retrieving-data">7.2</a>, which describes various <em>geoportals</em>, which collectively contain many terabytes of data, and how to use them.
 To further ease data access a number of packages for downloading geographic data have been developed.
-These are described in section <a href="read-write.html#geographic-data-packages">7.3</a>.</p>
+These are described in Section <a href="read-write.html#geographic-data-packages">7.3</a>.</p>
 <p>There are many geographic file formats, each of which has pros and cons.
-These are described in section <a href="read-write.html#file-formats">7.5</a>.
+These are described in Section <a href="read-write.html#file-formats">7.5</a>.
 The process of actually reading and writing such file formats efficiently is not covered until sections <a href="read-write.html#data-input">7.6</a> and <a href="read-write.html#data-output">7.7</a> respectively.
 The final section (<a href="read-write.html#visual-outputs">7.8</a>) demonstrates methods for saving visual outputs (maps), in preparation for Chapter <a href="adv-map.html#adv-map">8</a> on visualization.</p>
 </div>
@@ -600,7 +600,7 @@ Still, it seems that ows4r is very much in development. Obviously, it has proble
 <div id="file-formats" class="section level2">
 <h2><span class="header-section-number">7.5</span> File formats</h2>
 <p>Geographic datasets are usually stored as files or in spatial databases.
-File formats can either store vector or raster data, while spatial databases such as <a href="https://trac.osgeo.org/postgis/wiki/WKTRaster">PostGIS</a> can store both (see also section <a href="gis.html#postgis">9.6.2</a>).
+File formats can either store vector or raster data, while spatial databases such as <a href="https://trac.osgeo.org/postgis/wiki/WKTRaster">PostGIS</a> can store both (see also Section <a href="gis.html#postgis">9.6.2</a>).
 Today the variety of file formats may seem bewildering but there has been much consolidation and standardization since the beginnings of GIS software in the 1960s when the first widely distributed program (<a href="https://news.harvard.edu/gazette/story/2011/10/the-invention-of-gis/">SYMAP</a>) for spatial analysis was created at Harvard University <span class="citation">(Coppock and Rhind <a href="#ref-coppock_history_1991">1991</a>)</span>.</p>
 <p>GDAL (which should be pronounced “goo-dal”, with the double “o” making a reference to object-orientation), the Geospatial Data Abstraction Library, has resolved many issues associated with incompatibility between geographic file formats since its release in 2000.
 GDAL provides a unified and high-performance interface for reading and writing of many raster and vector data formats.
@@ -810,7 +810,7 @@ Open
 </tbody>
 </table>
 <p>An important development ensuring the standardization and open-sourcing of file formats was the founding of the Open Geospatial Consortium (<a href="http://www.opengeospatial.org/">OGC</a>) in 1994.
-Beyond defining the simple features data model (see section <a href="spatial-class.html#intro-sf">2.2.1</a>), the OGC also coordinates the development of open standards, for example as used in file formats such as KML and GeoPackage.
+Beyond defining the simple features data model (see Section <a href="spatial-class.html#intro-sf">2.2.1</a>), the OGC also coordinates the development of open standards, for example as used in file formats such as KML and GeoPackage.
 Open file formats of the kind endorsed by the OGC have several advantages over proprietary formats: the standards are published, ensure transparency and open up the possibility for users to further develop and adjust the file formats to their specific needs.</p>
 <p>ESRI Shapefile is the most popular vector data exchange format.
 However, it is not an open format (though its specification is open).
@@ -826,7 +826,7 @@ Hence, GeoPackage is a lightweight spatial database container, which allows the 
 Aside from GeoPackage there are other geospatial data exchange formats worth checking out (Table <a href="read-write.html#tab:formats">7.2</a>).</p>
 </div>
 <div id="data-input" class="section level2">
-<h2><span class="header-section-number">7.6</span> Data Input (I)</h2>
+<h2><span class="header-section-number">7.6</span> Data input (I)</h2>
 <p>Executing commands such as <code>sf::st_read()</code> (the main function we use for loading vector data) or <code>raster::raster()</code> (the main function used for loading raster data) silently sets off a chain of events that reads data from files.
 <!-- transition is unclear, not sure what you would like to say -->
 Moreover, there are many R packages containing a wide range of geographic data or providing simple access to different data sources.
@@ -1027,7 +1027,7 @@ world_wkt =<span class="st"> </span><span class="kw">st_read</span>(world_txt, <
 <div class="rmdnote">
 Not all of the supported vector file formats store information about their coordinate reference system.
 In these situations, it is possible to add the missing information using the <code>st_set_crs()</code> function.
-Please refer also to section <a href="spatial-class.html#crs-intro">2.4</a> for more information.
+Please refer also to Section <a href="spatial-class.html#crs-intro">2.4</a> for more information.
 </div>
 
 <p>As a final example, we will show how <code>st_read()</code> also reads KML files.
@@ -1069,7 +1069,7 @@ band3 =<span class="st"> </span><span class="kw">raster</span>(multilayer_filepa
 <p>If you want to read in all bands, use <code>brick()</code> or <code>stack()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">multilayer_brick =<span class="st"> </span><span class="kw">brick</span>(multilayer_filepath)
 multilayer_stack =<span class="st"> </span><span class="kw">stack</span>(multilayer_filepath)</code></pre>
-<p>Please refer to section <a href="spatial-class.html#raster-classes">2.3.3</a> for information on the difference between raster stacks and bricks.</p>
+<p>Please refer to Section <a href="spatial-class.html#raster-classes">2.3.3</a> for information on the difference between raster stacks and bricks.</p>
 <!-- ### Databases -->
 <!-- postgis input example -->
 </div>

@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -471,11 +471,11 @@ Consulting companies (employing geomarketing analysts) would happily charge high
 Luckily, we can do so ourselves with the help of open data and open source software.
 The following sections will demonstrate how the techniques learned during the first chapters of the book can be applied to undertake the following steps:</p>
 <ul>
-<li>Tidy the input data from the German census (section <a href="location.html#tidy-the-input-data">13.3</a>).</li>
-<li>Convert the tabulated census data into raster objects (section <a href="location.html#create-census-rasters">13.4</a>).</li>
-<li>Identify metropolitan areas with high population densities (section <a href="location.html#define-metropolitan-areas">13.5</a>).</li>
-<li>Download detailed geographic data (from OpenStreetMap, with <strong>osmdata</strong>) for these areas (section <a href="location.html#points-of-interest">13.6</a>).</li>
-<li>Create rasters for scoring the relative desirability of different locations using map algebra (section <a href="location.html#identifying-suitable-locations">13.7</a>).</li>
+<li>Tidy the input data from the German census (Section <a href="location.html#tidy-the-input-data">13.3</a>).</li>
+<li>Convert the tabulated census data into raster objects (Section <a href="location.html#create-census-rasters">13.4</a>).</li>
+<li>Identify metropolitan areas with high population densities (Section <a href="location.html#define-metropolitan-areas">13.5</a>).</li>
+<li>Download detailed geographic data (from OpenStreetMap, with <strong>osmdata</strong>) for these areas (Section <a href="location.html#points-of-interest">13.6</a>).</li>
+<li>Create rasters for scoring the relative desirability of different locations using map algebra (Section <a href="location.html#identifying-suitable-locations">13.7</a>).</li>
 </ul>
 <p>Although we have applied these steps to a specific case study, they could be generalized to many scenarios of store location or public service provision.</p>
 </div>
@@ -586,7 +586,7 @@ Figure 13.1: Gridded German census data of 2011. See Table 13.1 for a descriptio
 </p>
 </div>
 <!-- find out about new lines in headings + blank cells-->
-<p>The next stage is to reclassify the values of the rasters stored in <code>input_ras</code> in accordance with the survey mentioned in section <a href="location.html#case-study">13.2</a>, using the <strong>raster</strong> function <code>reclassify()</code>, which was introduced in section <a href="spatial-operations.html#local-operations">4.3.3</a>.
+<p>The next stage is to reclassify the values of the rasters stored in <code>input_ras</code> in accordance with the survey mentioned in Section <a href="location.html#case-study">13.2</a>, using the <strong>raster</strong> function <code>reclassify()</code>, which was introduced in Section <a href="spatial-operations.html#local-operations">4.3.3</a>.
 In the case of the population data we convert the classes into a numeric data type using class means.
 Raster cells are assumed to have a population of 127 if they have a value of 1 (cells in ‘class 1’ contain between 3 and 250 inhabitants) and 375 if they have a value of 2 (containing 250 to 500 inhabitants), and so on (see Table <a href="location.html#tab:census-desc">13.1</a>).
 A cell value of 8000 inhabitants was chosen for ‘class 6’ because these cells contain more than 8000 people.
@@ -623,7 +623,7 @@ Finally, the code chunk below ensures the <code>reclass</code> layers have the s
 <div id="define-metropolitan-areas" class="section level2">
 <h2><span class="header-section-number">13.5</span> Define metropolitan areas</h2>
 <p>We define metropolitan areas as pixels of 20 km<sup>2</sup> inhabited by more than 500,000 people.
-Pixels at this coarse resolution can rapidly be created using <code>aggregate()</code>, as introduced in section <a href="geometric-operations.html#aggregation-and-disaggregation">5.3.3</a>.
+Pixels at this coarse resolution can rapidly be created using <code>aggregate()</code>, as introduced in Section <a href="geometric-operations.html#aggregation-and-disaggregation">5.3.3</a>.
 The command below uses the argument <code>fact = 20</code> to reduce the resolution of the result twenty-fold (recall the original raster resolution was 1 km<sup>2</sup>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">pop_agg =<span class="st"> </span><span class="kw">aggregate</span>(reclass<span class="op">$</span>pop, <span class="dt">fact =</span> <span class="dv">20</span>, <span class="dt">fun =</span> sum)</code></pre>
 <p>The next stage is to keep only cells with more than half a million people.</p>
@@ -637,7 +637,7 @@ Subsequently, <code>rasterToPolygons()</code> converts the raster object into sp
 <span class="st">  </span><span class="kw">clump</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">rasterToPolygons</span>() <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">st_as_sf</span>()</code></pre>
-<p><code>polys</code> now features a column named <code>clumps</code> which indicates to which metropolitan region each polygon belongs and which we will use to dissolve the polygons into coherent single regions (see also section <a href="geometric-operations.html#geometry-unions">5.2.6</a>):</p>
+<p><code>polys</code> now features a column named <code>clumps</code> which indicates to which metropolitan region each polygon belongs and which we will use to dissolve the polygons into coherent single regions (see also Section <a href="geometric-operations.html#geometry-unions">5.2.6</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">metros =<span class="st"> </span>polys <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(clumps) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>()</code></pre>
@@ -785,11 +785,11 @@ Umlauts like <code>ü</code> might lead to trouble further on, for example when 
 </div>
 <div id="points-of-interest" class="section level2">
 <h2><span class="header-section-number">13.6</span> Points of interest</h2>
-<p>The <strong>osmdata</strong> package provides easy-to-use access to OSM data (see also section <a href="read-write.html#retrieving-data">7.2</a>).
+<p>The <strong>osmdata</strong> package provides easy-to-use access to OSM data (see also Section <a href="read-write.html#retrieving-data">7.2</a>).
 Instead of downloading shops for the whole of Germany, we restrict the query to the defined metropolitan areas, reducing computational load and providing shop locations only in areas of interest.
 The subsequent code chunk does this using a number of functions including:</p>
 <ul>
-<li><code>map()</code> (the <strong>tidyverse</strong> equivalent of <code>lapply()</code>), which iterates through all eight metropolitan names which subsequently define the bounding box in the OSM query function <code>opq()</code> (see section <a href="read-write.html#retrieving-data">7.2</a>).
+<li><code>map()</code> (the <strong>tidyverse</strong> equivalent of <code>lapply()</code>), which iterates through all eight metropolitan names which subsequently define the bounding box in the OSM query function <code>opq()</code> (see Section <a href="read-write.html#retrieving-data">7.2</a>).
 <!-- Alternatively, we could have provided the bounding box in the form of coordinates ourselves. --></li>
 <li><code>add_osm_feature()</code> to specify OSM elements with a key value of <code>shop</code> (see <a href="http://wiki.openstreetmap.org/wiki/Map_Features">wiki.openstreetmap.org</a> for a list of common key:value pairs).</li>
 <li><code>osmdata_sf()</code>, which converts the the OSM data into spatial objects (of class <code>sf</code>).</li>
@@ -832,7 +832,7 @@ shops =<span class="st"> </span><span class="kw">do.call</span>(rbind, shops)</c
 Unfortunately, so far it does not work in harmony with <code>sf</code> objects.
 Please note that the <code>shops</code> object is also available in the <code>spDataLarge</code> package:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;shops&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
-<p>The only thing left to do is to convert the spatial point object into a raster (see section <a href="geometric-operations.html#rasterization">5.4.3</a>).
+<p>The only thing left to do is to convert the spatial point object into a raster (see Section <a href="geometric-operations.html#rasterization">5.4.3</a>).
 The <code>sf</code> object, <code>shops</code>, is converted into a raster having the same parameters (dimensions, resolution, CRS) as the <code>reclass</code> object.
 Importantly, the <code>count()</code> function is used here to calculate the number shops in each cell.</p>
 
@@ -846,7 +846,7 @@ This is because the <code>shop</code> column contains <code>NA</code> values, wh
 <pre class="sourceCode r"><code class="sourceCode r">shops =<span class="st"> </span><span class="kw">st_transform</span>(shops, <span class="kw">proj4string</span>(reclass))
 <span class="co"># create poi raster</span>
 poi =<span class="st"> </span><span class="kw">rasterize</span>(<span class="dt">x =</span> shops, <span class="dt">y =</span> reclass, <span class="dt">field =</span> <span class="st">&quot;osm_id&quot;</span>, <span class="dt">fun =</span> <span class="st">&quot;count&quot;</span>)</code></pre>
-<p>As with the other raster layers (population, women, mean age, household size) the <code>poi</code> raster is reclassified into four classes (see section <a href="location.html#create-census-rasters">13.4</a>).
+<p>As with the other raster layers (population, women, mean age, household size) the <code>poi</code> raster is reclassified into four classes (see Section <a href="location.html#create-census-rasters">13.4</a>).
 Defining class intervals is an arbitrary undertaking to a certain degree.
 One can use equal breaks, quantile breaks, fixed values or others.
 Here, we choose the Fisher-Jenks natural breaks approach which minimizes within-class variance, the result of which provides an input for the reclassification matrix.</p>
@@ -900,7 +900,7 @@ But is, for example, the household size as important as the portion of women or 
 Maybe it would be wiser to use only those which might be interesting for bike shops such as do-it-yourself, hardware, bicycle, fishing, hunting, motorcycles, outdoor and sports shops (see the range of shop values available on the <a href="http://wiki.openstreetmap.org/wiki/Map_Features#Shop">OSM Wiki</a>).</li>
 <li>Data at a better resolution may change and improve the output. For example, there is also population data at a finer resolution (100 m; see exercises).</li>
 <li>We have used only a limited set of variables.
-For example, the <a href="http://inspire-geoportal.ec.europa.eu/discovery/">INSPIRE geoportal</a> might contain much more data of possible interest to our analysis (see also section <a href="read-write.html#retrieving-data">7.2</a>).
+For example, the <a href="http://inspire-geoportal.ec.europa.eu/discovery/">INSPIRE geoportal</a> might contain much more data of possible interest to our analysis (see also Section <a href="read-write.html#retrieving-data">7.2</a>).
 The bike paths density might be another interesting variable as well as the purchasing power or even better the retail purchasing power for bikes.</li>
 <li>Interactions remained unconsidered, such as a possible interaction between the portion of men and single households.
 However, to find out about such an interaction we would need customer data.</li>

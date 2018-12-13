@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -441,7 +441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.1</span> Introduction</h2>
 <p>A satisfying and important aspect of geographic research is communicating the results.
 Map making — the art of cartography — is an ancient skill that involves communication, intuition, and an element of creativity.
-Static mapping is straightforward with <code>plot()</code>, as we saw in section <a href="spatial-class.html#basic-map">2.2.3</a>.
+Static mapping is straightforward with <code>plot()</code>, as we saw in Section <a href="spatial-class.html#basic-map">2.2.3</a>.
 It is possible to create advanced maps using base R methods <span class="citation">(Murrell <a href="#ref-murrell_r_2016">2016</a>)</span>, but this chapter focuses on dedicated map-making packages.
 When learning a new skill, it makes sense to gain depth-of-knowledge in one area branching out.
 Map making is no exception, hence this chapter’s coverage of one package (<strong>tmap</strong>) in depth rather than many superficially.
@@ -460,12 +460,12 @@ Map making is therefore a critical part of geocomputation and its emphasis not o
 <p>This chapter shows how to make a wide range of maps.
 The next section covers a range of static maps, including aesthetic considerations, facets and inset maps.
 Sections <a href="adv-map.html#animated-maps">8.3</a> to <a href="adv-map.html#mapping-applications">8.5</a> cover animated and interactive maps (including web maps and mapping applications).
-Finally, section <a href="adv-map.html#other-mapping-packages">8.6</a> covers a range of alternative map-making packages including <strong>ggplot2</strong> and <strong>cartogram</strong>.</p>
+Finally, Section <a href="adv-map.html#other-mapping-packages">8.6</a> covers a range of alternative map-making packages including <strong>ggplot2</strong> and <strong>cartogram</strong>.</p>
 </div>
 <div id="static-maps" class="section level2">
 <h2><span class="header-section-number">8.2</span> Static maps</h2>
 <p>Static maps are the most common type of visual output from geocomputation.
-Fixed images for printed outputs, common formats for static maps include <code>.png</code> and <code>.pdf</code>, for raster and vector outputs, respectively (interactive maps are covered in section <a href="adv-map.html#interactive-maps">8.4</a>).
+Fixed images for printed outputs, common formats for static maps include <code>.png</code> and <code>.pdf</code>, for raster and vector outputs, respectively (interactive maps are covered in Section <a href="adv-map.html#interactive-maps">8.4</a>).
 Initially static maps were the <em>only</em> type of map that R could produce.
 Things have advanced greatly since <strong>sp</strong> was released <span class="citation">(see Pebesma and Bivand <a href="#ref-pebesma_classes_2005">2005</a>)</span>.
 Although many new techniques for geographic data visualization have been developed and demonstrated since then, a decade later static plotting (and some animations) was still the emphasis of geographic data visualisation in R <span class="citation">(Cheshire and Lovelace <a href="#ref-cheshire_spatial_2015">2015</a>)</span>.</p>
@@ -503,7 +503,7 @@ This layering is demonstrated in the chunk below, which generates the maps prese
 Figure 8.1: New Zealand’s shape plotted with fill (left), border (middle) and fill and border (right) layers added using tmap functions.
 </p>
 </div>
-<p>The object passed to <code>tm_shape()</code> in this case is <code>nz</code>, an <code>sf</code> object representing the regions of New Zealand (see section <a href="spatial-class.html#intro-sf">2.2.1</a> for more on <code>sf</code> objects).
+<p>The object passed to <code>tm_shape()</code> in this case is <code>nz</code>, an <code>sf</code> object representing the regions of New Zealand (see Section <a href="spatial-class.html#intro-sf">2.2.1</a> for more on <code>sf</code> objects).
 Layers are added to represent <code>nz</code> visually, with <code>tm_fill()</code> and <code>tm_borders()</code> creating shaded areas (left panel) and border outlines (middle panel) in Figure <a href="adv-map.html#fig:tmshape">8.1</a>, respectively.</p>
 <p>This is an intuitive approach to map making:
 the common task of <em>adding</em> new layers is undertaken by the addition operator <code>+</code>, followed by <code>tm_*()</code>.
@@ -646,7 +646,7 @@ Although <code>style</code> is an argument of <strong>tmap</strong> functions it
 </div>
 
 <p>Palettes define the color ranges associated with the bins and determined by the <code>breaks</code>, <code>n</code>, and <code>style</code> arguments described above.
-The default color palette is specified in <code>tm_layout()</code> (see section <a href="adv-map.html#layouts">8.2.5</a> to learn more), however, it could be quickly changed using the <code>palette</code> argument.
+The default color palette is specified in <code>tm_layout()</code> (see Section <a href="adv-map.html#layouts">8.2.5</a> to learn more), however, it could be quickly changed using the <code>palette</code> argument.
 It expects a vector of colors or a new color palette name, which can be selected interactively with <code>tmaptools::palette_explorer()</code>.
 You can add a <code>-</code> as prefix to reverse the palette order.</p>
 <p>There are three main groups of color palettes - categorical, sequential and diverging (Figure <a href="adv-map.html#fig:colpal">8.7</a>), and each of them serves a different purpose.
@@ -817,10 +817,10 @@ nz_height_map
 Figure 8.14: Inset map providing a context - location of the central part of the Southern Alps in New Zealand.
 </p>
 </div>
-<p>Inset map can be save to file either by using a graphic device (see section <a href="read-write.html#visual-outputs">7.8</a>) or the <code>tmap_save()</code> function and its arguments - <code>insets_tm</code> and <code>insets_vp</code>.</p>
+<p>Inset map can be save to file either by using a graphic device (see Section <a href="read-write.html#visual-outputs">7.8</a>) or the <code>tmap_save()</code> function and its arguments - <code>insets_tm</code> and <code>insets_vp</code>.</p>
 <p>Inset maps are also used to create one map of non-contiguous areas.
 Probably, the most often used example is a map of United States, which consists of the contiguous United States, Hawaii and Alaska.
-It is very important to find the best projection for each individual inset in these type of cases (see section <a href="reproj-geo-data.html#reproj-geo-data">6</a> to learn more).
+It is very important to find the best projection for each individual inset in these type of cases (see Section <a href="reproj-geo-data.html#reproj-geo-data">6</a> to learn more).
 We can use US National Atlas Equal Area for the map of the contiguous United States by putting its EPSG code in the <code>projection</code> argument of <code>tm_shape()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">us_states_map =<span class="st"> </span><span class="kw">tm_shape</span>(us_states, <span class="dt">projection =</span> <span class="dv">2163</span>) <span class="op">+</span><span class="st"> </span><span class="kw">tm_polygons</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">frame =</span> <span class="ot">FALSE</span>)</code></pre>
@@ -856,7 +856,7 @@ Furthermore, the fact that each facet is physically separated on the screen or p
 <p>Animated maps solve these issues.
 Although they depend on digital publication, this is becoming less of an issue as more and more content moves online.
 Animated maps can still enhance paper reports: you can always link readers to a web-page containing an animated (or interactive) version of a printed map to help make it come alive.
-There are several ways to generate animations in R, including with animation packages such as <strong>gganimate</strong>, which builds on <strong>ggplot2</strong> (see section <a href="adv-map.html#other-mapping-packages">8.6</a>).
+There are several ways to generate animations in R, including with animation packages such as <strong>gganimate</strong>, which builds on <strong>ggplot2</strong> (see Section <a href="adv-map.html#other-mapping-packages">8.6</a>).
 This section focusses on creating animated maps with <strong>tmap</strong> because its syntax will be familiar from previous sections and the flexibility of the approach.</p>
 <p>Figure <a href="adv-map.html#fig:urban-animated">8.16</a> is a simple example of an animated map.
 Unlike the faceted plot it does not squeeze multiple maps into a single screen and allows the reader to see how the spatial distribution of the worlds most populous agglomerations evolve over time (see the book’s website for the animated version).</p>
@@ -866,7 +866,7 @@ Unlike the faceted plot it does not squeeze multiple maps into a single screen a
 Figure 8.16: Animated map showing the top 30 largest ‘urban agglomerations’ from 1950 to 2030 based on population projects by the United Nations. Animated version available online at geocompr.robinlovelace.net.
 </p>
 </div>
-<p>The animated map illustrated in Figure <a href="adv-map.html#fig:urban-animated">8.16</a> can be created using the same <strong>tmap</strong> techniques that generates faceted maps, demonstrated in section <a href="adv-map.html#faceted-maps">8.2.6</a>.
+<p>The animated map illustrated in Figure <a href="adv-map.html#fig:urban-animated">8.16</a> can be created using the same <strong>tmap</strong> techniques that generates faceted maps, demonstrated in Section <a href="adv-map.html#faceted-maps">8.2.6</a>.
 There are two differences, however, related to arguments in <code>tm_facets()</code>:</p>
 <ul>
 <li><code>along = &quot;year&quot;</code> is used instead of <code>by = &quot;year&quot;</code>.</li>
@@ -904,9 +904,9 @@ More advanced levels of interactivity include the ability to tilt and rotate map
 The release of the <strong>leaflet</strong> package in 2015 revolutionized interactive web map creation from within R and a number of packages have built on these foundations adding new features (e.g. <strong>leaflet.extras</strong>) and making the creation of web maps as simple as creating static maps (e.g. <strong>mapview</strong> and <strong>tmap</strong>).
 This section illustrates each approach in the opposite order.
 We will explore how to make slippy maps with <strong>tmap</strong> (the syntax of which we have already learned), <strong>mapview</strong> and finally <strong>leaflet</strong> (which provides low level control over interactive maps).</p>
-<p>A unique feature of <strong>tmap</strong> mentioned in section <a href="adv-map.html#static-maps">8.2</a> is its ability to create static and interactive maps using the same code.
+<p>A unique feature of <strong>tmap</strong> mentioned in Section <a href="adv-map.html#static-maps">8.2</a> is its ability to create static and interactive maps using the same code.
 Maps can be viewed interactively at any point by switching to view mode, using the command <code>tmap_mode(&quot;view&quot;)</code>.
-This is demonstrated in the code below, which creates an interactive map of New Zealand based on the <code>tmap</code> object <code>map_nz</code>, created in section <a href="adv-map.html#map-obj">8.2.2</a>, and illustrated in Figure <a href="adv-map.html#fig:tmview">8.18</a>:</p>
+This is demonstrated in the code below, which creates an interactive map of New Zealand based on the <code>tmap</code> object <code>map_nz</code>, created in Section <a href="adv-map.html#map-obj">8.2.2</a>, and illustrated in Figure <a href="adv-map.html#fig:tmview">8.18</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tmap_mode</span>(<span class="st">&quot;view&quot;</span>)
 map_nz</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tmview"></span>
@@ -1024,7 +1024,7 @@ Figure 8.23: The leaflet package in action, showing cycle hire points in London.
 </div>
 <div id="mapping-applications" class="section level2">
 <h2><span class="header-section-number">8.5</span> Mapping applications</h2>
-<p>The interactive web maps demonstrated in section <a href="adv-map.html#interactive-maps">8.4</a> can go far.
+<p>The interactive web maps demonstrated in Section <a href="adv-map.html#interactive-maps">8.4</a> can go far.
 Careful selection of layers to display, base-maps and pop-ups can be used to communicate the main results of many projects involving geocomputation.
 But the web mapping approach to interactivity has limitations:</p>
 <ul>
@@ -1115,7 +1115,7 @@ Figure 8.25: coffeeApp, a simple web mapping application for exploring global co
 </div>
 <div id="other-mapping-packages" class="section level2">
 <h2><span class="header-section-number">8.6</span> Other mapping packages</h2>
-<p><strong>tmap</strong> provides a powerful interface for creating a wide range of static maps (section <a href="adv-map.html#static-maps">8.2</a>) and also supports interactive maps (section <a href="adv-map.html#interactive-maps">8.4</a>).
+<p><strong>tmap</strong> provides a powerful interface for creating a wide range of static maps (Section <a href="adv-map.html#static-maps">8.2</a>) and also supports interactive maps (Section <a href="adv-map.html#interactive-maps">8.4</a>).
 But there are many other options for creating maps in R.
 The aim of this section is to provide a taster of some of these and pointers for additional resources: map making is a surprisingly active area of R package development so there is more to learn than can be covered here.</p>
 <p>The most mature option is to use <code>plot()</code> methods provided by core spatial packages <strong>sf</strong> and <strong>raster</strong>, covered in sections <a href="spatial-class.html#basic-map">2.2.3</a> and <a href="spatial-class.html#basic-map-raster">2.3.2</a> respectively.

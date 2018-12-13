@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -485,9 +485,9 @@ Furthermore R outperforms GISs in some areas of geocomputation, including intera
 <!-- Using compiled code for new geoprocessing functionality (particularly with the help of the excellent **Rcpp** package) could form the basis of new R packages, building on the success of **sf** [@pebesma_simple_2018]. -->
 <!-- However, there are already a wide range of algorithms that can be accessed via R's interfaces to dedicated GIS software. -->
 <!-- It makes sense to understand these before moving to develop your own optimized algorithms. -->
-This chapter focuses on ‘bridges’ to three mature open source GIS products (see Table <a href="gis.html#tab:gis-comp">9.1</a>): QGIS (via the package <strong>RQGIS</strong>; section <a href="gis.html#rqgis">9.2</a>), SAGA (via <strong>RSAGA</strong>; section <a href="gis.html#rsaga">9.3</a>) and GRASS (via <strong>rgrass7</strong>; section <a href="gis.html#rgrass">9.4</a>).
+This chapter focuses on ‘bridges’ to three mature open source GIS products (see Table <a href="gis.html#tab:gis-comp">9.1</a>): QGIS (via the package <strong>RQGIS</strong>; Section <a href="gis.html#rqgis">9.2</a>), SAGA (via <strong>RSAGA</strong>; Section <a href="gis.html#rsaga">9.3</a>) and GRASS (via <strong>rgrass7</strong>; Section <a href="gis.html#rgrass">9.4</a>).
 Though not covered here, it is worth being aware of the interface to ArcGIS, a proprietary and very popular GIS software, via <strong>RPyGeo</strong>.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a>
-To complement the R-GIS bridges, the chapter ends with a very brief introduction to interfaces to spatial libraries (section <a href="gis.html#gdal">9.6.1</a>) and spatial databases (section <a href="gis.html#postgis">9.6.2</a>).</p>
+To complement the R-GIS bridges, the chapter ends with a very brief introduction to interfaces to spatial libraries (Section <a href="gis.html#gdal">9.6.1</a>) and spatial databases (Section <a href="gis.html#postgis">9.6.2</a>).</p>
 <!-- The chapter's aim is to provide working knowledge of R's bridges to open source GISs. -->
 <!-- As mentioned in Chapter \@ref(intro), doing GIS at the command-line makes it more reproducible, in-line with the principles of Geographic Data Science. -->
 <table>
@@ -547,7 +547,7 @@ Subsequently, <code>open_app()</code> sets all paths necessary to run QGIS from 
 The example below shows how to union polygons.
 Unfortunately, this will produce so-called slivers, tiny polygons resulting from overlaps between the inputs that frequently occur in real-world data.
 We will see how to remove them.</p>
-<p>For the union, we use again the incongruent polygons we have already encountered in section <a href="spatial-operations.html#spatial-aggr">4.2.5</a>.
+<p>For the union, we use again the incongruent polygons we have already encountered in Section <a href="spatial-operations.html#spatial-aggr">4.2.5</a>.
 Both polygon datasets are available in the <strong>spData</strong> package, and for both we would like to use a geographic CRS (see also Chapter <a href="reproj-geo-data.html#reproj-geo-data">6</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;aggregating_zones&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spData&quot;</span>)
 incongr_wgs =<span class="st"> </span><span class="kw">st_transform</span>(incongruent, <span class="dv">4326</span>)
@@ -717,14 +717,14 @@ In our use case, we would like to find the shortest path between the first 25 bi
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;cycle_hire&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spData&quot;</span>)
 points =<span class="st"> </span>cycle_hire[<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>, ]</code></pre>
 <p>Aside from the cycle hire points data, we will need the OpenStreetMap data of London.
-We download it with the help of the <strong>osmdata</strong> package (see also section <a href="read-write.html#retrieving-data">7.2</a>).
+We download it with the help of the <strong>osmdata</strong> package (see also Section <a href="read-write.html#retrieving-data">7.2</a>).
 We constrain the download of the street network (in OSM language called “highway”) to the bounding box of the cycle hire data, and attach the corresponding data as an <code>sf</code>-object.
 <code>osmdata_sf()</code> returns a list with several spatial objects (points, lines, polygons, etc.).
 Here, we will only keep the line objects.
 OpenStreetMap objects come with a lot of columns, <code>streets</code> features almost 500.
 In fact, we are only interested the geometry column.
 Nevertheless, we are keeping one attribute column, otherwise we will run into trouble when trying to provide <code>writeVECT()</code> only with a geometry object (see further below and <code>?writeVECT</code> for more details).
-Remember that the geometry column is sticky, hence, even though we are just selecting one attribute, the geometry column will be also returned (see section <a href="spatial-class.html#intro-sf">2.2.1</a>).
+Remember that the geometry column is sticky, hence, even though we are just selecting one attribute, the geometry column will be also returned (see Section <a href="spatial-class.html#intro-sf">2.2.1</a>).
 <!-- To learn more about how to use the **osmdata**-package, please refer to [https://ropensci.github.io/osmdata/](https://ropensci.github.io/osmdata/). --></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(osmdata)
 b_box =<span class="st"> </span><span class="kw">st_bbox</span>(points)
@@ -877,7 +877,7 @@ In addition, if you would like to run simulations with the help of a geodatabase
 <p>The focus of this chapter is on R interfaces to Desktop GIS software.
 We emphasize these bridges because dedicated GIS software is well-known and a common ‘way in’ to understanding geographic data.
 They also provide access to many geoalgorithms.</p>
-<p>Other ‘bridges’ include interfaces to spatial libraries (section <a href="gis.html#gdal">9.6.1</a> shows how to access the GDAL CLI from R), spatial databases (see section <a href="gis.html#postgis">9.6.2</a>) and web mapping services (see chapter <a href="adv-map.html#adv-map">8</a>).
+<p>Other ‘bridges’ include interfaces to spatial libraries (Section <a href="gis.html#gdal">9.6.1</a> shows how to access the GDAL CLI from R), spatial databases (see Section <a href="gis.html#postgis">9.6.2</a>) and web mapping services (see chapter <a href="adv-map.html#adv-map">8</a>).
 This section provides only a snippet of what is possible.
 Thanks to R’s flexibility, with its ability to call other programs from the system and integration with other languages (notably via <strong>Rcpp</strong> and <strong>reticulate</strong>), many other bridges are possible.
 The aim is not to be comprehensive, but to demonstrate other ways of accessing the ‘flexibility and power’ in the quote by <span class="citation">Sherman (<a href="#ref-sherman_desktop_2008">2008</a>)</span> at the beginning of the chapter.</p>
@@ -984,7 +984,7 @@ To query and manipulate raster data stored in a PostGIS database, use the <stron
 Nevertheless, we would like to encourage the practice of storing geographic and non-geographic data in a spatial DBMS while only attaching those subsets to R’s global environment which are needed for further (geo-)statistical analysis.
 Please refer to <span class="citation">Obe and Hsu (<a href="#ref-obe_postgis_2015">2015</a>)</span> for a more detailed description of the SQL queries presented and a more comprehensive introduction to PostgreSQL/PostGIS in general.
 PostgreSQL/PostGIS is a formidable choice as an open source spatial database.
-But the same is true for the lightweight SQLite/SpatiaLite database engine and GRASS which uses SQLite in the background (see section <a href="gis.html#rgrass">9.4</a>).</p>
+But the same is true for the lightweight SQLite/SpatiaLite database engine and GRASS which uses SQLite in the background (see Section <a href="gis.html#rgrass">9.4</a>).</p>
 <p>As a final note, if your data is getting too big for PostgreSQL/PostGIS and you require massive spatial data management and query performance, then the next logical step is to use large-scale geographic querying on distributed computing systems, as for example, provided by GeoMesa (<a href="http://www.geomesa.org/" class="uri">http://www.geomesa.org/</a>) or GeoSpark <span class="citation">(<a href="http://geospark.datasyslab.org/" class="uri">http://geospark.datasyslab.org/</a>; Huang et al. <a href="#ref-huang_geospark_2017">2017</a>)</span>.</p>
 </div>
 </div>
@@ -1089,9 +1089,9 @@ The so-called <a href="https://github.com/R-ArcGIS/r-bridge">R-ArcGIS bridge</a>
 One can also use R scripts from within QGIS (see <a href="https://docs.qgis.org/2.18/en/docs/training_manual/processing/r_intro.html">R scripts in Processing</a>).
 Finally, it is also possible to use R from the <a href="https://grasswiki.osgeo.org/wiki/R_statistics/rgrass7">GRASS GIS command line</a>.<a href="gis.html#fnref45" class="footnote-back">↩</a></p></li>
 <li id="fn46"><p>
-Note also that the <strong>RSAGA</strong> package uses the command line interface to use SAGA geoalgorithms from within R (see section <a href="gis.html#rsaga">9.3</a>). <a href="gis.html#fnref46" class="footnote-back">↩</a></p></li>
+Note also that the <strong>RSAGA</strong> package uses the command line interface to use SAGA geoalgorithms from within R (see Section <a href="gis.html#rsaga">9.3</a>). <a href="gis.html#fnref46" class="footnote-back">↩</a></p></li>
 <li id="fn47"><p>
-SQlLite/SpatiaLite are certainly also important but implicitly we have already introduced this approach since GRASS is using SQLite in the background (see section <a href="gis.html#rgrass">9.4</a>).<a href="gis.html#fnref47" class="footnote-back">↩</a></p></li>
+SQlLite/SpatiaLite are certainly also important but implicitly we have already introduced this approach since GRASS is using SQLite in the background (see Section <a href="gis.html#rgrass">9.4</a>).<a href="gis.html#fnref47" class="footnote-back">↩</a></p></li>
 <li id="fn48"><p>
 Thanks to Manning Publications, Regina Obe and Leo Hsu for permission to use this example.<a href="gis.html#fnref48" class="footnote-back">↩</a></p></li>
 <li id="fn49"><p>

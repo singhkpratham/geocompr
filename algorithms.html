@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -437,10 +437,10 @@ Programming is hard and requires plenty of practice <span class="citation">(Abel
 <p>There are strong reasons for moving in that direction, however.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a>
 The advantages of reproducibility go beyond allowing others to replicate your work:
 reproducible code is often better in every way than code written to be run only once, including in terms of computational efficiency, scalability and ease of adapting and maintaining it.</p>
-<p>Scripts are the basis of reproducible R code, a topic covered in section <a href="algorithms.html#scripts">10.2</a>.
-Algorithms are recipes for modifying inputs using a series of steps, resulting in an output, as described in section <a href="algorithms.html#geometric-algorithms">10.3</a>.
+<p>Scripts are the basis of reproducible R code, a topic covered in Section <a href="algorithms.html#scripts">10.2</a>.
+Algorithms are recipes for modifying inputs using a series of steps, resulting in an output, as described in Section <a href="algorithms.html#geometric-algorithms">10.3</a>.
 To ease sharing and reproducibility, algorithms can be placed into functions.
-That is the topic of section <a href="algorithms.html#functions">10.4</a>.
+That is the topic of Section <a href="algorithms.html#functions">10.4</a>.
 <!-- This chapter provides illustrative examples and directs the reader to established resources, to avoid reinventing the wheel. -->
 <!-- The approach taken in this chapter was partly inspired by @xiao_gis_2016, who advocates explanations that are neither highly theoretical (as many academic papers are) -->
 <!-- , with dozens of lines of non-reproducible pseudocode and equations -->
@@ -504,7 +504,7 @@ The work undertaken by this script is demonstrated in the reproducible example b
 <h2><span class="header-section-number">10.3</span> Geometric algorithms</h2>
 <p>Algorithms can be understood as the computing equivalent of a cooking recipe.
 They are a complete set of instructions which, when undertaken on the input (ingredients), result in useful (tasty) outputs.
-Before diving into a concrete case study, a brief history will show how algorithms relate to scripts (covered in section <a href="algorithms.html#scripts">10.2</a>) and functions (which can be used to generalize algorithms, as we’ll see in section <a href="algorithms.html#functions">10.4</a>).</p>
+Before diving into a concrete case study, a brief history will show how algorithms relate to scripts (covered in Section <a href="algorithms.html#scripts">10.2</a>) and functions (which can be used to generalize algorithms, as we’ll see in Section <a href="algorithms.html#functions">10.4</a>).</p>
 <p>The word algorithm originated in 9<sup>th</sup> Century Baghdad with the publication of <em>Hisab al-jabr w’al-muqabala</em>, an early maths textbook.
 The book was translated into Latin and became so popular that the author’s last name, <a href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwārizmī</a>, “was immortalized as a scientific term: Al-Khwarizmi
 <!-- [sic] -->
@@ -515,7 +515,7 @@ became Alchoarismi, Algorismi and, eventually, algorithm” <span class="citatio
 In the computing age algorithm refers to a series of steps that solves a problem, resulting in a pre-defined output.
 Inputs must be formally defined in a suitable data structure <span class="citation">(Wise <a href="#ref-wise_gis_2001">2001</a>)</span>.
 Algorithms often start as flow charts or psuedocode showing the aim of the process before being implemented in code.
-To ease usability, common algorithms are often packaged inside functions, which may hide some or all of the steps taken (unless you look at the function’s source code, see section <a href="algorithms.html#functions">10.4</a>).</p>
+To ease usability, common algorithms are often packaged inside functions, which may hide some or all of the steps taken (unless you look at the function’s source code, see Section <a href="algorithms.html#functions">10.4</a>).</p>
 <p>Geoalgorithms, such as those we encountered in Chapter <a href="gis.html#gis">9</a>, are algorithms that take geographic data in and, generally, return geographic results (alternative terms for the same thing include <em>GIS algorithms</em> and <em>geometric algorithms</em>).
 That may sound simple but it is a deep subject with an entire academic field, <em>Computational Geometry</em>, dedicated to their study <span class="citation">(Berg et al. <a href="#ref-berg_computational_2008">2008</a>)</span> and numerous books on the subject.
 <span class="citation">O’Rourke (<a href="#ref-orourke_computational_1998">1998</a>)</span>, for example, introduces the subject with a range of progressively harder geometric algorithms using reproducible and freely available C code.</p>
@@ -593,7 +593,7 @@ Figure 10.3: Illustration of iterative centroid algorithm with triangles. The �
 </div>
 <p>We are now in a position to complete step 4 to calculate the total area with <code>sum(A)</code> and the centroid coordinates of the polygon with <code>weighted.mean(C[, 1], A)</code> and <code>weighted.mean(C[, 2], A)</code> (exercise for alert readers: verify these commands work).
 To demonstrate the link between algorithms and scripts the contents of this section have been condensed into <code>10-centroid-alg.R</code>.
-We saw at the end of section <a href="algorithms.html#scripts">10.2</a> how this script can calculate the centroid of a square.
+We saw at the end of Section <a href="algorithms.html#scripts">10.2</a> how this script can calculate the centroid of a square.
 The great thing about <em>scripting</em> the algorithm is that it works on the new <code>poly_mat</code> object (see exercises below to verify these results with reference to <code>st_centroid()</code>):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;code/10-centroid-alg.R&quot;</span>)
 <span class="co">#&gt; [1] &quot;The area is: 245&quot;</span>
@@ -603,7 +603,7 @@ The great thing about <em>scripting</em> the algorithm is that it works on the n
 It also shows that if a tried-and-tested solution already exists, it may not be worth re-inventing the wheel:
 if our aim was simply to find the centroid of a polygon it would have been quicker to represent <code>poly_mat</code> as an <strong>sf</strong> object and use the pre-existing <code>sf::st_centroid()</code> function instead.
 However, the great benefit of writing algorithms from 1<sup>st</sup> principles is that you will understand every step of the process, something that cannot be guaranteed when using other peoples’ code.
-A further consideration is performance: R is slow compared with low level languages such as C++ for number crunching (see section <a href="intro.html#software-for-geocomputation">1.3</a>) and optimization is difficult.
+A further consideration is performance: R is slow compared with low level languages such as C++ for number crunching (see Section <a href="intro.html#software-for-geocomputation">1.3</a>) and optimization is difficult.
 Still, if the aim is to develop new methods computational efficiency should not be a primary consideration, as encapsulated in the saying “premature optimization is the root of all evil (or at least most of it) in programming” <span class="citation">(Knuth <a href="#ref-knuth_computer_1974">1974</a>)</span>.</p>
 <p>Algorithm development is hard.
 This should be apparent from the amount of work that has gone into developing a centroid algorithm in base R that is just one, rather inefficient, approach to the problem with limited real-world applications (in the real world convex polygons are uncommon).
@@ -731,7 +731,7 @@ First steps towards programming can be slow (the exercises below should not be r
 <ol style="list-style-type: decimal">
 <li>Read the script <code>10-centroid-alg.R</code> in the <code>code</code> folder of the book’s GitHub repo.
 <ul>
-<li>Which of the best practices covered in section <a href="algorithms.html#scripts">10.2</a> does it follow?</li>
+<li>Which of the best practices covered in Section <a href="algorithms.html#scripts">10.2</a> does it follow?</li>
 <li>Create a version of the script on your computer in an IDE such as RStudio (preferably by typing-out the script line-by-line, in your own coding style and with your own comments, rather than copy-pasting — this will help you learn how to type scripts). Using the example of a square polygon (e.g. created with <code>poly_mat = cbind(x = c(0, 0, 9, 9, 0), y = c(0, 9, 9, 0, 0))</code>) execute the script line-by-line.</li>
 <li>What changes could be made to the script to make it more reproducible?
 <!-- - Answer: The script could state that it needs a an object called `poly_mat` to be present and, if none is present, create an example dataset at the outset for testing. -->
@@ -743,7 +743,7 @@ First steps towards programming can be slow (the exercises below should not be r
 <li>How could the documentation be improved?
 <!-- It could document the source of the data better - e.g. with `data from https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php` --></li>
 </ul></li>
-<li>In section <a href="algorithms.html#geometric-algorithms">10.3</a> we calculated that the area and geographic centroid of the polygon represented by <code>poly_mat</code> was 245 and 8.8, 9.2, respectively.
+<li>In Section <a href="algorithms.html#geometric-algorithms">10.3</a> we calculated that the area and geographic centroid of the polygon represented by <code>poly_mat</code> was 245 and 8.8, 9.2, respectively.
 <ul>
 <li>Reproduce the results on your own computer with reference to the script <code>10-centroid-alg.R</code>, an implementation of this algorithm (bonus: type out the commands - try to avoid copy-pasting).
 <!-- Todo: add link to that script file (RL) --></li>
@@ -757,7 +757,7 @@ First steps towards programming can be slow (the exercises below should not be r
 <li>Bonus 2: Building on the contents of <code>10-centroid-alg.R</code>, write an algorithm only using base R functions that can find the total length of linestrings represented in matrix form.
 <!-- Todo: add example of matrix representing a linestring, demonstrate code to verify the answer, suggest alternative functions to decompose as a bonus. --></li>
 </ul></li>
-<li>In section <a href="algorithms.html#functions">10.4</a> we created different versions of the <code>poly_centroid()</code> function that generated outputs of class <code>sfg</code> (<code>poly_centroid_sfg()</code>) and type-stable <code>matrix</code> outputs (<code>poly_centroid_type_stable()</code>). Further extend the function by creating a version (e.g. called <code>poly_centroid_sf()</code>) that is type stable (only accepts inputs of class <code>sf</code>) <em>and</em> returns <code>sf</code> objects (hint: you may need to convert the object <code>x</code> into a matrix with the command <code>sf::st_coordinates(x)</code>).
+<li>In Section <a href="algorithms.html#functions">10.4</a> we created different versions of the <code>poly_centroid()</code> function that generated outputs of class <code>sfg</code> (<code>poly_centroid_sfg()</code>) and type-stable <code>matrix</code> outputs (<code>poly_centroid_type_stable()</code>). Further extend the function by creating a version (e.g. called <code>poly_centroid_sf()</code>) that is type stable (only accepts inputs of class <code>sf</code>) <em>and</em> returns <code>sf</code> objects (hint: you may need to convert the object <code>x</code> into a matrix with the command <code>sf::st_coordinates(x)</code>).
 <ul>
 <li>Verify it works by running <code>poly_centroid_sf(sf::st_sf(sf::st_sfc(poly_sfc)))</code></li>
 <li>What error message do you get when you try to run <code>poly_centroid_sf(poly_mat)</code>?</li>

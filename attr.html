@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -666,7 +666,7 @@ This is illustrated below: the command calculates the Earth’s population (~7 b
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pop =</span> <span class="kw">sum</span>(pop, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">n =</span> <span class="kw">n</span>())</code></pre>
 <p>In the previous code chunk <code>pop</code> and <code>n</code> are column names in the result.
 <code>sum()</code> and <code>n()</code> were the aggregating functions.
-The result is an <code>sf</code> object with a single row representing the world (this works thanks to the geometric operation ‘union’, as explained in section <a href="geometric-operations.html#geometry-unions">5.2.6</a>).</p>
+The result is an <code>sf</code> object with a single row representing the world (this works thanks to the geometric operation ‘union’, as explained in Section <a href="geometric-operations.html#geometry-unions">5.2.6</a>).</p>
 <p>Let’s combine what we’ve learned so far about <strong>dplyr</strong> by chaining together functions to find the world’s 3 most populous continents (with <code>dplyr::n()</code> ) and the number of countries they contain (the result of this command is presented in Table <a href="attr.html#tab:continents">3.2</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(pop, continent) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -820,7 +820,7 @@ Fortunately non-spatial data frames with a geometry list column (like <code>coff
 
 <p>This section covers the majority joining use cases.
 For more information we recommend <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_r_2016">2016</a>)</span>, the <a href="https://geocompr.github.io/geocompkg/articles/join.html">join vignette</a> in the <strong>geocompkg</strong> package that accompanies this book, and documentation of the <strong>data.table</strong> package.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
-Another type of join is a spatial join, covered in the next chapter (section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).</p>
+Another type of join is a spatial join, covered in the next chapter (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).</p>
 </div>
 <div id="vec-attr-creation" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Creating attributes and removing spatial information</h3>
@@ -869,9 +869,9 @@ Hence, an approach such as <code>select(world, -geom)</code> will be unsuccessfu
 <div id="manipulating-raster-objects" class="section level2">
 <h2><span class="header-section-number">3.3</span> Manipulating raster objects</h2>
 <p>In contrast to the vector data model underlying simple features (which represents points, lines and polygons as discrete entities in space), raster data represent continuous surfaces.
-This section shows how raster objects work by creating them <em>from scratch</em>, building on section <a href="spatial-class.html#an-introduction-to-raster">2.3.1</a>.
-Because of their unique structure, subsetting and other operations on raster datasets work in a different way, as demonstrated in section <a href="attr.html#raster-subsetting">3.3.1</a>.</p>
-<p>The following code recreates the raster dataset used in section <a href="spatial-class.html#raster-classes">2.3.3</a>, the result of which is illustrated in Figure <a href="attr.html#fig:cont-raster">3.2</a>.
+This section shows how raster objects work by creating them <em>from scratch</em>, building on Section <a href="spatial-class.html#an-introduction-to-raster">2.3.1</a>.
+Because of their unique structure, subsetting and other operations on raster datasets work in a different way, as demonstrated in Section <a href="attr.html#raster-subsetting">3.3.1</a>.</p>
+<p>The following code recreates the raster dataset used in Section <a href="spatial-class.html#raster-classes">2.3.3</a>, the result of which is illustrated in Figure <a href="attr.html#fig:cont-raster">3.2</a>.
 This demonstrates how the <code>raster()</code> function works to create an example raster named <code>elev</code> (representing elevations).</p>
 <pre class="sourceCode r"><code class="sourceCode r">elev =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">nrows =</span> <span class="dv">6</span>, <span class="dt">ncols =</span> <span class="dv">6</span>, <span class="dt">res =</span> <span class="fl">0.5</span>,
               <span class="dt">xmn =</span> <span class="fl">-1.5</span>, <span class="dt">xmx =</span> <span class="fl">1.5</span>, <span class="dt">ymn =</span> <span class="fl">-1.5</span>, <span class="dt">ymx =</span> <span class="fl">1.5</span>,
@@ -929,7 +929,7 @@ Figure 3.2: Raster datasets with numeric (left) and categorical values (right).
 </ul>
 <p>Here, we only show the first two options since these can be considered non-spatial operations.
 If we need a spatial object to subset another or the output is a spatial object, we refer to this as spatial subsetting.
-Therefore, the latter two options will be shown in the next chapter (see section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a> in the next chapter).</p>
+Therefore, the latter two options will be shown in the next chapter (see Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a> in the next chapter).</p>
 <p>The first two subsetting options are demonstrated in the commands below —
 both return the value of the top left pixel in the raster object <code>elev</code> (results not shown):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># row 1, column 1</span>
@@ -974,7 +974,7 @@ Specific functions such as <code>boxplot()</code>, <code>density()</code>, <code
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(elev)</code></pre>
 <p>In case a visualization function does not work with raster objects, one can extract the raster data to be plotted with the help of <code>values()</code> or <code>getValues()</code>.</p>
 <p>Descriptive raster statistics belong to the so-called global raster operations.
-These and other typical raster processing operations are part of the map algebra scheme which are covered in the next chapter (section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
+These and other typical raster processing operations are part of the map algebra scheme which are covered in the next chapter (Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <div class="rmdnote">
 <p>
 Some function names clash between packages (e.g. <code>select</code>, as discussed in a previous note). In addition to not loading packages by referring to functions verbosely (e.g. <code>dplyr::select()</code>) another way to prevent function names clashes is by unloading the offending package with <code>detach()</code>. The following command, for example, unloads the <strong>raster</strong> package (this can also be done in the <em>package</em> tab which resides by default in the right-bottom pane in RStudio): <code>detach(“package:raster”, unload = TRUE, force = TRUE)</code>. The <code>force</code> argument makes sure that the package will be detached even if other packages depend on it. This, however, may lead to a restricted usability of packages depending on the detached package, and is therefore not recommended.

@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -433,8 +433,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Spatial operations are a vital part of geocomputation.
 This chapter shows how spatial objects can be modified in a multitude of ways based on their location and shape.
 The content builds on the previous chapter because many spatial operations have a non-spatial (attribute) equivalent.
-This is especially true for <em>vector</em> operations: section <a href="attr.html#vector-attribute-manipulation">3.2</a> on vector attribute manipulation provides the basis for understanding its spatial counterpart, namely spatial subsetting (covered in section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>).
-Spatial joining (section <a href="spatial-operations.html#spatial-joining">4.2.3</a>) and aggregation (<a href="spatial-operations.html#spatial-aggr">4.2.5</a>) also have non-spatial counterparts, covered in the previous chapter.</p>
+This is especially true for <em>vector</em> operations: Section <a href="attr.html#vector-attribute-manipulation">3.2</a> on vector attribute manipulation provides the basis for understanding its spatial counterpart, namely spatial subsetting (covered in Section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>).
+Spatial joining (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>) and aggregation (<a href="spatial-operations.html#spatial-aggr">4.2.5</a>) also have non-spatial counterparts, covered in the previous chapter.</p>
 <p>Spatial operations differ from non-spatial operations in some ways, however.
 To illustrate the point, imagine you are researching road safety.
 Spatial joins can be used to find road speed limits related with administrative zones, even when no zone ID is provided.
@@ -443,10 +443,10 @@ But this raises the question: should the road completely fall inside a zone for 
 Or is simply crossing or being within a certain distance sufficient?
 When posing such questions it becomes apparent that spatial operations differ substantially from attribute operations on data frames:
 the <em>type</em> of spatial relationship between objects must be considered.
-These are covered in section <a href="spatial-operations.html#topological-relations">4.2.2</a>, on topological relations.</p>
+These are covered in Section <a href="spatial-operations.html#topological-relations">4.2.2</a>, on topological relations.</p>
 <p>Another unique aspect of spatial objects is distance.
-All spatial objects are related through space and distance calculations, covered in section <a href="spatial-operations.html#distance-relations">4.2.6</a>, can be used to explore the strength of this relationship.</p>
-<p>Naturally, we can also subset <em>rasters</em> based on location and coordinates (section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>) and merge different raster tiles into one raster (covered in section <a href="spatial-operations.html#merging-rasters">4.3.7</a>).
+All spatial objects are related through space and distance calculations, covered in Section <a href="spatial-operations.html#distance-relations">4.2.6</a>, can be used to explore the strength of this relationship.</p>
+<p>Naturally, we can also subset <em>rasters</em> based on location and coordinates (Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>) and merge different raster tiles into one raster (covered in Section <a href="spatial-operations.html#merging-rasters">4.3.7</a>).
 The most important spatial operation on raster data, however, is <em>map algebra</em>.
 Map algebra makes raster processing very elegant and fast (covered in sections <a href="spatial-operations.html#map-algebra">4.3.2</a> to <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>).
 Map algebra is also the prerequisite for distance calculations on rasters <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.</p>
@@ -458,11 +458,11 @@ It is important to note that spatial operations that use two spatial objects rel
 </div>
 <div id="spatial-vec" class="section level2">
 <h2><span class="header-section-number">4.2</span> Spatial operations on vector data</h2>
-<p>This section provides an overview of spatial operations on vector geographic data represented as simple features in the <strong>sf</strong> package before section <a href="spatial-operations.html#spatial-ras">4.3</a>, which presents spatial methods using the <strong>raster</strong> package.</p>
+<p>This section provides an overview of spatial operations on vector geographic data represented as simple features in the <strong>sf</strong> package before Section <a href="spatial-operations.html#spatial-ras">4.3</a>, which presents spatial methods using the <strong>raster</strong> package.</p>
 <div id="spatial-subsetting" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Spatial subsetting</h3>
 <p>Spatial subsetting is the process of selecting features of a spatial object based on whether or not they in some way <em>relate</em> in space to another object.
-It is analogous to <em>attribute subsetting</em> (covered in section <a href="attr.html#vector-attribute-subsetting">3.2.1</a>) and can be done with the base R square bracket (<code>[</code>) operator or with the <code>filter()</code> function from the <strong>tidyverse</strong>.</p>
+It is analogous to <em>attribute subsetting</em> (covered in Section <a href="attr.html#vector-attribute-subsetting">3.2.1</a>) and can be done with the base R square bracket (<code>[</code>) operator or with the <code>filter()</code> function from the <strong>tidyverse</strong>.</p>
 <p>An example of spatial subsetting is provided by the <code>nz</code> and <code>nz_height</code> datasets in <strong>spData</strong>.
 These contain projected data on the 16 main regions and 101 highest points in New Zealand respectively (Figure <a href="spatial-operations.html#fig:nz-subset">4.1</a>).
 The following code chunk first creates an object representing Canterbury, then uses spatial subsetting to return all high points in the region:</p>
@@ -477,10 +477,10 @@ Figure 4.1: Illustration of spatial subsetting with red triangles representing 1
 <p>Like attribute subsetting <code>x[y, ]</code> subsets features of a <em>target</em> <code>x</code> using the contents of a <em>source</em> object <code>y</code>.
 Instead of <code>y</code> being of class <code>logical</code> or <code>integer</code> — a vector of <code>TRUE</code> and <code>FALSE</code> values or whole numbers — for spatial subsetting it is another spatial (<code>sf</code>) object.</p>
 <p>Various <em>topological relations</em> can be used for spatial subsetting.
-These determine the type of spatial relationship that features in the target object must have with the subsetting object to be selected, including <em>touches</em>, <em>crosses</em> or <em>within</em> (see section <a href="spatial-operations.html#topological-relations">4.2.2</a>).
+These determine the type of spatial relationship that features in the target object must have with the subsetting object to be selected, including <em>touches</em>, <em>crosses</em> or <em>within</em> (see Section <a href="spatial-operations.html#topological-relations">4.2.2</a>).
 <em>Intersects</em> is the default spatial subsetting operator, a default that returns <code>TRUE</code> for many types of spatial relations, including <em>touches</em>, <em>crosses</em> and <em>is within</em>.
 These alternative spatial operators can be specified with the <code>op =</code> argument, a third argument that can be passed to the <code>[</code> operator for <code>sf</code> objects.
-This is demonstrated in the following command which returns the opposite of <code>st_intersect()</code>, points that do not intersect with Canterbury (see in section <a href="spatial-operations.html#topological-relations">4.2.2</a>):</p>
+This is demonstrated in the following command which returns the opposite of <code>st_intersect()</code>, points that do not intersect with Canterbury (see in Section <a href="spatial-operations.html#topological-relations">4.2.2</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">nz_height[canterbury, , op =<span class="st"> </span>st_disjoint]</code></pre>
 
 <div class="rmdnote">
@@ -508,7 +508,7 @@ Note: another way to return a logical output is by setting <code>sparse = FALSE<
 Note: the solution involving <code>sgbp</code> objects is more generalisable though, as it works for many-to-many operations and has lower memory requirements.
 </div>
 
-<p>It should be noted that a logical can also be used with <code>filter()</code> as follows (<code>sparse = FALSE</code> is explained in section <a href="spatial-operations.html#topological-relations">4.2.2</a>):</p>
+<p>It should be noted that a logical can also be used with <code>filter()</code> as follows (<code>sparse = FALSE</code> is explained in Section <a href="spatial-operations.html#topological-relations">4.2.2</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">canterbury_height3 =<span class="st"> </span>nz_height <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="kw">st_intersects</span>(<span class="dt">x =</span> ., <span class="dt">y =</span> canterbury, <span class="dt">sparse =</span> <span class="ot">FALSE</span>))</code></pre>
 <p>At this point there are three versions of <code>canterbury_height</code>, one created with spatial subsetting directly and the other two via intermediary selection objects.
@@ -567,7 +567,7 @@ As we saw in the previous section a <em>dense matrix</em> consisting of <code>TR
 <span class="co">#&gt; [4,] FALSE</span></code></pre>
 <p>The output is a matrix in which each row represents a feature in the target object and each column represents a feature in the selecting object.
 In this case only the first two features in <code>p</code> intersect with <code>a</code> and there is only one feature in <code>a</code> so the result has only one column.
-The result can be used for subsetting as we saw in section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>.</p>
+The result can be used for subsetting as we saw in Section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>.</p>
 <p>Note that <code>st_intersects()</code> returns <code>TRUE</code> for the second feature in the object <code>p</code> even though it just touches the polygon <code>a</code>: <em>intersects</em> is a ‘catch-all’ topological operation which identifies many types of spatial relation.</p>
 <p>The opposite of <code>st_intersects()</code> is <code>st_disjoint()</code>, which returns only objects that do not spatially relate in any way to the selecting object (note <code>[, 1]</code> converts the result into a vector):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">st_disjoint</span>(p, a, <span class="dt">sparse =</span> <span class="ot">FALSE</span>)[, <span class="dv">1</span>]
@@ -661,7 +661,7 @@ You can learn more at <a href="https://www.r-spatial.org/r/2017/06/22/spatial-in
 </div>
 <div id="spatial-joining" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Spatial joining</h3>
-<p>Joining two non-spatial datasets relies on a shared ‘key’ variable, as described in section <a href="attr.html#vector-attribute-joining">3.2.3</a>.
+<p>Joining two non-spatial datasets relies on a shared ‘key’ variable, as described in Section <a href="attr.html#vector-attribute-joining">3.2.3</a>.
 Spatial data joining applies the same concept, but instead relies on shared areas of geographic space (it is also know as spatial overlay).
 As with attribute data, joining adds a new column to the target object (the argument <code>x</code> in joining functions), from a source object (<code>y</code>).</p>
 <p>The process can be illustrated by an example.
@@ -692,7 +692,7 @@ random_joined =<span class="st"> </span><span class="kw">st_join</span>(random_p
 Figure 4.3: Illustration of a spatial join. A new attribute variable is added to random points (top left) from source world object (top right) resulting the data represented in the final panel.
 </p>
 </div>
-<p>By default, <code>st_join()</code> performs a left join (see section <a href="attr.html#vector-attribute-joining">3.2.3</a>), but it can also do inner joins by setting the argument <code>left = FALSE</code>.
+<p>By default, <code>st_join()</code> performs a left join (see Section <a href="attr.html#vector-attribute-joining">3.2.3</a>), but it can also do inner joins by setting the argument <code>left = FALSE</code>.
 Like spatial subsetting, the default topological operator used by <code>st_join()</code> is <code>st_intersects()</code>.
 This can be changed with the <code>join</code> argument (see <code>?st_join</code> for details).
 In the example above, we have added features of a polygon layer to a point layer.
@@ -719,7 +719,7 @@ Figure 4.4: The spatial distribution of cycle hire points in London based on off
 </div>
 <p>Imagine that we need to join the <code>capacity</code> variable in <code>cycle_hire_osm</code> onto the official ‘target’ data contained in <code>cycle_hire</code>.
 This is when a non-overlapping join is needed.
-The simplest method is to use the topological operator <code>st_is_within_distance()</code> shown in section <a href="spatial-operations.html#topological-relations">4.2.2</a>, using a threshold distance of 20 m.
+The simplest method is to use the topological operator <code>st_is_within_distance()</code> shown in Section <a href="spatial-operations.html#topological-relations">4.2.2</a>, using a threshold distance of 20 m.
 Note that before performing the relation both datasets must be transformed into a projected CRS, saved as new objects denoted by the affix <code>P</code> (for projected) below:</p>
 <pre class="sourceCode r"><code class="sourceCode r">cycle_hire_P =<span class="st"> </span><span class="kw">st_transform</span>(cycle_hire, <span class="dv">27700</span>)
 cycle_hire_osm_P =<span class="st"> </span><span class="kw">st_transform</span>(cycle_hire_osm, <span class="dv">27700</span>)
@@ -756,7 +756,7 @@ To aggregate the values for the overlapping points and return the mean, we can u
 </div>
 <div id="spatial-aggr" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Spatial data aggregation</h3>
-<p>Like attribute data aggregation, covered in section <a href="attr.html#vector-attribute-aggregation">3.2.2</a>, spatial data aggregation can be a way of <em>condensing</em> data.
+<p>Like attribute data aggregation, covered in Section <a href="attr.html#vector-attribute-aggregation">3.2.2</a>, spatial data aggregation can be a way of <em>condensing</em> data.
 Aggregated data show some statistics about a variable (typically average or total) in relation to some kind of <em>grouping variable</em>.
 Section <a href="attr.html#vector-attribute-aggregation">3.2.2</a> demonstrated how <code>aggregate()</code> and <code>group_by() %&gt;% summarize()</code> condense data based on attribute variables.
 This section demonstrates how the same functions work using spatial grouping variables.</p>
@@ -779,7 +779,7 @@ Figure 4.5: Average height of the top 101 high points across the regions of New 
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">elevation =</span> <span class="kw">mean</span>(elevation, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre>
 <p>The resulting <code>nz_avheight</code> objects have the same geometry as the aggregating object <code>nz</code> but with a new column representing the mean average height of points within each region of New Zealand (other summary functions such as <code>median()</code> and <code>sd()</code> can be used in place of <code>mean()</code>).
 Note that regions containing no points have an associated <code>elevation</code> value of <code>NA</code>.
-For aggregating operations which also create new geometries, see section <a href="geometric-operations.html#geometry-unions">5.2.6</a>.</p>
+For aggregating operations which also create new geometries, see Section <a href="geometric-operations.html#geometry-unions">5.2.6</a>.</p>
 <p>Spatial congruence is an important concept related to spatial aggregation.
 An <em>aggregating object</em> (which we will refer to as <code>y</code>) is <em>congruent</em> with the target object (<code>x</code>) if the two objects have shared borders.
 Often this is the case for administrative boundary data, whereby the larger units (e.g. Middle Layer Super Output Areas in the UK or districts in many other European countries) are composed of many smaller units (Output Areas in the UK, see <a href="https://www.ons.gov.uk/methodology/geography/ukgeographies/censusgeography">ons.gov.uk</a> for further details or municipalities in many other European countries).</p>
@@ -822,7 +822,7 @@ To do so, one would only have to set the <code>extensive</code> parameter to <co
 <h3><span class="header-section-number">4.2.6</span> Distance relations</h3>
 <p>While topological relations are binary — a feature either intersects with another or does not — distance relations are continuous.
 The distance between two objects is calculated with the <code>st_distance()</code> function.
-This is illustrated in the code chunk below, which finds the distance between the highest point in New Zealand and the geographic centroid of the Canterbury region, created in section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>:</p>
+This is illustrated in the code chunk below, which finds the distance between the highest point in New Zealand and the geographic centroid of the Canterbury region, created in Section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">nz_heighest =<span class="st"> </span>nz_height <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">wt =</span> elevation)
 canterbury_centroid =<span class="st"> </span><span class="kw">st_centroid</span>(canterbury)
 <span class="kw">st_distance</span>(nz_heighest, canterbury_centroid)
@@ -852,11 +852,11 @@ The second and third points in <code>nz_height</code> are <em>in</em> Otago, whi
 </div>
 <div id="spatial-ras" class="section level2">
 <h2><span class="header-section-number">4.3</span> Spatial operations on raster data</h2>
-<p>This section builds on section <a href="attr.html#manipulating-raster-objects">3.3</a>, which highlights various basic methods for manipulating raster datasets, to demonstrate more advanced and explicitly spatial raster operations, and uses the objects <code>elev</code> and <code>grain</code> manually created in section <a href="attr.html#manipulating-raster-objects">3.3</a>.
+<p>This section builds on Section <a href="attr.html#manipulating-raster-objects">3.3</a>, which highlights various basic methods for manipulating raster datasets, to demonstrate more advanced and explicitly spatial raster operations, and uses the objects <code>elev</code> and <code>grain</code> manually created in Section <a href="attr.html#manipulating-raster-objects">3.3</a>.
 For the reader’s convenience, these datasets can be also found in the <strong>spData</strong> package.</p>
 <div id="spatial-raster-subsetting" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Spatial subsetting</h3>
-<p>The previous chapter (section <a href="attr.html#manipulating-raster-objects">3.3</a>) demonstrated how to retrieve values associated with specific cell IDs or row and column combinations.
+<p>The previous chapter (Section <a href="attr.html#manipulating-raster-objects">3.3</a>) demonstrated how to retrieve values associated with specific cell IDs or row and column combinations.
 Raster objects can also be extracted by location (coordinates) and other spatial objects.
 To use coordinates for subsetting, one can ‘translate’ the coordinates into a cell ID with the <strong>raster</strong> function <code>cellFromXY()</code>.
 An alternative is to use <code>raster::extract()</code> (be careful, there is also a function called <code>extract()</code> in the <strong>tidyverse</strong>) to extract values.
@@ -883,7 +883,7 @@ Figure 4.7: Subsetting raster values with the help of another raster (left). Ras
 <p>So far, the subsetting returned the values of specific cells, however, when doing spatial subsetting, one often also expects a spatial object as an output.
 To do this, we can use again the <code>[</code> when we additionally set the <code>drop</code> parameter to <code>FALSE</code>.
 To illustrate this, we retrieve the first two cells of <code>elev</code> as an individual raster object.
-As mentioned in section <a href="attr.html#manipulating-raster-objects">3.3</a>, the <code>[</code> operator accepts various inputs to subset rasters and returns a raster object when <code>drop = FALSE</code>.
+As mentioned in Section <a href="attr.html#manipulating-raster-objects">3.3</a>, the <code>[</code> operator accepts various inputs to subset rasters and returns a raster object when <code>drop = FALSE</code>.
 The code chunk below subsets the <code>elev</code> raster by cell ID and row-column index with identical results: the first two cells on the top row (only the first 2 lines of the output is shown):</p>
 <pre class="sourceCode r"><code class="sourceCode r">elev[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>]    <span class="co"># spatial subsetting with cell IDs</span>
 elev[<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>] <span class="co"># spatial subsetting by row,column indeces</span>
@@ -1019,7 +1019,7 @@ z
 <div id="global-operations-and-distances" class="section level3">
 <h3><span class="header-section-number">4.3.6</span> Global operations and distances</h3>
 <p><em>Global</em> operations are a special case of zonal operations with the entire raster dataset representing a single zone.
-The most common global operations are descriptive statistics for the entire raster dataset such as the minimum or maximum (see section <a href="attr.html#summarizing-raster-objects">3.3.2</a>).
+The most common global operations are descriptive statistics for the entire raster dataset such as the minimum or maximum (see Section <a href="attr.html#summarizing-raster-objects">3.3.2</a>).
 Aside from that, global operations are also useful for the computation of distance and weight rasters.
 In the first case, one can calculate the distance from each cell to a specific target cell.
 For example, one might want to compute the distance to the nearest coast (see also <code>raster::distance()</code>).
@@ -1027,10 +1027,10 @@ We might also want to consider topography, that means, we are not only intereste
 To do so, we can weight the distance with elevation so that each additional altitudinal meter ‘prolongs’ the euclidean distance.
 Visibility and viewshed computations also belong to the family of global operations (in the exercises of Chapter <a href="gis.html#gis">9</a> you will compute a viewshed raster).</p>
 <p>Many map algebra operations have a counterpart in vector processing <span class="citation">(Liu and Mason <a href="#ref-liu_essential_2009">2009</a>)</span>.
-Computing a distance raster (zonal operation) while only considering a maximum distance (logical focal operation) is the equivalent to a vector buffer operation (section <a href="geometric-operations.html#clipping">5.2.5</a>).
-Reclassifying raster data (either local or zonal function depending on the input) is equivalent to dissolving vector data (section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).
-Overlaying two rasters (local operation), where one contains <code>NULL</code> or <code>NA</code> values representing a mask, is similar to vector clipping (section <a href="geometric-operations.html#clipping">5.2.5</a>).
-Quite similar to spatial clipping is intersecting two layers (section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>).
+Computing a distance raster (zonal operation) while only considering a maximum distance (logical focal operation) is the equivalent to a vector buffer operation (Section <a href="geometric-operations.html#clipping">5.2.5</a>).
+Reclassifying raster data (either local or zonal function depending on the input) is equivalent to dissolving vector data (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).
+Overlaying two rasters (local operation), where one contains <code>NULL</code> or <code>NA</code> values representing a mask, is similar to vector clipping (Section <a href="geometric-operations.html#clipping">5.2.5</a>).
+Quite similar to spatial clipping is intersecting two layers (Section <a href="spatial-operations.html#spatial-subsetting">4.2.1</a>).
 The difference is that these two layers (vector or raster) simply share an overlapping area (see Figure <a href="geometric-operations.html#fig:venn-clip">5.8</a> for an example).
 However, be careful with the wording.
 Sometimes the same words have slightly different meanings for raster and vector data models.
@@ -1041,7 +1041,7 @@ Zonal operations can dissolve the cells of one raster in accordance with the zon
 </div>
 <div id="merging-rasters" class="section level3">
 <h3><span class="header-section-number">4.3.7</span> Merging rasters</h3>
-<p>Suppose we would like to compute the NDVI (see section <a href="spatial-operations.html#local-operations">4.3.3</a>), and additionally want to compute terrain attributes from elevation data for observations within a study area.
+<p>Suppose we would like to compute the NDVI (see Section <a href="spatial-operations.html#local-operations">4.3.3</a>), and additionally want to compute terrain attributes from elevation data for observations within a study area.
 Before such computations we would have to acquire airborne or remotely sensed information.
 The corresponding imagery is often divided into scenes covering a specific spatial extent.
 Frequently, a study area covers more than one scene.
@@ -1098,7 +1098,7 @@ For a more detailed introduction on how to use R for remote sensing, we refer th
 <div id="exercises-2" class="section level2">
 <h2><span class="header-section-number">4.4</span> Exercises</h2>
 <ol style="list-style-type: decimal">
-<li><p>It was established in section <a href="spatial-operations.html#spatial-vec">4.2</a> that Canterbury was the region of New Zealand containing most of 100 highest points in the country.
+<li><p>It was established in Section <a href="spatial-operations.html#spatial-vec">4.2</a> that Canterbury was the region of New Zealand containing most of 100 highest points in the country.
 How many of these high points does Canterbury Region contain?</p></li>
 <li><p>Which region has the second highest number of <code>nz_height</code> points in, and how many does it have?</p></li>
 <li>Generalizing the question to all regions: how many of New Zealand’s 16 regions contain points which belong to the top 100 highest points in the country? Which regions?

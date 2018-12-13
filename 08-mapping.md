@@ -31,7 +31,7 @@ library(shiny)   # for web applications
 
 A satisfying and important aspect of geographic research is communicating the results.
 Map making --- the art of cartography --- is an ancient skill that involves communication, intuition, and an element of creativity.
-Static mapping is straightforward with `plot()`, as we saw in section \@ref(basic-map).
+Static mapping is straightforward with `plot()`, as we saw in Section \@ref(basic-map).
 It is possible to create advanced maps using base R methods [@murrell_r_2016], but this chapter focuses on dedicated map-making packages.
 When learning a new skill, it makes sense to gain depth-of-knowledge in one area branching out.
 Map making is no exception, hence this chapter's coverage of one package (**tmap**) in depth rather than many superficially.
@@ -53,13 +53,13 @@ Map making is therefore a critical part of geocomputation and its emphasis not o
 This chapter shows how to make a wide range of maps.
 The next section covers a range of static maps, including aesthetic considerations, facets and inset maps.
 Sections \@ref(animated-maps) to \@ref(mapping-applications) cover animated and interactive maps (including web maps and mapping applications).
-Finally, section \@ref(other-mapping-packages) covers a range of alternative map-making packages including **ggplot2** and **cartogram**.
+Finally, Section \@ref(other-mapping-packages) covers a range of alternative map-making packages including **ggplot2** and **cartogram**.
 
 
 ## Static maps
 
 Static maps are the most common type of visual output from geocomputation.
-Fixed images for printed outputs, common formats for static maps include `.png` and `.pdf`, for raster and vector outputs, respectively (interactive maps are covered in section \@ref(interactive-maps)).
+Fixed images for printed outputs, common formats for static maps include `.png` and `.pdf`, for raster and vector outputs, respectively (interactive maps are covered in Section \@ref(interactive-maps)).
 Initially static maps were the *only* type of map that R could produce.
 Things have advanced greatly since **sp** was released [see @pebesma_classes_2005].
 Although many new techniques for geographic data visualization have been developed and demonstrated since then, a decade later static plotting (and some animations) was still the emphasis of geographic data visualisation in R [@cheshire_spatial_2015].
@@ -104,7 +104,7 @@ tm_shape(nz) +
 <p class="caption">(\#fig:tmshape)New Zealand's shape plotted with fill (left), border (middle) and fill and border (right) layers added using tmap functions.</p>
 </div>
 
-The object passed to `tm_shape()` in this case is `nz`, an `sf` object representing the regions of New Zealand (see section \@ref(intro-sf) for more on `sf` objects).
+The object passed to `tm_shape()` in this case is `nz`, an `sf` object representing the regions of New Zealand (see Section \@ref(intro-sf) for more on `sf` objects).
 Layers are added to represent `nz` visually, with `tm_fill()` and `tm_borders()` creating shaded areas (left panel) and border outlines (middle panel) in Figure \@ref(fig:tmshape), respectively.
 
 This is an intuitive approach to map making:
@@ -292,7 +292,7 @@ Six of the most useful break styles are illustrated in Figure \@ref(fig:break-st
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Although `style` is an argument of **tmap** functions it in fact originates as an argument in `classInt::classIntervals()` --- see the help page of this function for details.</div>\EndKnitrBlock{rmdnote}
 
 Palettes define the color ranges associated with the bins and  determined by the `breaks`, `n`, and `style` arguments described above.
-The default color palette is specified in `tm_layout()` (see section \@ref(layouts) to learn more), however, it could be quickly changed using the `palette` argument.
+The default color palette is specified in `tm_layout()` (see Section \@ref(layouts) to learn more), however, it could be quickly changed using the `palette` argument.
 It expects a vector of colors or a new color palette name, which can be selected interactively with `tmaptools::palette_explorer()`.
 You can add a `-` as prefix to reverse the palette order.
 
@@ -506,11 +506,11 @@ print(nz_map, vp = viewport(0.8, 0.27, width = 0.5, height = 0.5))
 <p class="caption">(\#fig:insetmap1)Inset map providing a context - location of the central part of the Southern Alps in New Zealand.</p>
 </div>
 
-Inset map can be save to file either by using a graphic device (see section \@ref(visual-outputs)) or the `tmap_save()` function and its arguments - `insets_tm` and `insets_vp`.
+Inset map can be save to file either by using a graphic device (see Section \@ref(visual-outputs)) or the `tmap_save()` function and its arguments - `insets_tm` and `insets_vp`.
 
 Inset maps are also used to create one map of non-contiguous areas.
 Probably, the most often used example is a map of United States, which consists of the contiguous United States, Hawaii and Alaska.
-It is very important to find the best projection for each individual inset in these type of cases (see section \@ref(reproj-geo-data) to learn more).
+It is very important to find the best projection for each individual inset in these type of cases (see Section \@ref(reproj-geo-data) to learn more).
 We can use US National Atlas Equal Area for the map of the contiguous United States by putting its EPSG code in the `projection` argument of `tm_shape()`.
 
 
@@ -561,7 +561,7 @@ Furthermore, the fact that each facet is physically separated on the screen or p
 Animated maps solve these issues.
 Although they depend on digital publication, this is becoming less of an issue as more and more content moves online.
 Animated maps can still enhance paper reports: you can always link readers to a web-page containing an animated (or interactive) version of a printed map to help make it come alive.
-There are several ways to generate animations in R, including with animation packages such as **gganimate**, which builds on **ggplot2** (see section \@ref(other-mapping-packages)).
+There are several ways to generate animations in R, including with animation packages such as **gganimate**, which builds on **ggplot2** (see Section \@ref(other-mapping-packages)).
 This section focusses on creating animated maps with **tmap** because its syntax will be familiar from previous sections and the flexibility of the approach.
 
 Figure \@ref(fig:urban-animated) is a simple example of an animated map.
@@ -574,7 +574,7 @@ Unlike the faceted plot it does not squeeze multiple maps into a single screen a
 
 
 
-The animated map illustrated in Figure \@ref(fig:urban-animated) can be created using the same **tmap** techniques that generates faceted maps, demonstrated in section \@ref(faceted-maps).
+The animated map illustrated in Figure \@ref(fig:urban-animated) can be created using the same **tmap** techniques that generates faceted maps, demonstrated in Section \@ref(faceted-maps).
 There are two differences, however, related to arguments in `tm_facets()`:
 
 - `along = "year"` is used instead of `by = "year"`.
@@ -625,9 +625,9 @@ The release of the **leaflet** package in 2015 revolutionized interactive web ma
 This section illustrates each approach in the opposite order.
 We will explore how to make slippy maps with **tmap** (the syntax of which we have already learned), **mapview** and finally **leaflet** (which provides low level control over interactive maps).
 
-A unique feature of **tmap** mentioned in section \@ref(static-maps) is its ability to create static and interactive maps using the same code.
+A unique feature of **tmap** mentioned in Section \@ref(static-maps) is its ability to create static and interactive maps using the same code.
 Maps can be viewed interactively at any point by switching to view mode, using the command `tmap_mode("view")`.
-This is demonstrated in the code below, which creates an interactive map of New Zealand based on the `tmap` object `map_nz`, created in section \@ref(map-obj), and illustrated in Figure \@ref(fig:tmview):
+This is demonstrated in the code below, which creates an interactive map of New Zealand based on the `tmap` object `map_nz`, created in Section \@ref(map-obj), and illustrated in Figure \@ref(fig:tmview):
 
 
 ```r
@@ -791,7 +791,7 @@ leaflet(data = cycle_hire) %>%
 
 ## Mapping applications
 
-The interactive web maps demonstrated in section \@ref(interactive-maps) can go far.
+The interactive web maps demonstrated in Section \@ref(interactive-maps) can go far.
 Careful selection of layers to display, base-maps and pop-ups can be used to communicate the main results of many projects involving geocomputation.
 But the web mapping approach to interactivity has limitations:
 
@@ -889,7 +889,7 @@ This way your prototype web applications should be limited not by technical cons
 
 ## Other mapping packages
 
-**tmap** provides a powerful interface for creating a wide range of static maps (section \@ref(static-maps)) and also supports interactive maps (section \@ref(interactive-maps)).
+**tmap** provides a powerful interface for creating a wide range of static maps (Section \@ref(static-maps)) and also supports interactive maps (Section \@ref(interactive-maps)).
 But there are many other options for creating maps in R.
 The aim of this section is to provide a taster of some of these and pointers for additional resources: map making is a surprisingly active area of R package development so there is more to learn than can be covered here.
 

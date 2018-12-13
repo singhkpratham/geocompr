@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -473,7 +473,7 @@ The answer likely depends on your domain of application:</p>
 </ul>
 <p>There is much overlap in some fields and raster and vector datasets can be used together:
 ecologists and demographers, for example, commonly use both vector and raster data.
-Furthermore, it is possible to convert between the two forms (see section <a href="geometric-operations.html#raster-vector">5.4</a>).
+Furthermore, it is possible to convert between the two forms (see Section <a href="geometric-operations.html#raster-vector">5.4</a>).
 Whether your work involves more use of vector or raster datasets, it is worth understanding the underlying data model before using them, as discussed in subsequent chapters.
 This book uses <strong>sf</strong> and <strong>raster</strong> packages to work with vector data and raster datasets respectively.</p>
 </div>
@@ -504,7 +504,7 @@ Figure 2.1: Illustration of vector (point) data in which location of London (the
 </p>
 </div>
 <p><strong>sf</strong> is a package providing a class system for geographic vector data.
-Not only does it supersede <strong>sp</strong> it also provides a consistent command-line interface to GEOS and GDAL, superseding <strong>rgeos</strong> and <strong>rgdal</strong> (described in section <a href="intro.html#the-history-of-r-spatial">1.5</a>).
+Not only does it supersede <strong>sp</strong> it also provides a consistent command-line interface to GEOS and GDAL, superseding <strong>rgeos</strong> and <strong>rgdal</strong> (described in Section <a href="intro.html#the-history-of-r-spatial">1.5</a>).
 <!-- Really? not necessary so removed (RL) -->
 <!-- In theory this should make **sf** faster than **sp**/**rgdal**/**rgeos**. -->
 This section introduces <strong>sf</strong> classes in preparation for subsequent chapters (Chapters <a href="geometric-operations.html#geometric-operations">5</a> and <a href="read-write.html#read-write">7</a> cover the GEOS and GDAL interface respectively).</p>
@@ -525,7 +525,7 @@ This section introduces <strong>sf</strong> classes in preparation for subsequen
 <!-- ``` -->
 <div id="intro-sf" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> An introduction to simple features</h3>
-<p>Simple features is an <a href="http://portal.opengeospatial.org/files/?artifact_id=25355">open standard</a> developed and endorsed by the Open Geospatial Consortium (OGC), a not-for-profit organization whose activities we will revisit in a later chapter (in section <a href="read-write.html#file-formats">7.5</a>).
+<p>Simple features is an <a href="http://portal.opengeospatial.org/files/?artifact_id=25355">open standard</a> developed and endorsed by the Open Geospatial Consortium (OGC), a not-for-profit organization whose activities we will revisit in a later chapter (in Section <a href="read-write.html#file-formats">7.5</a>).
 Simple Features is a hierarchical data model that represents a wide range of geometry types.
 Of 17 geometry types supported by the specification, only 7 are used in the vast majority of geographic research (see Figure <a href="spatial-class.html#fig:sf-ogc">2.2</a>);
 these core geometry types are fully supported by the R package <strong>sf</strong> <span class="citation">(E. Pebesma <a href="#ref-pebesma_simple_2018">2018</a>)</span>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
@@ -572,13 +572,13 @@ The commonly used <code>summary()</code> function, for example, provides a usefu
 <span class="co">#&gt;  Max.   :83.6                      </span>
 <span class="co">#&gt;  NA&#39;s   :10</span></code></pre>
 <p>Although we have only selected one variable for the <code>summary</code> command, it also outputs a report on the geometry.
-This demonstrates the ‘sticky’ behavior of the geometry columns of <strong>sf</strong> objects, meaning the geometry is kept unless the user deliberately removes them, as we’ll see in section <a href="attr.html#vector-attribute-manipulation">3.2</a>.
+This demonstrates the ‘sticky’ behavior of the geometry columns of <strong>sf</strong> objects, meaning the geometry is kept unless the user deliberately removes them, as we’ll see in Section <a href="attr.html#vector-attribute-manipulation">3.2</a>.
 The result provides a quick summary of both the non-spatial and spatial data contained in <code>world</code>: the mean average life expectancy is 71 years (ranging from less than 51 to more than 83 years with a median of 73 years) across all countries.</p>
 
 <div class="rmdnote">
 The word <code>MULTIPOLYGON</code> in the summary output above refers to the geometry type of features (countries) in the <code>world</code> object.
 This representation is necessary for countries with islands such as Indonesia and Greece.
-Other geometry types are described in section <a href="spatial-class.html#geometry">2.2.5</a>.
+Other geometry types are described in Section <a href="spatial-class.html#geometry">2.2.5</a>.
 </div>
 
 <!-- TODO: cross-reference section covering CRSs. -->
@@ -605,10 +605,10 @@ However, there are good reasons for organizing things this way and using <strong
 <p>Before describing each geometry type that the <strong>sf</strong> package supports, it is worth taking a step back to understand the building blocks of <code>sf</code> objects.
 Section <a href="spatial-class.html#sf">2.2.8</a> shows how simple features objects are data frames, with special geometry columns.
 These spatial columns are often called <code>geom</code> or <code>geometry</code>: <code>world$geom</code> refers to the spatial element of the <code>world</code> object described above.
-These geometry columns are ‘list columns’ of class <code>sfc</code> (see section <a href="spatial-class.html#sfc">2.2.7</a>).
-In turn, <code>sfc</code> objects are composed of one or more objects of class <code>sfg</code>: simple feature geometries that we describe in section <a href="spatial-class.html#sfg">2.2.6</a>.</p>
+These geometry columns are ‘list columns’ of class <code>sfc</code> (see Section <a href="spatial-class.html#sfc">2.2.7</a>).
+In turn, <code>sfc</code> objects are composed of one or more objects of class <code>sfg</code>: simple feature geometries that we describe in Section <a href="spatial-class.html#sfg">2.2.6</a>.</p>
 <p>To understand how the spatial components of simple features work, it is vital to understand simple feature geometries.
-For this reason we cover each currently supported simple features geometry type in section <a href="spatial-class.html#geometry">2.2.5</a> before moving on to describe how these can be represented in R using <code>sfg</code> objects, which form the basis of <code>sfc</code> and eventually full <code>sf</code> objects.</p>
+For this reason we cover each currently supported simple features geometry type in Section <a href="spatial-class.html#geometry">2.2.5</a> before moving on to describe how these can be represented in R using <code>sfg</code> objects, which form the basis of <code>sfc</code> and eventually full <code>sf</code> objects.</p>
 
 <div class="rmdnote">
 The preceding code chunk uses <code>=</code> to create a new object called <code>world_mini</code> in the command <code>world_mini = world[1:2, 1:3]</code>.
@@ -698,7 +698,7 @@ Figure 2.6: India in context, demonstrating the expandBB argument.
 </p>
 </div>
 <p>Note the use of <code>[0]</code> to keep only the geometry column and <code>lwd</code> to emphasize India.
-See section <a href="adv-map.html#other-mapping-packages">8.6</a> for other visualization techniques for representing a range of geometry types, the subject of the next section.</p>
+See Section <a href="adv-map.html#other-mapping-packages">8.6</a> for other visualization techniques for representing a range of geometry types, the subject of the next section.</p>
 </div>
 <div id="geometry" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> Geometry types</h3>
@@ -893,7 +893,7 @@ The default value of <code>epsg (SRID)</code> and <code>proj4string</code> is <c
 <span class="co">#&gt; Coordinate Reference System: NA</span></code></pre>
 <p>All geometries in an <code>sfc</code> object must have the same CRS.
 We can add coordinate reference system as a <code>crs</code> argument of <code>st_sfc()</code>.
-This argument accepts an integer with the <code>epsg</code> code such as <code>4326</code>, which automatically adds the ‘proj4string’ (see section <a href="spatial-class.html#crs-intro">2.4</a>):</p>
+This argument accepts an integer with the <code>epsg</code> code such as <code>4326</code>, which automatically adds the ‘proj4string’ (see Section <a href="spatial-class.html#crs-intro">2.4</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># EPSG definition</span>
 points_sfc_wgs =<span class="st"> </span><span class="kw">st_sfc</span>(point1, point2, <span class="dt">crs =</span> <span class="dv">4326</span>)
 <span class="kw">st_crs</span>(points_sfc_wgs)
@@ -1013,7 +1013,7 @@ new_raster =<span class="st"> </span><span class="kw">raster</span>(raster_filep
 <span class="co">#&gt; data source : /home/robin/R/x86_64-pc-linux../3.5/spDataLarge/raster/srtm.tif </span>
 <span class="co">#&gt; names       : srtm </span>
 <span class="co">#&gt; values      : 1024, 2892  (min, max)</span></code></pre>
-<p>Dedicated functions report each component: <code>dim(new_raster)</code> returns the number of rows, columns and layers; the <code>ncell()</code> function the number cells (pixels); <code>res()</code> the raster’s spatial resolution; <code>extent()</code> its spatial extent; and <code>crs()</code> its coordinate reference system (raster reprojection is covered in section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>).
+<p>Dedicated functions report each component: <code>dim(new_raster)</code> returns the number of rows, columns and layers; the <code>ncell()</code> function the number cells (pixels); <code>res()</code> the raster’s spatial resolution; <code>extent()</code> its spatial extent; and <code>crs()</code> its coordinate reference system (raster reprojection is covered in Section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>).
 <code>inMemory()</code> reports whether the the raster data is stored in memory (the default) or on disk.</p>
 <!--CRSargs(CRS("+init=epsg:4326"))-->
 <!-- Note that in contrast to the **sf** package, **raster** only accepts the `proj4string` representation of the coordinate reference system. -->
@@ -1060,7 +1060,7 @@ The new vector, `new_raster_values`, can serve as input for subsequent statistic
 
 <div class="rmdnote">
 The current version of <strong>raster</strong> (2.6.7) is not fully compatible with <code>sf</code> objects.
-We therefore suggest converting <code>sf</code> objects to an intermediate <code>Spatial</code> class (from the <strong>sp</strong> package) for compatibility between raster and vector data, for example <code>crop(raster_obj, as(sf_object, &quot;Spatial&quot;)</code> (see section <a href="geometric-operations.html#raster-vector">5.4</a>).
+We therefore suggest converting <code>sf</code> objects to an intermediate <code>Spatial</code> class (from the <strong>sp</strong> package) for compatibility between raster and vector data, for example <code>crop(raster_obj, as(sf_object, &quot;Spatial&quot;)</code> (see Section <a href="geometric-operations.html#raster-vector">5.4</a>).
 </div>
 
 </div>
@@ -1188,14 +1188,14 @@ Perhaps the most fundamental of these is the Coordinate Reference System (CRS), 
 <!-- Coordinates are meaningless without a CRS, as we don't know theirs units (meters, feets, degrees) or what's the origin -->
 <!-- (-12579102, 4439107) = (-113, 37) -->
 CRSs are either geographic or projected, as introduced at the beginning of this chapter (see Figure <a href="spatial-class.html#fig:vectorplots">2.1</a>).
-This section will will explain each type, laying the foundations for section <a href="reproj-geo-data.html#reproj-geo-data">6</a> on CRS transformations.</p>
+This section will will explain each type, laying the foundations for Section <a href="reproj-geo-data.html#reproj-geo-data">6</a> on CRS transformations.</p>
 <div id="geographic-coordinate-systems" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Geographic coordinate systems</h3>
 <p>Geographic coordinate systems identify any location on the Earth’s surface using two values — longitude and latitude.
 <em>Longitude</em> is location in the East-West direction in angular distance from the Prime Meridian plane.
 <em>Latitude</em> is angular distance North or South of the equatorial plane.
 Distance in geographic CRSs are therefore not measured in meters.
-This has important consequences, as demonstrated in section <a href="reproj-geo-data.html#reproj-geo-data">6</a>.</p>
+This has important consequences, as demonstrated in Section <a href="reproj-geo-data.html#reproj-geo-data">6</a>.</p>
 <p>The surface of the Earth in geographic coordinate systems is represented by a spherical or ellipsoidal surface.
 Spherical models assume that the Earth is a perfect sphere of a given radius.
 Spherical models have the advantage of simplicity but are rarely used because they are inaccurate: the Earth is not a sphere!
@@ -1353,7 +1353,7 @@ Find two similarities and two differences between the image on your computer and
 <li>Bonus: experiment with different ways to visualize the global population.
 <!-- - Bonus: what equivalent arguments to `cex` exist in the dedicated visualization package **tmap**? --></li>
 </ul></li>
-<li>Use <code>plot()</code> to create maps of Nigeria in context (see section <a href="spatial-class.html#base-args">2.2.4</a>).
+<li>Use <code>plot()</code> to create maps of Nigeria in context (see Section <a href="spatial-class.html#base-args">2.2.4</a>).
 <ul>
 <li>Adjust the <code>lwd</code>, <code>col</code> and <code>expandBB</code> arguments of <code>plot()</code>.</li>
 <li>Challenge: read the documentation of <code>text()</code> and annotate the map.

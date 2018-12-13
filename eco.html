@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2018-12-11">
+<meta name="date" content="2018-12-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="read-write.html"><a href="read-write.html#geographic-data-packages"><i class="fa fa-check"></i><b>7.3</b> Geographic data packages</a></li>
 <li class="chapter" data-level="7.4" data-path="read-write.html"><a href="read-write.html#geographic-web-services"><i class="fa fa-check"></i><b>7.4</b> Geographic web services</a></li>
 <li class="chapter" data-level="7.5" data-path="read-write.html"><a href="read-write.html#file-formats"><i class="fa fa-check"></i><b>7.5</b> File formats</a></li>
-<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data Input (I)</a><ul>
+<li class="chapter" data-level="7.6" data-path="read-write.html"><a href="read-write.html#data-input"><i class="fa fa-check"></i><b>7.6</b> Data input (I)</a><ul>
 <li class="chapter" data-level="7.6.1" data-path="read-write.html"><a href="read-write.html#vector-data-1"><i class="fa fa-check"></i><b>7.6.1</b> Vector data</a></li>
 <li class="chapter" data-level="7.6.2" data-path="read-write.html"><a href="read-write.html#raster-data-1"><i class="fa fa-check"></i><b>7.6.2</b> Raster data</a></li>
 </ul></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.1" data-path="conclusion.html"><a href="conclusion.html#introduction-10"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
 <li class="chapter" data-level="15.2" data-path="conclusion.html"><a href="conclusion.html#package-choice"><i class="fa fa-check"></i><b>15.2</b> Package choice</a></li>
 <li class="chapter" data-level="15.3" data-path="conclusion.html"><a href="conclusion.html#gaps"><i class="fa fa-check"></i><b>15.3</b> Gaps and overlaps</a></li>
-<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where next?</a></li>
+<li class="chapter" data-level="15.4" data-path="conclusion.html"><a href="conclusion.html#next"><i class="fa fa-check"></i><b>15.4</b> Where to go next?</a></li>
 <li class="chapter" data-level="15.5" data-path="conclusion.html"><a href="conclusion.html#benefit"><i class="fa fa-check"></i><b>15.5</b> The open source approach</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -466,7 +466,7 @@ The first hypothesis is that four plant belts will be found along the altitudina
 In this chapter we will model the first ordination axis, i.e., the floristic gradient, as a function of environmental predictors such as altitude, slope, catchment area and NDVI.
 For this, we will make use of a random forest model - a very popular machine learning algorithm <span class="citation">(Breiman <a href="#ref-breiman_random_2001">2001</a>)</span>.
 The model will allow us to make spatial predictions of the floristic composition anywhere in the study area.
-To guarantee an optimal prediction, it is advisable to tune beforehand the hyperparameters with the help of spatial cross-validation (see section <a href="spatial-cv.html#svm">11.5.2</a>).</p>
+To guarantee an optimal prediction, it is advisable to tune beforehand the hyperparameters with the help of spatial cross-validation (see Section <a href="spatial-cv.html#svm">11.5.2</a>).</p>
 </div>
 <div id="data-and-data-preparation" class="section level2">
 <h2><span class="header-section-number">14.2</span> Data and data preparation</h2>
@@ -487,7 +487,7 @@ comm[<span class="dv">35</span><span class="op">:</span><span class="dv">40</spa
 <span class="co">#&gt; 40         0         0         0       0.2     0.125</span></code></pre>
 <p>The values represent species cover per site, and were recorded as the area covered by a species in proportion to the site area in percentage points (%; please note that one site can have &gt;100% due to overlapping cover between individual plants).
 The rownames of <code>comm</code> correspond to the <code>id</code> column of <code>random_points</code>.
-<code>dem</code> is the digital elevation model for the study area, and <code>ndvi</code> is the Normalized Difference Vegetation Index (NDVI) computed from the red and near-infrared channels of a Landsat scene (see section <a href="spatial-operations.html#local-operations">4.3.3</a> and <code>?ndvi</code>).
+<code>dem</code> is the digital elevation model for the study area, and <code>ndvi</code> is the Normalized Difference Vegetation Index (NDVI) computed from the red and near-infrared channels of a Landsat scene (see Section <a href="spatial-operations.html#local-operations">4.3.3</a> and <code>?ndvi</code>).
 elps to get more familiar with it, as in Figure <a href="eco.html#fig:sa-mongon">14.2</a> where the <code>dem</code> is overplotted by the <code>random_points</code> and the <code>study_area</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:sa-mongon"></span>
 <img src="figures/sa-mongon-1.png" alt="Study mask (polygon), location of the sampling sites (black points) and DEM in the background." width="576" />
@@ -495,7 +495,7 @@ elps to get more familiar with it, as in Figure <a href="eco.html#fig:sa-mongon"
 Figure 14.2: Study mask (polygon), location of the sampling sites (black points) and DEM in the background.
 </p>
 </div>
-<p>The next step is to compute variables which we will predominantly need for the modeling and predictive mapping (see section <a href="eco.html#predictive-mapping">14.4.2</a>) but also for aligning the NMDS axes with the main gradient, altitude and humidity, respectively, in the study area (see section <a href="eco.html#nmds">14.3</a>).</p>
+<p>The next step is to compute variables which we will predominantly need for the modeling and predictive mapping (see Section <a href="eco.html#predictive-mapping">14.4.2</a>) but also for aligning the NMDS axes with the main gradient, altitude and humidity, respectively, in the study area (see Section <a href="eco.html#nmds">14.3</a>).</p>
 <p>Specifically, we will compute catchment slope and catchment area from a digital elevation model using R-GIS bridges (see Chapter <a href="gis.html#gis">9</a>).
 Curvatures might also represent valuable predictors, in the exercise section you can find out how they would change the modeling result.</p>
 <p>To compute catchment area and catchment slope, we will make use of the <code>saga:sagawetnessindex</code> function.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a>
@@ -516,8 +516,8 @@ Here, we present only a selection of the complete output.</p>
 <span class="co">#&gt;  0 - [0] local slope</span>
 <span class="co">#&gt;  1 - [1] catchment slope</span>
 <span class="co">#&gt; ...</span></code></pre>
-<p>Subsequently, we can specify the needed parameters using R named arguments (see section <a href="gis.html#rqgis">9.2</a>).
-Remember that we can use a <code>RasterLayer</code> living in R’s global environment to specify the input raster <code>DEM</code> (see section <a href="gis.html#rqgis">9.2</a>).
+<p>Subsequently, we can specify the needed parameters using R named arguments (see Section <a href="gis.html#rqgis">9.2</a>).
+Remember that we can use a <code>RasterLayer</code> living in R’s global environment to specify the input raster <code>DEM</code> (see Section <a href="gis.html#rqgis">9.2</a>).
 Specifying 1 as the <code>SLOPE_TYPE</code> makes sure that the algorithm will return the catchment slope.
 The resulting output rasters should be saved to temporary files with an <code>.sdat</code> extension which is a SAGA raster format.
 Setting <code>load_output</code> to <code>TRUE</code> ensures that the resulting rasters will be imported into R.</p>
@@ -530,7 +530,7 @@ ep =<span class="st"> </span><span class="kw">run_qgis</span>(<span class="dt">a
               <span class="dt">load_output =</span> <span class="ot">TRUE</span>,
               <span class="dt">show_output_paths =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>This returns a list named <code>ep</code> consisting of two elements: <code>AREA</code> and <code>SLOPE</code>.
-Let us add two more raster objects to the list, namely <code>dem</code> and <code>ndvi</code>, and convert it into a raster stack (see section <a href="spatial-class.html#raster-classes">2.3.3</a>), .</p>
+Let us add two more raster objects to the list, namely <code>dem</code> and <code>ndvi</code>, and convert it into a raster stack (see Section <a href="spatial-class.html#raster-classes">2.3.3</a>), .</p>
 <pre class="sourceCode r"><code class="sourceCode r">ep =<span class="st"> </span><span class="kw">stack</span>(<span class="kw">c</span>(dem, ndvi, ep))
 <span class="kw">names</span>(ep) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;dem&quot;</span>, <span class="st">&quot;ndvi&quot;</span>, <span class="st">&quot;carea&quot;</span>, <span class="st">&quot;cslope&quot;</span>)</code></pre>
 <p>Additionally, the catchment area values are highly skewed to the right (<code>hist(ep$carea)</code>).
@@ -538,7 +538,7 @@ A log10-transformation makes the distribution more normal.</p>
 <pre class="sourceCode r"><code class="sourceCode r">ep<span class="op">$</span>carea =<span class="st"> </span><span class="kw">log10</span>(ep<span class="op">$</span>carea)</code></pre>
 <p>As a convenience to the reader we have added <code>ep</code> to <strong>spDataLarge</strong>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;ep&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
-<p>Finally, we can extract the terrain attributes to our field observations (see also section <a href="geometric-operations.html#raster-extraction">5.4.2</a>).</p>
+<p>Finally, we can extract the terrain attributes to our field observations (see also Section <a href="geometric-operations.html#raster-extraction">5.4.2</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">random_points[, <span class="kw">names</span>(ep)] =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(ep, <span class="kw">as</span>(random_points, <span class="st">&quot;Spatial&quot;</span>))</code></pre>
 </div>
 <div id="nmds" class="section level2">
@@ -608,7 +608,7 @@ Figure 14.3: Plotting the first NMDS axis against altitude.
 </p>
 </div>
 <p>The scores of the first NMDS axis represent the different vegetation formations, i.e. the floristic gradient, appearing along the slope of Mt. Mongón.
-To spatially visualize them, we can model the NMDS scores with the previously created predictors (section <a href="eco.html#data-and-data-preparation">14.2</a>), and use the resulting model for predictive mapping (see next section).</p>
+To spatially visualize them, we can model the NMDS scores with the previously created predictors (Section <a href="eco.html#data-and-data-preparation">14.2</a>), and use the resulting model for predictive mapping (see next section).</p>
 </div>
 <div id="modeling-the-floristic-gradient" class="section level2">
 <h2><span class="header-section-number">14.4</span> Modeling the floristic gradient</h2>
@@ -639,7 +639,7 @@ Figure 14.4: Simple example of a decision tree with three internal nodes and fou
 The first internal node at the top of the tree assigns all observations which are below 328.5 m to the left and all other observations to the right branch.
 The observations falling into the left branch have a mean NMDS score of -1.198.
 Overall, we can interpret the tree as follows: the higher the elevation, the higher the NMDS score becomes.
-Decision trees have a tendency to overfit, that is they mirror too closely the input data including its noise which in turn leads to bad predictive performances <span class="citation">(section <a href="spatial-cv.html#intro-cv">11.4</a>; James et al. <a href="#ref-james_introduction_2013">2013</a>)</span>.
+Decision trees have a tendency to overfit, that is they mirror too closely the input data including its noise which in turn leads to bad predictive performances <span class="citation">(Section <a href="spatial-cv.html#intro-cv">11.4</a>; James et al. <a href="#ref-james_introduction_2013">2013</a>)</span>.
 Bootstrap aggregation (bagging) is an ensemble technique and helps to overcome this problem.
 Ensemble techniques simply combine the predictions of multiple models.
 Thus, bagging takes repeated samples from the same input data and averages the predictions.
@@ -654,16 +654,16 @@ for each split of the tree—in other words, that bagging should be done.
 -->
 <div id="mlr-building-blocks" class="section level3">
 <h3><span class="header-section-number">14.4.1</span> <strong>mlr</strong> building blocks</h3>
-<p>The code in this section largely follows the steps we have introduced in section <a href="spatial-cv.html#svm">11.5.2</a>.
+<p>The code in this section largely follows the steps we have introduced in Section <a href="spatial-cv.html#svm">11.5.2</a>.
 The only differences are:</p>
 <ol style="list-style-type: decimal">
-<li>The response variable is numeric, hence a regression task will replace the classification task of section <a href="spatial-cv.html#svm">11.5.2</a>.</li>
+<li>The response variable is numeric, hence a regression task will replace the classification task of Section <a href="spatial-cv.html#svm">11.5.2</a>.</li>
 <li>Instead of the AUROC which can only be used for categorical response variables, we will use the root mean squared error (RMSE) as performance measure.</li>
 <li>We use a random forest model instead of a support vector machine which naturally goes along with different hyperparameters.</li>
 <li>We are leaving the assessment of a bias-reduced performance measure as an exercise to the reader (see exercises).
 Instead we show how to tune hyperparameters for (spatial) predictions.</li>
 </ol>
-<p>Remember that 125,500 models were necessary to retrieve bias-reduced performance estimates when using 100-repeated 5-fold spatial cross-validation and a random search of 50 iterations (see section <a href="spatial-cv.html#svm">11.5.2</a>).
+<p>Remember that 125,500 models were necessary to retrieve bias-reduced performance estimates when using 100-repeated 5-fold spatial cross-validation and a random search of 50 iterations (see Section <a href="spatial-cv.html#svm">11.5.2</a>).
 In the hyperparameter tuning level, we found the best hyperparameter combination which in turn was used in the outer performance level for predicting the test data of a specific spatial partition (see also Figure <a href="spatial-cv.html#fig:inner-outer">11.6</a>).
 This was done for five spatial partitions, and repeated a 100 times yielding in total 500 optimal hyperparameter combinations.
 Which one should we use for making spatial predictions?
@@ -688,7 +688,7 @@ The learner is a random forest model implementation from the <strong>ranger</str
 task =<span class="st"> </span><span class="kw">makeRegrTask</span>(<span class="dt">data =</span> rp, <span class="dt">target =</span> <span class="st">&quot;sc&quot;</span>, <span class="dt">coordinates =</span> coords)
 <span class="co"># learner</span>
 lrn_rf =<span class="st"> </span><span class="kw">makeLearner</span>(<span class="dt">cl =</span> <span class="st">&quot;regr.ranger&quot;</span>, <span class="dt">predict.type =</span> <span class="st">&quot;response&quot;</span>)</code></pre>
-<p>As opposed to for example support vector machines (see section <a href="spatial-cv.html#svm">11.5.2</a>), random forests often already show good performances when used with the default values of their hyperparameters (which may be one reason for their popularity).
+<p>As opposed to for example support vector machines (see Section <a href="spatial-cv.html#svm">11.5.2</a>), random forests often already show good performances when used with the default values of their hyperparameters (which may be one reason for their popularity).
 Still, tuning often moderately improves model results, and thus is worth the effort <span class="citation">(Probst, Wright, and Boulesteix <a href="#ref-probst_hyperparameters_2018">2018</a>)</span>.
 Since we deal with geographic data, we will again make use of spatial cross-validation to tune the hyperparameters (see sections <a href="spatial-cv.html#intro-cv">11.4</a> and <a href="spatial-cv.html#spatial-cv-with-mlr">11.5</a>).
 Specifically, we will use a five-fold spatial partitioning with only one repetition (<code>makeResampleDesc()</code>).
@@ -699,7 +699,7 @@ perf_level =<span class="st"> </span><span class="kw">makeResampleDesc</span>(<s
 ctrl =<span class="st"> </span><span class="kw">makeTuneControlRandom</span>(<span class="dt">maxit =</span> 50L)</code></pre>
 <p>In random forests, the hyperparameters <code>mtry</code>, <code>min.node.size</code> and <code>sample.fraction</code> determine the degree of randomness, and should be tuned <span class="citation">(Probst, Wright, and Boulesteix <a href="#ref-probst_hyperparameters_2018">2018</a>)</span>.
 <code>mtry</code> indicates how many predictor variables should be used in each tree.
-If all predictors are used, then this corresponds in fact to bagging (see beginning of section <a href="eco.html#modeling-the-floristic-gradient">14.4</a>).
+If all predictors are used, then this corresponds in fact to bagging (see beginning of Section <a href="eco.html#modeling-the-floristic-gradient">14.4</a>).
 The <code>sample.fraction</code> parameter specifies the fraction of observations to be used in each tree.
 Smaller fractions lead to greater diversity, and thus less correlated trees which often is desirable (see above).
 The <code>min.node.size</code> parameter indicates the number of observations a terminal node should at least have (see also Figure <a href="eco.html#fig:tree">14.4</a>).
@@ -757,7 +757,7 @@ model_rf =<span class="st"> </span><span class="kw">train</span>(lrn_rf, task)
 <p>The last step is to apply the model to the spatially available predictors, i.e. to the raster stack.
 So far, <code>raster::predict()</code> does not support the output of <strong>ranger</strong> models, hence, we will have to program the prediction ourselves.
 First, we convert <code>ep</code> into a prediction data frame which secondly serves as input for the <code>predict.ranger()</code> function.
-Thirdly, we put the predicted values back into a <code>RasterLayer</code> (see section <a href="attr.html#raster-subsetting">3.3.1</a> and Figure <a href="eco.html#fig:rf-pred">14.5</a>).</p>
+Thirdly, we put the predicted values back into a <code>RasterLayer</code> (see Section <a href="attr.html#raster-subsetting">3.3.1</a> and Figure <a href="eco.html#fig:rf-pred">14.5</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convert raster stack into a data frame</span>
 new_data =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(ep))
 <span class="co"># apply the model to the data frame</span>
@@ -785,10 +785,10 @@ Interestingly, the spatial prediction clearly reveals that the bromeliad belt is
 </div>
 <div id="conclusions-1" class="section level2">
 <h2><span class="header-section-number">14.5</span> Conclusions</h2>
-<p>In this chapter we have ordinated the community matrix of the <strong>lomas</strong> Mt. Mongón with the help of a NMDS (section <a href="eco.html#nmds">14.3</a>).
-The first axis, representing the main floristic gradient in the study area, was modeled as a function of environmental predictors which partly were derived through R-GIS bridges (section <a href="eco.html#data-and-data-preparation">14.2</a>).
-The <strong>mlr</strong> package provided the building blocks to spatially tune the hyperparameters <code>mtry</code>, <code>sample.fraction</code> and <code>min.node.size</code> (section <a href="eco.html#mlr-building-blocks">14.4.1</a>).
-The tuned hyperparameters served as input for the final model which in turn was applied to the environmental predictors for a spatial representation of the floristic gradient (section <a href="eco.html#predictive-mapping">14.4.2</a>).
+<p>In this chapter we have ordinated the community matrix of the <strong>lomas</strong> Mt. Mongón with the help of a NMDS (Section <a href="eco.html#nmds">14.3</a>).
+The first axis, representing the main floristic gradient in the study area, was modeled as a function of environmental predictors which partly were derived through R-GIS bridges (Section <a href="eco.html#data-and-data-preparation">14.2</a>).
+The <strong>mlr</strong> package provided the building blocks to spatially tune the hyperparameters <code>mtry</code>, <code>sample.fraction</code> and <code>min.node.size</code> (Section <a href="eco.html#mlr-building-blocks">14.4.1</a>).
+The tuned hyperparameters served as input for the final model which in turn was applied to the environmental predictors for a spatial representation of the floristic gradient (Section <a href="eco.html#predictive-mapping">14.4.2</a>).
 The result demonstrates spatially the astounding biodiversity in the middle of the desert.
 Since <strong>lomas</strong> mountains are heavily endangered, the prediction map can serve as basis for informed decision-making on delineating protection zones, and making the local population aware of the uniqueness found in their immediate neighborhood.</p>
 <p>In terms of methodology, a few additional points could be addressed:</p>
@@ -823,8 +823,8 @@ The scores of the first NMDS axis (which were the result when using the presence
 To complete the response-predictor matrix, extract the values of the environmental predictor raster stack to <code>random_points</code>.</p></li>
 <li><p>Use the response-predictor matrix of the previous exercise to fit a random forest model.
 Find the optimal hyperparameters and use them for making a prediction map.</p></li>
-<li><p>Retrieve the bias-reduced RMSE of a random forest model using spatial cross-validation including the estimation of optimal hyperparameter combinations (random search with 50 iterations) in an inner tuning loop (see section <a href="spatial-cv.html#svm">11.5.2</a>).
-Parallelize the tuning level (see section <a href="spatial-cv.html#svm">11.5.2</a>).
+<li><p>Retrieve the bias-reduced RMSE of a random forest model using spatial cross-validation including the estimation of optimal hyperparameter combinations (random search with 50 iterations) in an inner tuning loop (see Section <a href="spatial-cv.html#svm">11.5.2</a>).
+Parallelize the tuning level (see Section <a href="spatial-cv.html#svm">11.5.2</a>).
 Report the mean RMSE and use a boxplot to visualize all retrieved RMSEs.</p></li>
 <li><p>Retrieve the bias-reduced RMSE of a simple linear model using spatial cross-validation.
 Compare the result to the result of the random forest model by making RMSE boxplots for each modeling approach.</p></li>
