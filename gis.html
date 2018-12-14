@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="spatial-class.html"><a href="spatial-class.html#crs-intro"><i class="fa fa-check"></i><b>2.4</b> Coordinate Reference Systems</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="spatial-class.html"><a href="spatial-class.html#geographic-coordinate-systems"><i class="fa fa-check"></i><b>2.4.1</b> Geographic coordinate systems</a></li>
-<li class="chapter" data-level="2.4.2" data-path="spatial-class.html"><a href="spatial-class.html#projected-coordinate-systems"><i class="fa fa-check"></i><b>2.4.2</b> Projected coordinate systems</a></li>
+<li class="chapter" data-level="2.4.2" data-path="spatial-class.html"><a href="spatial-class.html#projected-coordinate-reference-systems"><i class="fa fa-check"></i><b>2.4.2</b> Projected coordinate reference systems</a></li>
 <li class="chapter" data-level="2.4.3" data-path="spatial-class.html"><a href="spatial-class.html#crs-in-r"><i class="fa fa-check"></i><b>2.4.3</b> CRSs in R</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="spatial-class.html"><a href="spatial-class.html#units"><i class="fa fa-check"></i><b>2.5</b> Units</a></li>
@@ -908,7 +908,7 @@ cmd =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&qu
 The ‘link’ to GDAL provided by <strong>link2gi</strong> could be used as a foundation for more doing more advanced GDAL work from the R or system CLI.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>
 TauDEM (<a href="http://hydrology.usu.edu/taudem/taudem5/index.html" class="uri">http://hydrology.usu.edu/taudem/taudem5/index.html</a>) and the Orfeo Toolbox (<a href="https://www.orfeo-toolbox.org/" class="uri">https://www.orfeo-toolbox.org/</a>) are other spatial data processing libraries/programs offering a command line interface.
 At the time of writing it appears that there is only a developer version of an R/TauDEM interface on R-Forge (<a href="https://r-forge.r-project.org/R/?group_id=956" class="uri">https://r-forge.r-project.org/R/?group_id=956</a>)).
-In any case, the above example shows how to access low level libraries from the system command line, creating the possibility for new R bridges to these libraries to be created.</p>
+In any case, the above example shows how to access low-level libraries from the system command line, creating the possibility for new R bridges to these libraries to be created.</p>
 <p>Before diving into a project to create a new bridge, however, it is important to be aware of the power of existing R packages and that <code>system()</code> calls may not be platform-independent (they may fail on some computers).
 Furthermore, <strong>sf</strong> brings most of the power provided by GDAL, GEOS and PROJ to R via the R/C++ interface provided by <strong>Rcpp</strong>, which avoids <code>system()</code> calls.</p>
 </div>
