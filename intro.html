@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#what-is-geocomputation"><i class="fa fa-check"></i><b>1.1</b> What is geocomputation?</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-geocomputation-with-r"><i class="fa fa-check"></i><b>1.2</b> Why geocomputation with R?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why-use-r-for-geocomputation"><i class="fa fa-check"></i><b>1.2</b> Why use R for geocomputation?</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#software-for-geocomputation"><i class="fa fa-check"></i><b>1.3</b> Software for geocomputation</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#rs-spatial-ecosystem"><i class="fa fa-check"></i><b>1.4</b> R’s spatial ecosystem</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#the-history-of-r-spatial"><i class="fa fa-check"></i><b>1.5</b> The history of R-spatial</a></li>
@@ -421,16 +421,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This book is about using the power of computers to <em>do things</em> with geographic data.
 It teaches a range of spatial skills, including: reading, writing and manipulating geographic data; making static and interactive maps; applying geocomputation to solve real-world problems; and modeling geographic phenomena.
 By demonstrating how various geographic operations can be linked, in reproducible ‘code chunks’ that intersperse the prose, the book also teaches a transparent and thus scientific workflow.
-Learning how to use the wealth of geospatial tools available from the R command line can be exciting but creating <em>new ones</em> can be truly liberating.
+Learning how to use the wealth of geospatial tools available from the R command line can be exciting, but creating <em>new ones</em> can be truly liberating.
 Using the command-line driven approach taught throughout, and programming techniques covered in Chapter <a href="algorithms.html#algorithms">10</a>, can help remove constraints on your creativity imposed by software.
-After reading the book and completing the exercises you should therefore feel empowered, with:
-a strong understanding of the possibilities opened-up by R’s impressive geographic capabilities;
-new skills to solve real world problems with geographic data;
+After reading the book and completing the exercises, you should therefore feel empowered with
+a strong understanding of the possibilities opened up by R’s impressive geographic capabilities,
+new skills to solve real-world problems with geographic data,
 and the ability to communicate your work with maps and reproducible code.</p>
 <p>Over the last few decades free and open source software for geospatial (FOSS4G) has progressed at an astonishing rate.
-Thanks to organizations such as <a href="https://www.osgeo.org/">OSGeo</a>, geographic data analysis is no longer the preserve of those with expensive hardware and software: anyone can now download and run high performance spatial libraries.
-Open source Geographic Information Systems (GIS) such as <a href="http://qgis.org/en/site/">QGIS</a> have made geographic analysis accessible worldwide.
-GIS programs tend to emphasize graphical user interfaces (GUIs), with the unintended consequence of discouraging reproducibility (although many can be used from the command line as we’ll see in see in Chapter <a href="gis.html#gis">9</a>).
+Thanks to organizations such as <a href="https://www.osgeo.org/">OSGeo</a>, geographic data analysis is no longer the preserve of those with expensive hardware and software: anyone can now download and run high-performance spatial libraries.
+Open source Geographic Information Systems (GIS), such as <a href="http://qgis.org/en/site/">QGIS</a>, have made geographic analysis accessible worldwide.
+GIS programs tend to emphasize graphical user interfaces (GUIs), with the unintended consequence of discouraging reproducibility (although many can be used from the command line as we’ll see in Chapter <a href="gis.html#gis">9</a>).
 R, by contrast, emphasizes the command line interface (CLI).
 A simplistic comparison between the different approaches is illustrated in Table <a href="intro.html#tab:gdsl">1.1</a>.
 <!-- Still, many GIS programs ... but most teaching materials focus on the GUI ... to supplement the main graphical user interface (GUI), but  --></p>
@@ -465,27 +465,26 @@ A simplistic comparison between the different approaches is illustrated in Table
 <!-- , something that is often lacking in geographic work. -->
 It aims to make reproducible geographic data analysis workflows more accessible, and demonstrate the power of open geospatial software available from the command-line.
 “Interfaces to other software are part of R” <span class="citation">(Eddelbuettel and Balamuta <a href="#ref-eddelbuettel_extending_2018">2018</a>)</span>.
-This means that in addition to outstanding ‘in house’ capabilities, R allows access to many other spatial software libraries, explained in Section <a href="intro.html#why-geocomputation-with-r">1.2</a> and demonstrated in Chapter <a href="gis.html#gis">9</a>.
+This means that in addition to outstanding ‘in house’ capabilities, R allows access to many other spatial software libraries, explained in Section <a href="#why-geocomputation-with-r"><strong>??</strong></a> and demonstrated in Chapter <a href="gis.html#gis">9</a>.
 Before going into the details of the software, however, it is worth taking a step back and thinking about what we mean by geocomputation.</p>
 
 <div class="rmdnote">
 <p>Reproducibility is a major advantage of command-line interfaces, but what does it mean in practice?
 We define it as follows: “A process in which the same results can be generated by others using publicly accessible code.”</p>
-This may sound simple and easy to achieve (which it is if you carefully maintain your R code in script files) but has profound implications for teaching and the scientific process <span class="citation">(Pebesma, Nüst, and Bivand <a href="#ref-pebesma_r_2012">2012</a>)</span>.
+This may sound simple and easy to achieve (which it is if you carefully maintain your R code in script files), but has profound implications for teaching and the scientific process <span class="citation">(Pebesma, Nüst, and Bivand <a href="#ref-pebesma_r_2012">2012</a>)</span>.
 </div>
 
 <div id="what-is-geocomputation" class="section level2">
 <h2><span class="header-section-number">1.1</span> What is geocomputation?</h2>
 <p>Geocomputation is a young term, dating back to the first conference on the subject in 1996.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-<!-- todo: which chapters? -->
 What distinguished geocomputation from the (at the time) commonly used term ‘quantitative geography’, its early advocates proposed, was its emphasis on “creative and experimental” applications <span class="citation">(Longley et al. <a href="#ref-longley_geocomputation_1998">1998</a>)</span> and the development of new tools and methods <span class="citation">(Openshaw and Abrahart <a href="#ref-openshaw_geocomputation_2000">2000</a>)</span>:
 “GeoComputation is about using the various different types of geodata and about developing relevant geo-tools within the overall context of a ‘scientific’ approach.”
-This book aims to go beyond teaching methods and code: by the end of it you should be able to use your geocomputational skills, to do “practical work that is beneficial or useful” <span class="citation">(Openshaw and Abrahart <a href="#ref-openshaw_geocomputation_2000">2000</a>)</span>.</p>
+This book aims to go beyond teaching methods and code; by the end of it you should be able to use your geocomputational skills, to do “practical work that is beneficial or useful” <span class="citation">(Openshaw and Abrahart <a href="#ref-openshaw_geocomputation_2000">2000</a>)</span>.</p>
 <p>Our approach differs from early adopters such as Stan Openshaw, however, in its emphasis on reproducibility and collaboration.
-At the turn of the 21<sup>st</sup> Century it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data.
+At the turn of the 21<sup>st</sup> Century, it was unrealistic to expect readers to be able to reproduce code examples, due to barriers preventing access to the necessary hardware, software and data.
 Fast-forward two decades and things have progressed rapidly.
 Anyone with access to a laptop with ~4GB RAM can realistically expect to be able to install and run software for geocomputation on publicly accessible datasets, which are more widely available than ever before (as we will see in Chapter <a href="read-write.html#read-write">7</a>).<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-Unlike early works in the field all the work presented in this book is reproducible using code and example data supplied alongside the book, in R packages such as <strong>spData</strong>, the installation of which is covered in Chapter <a href="spatial-class.html#spatial-class">2</a>.</p>
+Unlike early works in the field, all the work presented in this book is reproducible using code and example data supplied alongside the book, in R packages such as <strong>spData</strong>, the installation of which is covered in Chapter <a href="spatial-class.html#spatial-class">2</a>.</p>
 <p>Geocomputation is closely related to other terms including: Geographic Information Science (GIScience); Geomatics; Geoinformatics; Spatial Information Science; Geoinformation Engineering <span class="citation">(Longley <a href="#ref-longley_geographic_2015">2015</a>)</span>; and Geographic Data Science (GDS).
 Each term shares an emphasis on a ‘scientific’ (implying reproducible and falsifiable) approach influenced by GIS, although their origins and main fields of application differ.
 GDS, for example, emphasizes ‘data science’ skills and large datasets, while Geoinformatics tends to focus on data structures.
@@ -514,8 +513,8 @@ Of course, (geocomputational) algorithms are powerful tools that can become high
 However, all algorithms are composed of smaller parts.
 By teaching you its foundations and underlying structure, we aim to empower you to create your own innovative solutions to geographic data problems.</p>
 </div>
-<div id="why-geocomputation-with-r" class="section level2">
-<h2><span class="header-section-number">1.2</span> Why geocomputation with R?</h2>
+<div id="why-use-r-for-geocomputation" class="section level2">
+<h2><span class="header-section-number">1.2</span> Why use R for geocomputation?</h2>
 <p>Early geographers used a variety of tools including barometers, compasses and <a href="https://en.wikipedia.org/wiki/Sextant">sextants</a> to advance knowledge about the world <span class="citation">(Wulf <a href="#ref-wulf_invention_2015">2015</a>)</span>.
 It was only with the invention of the marine <a href="https://en.wikipedia.org/wiki/Marine_chronometer">chronometer</a> in 1761 that it became possible to calculate longitude at sea, enabling ships to take more direct routes.</p>
 <p>Nowadays such lack of geographic data is hard to imagine.
@@ -527,16 +526,16 @@ Remote sensing data from satellites has become too large to analyze the correspo
 ‘Geodatabases’ enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.
 R is one such tool, with advanced analysis, modeling and visualization capabilities.
 In this context the focus of the book is not on the language itself <span class="citation">(see Wickham <a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>.
-Instead we use R as a ‘tool for the trade’ for understanding the world, similar to Humboldt’s use of tools to gain a deep understanding of nature in all its complexity and interconnections <span class="citation">Wulf (<a href="#ref-wulf_invention_2015">2015</a>)</span>.
+Instead we use R as a ‘tool for the trade’ for understanding the world, similar to Humboldt’s use of tools to gain a deep understanding of nature in all its complexity and interconnections <span class="citation">(see Wulf <a href="#ref-wulf_invention_2015">2015</a>)</span>.
 Although programming can seem like a reductionist activity, the aim is to teach geocomputation with R not only for fun, but for understanding the world.</p>
 <p>R is a multi-platform, open source language and environment for statistical computing and graphics (<a href="https://www.r-project.org/">r-project.org/</a>).
-With a wide range of packages R also supports advanced geospatial statistics, modeling and visualization.
-New integrated development environments (IDEs) such as RStudio have made R more user friendly for many, easing map making with a panel dedicated to interactive visualization.</p>
-<p>At its core R is an object-oriented, <a href="http://adv-r.had.co.nz/Functional-programming.html">functional programming language</a> <span class="citation">(Wickham <a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>, and was specifically designed as an interactive interface to other software <span class="citation">(Chambers <a href="#ref-chambers_extending_2016">2016</a>)</span>.
+With a wide range of packages, R also supports advanced geospatial statistics, modeling and visualization.
+New integrated development environments (IDEs) such as RStudio have made R more user-friendly for many, easing map making with a panel dedicated to interactive visualization.</p>
+<p>At its core, R is an object-oriented, <a href="http://adv-r.had.co.nz/Functional-programming.html">functional programming language</a> <span class="citation">(Wickham <a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>, and was specifically designed as an interactive interface to other software <span class="citation">(Chambers <a href="#ref-chambers_extending_2016">2016</a>)</span>.
 The latter also includes many ‘bridges’ to a treasure trove of GIS software, ‘geolibraries’ and functions (see Chapter <a href="gis.html#gis">9</a>).
 It is thus ideal for quickly creating ‘geo-tools’, without needing to master lower level languages (compared to R) such as C, FORTRAN or Java (see Section <a href="intro.html#software-for-geocomputation">1.3</a>).
 This can feel like breaking free from the metaphorical ‘glass ceiling’ imposed by GUI-based or proprietary geographic information systems (see Table <a href="intro.html#tab:gdsl">1.1</a> for a definition of GUI).
-Furthermore R facilitates access to other languages:
+Furthermore, R facilitates access to other languages:
 the packages <strong>Rcpp</strong> and <strong>reticulate</strong> enable access to C++ and Python code, for example.
 This means R can be used as a ‘bridge’ to a wide range of geospatial programs (see Section <a href="intro.html#software-for-geocomputation">1.3</a>).</p>
 <p>Another example showing R’s flexibility and evolving geographic capabilities is interactive map making.
@@ -553,12 +552,12 @@ popup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot
 <div id="htmlwidget-ec897849c5c50a6f7846" style="width:100%;height:355.968px;" class="leaflet html-widget"></div>
 <script type="application/json" data-for="htmlwidget-ec897849c5c50a6f7846">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["NASAGIBS.ViirsEarthAtNight2012",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[52,53,49],[-3,23,11],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Robin","Jakub","Jannes"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[49,53],"lng":[-3,23]}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
-Figure 1.1: Where the authors are from. The basemap is a tiled image of the Earth at Night provided by NASA. Interact with the online version at geocompr.robinlovelace.net, for example by zooming-in and clicking on the popups.
+Figure 1.1: The blue markers indicate where the authors are from. The basemap is a tiled image of the Earth at night provided by NASA. Interact with the online version at geocompr.robinlovelace.net, for example by zooming in and clicking on the popups.
 </p>
 </div>
 <p>It would have been difficult to produce Figure <a href="intro.html#fig:interactive">1.1</a> using R a few years ago, let alone as an interactive map.
 This illustrates R’s flexibility and how, thanks to developments such as <strong>knitr</strong> and <strong>leaflet</strong>, it can be used as an interface to other software, a theme that will recur throughout this book.
-The use of R code, therefore, enables teaching geocomputation with reference to reproducible examples such as that provided in <a href="intro.html#fig:interactive">1.1</a> rather than abstract concepts.</p>
+The use of R code, therefore, enables teaching geocomputation with reference to reproducible examples such as that provided in Figure <a href="intro.html#fig:interactive">1.1</a> rather than abstract concepts.</p>
 </div>
 <div id="software-for-geocomputation" class="section level2">
 <h2><span class="header-section-number">1.3</span> Software for geocomputation</h2>
@@ -571,8 +570,8 @@ This section briefly introduces the languages <a href="https://isocpp.org/">C++<
 <p>An important feature of R (and Python) is that it is an interpreted language.
 This is advantageous because it enables interactive programming in a Read–Eval–Print Loop (REPL):
 code entered into the console is immediately executed and the result is printed, rather than waiting for the intermediate stage of compilation.
-On the other hand compiled languages such as C++ and Java tend to run faster (once they have been compiled).</p>
-<p>C++ provides the basis for many GIS packages such as <a href="www.qgis.org">QGIS</a>, <a href="https://grass.osgeo.org/">GRASS</a> and <a href="www.saga-gis.org">SAGA</a> so is a sensible starting point.
+On the other hand, compiled languages such as C++ and Java tend to run faster (once they have been compiled).</p>
+<p>C++ provides the basis for many GIS packages such as <a href="www.qgis.org">QGIS</a>, <a href="https://grass.osgeo.org/">GRASS</a> and <a href="www.saga-gis.org">SAGA</a> so it is a sensible starting point.
 <!-- even [ArcGIS](https://www.arcgis.com/)) relies in great parts on it. -->
 Well-written C++ is very fast, making it a good choice for performance-critical applications such as processing large geographic datasets, but is harder to learn than Python or R.
 C++ has become more accessible with the <strong>Rcpp</strong> package, which provides a good ‘way in’ to C programming for R users.
@@ -596,7 +595,7 @@ Both languages are object-oriented, and have many areas of overlap, leading to i
 <p>In practice both R and Python have their strengths and to some extent which you use is less important than the domain of application and communication of results.
 Learning either will provide a head-start in learning the other.
 However, there are major advantages of R over Python for geocomputation.
-This includes its much better support of the geographic data models vector and raster in the language itself (see Chapter <a href="spatial-class.html#spatial-class">2</a>) and corresponding visualization possibilities (see Chapters <a href="spatial-class.html#spatial-class">2</a> &amp; <a href="adv-map.html#adv-map">8</a>).
+This includes its much better support of the geographic data models vector and raster in the language itself (see Chapter <a href="spatial-class.html#spatial-class">2</a>) and corresponding visualization possibilities (see Chapters <a href="spatial-class.html#spatial-class">2</a> and <a href="adv-map.html#adv-map">8</a>).
 Equally important, R has unparalleled support for statistics, including spatial statistics, with hundreds of packages (unmatched by Python) supporting thousands of statistical methods.</p>
 <p>The major advantage of Python is that it is a <em>general-purpose</em> programming language.
 It is used in many domains, including desktop software, computer games, websites and data science.
@@ -607,8 +606,8 @@ It has been extended in many directions including, for example, web application 
 Python is often the only shared language between different (geocomputation) communities and can be seen as the ‘glue’ that holds many GIS programs together.
 Many geoalgorithms, including those in QGIS and ArcMap, can be accessed from the Python command line, making it well-suited as a starter language for command-line GIS.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <p>For spatial statistics and predictive modeling, however, R is second-to-none.
-This does not mean you must chose either R or Python: Python supports most common statistical techniques (though R tends to support new developments in spatial statistics earlier) and many concepts learned from Python can be applied to the R world.
-Like R Python also supports geographic data analysis and manipulation with packages such as <strong>osgeo</strong>, <strong>Shapely</strong>, <strong>NumPy</strong> and <strong>PyGeoProcessing</strong> <span class="citation">(Garrard <a href="#ref-garrard_geoprocessing_2016">2016</a>)</span>.</p>
+This does not mean you must choose either R or Python: Python supports most common statistical techniques (though R tends to support new developments in spatial statistics earlier) and many concepts learned from Python can be applied to the R world.
+Like R, Python also supports geographic data analysis and manipulation with packages such as <strong>osgeo</strong>, <strong>Shapely</strong>, <strong>NumPy</strong> and <strong>PyGeoProcessing</strong> <span class="citation">(Garrard <a href="#ref-garrard_geoprocessing_2016">2016</a>)</span>.</p>
 </div>
 <div id="rs-spatial-ecosystem" class="section level2">
 <h2><span class="header-section-number">1.4</span> R’s spatial ecosystem</h2>
@@ -616,17 +615,13 @@ Like R Python also supports geographic data analysis and manipulation with packa
 <!-- 1. this book focus -> sf + raster/stars + leaflet/mapview (the recent state of spatial R); the history of R spatial is way longer -->
 <p>There are many ways to handle geographic data in R, with dozens of packages in the area.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
 In this book we endeavor to teach the state-of-the-art in the field whilst ensuring that the methods are future-proof.
-Like many areas of software development, R’s spatial ecosystem is rapidly evolving.
+Like many areas of software development, R’s spatial ecosystem is rapidly evolving (Figure <a href="intro.html#fig:cranlogs">1.2</a>).
 Because R is open source, these developments can easily build on previous work, by ‘standing on the shoulders of giants’, as Isaac Newton put it in <a href="http://digitallibrary.hsp.org/index.php/Detail/Object/Show/object_id/9285">1675</a>.
 This approach is advantageous because it encourages collaboration and avoids ‘reinventing the wheel’.
 The package <strong>sf</strong> (covered in Chapter <a href="spatial-class.html#spatial-class">2</a>), for example, builds on its predecessor <strong>sp</strong>.</p>
 <p>A surge in development time (and interest) in ‘R-spatial’ has followed the award of a grant by the R Consortium for the development of support for Simple Features, an open-source standard and model to store and access vector geometries.
-This resulted in the <strong>sf</strong> package (covered in <a href="spatial-class.html#intro-sf">2.2.1</a>).
-Multiple places reflect the immense interest in <strong>sf</strong>. This is especially true for the <a href="https://stat.ethz.ch/pipermail/r-sig-geo/">R-sig-Geo Archives</a>, a long-standing open access email list containing much R-spatial wisdom accumulated over the years.
-<!-- Many posts on the list now discuss **sf** and related packages, suggesting that R's spatial software developers are using the package and, therefore, it is here to stay. --></p>
-<!-- We even propose that the release of **sf** heralds a new era for spatial data analysis and geocomputation in R. -->
-<!-- This era ^[We refrain from labeling it the **geoverse** with any seriousness awaiting a better name!] clearly has the wind in its sails and is set to dominate future developments in R's spatial ecosystem for years to come. -->
-<!-- So time invested in learning the 'new ways' of handling spatial data, and reading this book, is well spent! -->
+This resulted in the <strong>sf</strong> package (covered in Section <a href="spatial-class.html#intro-sf">2.2.1</a>).
+Multiple places reflect the immense interest in <strong>sf</strong>. This is especially true for the <a href="https://stat.ethz.ch/pipermail/r-sig-geo/">R-sig-Geo Archives</a>, a long-standing open access email list containing much R-spatial wisdom accumulated over the years.</p>
 <div class="figure" style="text-align: center"><span id="fig:cranlogs"></span>
 <img src="figures/spatial-package-growth.png" alt="The popularity of spatial packages in R. The y-axis shows average number of downloads per day, within a 30-day rolling window, of prominent spatial packages." width="1050" />
 <p class="caption">
@@ -634,13 +629,13 @@ Figure 1.2: The popularity of spatial packages in R. The y-axis shows average nu
 </p>
 </div>
 <p>It is noteworthy that shifts in the wider R community, as exemplified by the data processing package <strong>dplyr</strong> (released in <a href="https://cran.r-project.org/src/contrib/Archive/dplyr/">2014</a>) influenced shifts in R’s spatial ecosystem.
-Alongside other packages that have a shared style and emphasis on ‘tidy data’ (including e.g., <strong>ggplot2</strong>), <strong>dplyr</strong> was placed in the <strong>tidyverse</strong> ‘metapackage’ in late <a href="https://cran.r-project.org/src/contrib/Archive/tidyverse/">2016</a>.
+Alongside other packages that have a shared style and emphasis on ‘tidy data’ (including, e.g., <strong>ggplot2</strong>), <strong>dplyr</strong> was placed in the <strong>tidyverse</strong> ‘metapackage’ in late <a href="https://cran.r-project.org/src/contrib/Archive/tidyverse/">2016</a>.
 The <strong>tidyverse</strong> approach, with its focus on long-form data and fast intuitively named functions, has become immensely popular.
 This has led to a demand for ‘tidy geographic data’ which has been partly met by <strong>sf</strong> and other approaches such as <strong>tabularaster</strong>.
 An obvious feature of the <strong>tidyverse</strong> is the tendency for packages to work in harmony.
-There is no equivalent <strong>geoverse</strong> but there are attempts at harmonization between packages hosted on in the <a href="https://github.com/r-spatial/discuss/issues/11">r-spatial</a> organisation and a growing number of packages use <strong>sf</strong> (Table <a href="intro.html#tab:revdep">1.2</a>).</p>
+There is no equivalent <strong>geoverse</strong>, but there are attempts at harmonization between packages hosted in the <a href="https://github.com/r-spatial/discuss/issues/11">r-spatial</a> organization and a growing number of packages use <strong>sf</strong> (Table <a href="intro.html#tab:revdep">1.2</a>).</p>
 <table>
-<caption><span id="tab:revdep">Table 1.2: </span>The top 5 most downloaded packages that depend on sf, in terms of average number of downloads per day over the previous month. As of 2018-12-11 there are 112 packages which import sf.</caption>
+<caption><span id="tab:revdep">Table 1.2: </span>The top 5 most downloaded packages that depend on sf, in terms of average number of downloads per day over the previous month. As of 2018-12-11 , there are 112 packages which import sf.</caption>
 <thead>
 <tr class="header">
 <th align="left">package</th>
@@ -693,8 +688,8 @@ It proposed a class system to support the “data objects offered by GDAL”, in
 Furthermore, it suggested interfaces to external libraries should form the basis of modular R packages <span class="citation">(Bivand <a href="#ref-hornik_approaches_2003">2003</a>)</span>.
 To a large extent these ideas were realized in the packages <strong>rgdal</strong> and <strong>sp</strong>.
 These provided a foundation for spatial data analysis with R, as described in <em>Applied Spatial Data Analysis with R</em> (ASDAR) <span class="citation">(Bivand, Pebesma, and Gómez-Rubio <a href="#ref-bivand_applied_2013">2013</a>)</span>, first published in 2008.
-10 years later, R’s spatial capabilities have evolved substantially but they still build on ideas set-out by <span class="citation">Bivand (<a href="#ref-hornik_approaches_2003">2003</a>)</span>:
-interfaces to GDAL and PROJ, for example, still power R’s high-performance geographic data I/O and CRS transformation capabilities (see chapters <a href="reproj-geo-data.html#reproj-geo-data">6</a> and <a href="read-write.html#read-write">7</a> respectively).</p>
+Ten years later, R’s spatial capabilities have evolved substantially but they still build on ideas set-out by <span class="citation">Bivand (<a href="#ref-hornik_approaches_2003">2003</a>)</span>:
+interfaces to GDAL and PROJ, for example, still power R’s high-performance geographic data I/O and CRS transformation capabilities (see Chapters <a href="reproj-geo-data.html#reproj-geo-data">6</a> and <a href="read-write.html#read-write">7</a>, respectively).</p>
 <p><strong>rgdal</strong>, released in 2003, provided GDAL bindings for R which greatly enhanced its ability to import data from previously unavailable geographic data formats.
 The initial release supported only raster drivers but subsequent enhancements provided support for coordinate reference systems (via the PROJ library), reprojections and import of vector file formats (see Chapter <a href="read-write.html#read-write">7</a> for more on file formats).
 Many of these additional capabilities were developed by Barry Rowlingson and released in the <strong>rgdal</strong> codebase in 2006 <span class="citation">(see Rowlingson et al. <a href="#ref-rowlingson_rasp:_2003">2003</a> and the <a href="https://stat.ethz.ch/pipermail/r-help/2003-January/028413.html">R-help</a> email list for context)</span>.</p>
@@ -707,7 +702,6 @@ Many of these additional capabilities were developed by Barry Rowlingson and rel
 <!-- five years later) and the [R-sig-geo mailing list](https://stat.ethz.ch/mailman/listinfo/r-sig-geo) was started. -->
 Prior to 2005, geographic coordinates were generally treated like any other number.
 <strong>sp</strong> changed this with its classes and generic methods supporting points, lines, polygons and grids, and attribute data.</p>
-<!--???-->
 <!-- points, multipoints, pixels, full grid, line, lines, spatial lines, polygon, polygons, spatial polygons -->
 <p><strong>sp</strong> stores information such as bounding box, coordinate reference system and attributes in slots in <code>Spatial</code> objects using the S4 class system,
 <!-- These can be accessed via the `@` symbol which can be accessed  `x@data`. -->
@@ -719,7 +713,7 @@ As of 2018 almost 500 packages rely on <strong>sp</strong>, making it an importa
 <!-- https://github.com/Robinlovelace/geocompr/issues/58 -->
 <!-- https://github.com/edzer/sfr/issues/387#issuecomment-308949140 -->
 Prominent R packages using <strong>sp</strong> include: <strong>gstat</strong>, for spatial and spatio-temporal geostatistics; <strong>geosphere</strong>, for spherical trigonometry; and <strong>adehabitat</strong> used for the analysis of habitat selection by animals <span class="citation">(E. Pebesma and Graeler <a href="#ref-R-gstat">2018</a>; Calenge <a href="#ref-calenge_package_2006">2006</a>; Hijmans <a href="#ref-hijmans_geosphere_2016">2016</a>)</span>.</p>
-<p>While <strong>rgdal</strong> and <strong>sp</strong> solved many spatial issues, R still lacked the ability to do geometric operations (see chapter <a href="geometric-operations.html#geometric-operations">5</a>).
+<p>While <strong>rgdal</strong> and <strong>sp</strong> solved many spatial issues, R still lacked the ability to do geometric operations (see Chapter <a href="geometric-operations.html#geometric-operations">5</a>).
 Colin Rundel addressed this issue by developing <strong>rgeos</strong>, an R interface to the open-source geometry library (GEOS) during a Google Summer of Code project in 2010 <span class="citation">(Bivand and Rundel <a href="#ref-R-rgeos">2018</a>)</span>.
 <strong>rgeos</strong> enabled GEOS to manipulate <strong>sp</strong> objects, with functions such as <code>gIntersection()</code>.</p>
 <p>Another limitation of <strong>sp</strong> — its limited support for raster data — was overcome by <strong>raster</strong>, first released in 2010 <span class="citation">(Hijmans <a href="#ref-R-raster">2017</a>)</span>.
@@ -727,7 +721,7 @@ Its class system and functions support a range of raster operations as outlined 
 A key feature of <strong>raster</strong> is its ability to work with datasets that are too large to fit into RAM (R’s interface to PostGIS supports off-disc operations on vector geographic data).
 <strong>raster</strong> also supports map algebra (see Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <p>In parallel with these developments of class systems and methods came the support for R as an interface to dedicated GIS software.
-<strong>GRASS</strong> <span class="citation">(R. S. Bivand <a href="#ref-bivand_using_2000">2000</a>)</span> and follow-on packages <strong>spgrass6</strong> and <strong>rgrass7</strong> (for GRASS GIS 6 and 7, respectively) were prominent examples in this direction <span class="citation">(Bivand <a href="#ref-bivand_spgrass6_2016">2016</a><a href="#ref-bivand_spgrass6_2016">b</a>, <a href="#ref-bivand_rgrass7_2016">2016</a><a href="#ref-bivand_rgrass7_2016">a</a>)</span>.
+<strong>GRASS</strong> <span class="citation">(R. S. Bivand <a href="#ref-bivand_using_2000">2000</a>)</span> and follow-on packages <strong>spgrass6</strong> and <strong>rgrass7</strong> (for GRASS GIS 6 and 7, respectively) were prominent examples in this direction <span class="citation">(Bivand <a href="#ref-bivand_rgrass7_2016">2016</a><a href="#ref-bivand_rgrass7_2016">a</a>, <a href="#ref-bivand_spgrass6_2016">2016</a><a href="#ref-bivand_spgrass6_2016">b</a>)</span>.
 Other examples of bridges between R and GIS include <strong>RSAGA</strong> <span class="citation">(Brenning, Bangs, and Becker <a href="#ref-R-RSAGA">2018</a>, first published in 2008)</span>, <strong>ArcGIS</strong> <span class="citation">(A. Brenning <a href="#ref-brenning_arcgis_2012">2012</a><a href="#ref-brenning_arcgis_2012">a</a>, first published in 2008)</span>, and <strong>RQGIS</strong> <span class="citation">(Muenchow, Schratz, and Brenning <a href="#ref-muenchow_rqgis:_2017">2017</a>, first published in 2016)</span> (see Chapter <a href="gis.html#gis">9</a>).</p>
 <p>Visualization was not a focus initially, with the bulk of R-spatial development focused on analysis and geographic operations.
 <strong>sp</strong> provided methods for map making using both the base and lattice plotting system but demand was growing for advanced map making capabilities, especially after the release of <strong>ggplot2</strong> in 2007.
@@ -880,11 +874,11 @@ As of 2018 map making in R is a hot topic with dedicated packages such as <stron
 <div id="ref-bivand_using_2000">
 <p>Bivand, Roger S. 2000. “Using the R Statistical Data Analysis Language on GRASS 5.0 GIS Database Files.” <em>Computers &amp; Geosciences</em> 26 (9): 1043–52.</p>
 </div>
-<div id="ref-bivand_spgrass6_2016">
-<p>Bivand, Roger. 2016b. <em>Spgrass6: Interface Between GRASS 6 and R</em>.</p>
-</div>
 <div id="ref-bivand_rgrass7_2016">
 <p>Bivand, Roger. 2016a. <em>Rgrass7: Interface Between GRASS 7 Geographical Information System and R</em>.</p>
+</div>
+<div id="ref-bivand_spgrass6_2016">
+<p>Bivand, Roger. 2016b. <em>Spgrass6: Interface Between GRASS 6 and R</em>.</p>
 </div>
 <div id="ref-R-RSAGA">
 <p>Brenning, Alexander, Donovan Bangs, and Marc Becker. 2018. <em>RSAGA: SAGA Geoprocessing and Terrain Analysis</em>. <a href="https://CRAN.R-project.org/package=RSAGA" class="uri">https://CRAN.R-project.org/package=RSAGA</a>.</p>
