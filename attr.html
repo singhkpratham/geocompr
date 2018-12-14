@@ -441,12 +441,11 @@ The name is an <em>attribute</em> of the feature (to use Simple Features termino
 <p>Another example is the elevation value (attribute) for a specific grid cell in raster data.
 Unlike the vector data model, the raster data model stores the coordinate of the grid cell indirectly, meaning the distinction between attribute and spatial information is less clear.
 To illustrate the point, think of a pixel in the 3<sup>rd</sup> row and the 4<sup>th</sup> column of a raster matrix.
-It’s spatial location is defined by its index in the matrix: move from the origin four cells in the x direction (typically east and right on maps) and three cells in the y direction (typically south and down).
+Its spatial location is defined by its index in the matrix: move from the origin four cells in the x direction (typically east and right on maps) and three cells in the y direction (typically south and down).
 The raster’s <em>resolution</em> defines the distance for each x- and y-step which is specified in a <em>header</em>.
-The header is a vital component of raster datasets which specifies how pixels relate to geographic coordinates (see also next chapter).
-<!-- should we somewhere add a table comparing advantages/disadvantages of using the vector or raster data model, would fit nicely into chapter 2 --></p>
+The header is a vital component of raster datasets which specifies how pixels relate to geographic coordinates (see also Chapter <a href="spatial-operations.html#spatial-operations">4</a>).</p>
 <p>The focus of this chapter is manipulating geographic objects based on attributes such as the name of a bus stop and elevation.
-For vector data this means operations such as subsetting and aggregation (see sections <a href="attr.html#vector-attribute-subsetting">3.2.1</a> and <a href="attr.html#vector-attribute-aggregation">3.2.2</a>).
+For vector data, this means operations such as subsetting and aggregation (see Sections <a href="attr.html#vector-attribute-subsetting">3.2.1</a> and <a href="attr.html#vector-attribute-aggregation">3.2.2</a>).
 These non-spatial operations have spatial equivalents:
 the <code>[</code> operator in base R, for example, works equally for subsetting objects based on their attribute and spatial objects, as we will see in Chapter <a href="spatial-operations.html#spatial-operations">4</a>.
 This is good news: skills developed here are cross-transferable, meaning that this chapter lays the foundation for Chapter <a href="spatial-operations.html#spatial-operations">4</a>, which extends the methods presented here to the spatial world.
@@ -456,8 +455,8 @@ Section <a href="attr.html#summarizing-raster-objects">3.3.2</a> provides an ove
 </div>
 <div id="vector-attribute-manipulation" class="section level2">
 <h2><span class="header-section-number">3.2</span> Vector attribute manipulation</h2>
-<p>Geographic vector data in R are well-support by <code>sf</code>, a class which extends the <code>data.frame</code>.
-Thus <code>sf</code> objects have one column per attribute variable (such as ‘name’) and one row per observation, or <em>feature</em> (e.g. per bus station).
+<p>Geographic vector data in R are well supported by <code>sf</code>, a class which extends the <code>data.frame</code>.
+Thus <code>sf</code> objects have one column per attribute variable (such as ‘name’) and one row per observation, or <em>feature</em> (e.g., per bus station).
 <code>sf</code> objects also have a special column to contain geometry data, usually named <code>geometry</code>.
 The <code>geometry</code> column is special because it is a <em>list-column</em>, which can contain multiple geographic entities (points, lines, polygons) per row.
 In Chapter <a href="spatial-class.html#spatial-class">2</a> we saw how to perform <em>generic methods</em> such as <code>plot()</code> and <code>summary()</code> on <code>sf</code> objects.
@@ -479,7 +478,7 @@ This enables geometries imported from spatial databases to have a variety of nam
 
 <p><code>sf</code> objects also support <code>tibble</code> and <code>tbl</code> classes used in the tidyverse, allowing ‘tidy’ data analysis workflows for spatial data.
 Thus <strong>sf</strong> enables the full power of R’s data analysis capabilities to be unleashed on geographic data.
-Before using these capabilities it’s worth re-capping how to discover the basic properties of vector data objects.
+Before using these capabilities it is worth re-capping how to discover the basic properties of vector data objects.
 Let’s start by using base R functions to get a measure of the <code>world</code> dataset:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(world) <span class="co"># it is a 2 dimensional object, with rows and columns</span>
 <span class="co">#&gt; [1] 177  11</span>
@@ -492,8 +491,8 @@ Extracting the attribute data of an <code>sf</code> object is the same as removi
 <pre class="sourceCode r"><code class="sourceCode r">world_df =<span class="st"> </span><span class="kw">st_set_geometry</span>(world, <span class="ot">NULL</span>)
 <span class="kw">class</span>(world_df)
 <span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre>
-<p>This can be useful if the geometry column causes problems, e.g. by occupying large amounts of RAM, or to focus the attention on the attribute data.
-For most cases, however, there is no harm in keeping the geometry column because non-spatial data operations on <code>sf</code> objects only change an object’s geometry when appropriate (e.g. by dissolving borders between adjacent polygons following aggregation).
+<p>This can be useful if the geometry column causes problems, e.g., by occupying large amounts of RAM, or to focus the attention on the attribute data.
+For most cases, however, there is no harm in keeping the geometry column because non-spatial data operations on <code>sf</code> objects only change an object’s geometry when appropriate (e.g., by dissolving borders between adjacent polygons following aggregation).
 This means that proficiency with attribute data in <code>sf</code> objects equates to proficiency with data frames in R.</p>
 <p>For many applications, the tidyverse package <strong>dplyr</strong> offers the most effective and intuitive approach for working with data frames.
 Tidyverse compatibility is an advantage of <strong>sf</strong> over its predecessor <strong>sp</strong>, but there are some pitfalls to avoid (see the supplementary <code>tidyverse-pitfalls</code> vignette at <a href="https://geocompr.github.io/geocompkg/articles/tidyverse-pitfalls.html">geocompr.github.io</a> for details).
@@ -504,7 +503,7 @@ Tidyverse compatibility is an advantage of <strong>sf</strong> over its predeces
 <strong>dplyr</strong> subsetting functions include <code>select()</code>, <code>filter()</code>, and <code>pull()</code>.
 Both sets of functions preserve the spatial components of attribute data in <code>sf</code> objects.</p>
 <p>The <code>[</code> operator can subset both rows and columns.
-You use indices to specify the elements you wish to extract from an object, e.g. <code>object[i, j]</code>, with <code>i</code> and <code>j</code> typically being numbers or logical vectors — <code>TRUE</code>s and <code>FALSE</code>s — representing rows and columns (they can also be character strings, indicating row or column names).
+You use indices to specify the elements you wish to extract from an object, e.g., <code>object[i, j]</code>, with <code>i</code> and <code>j</code> typically being numbers or logical vectors — <code>TRUE</code>s and <code>FALSE</code>s — representing rows and columns (they can also be character strings, indicating row or column names).
 <!-- you can also use `[`(world, 1:6, 1) -->
 Leaving <code>i</code> or <code>j</code> empty returns all rows or columns, so <code>world[1:5, ]</code> returns the first five rows and all columns.
 The examples below demonstrate subsetting with base R.
@@ -520,7 +519,7 @@ This creates a new object, <code>small_countries</code>, containing nations whos
 <span class="co">#&gt; logical     170       7</span>
 small_countries =<span class="st"> </span>world[sel_area, ]</code></pre>
 <p>The intermediary <code>sel_area</code> is a logical vector that shows that only seven countries match the query.
-A more concise command, that omits the intermediary object, generates the same result:</p>
+A more concise command, which omits the intermediary object, generates the same result:</p>
 <pre class="sourceCode r"><code class="sourceCode r">small_countries =<span class="st"> </span>world[world<span class="op">$</span>area_km2 <span class="op">&lt;</span><span class="st"> </span><span class="dv">10000</span>, ]</code></pre>
 <p>The base R function <code>subset()</code> provides yet another way to achieve the same result:</p>
 <pre class="sourceCode r"><code class="sourceCode r">small_countries =<span class="st"> </span><span class="kw">subset</span>(world, area_km2 <span class="op">&lt;</span><span class="st"> </span><span class="dv">10000</span>)</code></pre>
@@ -579,12 +578,12 @@ world<span class="op">$</span>pop
 The following code chunk, for example, selects the 3<sup>rd</sup> to 5<sup>th</sup> rows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">slice</span>(world, <span class="dv">3</span><span class="op">:</span><span class="dv">5</span>)</code></pre>
 <p><code>filter()</code> is <strong>dplyr</strong>’s equivalent of base R’s <code>subset()</code> function.
-It keeps only rows matching given criteria, e.g. only countries with a very high average of life expectancy:</p>
+It keeps only rows matching given criteria, e.g., only countries with a very high average of life expectancy:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Countries with a life expectancy longer than 82 years</span>
 world6 =<span class="st"> </span><span class="kw">filter</span>(world, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">82</span>)</code></pre>
 <p>The standard set of comparison operators can be used in the <code>filter()</code> function, as illustrated in Table <a href="attr.html#tab:operators">3.1</a>:</p>
 <table>
-<caption><span id="tab:operators">Table 3.1: </span>Comparison operators that return booleans (TRUE/FALSE).</caption>
+<caption><span id="tab:operators">Table 3.1: </span>Comparison operators that return Booleans (TRUE/FALSE).</caption>
 <thead>
 <tr class="header">
 <th align="left">Symbol</th>
@@ -614,11 +613,8 @@ world6 =<span class="st"> </span><span class="kw">filter</span>(world, lifeExp <
 </tr>
 </tbody>
 </table>
-<!-- describe these: ==, !=, >, >=, <, <=, &, | -->
-<!-- add warning about = vs == -->
-<!-- add info about combination of &, |, ! -->
 <p><strong>dplyr</strong> works well with the <a href="http://r4ds.had.co.nz/pipes.html">‘pipe’</a> operator <code>%&gt;%</code>, which takes its name from the Unix pipe <code>|</code> <span class="citation">(Grolemund and Wickham <a href="#ref-grolemund_r_2016">2016</a>)</span>.
-It enables expressive code: the output of a previous becomes the first argument of the next function, enabling <em>chaining</em>.
+It enables expressive code: the output of a previous function becomes the first argument of the next function, enabling <em>chaining</em>.
 This is illustrated below, in which only countries from Asia are filtered from the <code>world</code> dataset, next the object is subset by columns (<code>name_long</code> and <code>continent</code>) and the first five rows (result not shown).</p>
 <pre class="sourceCode r"><code class="sourceCode r">world7 =<span class="st"> </span>world <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span>
@@ -632,15 +628,12 @@ The alternative to <code>%&gt;%</code> is nested function calls, which is harder
     <span class="kw">filter</span>(world, continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>),
     name_long, continent),
   <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre>
-<!-- I commented-this out as it's overly wordy (RL) -->
-<!-- This generates the same result --- verify this with `identical(world7, world8)` --- in the same number of lines of code, but in a much more confusing way, starting with the function that is called last! -->
-<!-- There are additional advantages of pipes from a communication perspective: they encourage adding comments to self-contained functions and allow single lines *commented-out* without breaking the code. -->
 </div>
 <div id="vector-attribute-aggregation" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Vector attribute aggregation</h3>
 <p>Aggregation operations summarize datasets by a ‘grouping variable’, typically an attribute column (spatial aggregation is covered in the next chapter).
 An example of attribute aggregation is calculating the number of people per continent based on country-level data (one row per country).
-The <code>world</code> dataset contains the necessary ingredients: the columns <code>pop</code> and <code>continent</code>, the population and the grouping variable respectively.
+The <code>world</code> dataset contains the necessary ingredients: the columns <code>pop</code> and <code>continent</code>, the population and the grouping variable, respectively.
 The aim is to find the <code>sum()</code> of country populations for each continent.
 This can be done with the base R function <code>aggregate()</code> as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_agg1 =<span class="st"> </span><span class="kw">aggregate</span>(pop <span class="op">~</span><span class="st"> </span>continent, <span class="dt">FUN =</span> sum, <span class="dt">data =</span> world, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
@@ -667,7 +660,7 @@ This is illustrated below: the command calculates the Earth’s population (~7 b
 <p>In the previous code chunk <code>pop</code> and <code>n</code> are column names in the result.
 <code>sum()</code> and <code>n()</code> were the aggregating functions.
 The result is an <code>sf</code> object with a single row representing the world (this works thanks to the geometric operation ‘union’, as explained in Section <a href="geometric-operations.html#geometry-unions">5.2.6</a>).</p>
-<p>Let’s combine what we’ve learned so far about <strong>dplyr</strong> by chaining together functions to find the world’s 3 most populous continents (with <code>dplyr::n()</code> ) and the number of countries they contain (the result of this command is presented in Table <a href="attr.html#tab:continents">3.2</a>):</p>
+<p>Let’s combine what we have learned so far about <strong>dplyr</strong> by chaining together functions to find the world’s 3 most populous continents (with <code>dplyr::n()</code> ) and the number of countries they contain (the result of this command is presented in Table <a href="attr.html#tab:continents">3.2</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(pop, continent) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -706,24 +699,6 @@ The result is an <code>sf</code> object with a single row representing the world
 More details are provided in the help pages (which can be accessed via <code>?summarize</code> and <code>vignette(package = &quot;dplyr&quot;)</code> and Chapter 5 of <a href="http://r4ds.had.co.nz/transform.html#grouped-summaries-with-summarize">R for Data Science</a>.
 </div>
 
-<!-- `sf` objects are well-integrated with the **tidyverse**, as illustrated by the fact that the aggregated objects preserve the geometry of the original `world` object. -->
-<!-- Here, we even had to make some efforts to prevent a spatial operation. -->
-<!-- When `aggregate()`ing the population we have just used the population vector.  -->
-<!-- Had we used the spatial object (world[, "population"]), `aggregate()` would have done a spatial aggregation of the polygon data.  -->
-<!-- The same would have happened, had we not dismissed the geometry prior to using the `summarize()` function. -->
-<!-- We will explain this so-called 'dissolving polygons' in more detail in the the next chapter. -->
-<!-- Todo (optional): add exercise exploring similarities/differences with `world_continents`? -->
-<!-- should it stay or should it go (?) aka should we present the arrange function?: -->
-<!-- Jannes: I would suggest to leave the arrange function as an exercise to the reader. -->
-<!-- ```{r} -->
-<!-- # sort variables -->
-<!-- ## by name -->
-<!-- world_continents %>%  -->
-<!--   arrange(continent) -->
-<!-- ## by population (in descending order) -->
-<!-- world_continents %>%  -->
-<!--   arrange(-pop) -->
-<!-- ``` -->
 </div>
 <div id="vector-attribute-joining" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Vector attribute joining</h3>
@@ -733,14 +708,14 @@ More details are provided in the help pages (which can be accessed via <code>?su
 <p>Combining data from different sources is a common task in data preparation.
 Joins do this by combining tables based on a shared ‘key’ variable.
 <strong>dplyr</strong> has multiple join functions including <code>left_join()</code> and <code>inner_join()</code> — see <code>vignette(&quot;two-table&quot;)</code> for a full list.
-These function names follow conventions used in the database language <a href="http://r4ds.had.co.nz/relational-data.html">SQL</a> <span class="citation">(Grolemund and Wickham <a href="#ref-grolemund_r_2016">2016</a>, Chapter 13)</span>; using them to join non spatial datasets to <code>sf</code> objects is the focus of this section.
+These function names follow conventions used in the database language <a href="http://r4ds.had.co.nz/relational-data.html">SQL</a> <span class="citation">(Grolemund and Wickham <a href="#ref-grolemund_r_2016">2016</a>, Chapter 13)</span>; using them to join non-spatial datasets to <code>sf</code> objects is the focus of this section.
 <strong>dplyr</strong> join functions work the same on data frames and <code>sf</code> objects, the only important difference being the <code>geometry</code> list column.
 The result of data joins can be either an <code>sf</code> or <code>data.frame</code> object.
 The most common type of attribute join on spatial data takes an <code>sf</code> object as the first argument and adds columns to it from a <code>data.frame</code> specified as the second argument.</p>
 <p>To demonstrate joins, we will combine data on coffee production with the <code>world</code> dataset.
 The coffee data is in a data frame called <code>coffee_data</code> from the <strong>spData</strong> package (see <code>?coffee_data</code> for details).
 It has 3 columns:
-<code>name_long</code> names major coffee-producing nations and <code>coffee_production_2016</code> and <code>coffee_production_2017</code> contain estimated values for coffee production in units of 60 kg bags in each year.
+<code>name_long</code> names major coffee-producing nations and <code>coffee_production_2016</code> and <code>coffee_production_2017</code> contain estimated values for coffee production in units of 60-kg bags in each year.
 A ‘left join’, which preserves the first dataset, merges <code>world</code> with <code>coffee_data</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_coffee =<span class="st"> </span><span class="kw">left_join</span>(world, coffee_data)
 <span class="co">#&gt; Joining, by = &quot;name_long&quot;</span>
@@ -759,15 +734,15 @@ This can be plotted as a map, as illustrated in Figure <a href="attr.html#fig:co
 <span class="co">#&gt; [13] &quot;geom&quot;</span>
 <span class="kw">plot</span>(world_coffee[<span class="st">&quot;coffee_production_2017&quot;</span>])</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:coffeemap"></span>
-<img src="figures/coffeemap-1.png" alt="World coffee production (thousand 60 kg bags) by country, 2017. Source: International Coffee Organization." width="576" />
+<img src="figures/coffeemap-1.png" alt="World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization." width="576" />
 <p class="caption">
-Figure 3.1: World coffee production (thousand 60 kg bags) by country, 2017. Source: International Coffee Organization.
+Figure 3.1: World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization.
 </p>
 </div>
-<p>For joining to work a ‘key variable’ must be supplied in both datasets.
+<p>For joining to work, a ‘key variable’ must be supplied in both datasets.
 By default <strong>dplyr</strong> uses all variables with matching names.
-In this case both <code>world_coffee</code> and <code>world</code> objects contained a variable called <code>name_long</code>, explaining the message <code>Joining, by = &quot;name_long&quot;</code>.
-In the majority of cases where variable names are not the same you have two options:</p>
+In this case, both <code>world_coffee</code> and <code>world</code> objects contained a variable called <code>name_long</code>, explaining the message <code>Joining, by = &quot;name_long&quot;</code>.
+In the majority of cases where variable names are not the same, you have two options:</p>
 <ol style="list-style-type: decimal">
 <li>Rename the key variable in one of the objects so they match.</li>
 <li>Use the <code>by</code> argument to specify the joining variables.</li>
@@ -777,7 +752,7 @@ In the majority of cases where variable names are not the same you have two opti
 world_coffee2 =<span class="st"> </span><span class="kw">left_join</span>(world, coffee_renamed, <span class="dt">by =</span> <span class="kw">c</span>(<span class="dt">name_long =</span> <span class="st">&quot;nm&quot;</span>))</code></pre>
 <p>Note that the name in the original object is kept, meaning that <code>world_coffee</code> and the new object <code>world_coffee2</code> are identical.
 Another feature of the result is that it has the same number of rows as the original dataset.
-Although there are only 47 rows of data in <code>coffee_data</code> all 177 the country records are kept intact in <code>world_coffee</code> and <code>world_coffee2</code>:
+Although there are only 47 rows of data in <code>coffee_data</code>, all 177 the country records are kept intact in <code>world_coffee</code> and <code>world_coffee2</code>:
 rows in the original dataset with no match are assigned <code>NA</code> values for the new coffee production variables.
 What if we only want to keep countries that have a match in the key variable?
 In that case an inner join can be used:</p>
@@ -795,8 +770,8 @@ it has been abbreviated, causing the join to miss it.
 The following command uses a string matching (regex) function from the <strong>stringr</strong> package to confirm what <code>Congo, Dem. Rep. of</code> should be:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_subset</span>(world<span class="op">$</span>name_long, <span class="st">&quot;Dem*.+Congo&quot;</span>)
 <span class="co">#&gt; [1] &quot;Democratic Republic of the Congo&quot;</span></code></pre>
-<p>To fix this issue we will create a new version of <code>coffee_data</code> and update the name.
-<code>inner_join()</code>ing the updated data frame returns a result with all 46 coffee producing nations:</p>
+<p>To fix this issue, we will create a new version of <code>coffee_data</code> and update the name.
+<code>inner_join()</code>ing the updated data frame returns a result with all 46 coffee-producing nations:</p>
 <pre class="sourceCode r"><code class="sourceCode r">coffee_data<span class="op">$</span>name_long[<span class="kw">grepl</span>(<span class="st">&quot;Congo,&quot;</span>, coffee_data<span class="op">$</span>name_long)] =<span class="st"> </span>
 <span class="st">  </span><span class="kw">str_subset</span>(world<span class="op">$</span>name_long, <span class="st">&quot;Dem*.+Congo&quot;</span>)
 world_coffee_match =<span class="st"> </span><span class="kw">inner_join</span>(world, coffee_data)
@@ -813,21 +788,20 @@ the output of a join tends to match its first argument:</p>
 <span class="co">#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</span></code></pre>
 
 <div class="rmdnote">
-In most cases the geometry column is only useful in an <code>sf</code> object.
+In most cases, the geometry column is only useful in an <code>sf</code> object.
 The geometry column can only be used for creating maps and spatial operations if R ‘knows’ it is a spatial object, defined by a spatial package such as <strong>sf</strong>.
-Fortunately non-spatial data frames with a geometry list column (like <code>coffee_world</code>) can be coerced into an <code>sf</code> object as follows: <code>st_as_sf(coffee_world)</code>.
+Fortunately, non-spatial data frames with a geometry list column (like <code>coffee_world</code>) can be coerced into an <code>sf</code> object as follows: <code>st_as_sf(coffee_world)</code>.
 </div>
 
 <p>This section covers the majority joining use cases.
-For more information we recommend <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_r_2016">2016</a>)</span>, the <a href="https://geocompr.github.io/geocompkg/articles/join.html">join vignette</a> in the <strong>geocompkg</strong> package that accompanies this book, and documentation of the <strong>data.table</strong> package.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+For more information, we recommend <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_r_2016">2016</a>)</span>, the <a href="https://geocompr.github.io/geocompkg/articles/join.html">join vignette</a> in the <strong>geocompkg</strong> package that accompanies this book, and documentation of the <strong>data.table</strong> package.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
 Another type of join is a spatial join, covered in the next chapter (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).</p>
 </div>
 <div id="vec-attr-creation" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Creating attributes and removing spatial information</h3>
-<!-- lubridate? -->
 <p>Often, we would like to create a new column based on already existing columns.
 For example, we want to calculate population density for each country.
-For this we need to divide a population column, here <code>pop</code>, by an area column , here <code>area_km2</code> with unit area in square km.
+For this we need to divide a population column, here <code>pop</code>, by an area column, here <code>area_km2</code> with unit area in square kilometers.
 Using base R, we can type:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_new =<span class="st"> </span>world <span class="co"># do not overwrite our original data</span>
 world_new<span class="op">$</span>pop_dens =<span class="st"> </span>world_new<span class="op">$</span>pop <span class="op">/</span><span class="st"> </span>world_new<span class="op">$</span>area_km2</code></pre>
@@ -889,10 +863,10 @@ grain =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">
 
 <div class="rmdnote">
 <code>raster</code> objects can contain values of class <code>numeric</code>, <code>integer</code>, <code>logical</code> or <code>factor</code>, but not <code>character</code>.
-To use character values they must first be converted into an appropriate class, for example using the function <code>factor()</code>.
+To use character values, they must first be converted into an appropriate class, for example using the function <code>factor()</code>.
 The <code>levels</code> argument was used in the preceding code chunk to create an ordered factor:
 clay &lt; silt &lt; sand in terms of grain size.
-See the <a href="http://adv-r.had.co.nz/Data-structures.html">Data structures</a> chapter of <span class="citation">Wickham (<a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span> for further details on classes.
+See the Data structures chapter of <span class="citation">Wickham (<a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span> for further details on classes.
 </div>
 
 <p><code>raster</code> objects represent categorical variables as integers, so <code>grain[1, 1]</code> returns a number that represents a unique identifier, rather than “clay”, “silt” or “sand”.
@@ -939,7 +913,6 @@ elev[<span class="dv">1</span>]</code></pre>
 <p>To extract all values or complete rows, you can use <code>values()</code> and <code>getValues()</code>.
 For multi-layered raster objects <code>stack</code> or <code>brick</code>, this will return the cell value(s) for each layer.
 For example, <code>stack(elev, grain)[1]</code> returns a matrix with one row and two columns — one for each layer.
-<!-- In this example we have used cell ID subsetting, of course, you can also use row-column or coordinate indexing. -->
 For multi-layer raster objects another way to subset is with <code>raster::subset()</code>, which extracts layers from a raster stack or brick. The <code>[[</code> and <code>$</code> operators can also be used:</p>
 <pre class="sourceCode r"><code class="sourceCode r">r_stack =<span class="st"> </span><span class="kw">stack</span>(elev, grain)
 <span class="kw">names</span>(r_stack) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;elev&quot;</span>, <span class="st">&quot;grain&quot;</span>)
@@ -960,7 +933,7 @@ Multiple cells can also be modified in this way:</p>
 <div id="summarizing-raster-objects" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Summarizing raster objects</h3>
 <p><strong>raster</strong> contains functions for extracting descriptive statistics for entire rasters.
-Printing a raster object to the console by typing its name, returns minimum and maximum values of a raster.
+Printing a raster object to the console by typing its name returns minimum and maximum values of a raster.
 <code>summary()</code> provides common descriptive statistics (minimum, maximum, interquartile range and number of <code>NA</code>s).
 Further summary operations such as the standard deviation (see below) or custom summary statistics can be calculated with <code>cellStats()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cellStats</span>(elev, sd)</code></pre>
@@ -974,10 +947,10 @@ Specific functions such as <code>boxplot()</code>, <code>density()</code>, <code
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(elev)</code></pre>
 <p>In case a visualization function does not work with raster objects, one can extract the raster data to be plotted with the help of <code>values()</code> or <code>getValues()</code>.</p>
 <p>Descriptive raster statistics belong to the so-called global raster operations.
-These and other typical raster processing operations are part of the map algebra scheme which are covered in the next chapter (Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
+These and other typical raster processing operations are part of the map algebra scheme, which are covered in the next chapter (Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <div class="rmdnote">
 <p>
-Some function names clash between packages (e.g. <code>select</code>, as discussed in a previous note). In addition to not loading packages by referring to functions verbosely (e.g. <code>dplyr::select()</code>) another way to prevent function names clashes is by unloading the offending package with <code>detach()</code>. The following command, for example, unloads the <strong>raster</strong> package (this can also be done in the <em>package</em> tab which resides by default in the right-bottom pane in RStudio): <code>detach(“package:raster”, unload = TRUE, force = TRUE)</code>. The <code>force</code> argument makes sure that the package will be detached even if other packages depend on it. This, however, may lead to a restricted usability of packages depending on the detached package, and is therefore not recommended.
+Some function names clash between packages (e.g., <code>select</code>, as discussed in a previous note). In addition to not loading packages by referring to functions verbosely (e.g., <code>dplyr::select()</code>), another way to prevent function names clashes is by unloading the offending package with <code>detach()</code>. The following command, for example, unloads the <strong>raster</strong> package (this can also be done in the <em>package</em> tab which resides by default in the right-bottom pane in RStudio): <code>detach(“package:raster”, unload = TRUE, force = TRUE)</code>. The <code>force</code> argument makes sure that the package will be detached even if other packages depend on it. This, however, may lead to a restricted usability of packages depending on the detached package, and is therefore not recommended.
 </p>
 </div>
 </div>
@@ -989,8 +962,8 @@ Some function names clash between packages (e.g. <code>select</code>, as discuss
 <span class="kw">data</span>(us_states)
 <span class="kw">data</span>(us_states_df)</code></pre>
 <p><code>us_states</code> is a spatial object (of class <code>sf</code>), containing geometry and a few attributes (including name, region, area, and population) of states within the contiguous United States.
-<code>us_states_df</code> is a data frame (of class <code>data.frame</code>) containing the name and additional variables (including median income and poverty level, for years 2010 and 2015) of US states, including Alaska, Hawaii and Puerto Rico.
-The data comes from the US Census Bureau, and is documented in <code>?us_states</code> and <code>?us_states_df</code>.</p>
+<code>us_states_df</code> is a data frame (of class <code>data.frame</code>) containing the name and additional variables (including median income and poverty level, for the years 2010 and 2015) of US states, including Alaska, Hawaii and Puerto Rico.
+The data comes from the United States Census Bureau, and is documented in <code>?us_states</code> and <code>?us_states_df</code>.</p>
 <!-- Attribute subsetting -->
 <ol style="list-style-type: decimal">
 <li>Create a new object called <code>us_states_name</code> that contains only the <code>NAME</code> column from the <code>us_states</code> object.
@@ -1022,14 +995,14 @@ How can you find them? (hint: try to use the <code>dplyr::anti_join()</code> fun
 What was the population density in 2010 in each state?</li>
 <li>How much has population density changed between 2010 and 2015 in each state?
 Calculate the change in percentages and map them.</li>
-<li>Change the columns names in <code>us_states</code> to lowercase. (Hint: helper functions - <code>tolower()</code> and <code>colnames()</code> may help).
+<li>Change the columns’ names in <code>us_states</code> to lowercase. (Hint: helper functions - <code>tolower()</code> and <code>colnames()</code> may help.)
 <!-- Mixed exercises -->
 <!-- combination of use of select, mutate, group_by, summarize, etc  --></li>
 <li>Using <code>us_states</code> and <code>us_states_df</code> create a new object called <code>us_states_sel</code>.
 The new object should have only two variables - <code>median_income_15</code> and <code>geometry</code>.
 Change the name of the <code>median_income_15</code> column to <code>Income</code>.</li>
 <li>Calculate the change in median income between 2010 and 2015 for each state.
-Bonus: what was the minimum, average and maximum median income in 2015 for each region?
+Bonus: What was the minimum, average and maximum median income in 2015 for each region?
 What is the region with the largest increase of the median income?
 <!-- Raster exercises --></li>
 <li>Create a raster from scratch with nine rows and columns and a resolution of 0.5 decimal degrees (WGS84).
@@ -1059,7 +1032,7 @@ Extract the values of the four corner cells.</li>
 <strong>data.table</strong> is a high-performance data processing package.
 Its application to geographic data is covered in a blog post hosted at r-spatial.org/r/2017/11/13/perp-performance.html.<a href="attr.html#fnref15" class="footnote-back">↩</a></p></li>
 <li id="fn16"><p>
-<code>st_geometry(world_st) = NULL</code> also works to remove the geometry from <code>world</code> but overwrites the original object.<a href="attr.html#fnref16" class="footnote-back">↩</a></p></li>
+<code>st_geometry(world_st) = NULL</code> also works to remove the geometry from <code>world</code>, but overwrites the original object.<a href="attr.html#fnref16" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <script>
