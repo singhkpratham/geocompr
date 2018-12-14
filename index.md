@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2018-12-13'
+date: '2018-12-14'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2018-12-13 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2018-12-14 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -85,7 +85,7 @@ Further details can be found at [github.com/Robinlovelace/geocompr](https://gith
 
 <!-- Around a single page (does not need to fill it) on the book ready by the end of September (aiming for 1st October submission of final manuscript to CRC Press). -->
 
-Doing 'spatial' in R has always been about being broad, seeking to provide and integrate tools from geography, geoinformatics, geocomputation and spatial statistics for anyone interested in joining in: joining in asking interesting questions, contributing fruitful research questions, and writing and improving code. That is: doing 'spatial' in R has always included open source code, open data and reproducibility.
+Doing 'spatial' in R has always been about being broad, seeking to provide and integrate tools from geography, geoinformatics, geocomputation and spatial statistics for anyone interested in joining in: joining in asking interesting questions, contributing fruitful research questions, and writing and improving code. That is, doing 'spatial' in R has always included open source code, open data and reproducibility.
 
 Doing 'spatial' in R has also sought to be open to interaction with many branches of applied spatial data analysis, and also to implement new advances in data representation and methods of analysis to expose them to cross-disciplinary scrutiny. As this book demonstrates, there are often alternative workflows from similar data to similar results, and we may learn from comparisons with how others create and understand their workflows. This includes learning from similar communities around Open Source GIS and complementary languages such as Python, Java and so on.
 
@@ -93,7 +93,7 @@ R's wide range of spatial capabilities would never have evolved without people w
 
 This book is a clear example that, if you are curious and willing to join in, you can find things that need doing and that match your aptitudes. With advances in data representation and workflow alternatives, and ever increasing numbers of new users often without applied quantitative command-line exposure, a book of this kind has really been needed. Despite the effort involved, the authors have supported each other in pressing forward to publication.
 
-So, this fresh book is ready to go; its authors have tried it out during many tutorials and workshops, so readers and instructors will be able to benefit from knowing that the contents have been and continue to be tried out on people like them. Engage with the authors and the wider R-spatial community, see value in having more choice in building your workflows, and most important: enjoy applying what you learn here to things you care about.
+So, this fresh book is ready to go; its authors have tried it out during many tutorials and workshops, so readers and instructors will be able to benefit from knowing that the contents have been and continue to be tried out on people like them. Engage with the authors and the wider R-spatial community, see value in having more choice in building your workflows and most important, enjoy applying what you learn here to things you care about.
 
 Roger Bivand
 
