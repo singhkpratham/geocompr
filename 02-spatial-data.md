@@ -180,7 +180,7 @@ names(world)
 
 It is the contents of this modest-looking `geom` column that gives `sf` objects their spatial powers, a 'list-column' that contains all the coordinates.
 The **sf** package provides a `plot()` method for visualizing geographic data:
-the follow command creates Figure \@ref(fig:world-all).
+the following command creates Figure \@ref(fig:world-all).
 
 
 ```r
