@@ -23,31 +23,31 @@ Taken together, we refer to these processes as I/O, short for input/output.
 Geographic data I/O is almost always part of a wider process.
 It depends on knowing which datasets are *available*, where they can be *found* and how to *retrieve* them.
 These topics are covered in Section \@ref(retrieving-data), which describes various *geoportals*, which collectively contain many terabytes of data, and how to use them.
-To further ease data access a number of packages for downloading geographic data have been developed.
+To further ease data access, a number of packages for downloading geographic data have been developed.
 These are described in Section \@ref(geographic-data-packages).
 
 There are many geographic file formats, each of which has pros and cons.
 These are described in Section \@ref(file-formats).
-The process of actually reading and writing such file formats efficiently is not covered until sections \@ref(data-input) and \@ref(data-output) respectively.
-The final section (\@ref(visual-outputs)) demonstrates methods for saving visual outputs (maps), in preparation for Chapter \@ref(adv-map) on visualization.
+The process of actually reading and writing such file formats efficiently is not covered until Sections \@ref(data-input) and \@ref(data-output), respectively.
+The final Section \@ref(visual-outputs) demonstrates methods for saving visual outputs (maps), in preparation for Chapter \@ref(adv-map) on visualization.
 
 ## Retrieving open data {#retrieving-data}
 
 A vast and ever-increasing amount of geographic data is available on the internet, much of which is free to access and use (with appropriate credit given to its providers).
 In some ways there is now *too much* data, in the sense that there are often multiple places to access the same dataset.
 Some datasets are of poor quality.
-In this context it vital know where to look, so the first section covers some of the most important sources.
+In this context, it is vital to know where to look, so the first section covers some of the most important sources.
 Various 'geoportals' (web services providing geospatial datasets such as [Data.gov](https://catalog.data.gov/dataset?metadata_type=geospatial)) are a good place to start, providing a wide range of data but often only for specific locations (as illustrated in the updated [Wikipedia page](https://en.wikipedia.org/wiki/Geoportal) on the topic).
 
 Some global geoportals overcome this issue.
 The [GEOSS portal](http://www.geoportal.org/) and the [Copernicus Open Access Hub](https://scihub.copernicus.eu/), for example, contain many raster datasets with global coverage.
-A wealth of vector datasets can be accessed from the National Space Agency (NASA), [SEDAC](http://sedac.ciesin.columbia.edu/) portal and the European Union's [INSPIRE geoportal](http://inspire-geoportal.ec.europa.eu/), with global and regional coverage.
+A wealth of vector datasets can be accessed from the National Aeronautics and Space Administration agency (NASA), [SEDAC](http://sedac.ciesin.columbia.edu/) portal and the European Union's [INSPIRE geoportal](http://inspire-geoportal.ec.europa.eu/), with global and regional coverage.
 
 Most geoportals provide a graphical interface allowing datasets to be queried based on characteristics such spatial and temporal extent, the United States Geological Services' [EarthExplorer](https://earthexplorer.usgs.gov/) being a prime example.
 *Exploring* datasets interactively on a browser is an effective way of understanding available layers.
 *Downloading* data is best done with code, however, from reproducibility and efficiency perspectives.
 Downloads can be initiated from the command line using a variety of techniques, primarily via URLs and APIs (see the [Sentinel API](https://scihub.copernicus.eu/twiki/do/view/SciHubWebPortal/APIHubDescription) for example).
-Files hosted on static URLs can be downloaded with `download.file()`, as illustrated in the code chunk below which accesses US National Parks data from [catalog.data.gov/dataset/national-parks](https://catalog.data.gov/dataset/national-parks):
+Files hosted on static URLs can be downloaded with `download.file()`, as illustrated in the code chunk below which accesses US National Parks data from: [catalog.data.gov/dataset/national-parks](https://catalog.data.gov/dataset/national-parks):
 
 
 ```r
@@ -59,7 +59,7 @@ usa_parks = st_read(dsn = "nps_boundary.shp")
 
 ## Geographic data packages
 
-A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table \@ref(tab:datapackages)).
+A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table \@ref(tab:datapackages).
 These provide interfaces to one or more spatial libraries or geoportals and aim make data access even quicker from the command line.
 
 <!-- add sentinel2 package as soon as it is published on CRAN https://github.com/IVFL-BOKU/sentinel2-->
@@ -75,11 +75,7 @@ rnaturalearth   Access to Natural Earth vector and raster data.
 rnoaa           Imports National Oceanic and Atmospheric Administration (NOAA) climate data. 
 rWBclimate      Access World Bank climate data.                                              
 
-<!-- https://cdn.rawgit.com/Nowosad/Intro_to_spatial_analysis/05676e29/Intro_to_spatial_analysis.html#39 -->
-<!-- Maybe add a section to Data I/O on where and how to retrieve data (with a focus on free data): osmdata (OpenStreetMap; maybe mention TomTom, HERE), Landsat (wrspathrow), Sentinel (mention Python API), AVHRR, RapidEye rgbif, letsR, etc. Of course, point to Transforming science through open data project (https://www.ropensci.org) -->
-<!-- https://github.com/lbusett/MODIStsp -->
-
-It should be emphasised that Table \@ref(tab:datapackages) represents only a small of available geographic data packages.
+It should be emphasised that Table \@ref(tab:datapackages) represents only a small number of available geographic data packages.
 Other notable packages include **GSODR**, which provides Global Summary Daily Weather Data in R (see the package's [README](https://github.com/ropensci/GSODR) for an overview of weather data sources);
 **tidycensus** and **tigris**, which provide socio-demographic vector data for the USA; and **hddtools**, which provides access to a range of hydrological datasets.
 
@@ -107,7 +103,7 @@ The result can be converted into an `sf` objects with `st_as_sf()` as follows:
 usa_sf = st_as_sf(usa)
 ```
 
-A second example downloads a series of rasters containing global monthly precipitation sums with spatial resolution is ten minutes.
+A second example downloads a series of rasters containing global monthly precipitation sums with spatial resolution of ten minutes.
 The result is a multilayer object of class `RasterStack`.
 
 
@@ -139,7 +135,7 @@ Further examples of **osmdata** in action are provided in Chapters \@ref(gis), \
 Sometimes, packages come with inbuilt datasets.
 These can be accessed in four ways: by attaching the package (if the package uses 'lazy loading' as **spData** does), with `data(dataset)`, by referring to the dataset with `pkg::dataset` or with `system.file()` to access raw data files.
 The following code chunk illustrates the latter two options using the `world` (already loaded by attaching its parent package with `library(spData)`):^[
-For more information on data import with R packages see sections 5.5 and 5.6 of @gillespie_efficient_2016.
+For more information on data import with R packages, see Sections 5.5 and 5.6 of @gillespie_efficient_2016.
 ]
 
 
@@ -152,8 +148,8 @@ world3 = st_read(system.file("shapes/world.gpkg", package = "spData"))
 
 In an effort to standardize web APIs for accessing spatial data, the Open Geospatial Consortium (OGC) has created a number of specifications for web services (collectively known as OWS, which is short for OGC Web Services).
 These specifications include the Web Feature Service (WFS), Web Map Service (WMS), Web Map Tile Service (WMTS), the Web Coverage Service (WCS) and even a Wep Processing Service (WPS).
-Map servers such as PostGIS have adopted these protocals, leading to standardization of  queries:
-Like other web APIs, OWS APIs use a 'base URL' and a 'query string' proceeding a `?` to request data.
+Map servers such as PostGIS have adopted these protocols, leading to standardization of queries:
+Like other web APIs, OWS APIs use a 'base URL' and a 'query string' proceding a `?` to request data.
 
 There are many requests that can be made to a OWS service.
 One of the most fundamental is `getCapabilities`, demonstrated with the **httr** package to show how API queries can be constructed and dispatched, in this case to discover the capabilities of a service providing run by the Food and Agriculture Organization of the United Nations (FAO):
@@ -187,8 +183,6 @@ xml = xml2::read_xml(txt)
 ```
 
 Data can be downloaded from WFS services with the `GetFeature` request and a specific `typeName` (as illustrated in the code chunk below).
-
-<!--@Robinlovelace fyi: In the fao example there are hundreds of typenames (maybe we should mention that in the text?). Here I just show one way how one can extract them using web technologies (but I guess this is beyond the scope of the book). using ows4R one can also use findFeatureTypeByName("") (see in the unevaluated code chunks below) -->
 
 
 
@@ -226,14 +220,6 @@ fao_areas = wfs$getFeatures("area:FAO_AREAS")
 There is much more to learn about web services and much potential for development of R-OWS interfaces, an active area of development.
 For further information on the topic, we recommend examples from European Centre for Medium-Range Weather Forecasts (ECMWF) services at [github.com/OpenDataHack](https://github.com/OpenDataHack/data_service_catalogue) and reading-up on OCG Web Services at [opengeospatial.org](http://www.opengeospatial.org/standards).
 
-<!-- JM: If showing one of the examples below I would recommend to use the same data also above (GET query), and to add two or three sentences with regard to WFS:
-- only vector data
-- WMS allows the web-based display of geographic data whereas WFS allows the download of geographic data.
-- data exchange format is XML-based Geography Markup Language (GML)
-
-Still, it seems that ows4r is very much in development. Obviously, it has problems with languages other than English. If the WFS requires a namespace, I have no idea how one can provide it with ows4r. The documentation is only rudimentary.
--->
-
 
 
 
@@ -246,17 +232,11 @@ Today the variety of file formats may seem bewildering but there has been much c
 
 GDAL (which should be pronounced "goo-dal", with the double "o" making a reference to object-orientation), the Geospatial Data Abstraction Library, has resolved many issues associated with incompatibility between geographic file formats since its release in 2000.
 GDAL provides a unified and high-performance interface for reading and writing of many raster and vector data formats.
-Many open and proprietary GIS programs, including GRASS, ArcGIS and QGIS, use GDAL behind their GUIs for doing the legwork of ingesting and spitting-out geographic data in appropriate formats.
-<!-- GDAL (it's great - you can read, convert, and very often (though not always) write) -->
-<!-- GDAL info "it is possible to have smaller number of supported formats than there are on the GDAL webpage; you may need to recompile..." -->
+Many open and proprietary GIS programs, including GRASS, ArcGIS and QGIS, use GDAL behind their GUIs for doing the legwork of ingesting and spitting out geographic data in appropriate formats.
 
 GDAL provides access to more than 200 vector and raster data formats.
-<!-- In the same time, they could differ in many ways. -->
-<!-- Spatial data could be stored as a single file (e.g. GeoPackage), multiple files (e.g. ESRI Shapefile), or folders (ESRI ArcInfo Coverages). -->
-<!-- way of storage (single file, multiple files, folders) -->
 Table \@ref(tab:formats) presents some basic information about selected and often used spatial file formats.
 
-<!-- simple features are missing from this table-->
 <table>
 <caption>(\#tab:formats)Selected spatial file formats.</caption>
  <thead>
@@ -271,73 +251,73 @@ Table \@ref(tab:formats) presents some basic information about selected and ofte
 <tbody>
   <tr>
    <td style="text-align:left;"> ESRI Shapefile </td>
-   <td style="text-align:left;"> .shp (the main file) </td>
+   <td style="text-align:left;width: 7em; "> .shp (the main file) </td>
    <td style="text-align:left;width: 14em; "> Popular format consisting of at least three files. No support for: files &gt; 2GB;  mixed types; names &gt; 10 chars; cols &gt; 255. </td>
    <td style="text-align:left;"> Vector </td>
-   <td style="text-align:left;"> Partially open </td>
+   <td style="text-align:left;width: 7em; "> Partially open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> GeoJSON </td>
-   <td style="text-align:left;"> .geojson </td>
+   <td style="text-align:left;width: 7em; "> .geojson </td>
    <td style="text-align:left;width: 14em; "> Extends the JSON exchange format by including a subset of the simple feature representation. </td>
    <td style="text-align:left;"> Vector </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> KML </td>
-   <td style="text-align:left;"> .kml </td>
+   <td style="text-align:left;width: 7em; "> .kml </td>
    <td style="text-align:left;width: 14em; "> XML-based format for spatial visualization, developed for use with Google Earth. Zipped KML file forms the KMZ format. </td>
    <td style="text-align:left;"> Vector </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> GPX </td>
-   <td style="text-align:left;"> .gpx </td>
+   <td style="text-align:left;width: 7em; "> .gpx </td>
    <td style="text-align:left;width: 14em; "> XML schema created for exchange of GPS data. </td>
    <td style="text-align:left;"> Vector </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> GeoTIFF </td>
-   <td style="text-align:left;"> .tiff </td>
+   <td style="text-align:left;width: 7em; "> .tiff </td>
    <td style="text-align:left;width: 14em; "> Popular raster format similar to `.tif` format but stores raster header. </td>
    <td style="text-align:left;"> Raster </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Arc ASCII </td>
-   <td style="text-align:left;"> .asc </td>
+   <td style="text-align:left;width: 7em; "> .asc </td>
    <td style="text-align:left;width: 14em; "> Text format where the first six lines represent the raster header, followed by the raster cell values arranged in rows and columns. </td>
    <td style="text-align:left;"> Raster </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> R-raster </td>
-   <td style="text-align:left;"> .gri, .grd </td>
+   <td style="text-align:left;width: 7em; "> .gri, .grd </td>
    <td style="text-align:left;width: 14em; "> Native raster format of the R-package raster. </td>
    <td style="text-align:left;"> Raster </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> SQLite/SpatiaLite </td>
-   <td style="text-align:left;"> .sqlite </td>
+   <td style="text-align:left;width: 7em; "> .sqlite </td>
    <td style="text-align:left;width: 14em; "> Standalone  relational database, SpatiaLite is the spatial extension of SQLite. </td>
    <td style="text-align:left;"> Vector and raster </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
   <tr>
    <td style="text-align:left;"> ESRI FileGDB </td>
-   <td style="text-align:left;"> .gdb </td>
+   <td style="text-align:left;width: 7em; "> .gdb </td>
    <td style="text-align:left;width: 14em; "> Spatial and nonspatial objects created by ArcGIS. Allows: multiple feature classes; topology. Limited support from GDAL. </td>
    <td style="text-align:left;"> Vector and raster </td>
-   <td style="text-align:left;"> Proprietary </td>
+   <td style="text-align:left;width: 7em; "> Proprietary </td>
   </tr>
   <tr>
    <td style="text-align:left;"> GeoPackage </td>
-   <td style="text-align:left;"> .gpkg </td>
+   <td style="text-align:left;width: 7em; "> .gpkg </td>
    <td style="text-align:left;width: 14em; "> Lightweight database container based on SQLite allowing an easy and platform-independent exchange of geodata </td>
    <td style="text-align:left;"> Vector and raster </td>
-   <td style="text-align:left;"> Open </td>
+   <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
 </tbody>
 </table>
@@ -350,19 +330,18 @@ ESRI Shapefile is the most popular vector data exchange format.
 However, it is not an open format (though its specification is open).
 It was developed in the early 1990s and has a number of limitations.
 First of all, it is a multi-file format, which consists of at least three files.
-It only supports 255 columns, column names are restricted to ten characters and the file size limit is to 2GB.
+It only supports 255 columns, column names are restricted to ten characters and the file size limit is 2 GB.
 Furthermore, ESRI Shapefile does not support all possible geometry types, for example, it is unable to distinguish between a polygon and a multipolygon.^[To learn more about ESRI Shapefile limitations and possible alternative file formats, visit http://switchfromshapefile.org/.]
 Despite these limitations, a viable alternative had been missing for a long time. 
 In the meantime, [GeoPackage](https://www.geopackage.org/) emerged, and seems to be a more than suitable replacement candidate for ESRI Shapefile.
 Geopackage is a format for exchanging geospatial information and an OGC standard. 
-The GeoPackage standard describes the rules how to store geospatial information in a tiny SQLite container.
+The GeoPackage standard describes the rules on how to store geospatial information in a tiny SQLite container.
 Hence, GeoPackage is a lightweight spatial database container, which allows the storage of vector and raster data but also of non-spatial data and extensions.
-Aside from GeoPackage there are other geospatial data exchange formats worth checking out (Table \@ref(tab:formats)).
+Aside from GeoPackage, there are other geospatial data exchange formats worth checking out (Table \@ref(tab:formats)).
 
 ## Data input (I) {#data-input}
 
 Executing commands such as `sf::st_read()` (the main function we use for loading vector data) or `raster::raster()` (the main function used for loading raster data) silently sets off a chain of events that reads data from files.
-<!-- transition is unclear, not sure what you would like to say -->
 Moreover, there are many R packages containing a wide range of geographic data or providing simple access to different data sources.
 All of them load the data into R or, more precisely, assign objects to your workspace, stored in RAM accessible from the [`.GlobalEnv`](http://adv-r.had.co.nz/Environments.html) of the R session.
 
@@ -395,7 +374,7 @@ head(sf_drivers, n = 5)
 <tbody>
   <tr>
    <td style="text-align:left;"> ESRI Shapefile </td>
-   <td style="text-align:left;"> ESRI Shapefile </td>
+   <td style="text-align:left;width: 7em; "> ESRI Shapefile </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -404,7 +383,7 @@ head(sf_drivers, n = 5)
   </tr>
   <tr>
    <td style="text-align:left;"> GPX </td>
-   <td style="text-align:left;"> GPX </td>
+   <td style="text-align:left;width: 7em; "> GPX </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -413,7 +392,7 @@ head(sf_drivers, n = 5)
   </tr>
   <tr>
    <td style="text-align:left;"> KML </td>
-   <td style="text-align:left;"> Keyhole Markup Language (KML) </td>
+   <td style="text-align:left;width: 7em; "> Keyhole Markup Language (KML) </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -422,7 +401,7 @@ head(sf_drivers, n = 5)
   </tr>
   <tr>
    <td style="text-align:left;"> GeoJSON </td>
-   <td style="text-align:left;"> GeoJSON </td>
+   <td style="text-align:left;width: 7em; "> GeoJSON </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> FALSE </td>
@@ -431,7 +410,7 @@ head(sf_drivers, n = 5)
   </tr>
   <tr>
    <td style="text-align:left;"> GPKG </td>
-   <td style="text-align:left;"> GeoPackage </td>
+   <td style="text-align:left;width: 7em; "> GeoPackage </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> TRUE </td>
@@ -452,19 +431,20 @@ In most cases, as with the ESRI Shapefile (`.shp`) or the `GeoPackage` format (`
 ```r
 vector_filepath = system.file("shapes/world.gpkg", package = "spData")
 world = st_read(vector_filepath)
-#> Reading layer `world' from data source `/home/travis/R/Library/spData/shapes/world.gpkg' using driver `GPKG'
+#> Reading layer `world' from data source `.../world.gpkg' using driver `GPKG'
 #> Simple feature collection with 177 features and 10 fields
 #> geometry type:  MULTIPOLYGON
 #> dimension:      XY
-#> bbox:           xmin: -180 ymin: -90 xmax: 180 ymax: 83.6
+#> bbox:           xmin: -180 ymin: -90 xmax: 180 ymax: 83.64513
 #> epsg (SRID):    4326
 #> proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ```
 
+
 For some drivers, `dsn` could be provided as a folder name, access credentials for a database, or a GeoJSON string representation (see the examples of the `st_read()` help page for more details).
 
 Some vector driver formats can store multiple data layers.
-By default, `st_read()` automatically reads the first layer of the file specified in `dsn`, however, using the `layer` argument you can specify any other layer.
+By default, `st_read()` automatically reads the first layer of the file specified in `dsn`; however, using the `layer` argument you can specify any other layer.
 
 Naturally, some options are specific to certain drivers.^[
 A list of supported vector formats and options can be found at http://gdal.org/ogr_formats.html.
@@ -544,7 +524,7 @@ raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge")
 single_layer = raster(raster_filepath)
 ```
 
-In case you want to read in a single band from a multilayer file use the `band` parameter to indicate a specific layer.
+In case you want to read in a single band from a multilayer file, use the `band` parameter to indicate a specific layer.
 
 
 ```r
@@ -567,12 +547,9 @@ Please refer to Section \@ref(raster-classes) for information on the difference 
 
 ## Data output (O) {#data-output}
 
-<!--maybe we can come up with an intro which is a bit more compelling-->
 Writing geographic data allows you to convert from one format to another and to save newly created objects.
-Depending on the data type (vector or raster), object class (e.g `multipoint` or `RasterLayer`), and type and amount of stored information (e.g. object size, range of values) - it is important to know how to store spatial files in the most efficient way.
+Depending on the data type (vector or raster), object class (e.g., `multipoint` or `RasterLayer`), and type and amount of stored information (e.g., object size, range of values), it is important to know how to store spatial files in the most efficient way.
 The next two sections will demonstrate how to do this.
-
-<!-- should we add a note about recommended way to decide on a file name, for example "don't use spaces in the name", "create descriptive names" -->
 
 ### Vector data
 
@@ -582,7 +559,6 @@ The counterpart of `st_read()` is `st_write()`.
 It allows you to write **sf** objects to a wide range of geographic vector file formats, including the most common such as `.geojson`, `.shp` and `.gpkg`.
 Based on the file name, `st_write()` decides automatically which driver to use. 
 The speed of the writing process depends also on the driver.
-<!-- ref to the vignette -->
 
 
 ```r
@@ -599,14 +575,14 @@ st_write(obj = world, dsn = "world.gpkg")
 ```r
 st_write(obj = world, dsn = "world.gpkg")
 #> Updating layer `world' to data source `world.gpkg' using driver `GPKG'
-#> Warning in CPL_write_ogr(obj, dsn, layer, driver, as.character(dataset_options), : GDAL Error 1: Layer world already exists, CreateLayer failed.
-#> Use the layer creation option OVERWRITE=YES to replace it.
 #> Creating layer world failed.
-#> Error in CPL_write_ogr(obj, dsn, layer, driver, as.character(dataset_options), : Layer creation failed.
+#> Error in CPL_write_ogr(obj, dsn, layer, driver, ...),  : 
+#>   Layer creation failed.
+#> In addition: Warning message:
+#> In CPL_write_ogr(obj, dsn, layer, driver, ...),  :
+#>   GDAL Error 1: Layer world already exists, CreateLayer failed.
+#> Use the layer creation option OVERWRITE=YES to replace it.
 ```
-
-<!-- ##   GDAL Error 1: Layer world.gpkg already exists, CreateLayer failed. -->
-<!-- ## Use the layer creation option OVERWRITE=YES to replace it. -->
 
 The error message provides some information as to why the function failed.
 The `GDAL Error 1` statement makes clear that the failure occurred at the GDAL level.
@@ -633,7 +609,6 @@ You can achieve the same with `write_sf()` since it is equivalent to (technicall
 write_sf(obj = world, dsn = "world.gpkg")
 ```
 
-<!-- how about saving multilayer gpkg? -->
 The `layer_options` argument could be also used for many different purposes.
 One of them is to write spatial data to a text file.
 This can be done by specifying `GEOMETRY` inside of `layer_options`. 
@@ -651,16 +626,16 @@ The `writeRaster()` function saves `Raster*` objects to files on disk.
 The function expects input regarding output data type and file format, but also accepts GDAL options specific to a selected file format (see `?writeRaster` for more details).
 
 The **raster** package offers nine data types when saving a raster: LOG1S, INT1S, INT1U, INT2S, INT2U, INT4S, INT4U, FLT4S, and FLT8S.^[
-Using INT4U is not recommended as R does not support 32-bit unsigned integers.<!--recheck this info-->
+Using INT4U is not recommended as R does not support 32-bit unsigned integers.
 ]
-The data type determines the bit representation of the raster object written to disk (\@ref(tab:datatypes)).
+The data type determines the bit representation of the raster object written to disk (Table \@ref(tab:datatypes)).
 Which data type to use depends on the range of the values of your raster object.
 The more values a data type can represent, the larger the file will get on disk.
 Commonly, one would use LOG1S for bitmap (binary) rasters.
-Unsigned integers (INT1U, INT2U, INT4U) are suitable for categorical data, while float numbers (FLT4S and FLTS8S) usually represent continuous data.
+Unsigned integers (INT1U, INT2U, INT4U) are suitable for categorical data, while float numbers (FLT4S and FLT8S) usually represent continuous data.
 `writeRaster()` uses FLT4S as the default.
 While this works in most cases, the size of the output file will be unnecessarily large if you save binary or categorical data.
-Therefore, we would recommend to use the data type that needs the least storage space but is still able to represent all values (check the range of values with the `summary()` function).
+Therefore, we would recommend to use the data type that needs the least storage space, but is still able to represent all values (check the range of values with the `summary()` function).
 
 <table>
 <caption>(\#tab:datatypes)Data types supported by the raster package.</caption>
