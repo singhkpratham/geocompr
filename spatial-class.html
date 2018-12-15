@@ -1012,7 +1012,7 @@ new_raster =<span class="st"> </span><span class="kw">raster</span>(raster_filep
 <span class="co">#&gt; data source : /home/robin/R/x86_64-pc-linux../3.5/spDataLarge/raster/srtm.tif </span>
 <span class="co">#&gt; names       : srtm </span>
 <span class="co">#&gt; values      : 1024, 2892  (min, max)</span></code></pre>
-<p>Dedicated functions report each component: <code>dim(new_raster)</code> returns the number of rows, columns and layers; the <code>ncell()</code> function the number cells (pixels); <code>res()</code> the raster’s spatial resolution; <code>extent()</code> its spatial extent; and <code>crs()</code> its coordinate reference system (raster reprojection is covered in Section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>).
+<p>Dedicated functions report each component: <code>dim(new_raster)</code> returns the number of rows, columns and layers; the <code>ncell()</code> function the number of cells (pixels); <code>res()</code> the raster’s spatial resolution; <code>extent()</code> its spatial extent; and <code>crs()</code> its coordinate reference system (raster reprojection is covered in Section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>).
 <code>inMemory()</code> reports whether the raster data is stored in memory (the default) or on disk.</p>
 <!--CRSargs(CRS("+init=epsg:4326"))-->
 <!-- Note that in contrast to the **sf** package, **raster** only accepts the `proj4string` representation of the coordinate reference system. -->
@@ -1308,7 +1308,7 @@ This is demonstrated in the code chunk below, which calculates the area of Luxem
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">st_area</span>(luxembourg)
 <span class="co">#&gt; 2.41e+09 [m^2]</span></code></pre>
 <p>The output is in units of square meters (m<sup>2</sup>), showing that the result represents two-dimensional space.
-This information, stored as an attribute (which interested readers can discover with <code>attributes(st_area(luxembourg))</code>), can feed into subsequent calculations thay use units, such as population density (which is measured in people per unit area, typically per km<sup>2</sup>).
+This information, stored as an attribute (which interested readers can discover with <code>attributes(st_area(luxembourg))</code>), can feed into subsequent calculations that use units, such as population density (which is measured in people per unit area, typically per km<sup>2</sup>).
 Reporting units prevents confusion.
 To take the Luxembourg example, if the units remained unspecified, one could incorrectly assume that the units were in hectares.
 To translate the huge number into a more digestible size, it is tempting to divide the results by a million (the number of square meters in a square kilometer):</p>

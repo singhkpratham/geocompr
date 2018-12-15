@@ -805,7 +805,7 @@ new_raster
 #> values      : 1024, 2892  (min, max)
 ```
 
-Dedicated functions report each component: `dim(new_raster)` returns the number of rows, columns and layers; the `ncell()` function the number cells (pixels); `res()` the raster's spatial resolution; `extent()` its spatial extent; and `crs()` its coordinate reference system (raster reprojection is covered in Section \@ref(reprojecting-raster-geometries)).
+Dedicated functions report each component: `dim(new_raster)` returns the number of rows, columns and layers; the `ncell()` function the number of cells (pixels); `res()` the raster's spatial resolution; `extent()` its spatial extent; and `crs()` its coordinate reference system (raster reprojection is covered in Section \@ref(reprojecting-raster-geometries)).
 `inMemory()` reports whether the raster data is stored in memory (the default) or on disk.
 
 <!--CRSargs(CRS("+init=epsg:4326"))-->
@@ -1193,7 +1193,7 @@ st_area(luxembourg)
 ```
 
 The output is in units of square meters (m^2^), showing that the result represents two-dimensional space.
-This information, stored as an attribute (which interested readers can discover with `attributes(st_area(luxembourg))`), can feed into subsequent calculations thay use units, such as population density (which is measured in people per unit area, typically per km^2^).
+This information, stored as an attribute (which interested readers can discover with `attributes(st_area(luxembourg))`), can feed into subsequent calculations that use units, such as population density (which is measured in people per unit area, typically per km^2^).
 Reporting units prevents confusion.
 To take the Luxembourg example, if the units remained unspecified, one could incorrectly assume that the units were in hectares.
 To translate the huge number into a more digestible size, it is tempting to divide the results by a million (the number of square meters in a square kilometer):
