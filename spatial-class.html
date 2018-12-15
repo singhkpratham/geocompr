@@ -1264,7 +1264,9 @@ new_vector =<span class="st"> </span><span class="kw">st_read</span>(vector_file
 <span class="co">#&gt; No EPSG code</span>
 <span class="co">#&gt; proj4string: &quot;+proj=utm +zone=12 +ellps=GRS80 ... +units=m +no_defs&quot;</span></code></pre>
 <p>In cases when a coordinate reference system (CRS) is missing or the wrong CRS is set, the <code>st_set_crs()</code> function can be used:</p>
-<pre class="sourceCode r"><code class="sourceCode r">new_vector =<span class="st"> </span><span class="kw">st_set_crs</span>(new_vector, <span class="dv">26912</span>) <span class="co"># set CRS</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">new_vector =<span class="st"> </span><span class="kw">st_set_crs</span>(new_vector, <span class="dv">4326</span>) <span class="co"># set CRS</span>
+<span class="co">#&gt; Warning: st_crs&lt;- : replacing crs does not reproject data; use st_transform</span>
+<span class="co">#&gt; for that</span></code></pre>
 <p>The warning message informs us that the <code>st_set_crs()</code> function does not transform data from one CRS to another.</p>
 <div class="figure" style="text-align: center"><span id="fig:vector-crs"></span>
 <img src="figures/02_vector_crs.png" alt="Examples of geographic (WGS 84; left) and projected (NAD83 / UTM zone 12N; right) coordinate systems for a vector data type." width="475" />

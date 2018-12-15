@@ -1129,7 +1129,9 @@ In cases when a coordinate reference system (CRS) is missing or the wrong CRS is
 
 
 ```r
-new_vector = st_set_crs(new_vector, 26912) # set CRS
+new_vector = st_set_crs(new_vector, 4326) # set CRS
+#> Warning: st_crs<- : replacing crs does not reproject data; use st_transform
+#> for that
 ```
 
 The warning message informs us that the `st_set_crs()` function does not transform data from one CRS to another.
