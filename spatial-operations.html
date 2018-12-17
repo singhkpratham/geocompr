@@ -446,8 +446,8 @@ These are covered in Section <a href="spatial-operations.html#topological-relati
 <p>Another unique aspect of spatial objects is distance.
 All spatial objects are related through space and distance calculations, covered in Section <a href="spatial-operations.html#distance-relations">4.2.6</a>, can be used to explore the strength of this relationship.</p>
 <p>Spatial operations also apply to raster objects.
-Spatial subsetting of raster objects is covered in Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>; merging several raster ‘tiles’ into a single, more geographically extensive object is covered in Section <a href="spatial-operations.html#merging-rasters">4.3.7</a>.
-For many applications the most important spatial operation on raster objects is <em>map algebra</em>, as we will see in Sections <a href="spatial-operations.html#map-algebra">4.3.2</a> to <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.
+Spatial subsetting of raster objects is covered in Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>; merging several raster ‘tiles’ into a single object is covered in Section <a href="spatial-operations.html#merging-rasters">4.3.7</a>.
+For many applications, the most important spatial operation on raster objects is <em>map algebra</em>, as we will see in Sections <a href="spatial-operations.html#map-algebra">4.3.2</a> to <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.
 Map algebra is also the prerequisite for distance calculations on rasters, a technique which is covered in Section <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.</p>
 
 <div class="rmdnote">
@@ -699,7 +699,7 @@ This can be changed with the <code>join</code> argument (see <code>?st_join</cod
 In the example above, we have added features of a polygon layer to a point layer.
 In other cases, we might want to join point attributes to a polygon layer.
 There might be occasions where more than one point falls inside one polygon.
-In such a case <code>st_join()</code> duplicates the polygon feature: it creates a new row to with an identical polygon feature for each match.</p>
+In such a case <code>st_join()</code> duplicates the polygon feature: it creates a new row for each match.</p>
 </div>
 <div id="non-overlapping-joins" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Non-overlapping joins</h3>
@@ -923,7 +923,7 @@ This is where it substantially differs from matrix algebra which changes positio
 <li><em>Local</em> or per-cell operations.</li>
 <li><em>Focal</em> or neighborhood operations.
 Most often the output cell value is the result of a 3 x 3 input cell block.</li>
-<li><em>Zonal</em> operations are similar to focal operations but use classes, which can have irregular sizes and shapes, as the basis for calculations.
+<li><em>Zonal</em> operations are similar to focal operations, but the surrounding pixel grid on which new values are computed can have irregular sizes and shapes.
 <!-- sentence structure could be confusing in the sentence above --></li>
 <li><em>Global</em> or per-raster operations; that means the output cell derives its value potentially from one or several entire rasters.</li>
 </ol>
@@ -954,7 +954,7 @@ These functions are more efficient, hence, they are preferable in the presence o
 Additionally, they allow you to directly store an output file.</p>
 <p>The calculation of the normalized difference vegetation index (NDVI) is a well-known local (pixel-by-pixel) raster operation.
 It returns a raster with values between -1 and 1; positive values indicate the presence of living plants (mostly &gt; 0.2).
-NDVI is calculated from red and near-infrared (NIR) bands of remotely sensed imagery, typically from satellite systems such Landsat or Sentinel.
+NDVI is calculated from red and near-infrared (NIR) bands of remotely sensed imagery, typically from satellite systems such as Landsat or Sentinel.
 Vegetation absorbs light heavily in the visible light spectrum, and especially in the red channel, while reflecting NIR light, explaining the NVDI formula:</p>
 <p><span class="math display">\[
 \begin{split}
@@ -993,9 +993,8 @@ In the case of categorical data, we can replace the mean with the mode, which is
 By contrast, high-pass filters accentuate features.
 The line detection Laplace and Sobel filters might serve as an example here.
 Check the <code>focal()</code> help page for how to use them in R (this will also be used in the excercises at the end of this chapter).</p>
-<p>Also, terrain processing uses heavily focal functions.
-Think, for instance, of the calculation of the slope, aspect and flow directions.
-The <code>terrain()</code> function lets you compute a few of these terrain characteristics (some terrain algorithms, such as the Zevenbergen and Thorne method to compute, slope are missing from the function).
+<p>Terrain processing, the calculation of topographic characteristics such as slope, aspect and flow directions, relies on focal functions.
+<code>terrain()</code> can be used to calculate these metrics, although some terrain algorithms, including the Zevenbergen and Thorne method to compute slope, are not implemented in this <strong>raster</strong> function.
 Many other algorithms — including curvatures, contributing areas and wetness indices — are implemented in open source desktop geographic information system (GIS) software.
 Chapter <a href="gis.html#gis">9</a> shows how to access such GIS functionality from within R.</p>
 </div>
