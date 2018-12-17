@@ -681,9 +681,11 @@ random_points =<span class="st"> </span>random_df <span class="op">%&gt;%</span>
 <!-- This may seem a trivial question but if you consider being placed somewhere at random it would surely take some time to discover where you were and you'd probably have to ask someone. **comment - removed as it's too long-winded (RL)** -->
 <p>The scenario is illustrated in Figure <a href="spatial-operations.html#fig:spatial-join">4.3</a>.
 The <code>random_points</code> object (top left) has no attribute data, while the <code>world</code> (top right) does.
-The spatial join operation is done by <code>st_join()</code>, which adds the <code>name_long</code> variable to the points, resulting in <code>random_joined</code> which is illustrated in Figure <a href="spatial-operations.html#fig:spatial-join">4.3</a> (bottom left — see <a href="https://github.com/Robinlovelace/geocompr/blob/master/code/04-spatial-join.R"><code>04-spatial-join.R</code></a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r">world<span class="op">$</span>name_long =<span class="st"> </span><span class="kw">as.character</span>(world<span class="op">$</span>name_long)
-world_random =<span class="st"> </span>world[random_points, ]
+The spatial join operation is done by <code>st_join()</code>, which adds the <code>name_long</code> variable to the points, resulting in <code>random_joined</code> which is illustrated in Figure <a href="spatial-operations.html#fig:spatial-join">4.3</a> (bottom left — see <a href="https://github.com/Robinlovelace/geocompr/blob/master/code/04-spatial-join.R"><code>04-spatial-join.R</code></a>).
+Before creating the joined dataset, we use spatial subsetting to create <code>world_random</code>, which contains only countries that contain random points, to verify the number of country names returned in the joined dataset should be four (see the top right panel of Figure <a href="spatial-operations.html#fig:spatial-join">4.3</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r">world_random =<span class="st"> </span>world[random_points, ]
+<span class="kw">nrow</span>(world_random)
+<span class="co">#&gt; [1] 4</span>
 random_joined =<span class="st"> </span><span class="kw">st_join</span>(random_points, world[<span class="st">&quot;name_long&quot;</span>])</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:spatial-join"></span>
 <img src="figures/spatial-join-1.png" alt="Illustration of a spatial join. A new attribute variable is added to random points (top left) from source world object (top right) resulting in the data represented in the final panel." width="100%" />
