@@ -427,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(spDataLarge)
 <span class="kw">library</span>(stplanr)      <span class="co"># geographic transport data package</span>
-<span class="kw">library</span>(tmap)         <span class="co"># visualisation package (see Chapter 8)</span></code></pre>
+<span class="kw">library</span>(tmap)         <span class="co"># visualization package (see Chapter 8)</span></code></pre>
 </div>
 <div id="introduction-7" class="section level2">
 <h2><span class="header-section-number">12.1</span> Introduction</h2>
@@ -675,7 +675,7 @@ The following code chunk splits <code>od_bristol</code> into these two types:
 od_inter =<span class="st"> </span><span class="kw">filter</span>(bristol_od, o <span class="op">!=</span><span class="st"> </span>d)</code></pre>
 <p>The next step is to convert the interzonal OD pairs into an <code>sf</code> object representing desire lines that can be plotted on a map with the <strong>stplanr</strong> function <code>od2line()</code>.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></p>
 <pre class="sourceCode r"><code class="sourceCode r">desire_lines =<span class="st"> </span><span class="kw">od2line</span>(od_inter, zones_od)</code></pre>
-<p>An illustration of the results is presented in Figure <a href="transport.html#fig:desire">12.3</a>, a simplified version of which is created with the following command (see the code in <code>12-desire.R</code> to reproduce the figure exactly and Chapter <a href="adv-map.html#adv-map">8</a> for details on visualisation with <strong>tmap</strong>):</p>
+<p>An illustration of the results is presented in Figure <a href="transport.html#fig:desire">12.3</a>, a simplified version of which is created with the following command (see the code in <code>12-desire.R</code> to reproduce the figure exactly and Chapter <a href="adv-map.html#adv-map">8</a> for details on visualization with <strong>tmap</strong>):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qtm</span>(desire_lines, <span class="dt">lines.lwd =</span> <span class="st">&quot;all&quot;</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:desire"></span>
 <img src="figures/desire-1.png" alt="Desire lines representing trip patterns in Bristol, with width representing number of trips and color representing the percentage of trips made by active modes (walking and cycling). The four black lines represent the interzonal OD pairs in Table 7.1." width="576" />
