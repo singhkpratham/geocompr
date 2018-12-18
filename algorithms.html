@@ -470,22 +470,22 @@ Saved scripts can be called and executed in their entirety with <code>source()</
 There are, however, some conventions worth following:</p>
 <ul>
 <li>Write the script in order: just like the script of a film, scripts should have a clear order such as ‘setup’, ‘data processing’ and ‘save results’ (roughly equivalent to ‘beginning’, ‘middle’ and ‘end’ in a film).</li>
-<li>Comment the script sufficiently for others (and your future self) to understand it, but not too much. At a minimum a comment should state the purpose of the script (see Figure <a href="algorithms.html#fig:codecheck">10.1</a>) and (for long scripts) divide it into sections (e.g. with <code>Ctrl+Shift+R</code> in RStudio which creates comments ending in <code>----</code> that can be ‘folded’ in the editor).</li>
-<li>Above all scripts should be reproducible: self-contained scripts that will work on any computer are more useful than scripts that only run on your computer, on a good day. This involves attaching required packages at the beginning, reading-in data from persistent sources (e.g. from a reliable website or API) and ensuring that previous steps have been taken.<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a></li>
+<li>Add comments to the script so other people (and your future self) can understand it. At a minimum, a comment should state the purpose of the script (see Figure <a href="algorithms.html#fig:codecheck">10.1</a>) and (for long scripts) divide it into sections. This can be done in RStudio, for example, with the shortcut <code>Ctrl+Shift+R</code>, which creates ‘foldable’ code section headings.</li>
+<li>Above all, scripts should be reproducible: self-contained scripts that will work on any computer are more useful than scripts that only run on your computer, on a good day. This involves attaching required packages at the beginning, reading-in data from persistent sources (such as a reliable website) and ensuring that previous steps have been taken.<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a></li>
 </ul>
 <p>It is hard to enforce reproducibility in R scripts, but there are tools that can help.
-By default RStudio ‘code-checks’ R scripts and underlines faulty code with a red wavy line, as illustrated below:</p>
+By default, RStudio ‘code-checks’ R scripts and underlines faulty code with a red wavy line, as illustrated below:</p>
 <div class="figure" style="text-align: center"><span id="fig:codecheck"></span>
-<img src="figures/codecheck.png" alt="Illustration of 'code checking' in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19." width="370" />
+<img src="figures/codecheck.png" alt="Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19." width="370" />
 <p class="caption">
-Figure 10.1: Illustration of ‘code checking’ in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19.
+Figure 10.1: Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19.
 </p>
 </div>
 
 <div class="rmdnote">
 A useful tool for reproducibility is the <strong>reprex</strong> package.
 Its main function <code>reprex()</code> tests lines of R code to check if they are reproducible, and provides markdown output to facilitate communication on sites such as GitHub.
-See <a href="http://reprex.tidyverse.org/">reprex.tidyverse.org/</a> for details.
+See the web page reprex.tidyverse.org for details.
 </div>
 
 <p>The contents of this section apply to any type of R script.
@@ -505,16 +505,16 @@ The work undertaken by this script is demonstrated in the reproducible example b
 <p>Algorithms can be understood as the computing equivalent of a cooking recipe.
 They are a complete set of instructions which, when undertaken on the input (ingredients), result in useful (tasty) outputs.
 Before diving into a concrete case study, a brief history will show how algorithms relate to scripts (covered in Section <a href="algorithms.html#scripts">10.2</a>) and functions (which can be used to generalize algorithms, as we’ll see in Section <a href="algorithms.html#functions">10.4</a>).</p>
-<p>The word algorithm originated in 9<sup>th</sup> Century Baghdad with the publication of <em>Hisab al-jabr w’al-muqabala</em>, an early maths textbook.
+<p>The word “algorithm” originated in 9<sup>th</sup> century Baghdad with the publication of <em>Hisab al-jabr w’al-muqabala</em>, an early math textbook.
 The book was translated into Latin and became so popular that the author’s last name, <a href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwārizmī</a>, “was immortalized as a scientific term: Al-Khwarizmi
 <!-- [sic] -->
 became Alchoarismi, Algorismi and, eventually, algorithm” <span class="citation">(Bellos <a href="#ref-bellos_alex_2011">2011</a>)</span>.
 <!-- ^[ -->
 <!-- The book's title was also influential, forming the basis of the word *algebra*. -->
 <!-- ] -->
-In the computing age algorithm refers to a series of steps that solves a problem, resulting in a pre-defined output.
+In the computing age, algorithm refers to a series of steps that solves a problem, resulting in a pre-defined output.
 Inputs must be formally defined in a suitable data structure <span class="citation">(Wise <a href="#ref-wise_gis_2001">2001</a>)</span>.
-Algorithms often start as flow charts or psuedocode showing the aim of the process before being implemented in code.
+Algorithms often start as flow charts or pseudocode showing the aim of the process before being implemented in code.
 To ease usability, common algorithms are often packaged inside functions, which may hide some or all of the steps taken (unless you look at the function’s source code, see Section <a href="algorithms.html#functions">10.4</a>).</p>
 <p>Geoalgorithms, such as those we encountered in Chapter <a href="gis.html#gis">9</a>, are algorithms that take geographic data in and, generally, return geographic results (alternative terms for the same thing include <em>GIS algorithms</em> and <em>geometric algorithms</em>).
 That may sound simple but it is a deep subject with an entire academic field, <em>Computational Geometry</em>, dedicated to their study <span class="citation">(Berg et al. <a href="#ref-berg_computational_2008">2008</a>)</span> and numerous books on the subject.
@@ -522,7 +522,7 @@ That may sound simple but it is a deep subject with an entire academic field, <e
 <p>An example of a geometric algorithm is one that finds the centroid of a polygon.
 There are many approaches to centroid calculation, some of which work only on specific types of <a href="https://en.wikipedia.org/wiki/Centroid">spatial data</a>.
 For the purposes of this section, we choose an approach that is easy to visualize: breaking the polygon into many triangles and finding the centroid of each of these, an approach discussed by <span class="citation">Kaiser and Morin (<a href="#ref-kaiser_algorithms_1993">1993</a>)</span> alongside other centroid algorithms <span class="citation">(and mentioned briefly in O’Rourke <a href="#ref-orourke_computational_1998">1998</a>)</span>.
-It helps to further break-down this approach into discrete tasks before writing any code (subsequently referred to as step 1 to step 4, these could also be presented as a schematic diagram or pseudocode):</p>
+It helps to further break down this approach into discrete tasks before writing any code (subsequently referred to as step 1 to step 4, these could also be presented as a schematic diagram or pseudocode):</p>
 <ol style="list-style-type: decimal">
 <li>Divide the polygon into contiguous triangles.</li>
 <li>Find the centroid of each triangle.</li>
@@ -533,12 +533,12 @@ It helps to further break-down this approach into discrete tasks before writing 
 <p>These steps may sound straightforward, but converting words into working code requires some work and plenty of trial-and-error, even when the inputs are constrained:
 The algorithm will only work for <em>convex polygons</em>, which contain no internal angles greater than 180°, no star shapes allowed (packages <strong>decido</strong> and <strong>sfdct</strong> can triangulate non-convex polygons using external libraries, as shown in the <a href="https://geocompr.github.io/geocompkg/articles/algorithm.html">algorithm</a> vignette at geocompr.github.io).</p>
 <p>The simplest data structure of a polygon is a matrix of x and y coordinates in which each row represents a vertex tracing the polygon’s border in order where the first and last rows are identical <span class="citation">(Wise <a href="#ref-wise_gis_2001">2001</a>)</span>.
-In this case we’ll create a polygon with five vertices in base R, building on an example from <em>GIS Algorithms</em> <span class="citation">(Xiao <a href="#ref-xiao_gis_2016">2016</a> see <a href="https://github.com/gisalgs/geom">github.com/gisalgs</a> for Python code)</span>, as illustrated in Figure <a href="algorithms.html#fig:polymat">10.2</a>:</p>
+In this case, we’ll create a polygon with five vertices in base R, building on an example from <em>GIS Algorithms</em> <span class="citation">(Xiao <a href="#ref-xiao_gis_2016">2016</a> see <a href="https://github.com/gisalgs/geom">github.com/gisalgs</a> for Python code)</span>, as illustrated in Figure <a href="algorithms.html#fig:polymat">10.2</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># generate a simple matrix representation of a polygon:</span>
 x_coords =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">10</span>)
 y_coords =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">0</span>)
 poly_mat =<span class="st"> </span><span class="kw">cbind</span>(x_coords, y_coords)</code></pre>
-<p>Now we have an example dataset we are ready to undertake step 1 outlined above.
+<p>Now that we have an example dataset, we are ready to undertake step 1 outlined above.
 The code below shows how this can be done by creating a single triangle (<code>T1</code>), that demonstrates the method; it also demonstrates step 2 by calculating its centroid based on the <a href="https://math.stackexchange.com/q/1702595/">formula</a> <span class="math inline">\(1/3(a + b + c)\)</span> where <span class="math inline">\(a\)</span> to <span class="math inline">\(c\)</span> are coordinates representing the triangle’s vertices:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create a point representing the origin:</span>
 Origin =<span class="st"> </span>poly_mat[<span class="dv">1</span>, ]
@@ -568,7 +568,7 @@ A translation of this formula into R code that works with the data in the matrix
 <span class="co">#&gt; [1] 50</span></code></pre>
 <p>This code chunk outputs the correct result.<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a>
 The problem is that code is clunky and must by re-typed if we want to run it on another triangle matrix.
-To make the code more generalizable, we will see how it can be converted into a function in the next section (<a href="algorithms.html#functions">10.4</a>).</p>
+To make the code more generalizable, we will see how it can be converted into a function in Section <a href="algorithms.html#functions">10.4</a>.</p>
 <p>Step 4 requires steps 2 and 3 to be undertaken not just on one triangle (as demonstrated above) but on all triangles.
 This requires <em>iteration</em> to create all triangles representing the polygon, illustrated in Figure <a href="algorithms.html#fig:polycent">10.3</a>.
 <code>lapply()</code> and <code>vapply()</code> are used to iterate over each triangle here because they provide a concise solution in base R:<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a></p>
@@ -592,21 +592,22 @@ Figure 10.3: Illustration of iterative centroid algorithm with triangles. The �
 </p>
 </div>
 <p>We are now in a position to complete step 4 to calculate the total area with <code>sum(A)</code> and the centroid coordinates of the polygon with <code>weighted.mean(C[, 1], A)</code> and <code>weighted.mean(C[, 2], A)</code> (exercise for alert readers: verify these commands work).
-To demonstrate the link between algorithms and scripts the contents of this section have been condensed into <code>10-centroid-alg.R</code>.
+To demonstrate the link between algorithms and scripts, the contents of this section have been condensed into <code>10-centroid-alg.R</code>.
 We saw at the end of Section <a href="algorithms.html#scripts">10.2</a> how this script can calculate the centroid of a square.
 The great thing about <em>scripting</em> the algorithm is that it works on the new <code>poly_mat</code> object (see exercises below to verify these results with reference to <code>st_centroid()</code>):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;code/10-centroid-alg.R&quot;</span>)
 <span class="co">#&gt; [1] &quot;The area is: 245&quot;</span>
 <span class="co">#&gt; [1] &quot;The coordinates of the centroid are: 8.83, 9.22&quot;</span></code></pre>
-<!-- We have succefully duplicated a small part of **sf**'s functionality (with a major caveat mentioned in the next paragraph). -->
+<!-- We have successfully duplicated a small part of **sf**'s functionality (with a major caveat mentioned in the next paragraph). -->
 <p>The example above shows that low-level geographic operations <em>can</em> be developed from first principles with base R.
 It also shows that if a tried-and-tested solution already exists, it may not be worth re-inventing the wheel:
-if our aim was simply to find the centroid of a polygon it would have been quicker to represent <code>poly_mat</code> as an <strong>sf</strong> object and use the pre-existing <code>sf::st_centroid()</code> function instead.
+if we aimed only to find the centroid of a polygon, it would have been quicker to represent <code>poly_mat</code> as an <strong>sf</strong> object and use the pre-existing <code>sf::st_centroid()</code> function instead.
 However, the great benefit of writing algorithms from 1<sup>st</sup> principles is that you will understand every step of the process, something that cannot be guaranteed when using other peoples’ code.
 A further consideration is performance: R is slow compared with low-level languages such as C++ for number crunching (see Section <a href="intro.html#software-for-geocomputation">1.3</a>) and optimization is difficult.
-Still, if the aim is to develop new methods computational efficiency should not be a primary consideration, as encapsulated in the saying “premature optimization is the root of all evil (or at least most of it) in programming” <span class="citation">(Knuth <a href="#ref-knuth_computer_1974">1974</a>)</span>.</p>
+If the aim is to develop new methods, computational efficiency should not be prioritized.
+This is captured in the saying “premature optimization is the root of all evil (or at least most of it) in programming” <span class="citation">(Knuth <a href="#ref-knuth_computer_1974">1974</a>)</span>.</p>
 <p>Algorithm development is hard.
-This should be apparent from the amount of work that has gone into developing a centroid algorithm in base R that is just one, rather inefficient, approach to the problem with limited real-world applications (in the real world convex polygons are uncommon).
+This should be apparent from the amount of work that has gone into developing a centroid algorithm in base R that is just one, rather inefficient, approach to the problem with limited real-world applications (convex polygons are uncommon in practice).
 The experience should lead to an appreciation of low-level geographic libraries such as GEOS (which underlies <code>sf::st_centroid()</code>) and CGAL (the Computational Geometry Algorithms Library) which not only run fast but work on a wide range of input geometry types.
 A great advantage of the open source nature of such libraries is that their source code is readily available for study, comprehension and (for those with the skills and confidence) modification.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a></p>
 </div>
@@ -614,7 +615,7 @@ A great advantage of the open source nature of such libraries is that their sour
 <h2><span class="header-section-number">10.4</span> Functions</h2>
 <p>Like algorithms, functions take an input and return an output.
 Functions, however, refer to the implementation in a particular programming language, rather than the ‘recipe’ itself.
-In R functions are objects in their own right, that can be created and joined together in a modular fashion.
+In R, functions are objects in their own right, that can be created and joined together in a modular fashion.
 We can, for example, create a function that undertakes step 2 of our centroid generation algorithm as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r">t_centroid =<span class="st"> </span><span class="cf">function</span>(x) {
   (x[<span class="dv">1</span>, ] <span class="op">+</span><span class="st"> </span>x[<span class="dv">2</span>, ] <span class="op">+</span><span class="st"> </span>x[<span class="dv">3</span>, ]) <span class="op">/</span><span class="st"> </span><span class="dv">3</span>
@@ -662,7 +663,7 @@ The code chunk below creates the function <code>poly_centroid()</code> to mimic 
 }</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">poly_centroid</span>(poly_mat)
 <span class="co">#&gt; [1] 8.83 9.22</span></code></pre>
-<p>Functions such as <code>poly_centroid()</code> can further be built-on to provide different types of output.
+<p>Functions such as <code>poly_centroid()</code> can further be extended to provide different types of output.
 To return the result as an object of class <code>sfg</code>, for example, a ‘wrapper’ function can be used to modify the output of <code>poly_centroid()</code> before returning the result:</p>
 <pre class="sourceCode r"><code class="sourceCode r">poly_centroid_sfg =<span class="st"> </span><span class="cf">function</span>(x) {
   centroid_coords =<span class="st"> </span><span class="kw">poly_centroid</span>(x)
@@ -677,21 +678,20 @@ To return the result as an object of class <code>sfg</code>, for example, a ‘w
 <div id="programming" class="section level2">
 <h2><span class="header-section-number">10.5</span> Programming</h2>
 <p>In this chapter we have moved quickly, from scripts to functions via the tricky topic of algorithms.
-Not only have we discussed them in the abstract.
-We have created working examples of each to solve a specific problem:</p>
+Not only have we discussed them in the abstract, but we have also created working examples of each to solve a specific problem:</p>
 <ul>
 <li>The script <code>10-centroid-alg.R</code> was introduced and demonstrated on a ‘polygon matrix’.</li>
 <li>The individual steps that allowed this script to work were described as an algorithm, a computational recipe.</li>
 <li>To generalize the algorithm we converted it into modular functions which were eventually combined to create the function <code>poly_centroid()</code> in the previous section.</li>
 </ul>
-<p>Taken on its own each of these steps is straightforward.
+<p>Taken on its own, each of these steps is straightforward.
 But the skill of programming is combining scripts, algorithms and functions in a way that produces performant, robust and user-friendly tools that other people can use.
-If you are new to programming, as we expect most people reading this book will be, being able to follow and reproduce the results in the preceding sections should be seen as a major acheivement.
-As outlined in the introduction programming takes many hours of dedicated study and practice before you become proficient.</p>
+If you are new to programming, as we expect most people reading this book will be, being able to follow and reproduce the results in the preceding sections should be seen as a major achievement.
+Programming takes many hours of dedicated study and practice before you become proficient.</p>
 <p>The challenge facing developers aiming to implement new algorithms in an efficient way is put in perspective by considering that we have only created a toy function.
 In its current state, <code>poly_centroid()</code> fails on most (non-convex) polygons!
-A question arising from this is: how would one generalise the function.
-Two options are 1) to find ways to triangulate non-convex polygons (a topic covered in the online <a href="https://geocompr.github.io/geocompkg/articles/algorithm.html">algorithm</a> article that supports this chapter) and 2) to explore other centroid algorithms that do not rely on triangular meshes.</p>
+A question arising from this is: how would one generalize the function?
+Two options are (1) to find ways to triangulate non-convex polygons (a topic covered in the online <a href="https://geocompr.github.io/geocompkg/articles/algorithm.html">algorithm</a> article that supports this chapter) and (2) to explore other centroid algorithms that do not rely on triangular meshes.</p>
 <p>A wider question is: is it worth programming a solution at all when high performance algorithms have already been implemented and packaged in functions such as <code>st_centroid()</code>?
 The reductionist answer in this specific case is ‘no’.
 In the wider context, and considering the benefits of learning to program, the answer is ‘it depends’.
@@ -732,7 +732,7 @@ First steps towards programming can be slow (the exercises below should not be r
 <li>Read the script <code>10-centroid-alg.R</code> in the <code>code</code> folder of the book’s GitHub repo.
 <ul>
 <li>Which of the best practices covered in Section <a href="algorithms.html#scripts">10.2</a> does it follow?</li>
-<li>Create a version of the script on your computer in an IDE such as RStudio (preferably by typing-out the script line-by-line, in your own coding style and with your own comments, rather than copy-pasting — this will help you learn how to type scripts). Using the example of a square polygon (e.g. created with <code>poly_mat = cbind(x = c(0, 0, 9, 9, 0), y = c(0, 9, 9, 0, 0))</code>) execute the script line-by-line.</li>
+<li>Create a version of the script on your computer in an IDE such as RStudio (preferably by typing-out the script line-by-line, in your own coding style and with your own comments, rather than copy-pasting — this will help you learn how to type scripts). Using the example of a square polygon (e.g., created with <code>poly_mat = cbind(x = c(0, 0, 9, 9, 0), y = c(0, 9, 9, 0, 0))</code>) execute the script line-by-line.</li>
 <li>What changes could be made to the script to make it more reproducible?
 <!-- - Answer: The script could state that it needs a an object called `poly_mat` to be present and, if none is present, create an example dataset at the outset for testing. -->
 <!-- 1. Check-out the script `10-earthquakes.R` in the `code` folder of the book's GitHub [repo](https://github.com/Robinlovelace/geocompr/blob/master/code/10-earthquakes.R). -->
@@ -752,12 +752,12 @@ First steps towards programming can be slow (the exercises below should not be r
 </ul></li>
 <li>It was stated that the algorithm we created only works for <em>convex hulls</em>. Define convex hulls (see Chapter <a href="geometric-operations.html#geometric-operations">5</a>) and test the algorithm on a polygon that is <em>not</em> a convex hull.
 <ul>
-<li>Bonus 1: Think about why the method only works for convex hulls and note changes that would need to be made to the algorithm for other types of shape to be calculated.
+<li>Bonus 1: Think about why the method only works for convex hulls and note changes that would need to be made to the algorithm to make it work for other types of polygon.
 <!-- The algorithm would need to be able to have negative as well as positive area values. --></li>
 <li>Bonus 2: Building on the contents of <code>10-centroid-alg.R</code>, write an algorithm only using base R functions that can find the total length of linestrings represented in matrix form.
 <!-- Todo: add example of matrix representing a linestring, demonstrate code to verify the answer, suggest alternative functions to decompose as a bonus. --></li>
 </ul></li>
-<li>In Section <a href="algorithms.html#functions">10.4</a> we created different versions of the <code>poly_centroid()</code> function that generated outputs of class <code>sfg</code> (<code>poly_centroid_sfg()</code>) and type-stable <code>matrix</code> outputs (<code>poly_centroid_type_stable()</code>). Further extend the function by creating a version (e.g. called <code>poly_centroid_sf()</code>) that is type stable (only accepts inputs of class <code>sf</code>) <em>and</em> returns <code>sf</code> objects (hint: you may need to convert the object <code>x</code> into a matrix with the command <code>sf::st_coordinates(x)</code>).
+<li>In Section <a href="algorithms.html#functions">10.4</a> we created different versions of the <code>poly_centroid()</code> function that generated outputs of class <code>sfg</code> (<code>poly_centroid_sfg()</code>) and type-stable <code>matrix</code> outputs (<code>poly_centroid_type_stable()</code>). Further extend the function by creating a version (e.g., called <code>poly_centroid_sf()</code>) that is type stable (only accepts inputs of class <code>sf</code>) <em>and</em> returns <code>sf</code> objects (hint: you may need to convert the object <code>x</code> into a matrix with the command <code>sf::st_coordinates(x)</code>).
 <ul>
 <li>Verify it works by running <code>poly_centroid_sf(sf::st_sf(sf::st_sfc(poly_sfc)))</code></li>
 <li>What error message do you get when you try to run <code>poly_centroid_sf(poly_mat)</code>?</li>
@@ -797,31 +797,29 @@ First steps towards programming can be slow (the exercises below should not be r
 <hr />
 <ol start="51">
 <li id="fn51"><p>
-This chapter does not teach programming itself, but the guidance and exercises within should provide a foundation for learning to program.
-For more on programming see <span class="citation">Wickham (<a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>, <span class="citation">Gillespie and Lovelace (<a href="#ref-gillespie_efficient_2016">2016</a>)</span> and, for a GIS-focussed book based on Python, <span class="citation">Xiao (<a href="#ref-xiao_gis_2016">2016</a>)</span>. <a href="algorithms.html#fnref51" class="footnote-back">↩</a></p></li>
+This chapter does not teach programming itself.
+For more on programming, we recommend <span class="citation">Wickham (<a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>, <span class="citation">Gillespie and Lovelace (<a href="#ref-gillespie_efficient_2016">2016</a>)</span>, and <span class="citation">Xiao (<a href="#ref-xiao_gis_2016">2016</a>)</span>. <a href="algorithms.html#fnref51" class="footnote-back">↩</a></p></li>
 <li id="fn52"><p>
-Lines of code that do not contain valid R should be commented to prevent errors, as with line 1 of the <code>10-hello.R</code> script.<a href="algorithms.html#fnref52" class="footnote-back">↩</a></p></li>
+Lines of code that do not contain valid R should be commented out, by adding a <code>#</code> to the start of the line, to prevent errors.
+See line 1 of the <code>10-hello.R</code> script.<a href="algorithms.html#fnref52" class="footnote-back">↩</a></p></li>
 <li id="fn53"><p>
 Prior steps can be referred to with a comment or with an if statement such as <code>if(!exists(&quot;x&quot;)) source(&quot;x.R&quot;)</code> (which would run the script file <code>x.R</code> if the object <code>x</code> is missing).<a href="algorithms.html#fnref53" class="footnote-back">↩</a></p></li>
 <li id="fn54"><p>
 This example shows that <code>source()</code> works with URLs (a shortened version is used here), assuming you have an internet connection.
-If you do not, the same script can be called with <code>source(&quot;code/10-centroid-alg.R&quot;)</code>, assuming you are running R from the root directory of the <code>geocompr</code> folder, which can downloaded from <a href="https://github.com/Robinlovelace/geocompr" class="uri">https://github.com/Robinlovelace/geocompr</a>.<a href="algorithms.html#fnref54" class="footnote-back">↩</a></p></li>
+If you do not, the same script can be called with <code>source(&quot;code/10-centroid-alg.R&quot;)</code>, assuming you are running R from the root directory of the <code>geocompr</code> folder, which can be downloaded from <a href="https://github.com/Robinlovelace/geocompr" class="uri">https://github.com/Robinlovelace/geocompr</a>.<a href="algorithms.html#fnref54" class="footnote-back">↩</a></p></li>
 <li id="fn55"><p>
-The result can be verified using the formula for the area of a triangle whose base is horizontal, as is the case for T1 (see Figure <a href="algorithms.html#fig:polycent">10.3</a>):
-area is half of the base width times its height or <span class="math inline">\(A = B * H / 2\)</span>.
+The result can be verified with the following formula (which assumes a horizontal base):
+area is half of the base width times height, <span class="math inline">\(A = B * H / 2\)</span>.
 In this case <span class="math inline">\(10 * 10 / 2 = 50\)</span>.<a href="algorithms.html#fnref55" class="footnote-back">↩</a></p></li>
 <li id="fn56"><p>
-See <code>?lapply</code> for documentation.
-Alternative functions for iteration include <code>map()</code> from the <strong>purrr</strong> package or a <code>for()</code> loop (see Chapter <a href="location.html#location">13</a>).
-<code>do.call()</code> is used in the code chunk as a base R equivalent of <code>dplyr::bind_rows()</code>:
-it coerces the list elements into a single matrix. <a href="algorithms.html#fnref56" class="footnote-back">↩</a></p></li>
+See <code>?lapply</code> for documentation and Chapter <a href="location.html#location">13</a> for more on iteration.<a href="algorithms.html#fnref56" class="footnote-back">↩</a></p></li>
 <li id="fn57"><p>
 The CGAL function <code>CGAL::centroid()</code> is in fact composed of 7 sub-functions as described at <a href="https://doc.cgal.org/latest/Kernel_23/group__centroid__grp.html" class="uri">https://doc.cgal.org/latest/Kernel_23/group__centroid__grp.html</a> allowing it to work on a wide range of input data types, whereas the solution we created works only on a very specific input data type.
 The source code underlying GEOS function <code>Centroid::getCentroid()</code> can be found at <a href="https://github.com/libgeos/geos/search?q=getCentroid" class="uri">https://github.com/libgeos/geos/search?q=getCentroid</a>.<a href="algorithms.html#fnref57" class="footnote-back">↩</a></p></li>
 <li id="fn58"><p>
 You can also explicitly set the output of a function by adding <code>return(output)</code> into the body of the function, where <code>output</code> is the result to be returned.<a href="algorithms.html#fnref58" class="footnote-back">↩</a></p></li>
 <li id="fn59"><p>
-Note that the functions we created are called recursively in <code>lapply()</code> and <code>vapply()</code> function calls respectively, which you may want to read-up on in <code>?lapply</code> for reference.<a href="algorithms.html#fnref59" class="footnote-back">↩</a></p></li>
+Note that the functions we created are called iteratively in <code>lapply()</code> and <code>vapply()</code> function calls.<a href="algorithms.html#fnref59" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <script>
