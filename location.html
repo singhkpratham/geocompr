@@ -873,7 +873,7 @@ reclass =<span class="st"> </span><span class="kw">addLayer</span>(reclass, poi)
 <span class="co"># delete population raster</span>
 reclass =<span class="st"> </span><span class="kw">dropLayer</span>(reclass, <span class="st">&quot;pop&quot;</span>)</code></pre>
 <p>In common with other data science projects, data retrieval and ‘tidying’ have consumed much of the overall workload so far.
-With clean data the final step, calculating a final score by summing up all raster layers, can be accomplished in a single line.</p>
+With clean data, the final step — calculating a final score by summing all raster layers — can be accomplished in a single line of code.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate the total score</span>
 result =<span class="st"> </span><span class="kw">sum</span>(reclass)</code></pre>
 <p>For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure <a href="location.html#fig:bikeshop-berlin">13.3</a>; see also <code>code/13-location-jm.R</code>).</p>
