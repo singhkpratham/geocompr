@@ -421,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="prerequisites-12" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <p>This chapter assumes you have a strong grasp of geographic data analysis and processing, covered in Chapters <a href="spatial-class.html#spatial-class">2</a> to <a href="geometric-operations.html#geometric-operations">5</a>.
-In it you will also make use of R’s interfaces to dedicated GIS software, and spatial cross validation, topics covered in Chapters <a href="gis.html#gis">9</a> and <a href="spatial-cv.html#spatial-cv">11</a>, respectively.</p>
+In it you will also make use of R’s interfaces to dedicated GIS software, and spatial cross-validation, topics covered in Chapters <a href="gis.html#gis">9</a> and <a href="spatial-cv.html#spatial-cv">11</a>, respectively.</p>
 <p>The chapter uses the following packages:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sf)
 <span class="kw">library</span>(raster)
@@ -438,7 +438,7 @@ To do so, we will bring together concepts presented in previous chapters and eve
 These formations, locally termed <em>lomas</em>, develop on mountains along the coastal deserts of Peru and Chile.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a>
 The deserts’ extreme conditions and remoteness provide the habitat for a unique ecosystem, including species endemic to the fog oases.
 Despite the arid conditions and low levels of precipitation of around 30-50 mm per year on average, fog deposition increases the amount of water available to plants during austal winter.
-This results in green southern-facing mountain slopes along the coastal strip of Peru (Fig. <a href="eco.html#fig:study-area-mongon">14.1</a>).
+This results in green southern-facing mountain slopes along the coastal strip of Peru (Figure <a href="eco.html#fig:study-area-mongon">14.1</a>).
 This fog, which develops below the temperature inversion caused by the cold Humboldt current in austral winter, provides the name for this habitat.
 Every few years, the El Niño phenomenon brings torrential rainfall to this sun-baked environment <span class="citation">(Dillon, Nakazawa, and Leiva <a href="#ref-dillon_lomas_2003">2003</a>)</span>.
 This causes the desert to bloom, and provides tree seedlings a chance to develop roots long enough to survive the following arid conditions.</p>
@@ -448,7 +448,7 @@ To effectively protect the last remnants of this unique vegetation ecosystem, ev
 <em>Lomas</em> mountains also have economic value as a tourist destination, and can contribute to the well-being of local people via recreation.
 For example, most Peruvians live in the coastal desert, and <em>lomas</em> mountains are frequently the closest “green” destination.</p>
 <p>In this chapter we will demonstrate ecological applications of some of the techniques learned in the previous chapters.
-This case study will involve analyzing the composition and the spatial distribution of the vascular plants on the southern slope of Mt. Mongón, a <em>lomas</em> mountain near Casma on the central northern coast of Peru (Fig. <a href="eco.html#fig:study-area-mongon">14.1</a>).</p>
+This case study will involve analyzing the composition and the spatial distribution of the vascular plants on the southern slope of Mt. Mongón, a <em>lomas</em> mountain near Casma on the central northern coast of Peru (Figure <a href="eco.html#fig:study-area-mongon">14.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:study-area-mongon"></span>
 <img src="https://user-images.githubusercontent.com/1825120/38989956-6eae7c9a-43d0-11e8-8f25-3dd3594f7e74.png" alt="The Mt. Mongón study area, from Muenchow, Schratz, and Brenning (2017)." width="60%" />
 <p class="caption">
@@ -487,7 +487,7 @@ comm[<span class="dv">35</span><span class="op">:</span><span class="dv">40</spa
 <span class="co">#&gt; 40         0         0         0       0.2     0.125</span></code></pre>
 <p>The values represent species cover per site, and were recorded as the area covered by a species in proportion to the site area in percentage points (%; please note that one site can have &gt;100% due to overlapping cover between individual plants).
 The rownames of <code>comm</code> correspond to the <code>id</code> column of <code>random_points</code>.
-<code>dem</code> is the digital elevation model for the study area, and <code>ndvi</code> is the Normalized Difference Vegetation Index (NDVI) computed from the red and near-infrared channels of a Landsat scene (see Section <a href="spatial-operations.html#local-operations">4.3.3</a> and <code>?ndvi</code>).
+<code>dem</code> is the digital elevation model (DEM) for the study area, and <code>ndvi</code> is the Normalized Difference Vegetation Index (NDVI) computed from the red and near-infrared channels of a Landsat scene (see Section <a href="spatial-operations.html#local-operations">4.3.3</a> and <code>?ndvi</code>).
 Visualizing the data helps to get more familiar with it, as shown in Figure <a href="eco.html#fig:sa-mongon">14.2</a> where the <code>dem</code> is overplotted by the <code>random_points</code> and the <code>study_area</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:sa-mongon"></span>
 <img src="figures/sa-mongon-1.png" alt="Study mask (polygon), location of the sampling sites (black points) and DEM in the background." width="576" />
@@ -495,9 +495,9 @@ Visualizing the data helps to get more familiar with it, as shown in Figure <a h
 Figure 14.2: Study mask (polygon), location of the sampling sites (black points) and DEM in the background.
 </p>
 </div>
-<p>The next step is to compute variables which we will predominantly need for the modeling and predictive mapping (see Section <a href="eco.html#predictive-mapping">14.4.2</a>) but also for aligning the NMDS axes with the main gradient, altitude and humidity, respectively, in the study area (see Section <a href="eco.html#nmds">14.3</a>).</p>
+<p>The next step is to compute variables which we will not only need for the modeling and predictive mapping (see Section <a href="eco.html#predictive-mapping">14.4.2</a>) but also for aligning the NMDS axes with the main gradient in the study area, altitude and humidity, respectively (see Section <a href="eco.html#nmds">14.3</a>).</p>
 <p>Specifically, we will compute catchment slope and catchment area from a digital elevation model using R-GIS bridges (see Chapter <a href="gis.html#gis">9</a>).
-Curvatures might also represent valuable predictors, in the exercise section you can find out how they would change the modeling result.</p>
+Curvatures might also represent valuable predictors, in the Exercise section you can find out how they would change the modeling result.</p>
 <p>To compute catchment area and catchment slope, we will make use of the <code>saga:sagawetnessindex</code> function.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a>
 <code>get_usage()</code> returns all function parameters and default values of a specific geoalgorithm.
 Here, we present only a selection of the complete output.</p>
@@ -545,7 +545,7 @@ A log10-transformation makes the distribution more normal.</p>
 <h2><span class="header-section-number">14.3</span> Reducing dimensionality</h2>
 <p>Ordinations are a popular tool in vegetation science to extract the main information, frequently corresponding to ecological gradients, from large species-plot matrices mostly filled with 0s.
 However, they are also used in remote sensing, the soil sciences, geomarketing and many other fields.
-If you are unfamiliar with ordination techniques or in need of a refresher, have a look at Michael W. Palmers <a href="http://ordination.okstate.edu/overview.htm">webpage</a> for a short introduction to popular ordination techniques in ecology and at <span class="citation">Borcard, Gillet, and Legendre (<a href="#ref-borcard_numerical_2011">2011</a>)</span> for a deeper look on how to apply these techniques in R.
+If you are unfamiliar with ordination techniques or in need of a refresher, have a look at Michael W. Palmer’s <a href="http://ordination.okstate.edu/overview.htm">web page</a> for a short introduction to popular ordination techniques in ecology and at <span class="citation">Borcard, Gillet, and Legendre (<a href="#ref-borcard_numerical_2011">2011</a>)</span> for a deeper look on how to apply these techniques in R.
 <strong>vegan</strong>’s package documentation is also a very helpful resource (<code>vignette(package = &quot;vegan&quot;)</code>).</p>
 <p>Principal component analysis (PCA) is probably the most famous ordination technique.
 It is a great tool to reduce dimensionality if one can expect linear relationships between variables, and if the joint absence of a variable (for example calcium) in two plots (observations) can be considered a similarity.
@@ -553,7 +553,7 @@ This is barely the case with vegetation data.</p>
 <p>For one, relationships are usually non-linear along environmental gradients.
 That means the presence of a plant usually follows a unimodal relationship along a gradient (e.g., humidity, temperature or salinity) with a peak at the most favorable conditions and declining ends towards the unfavorable conditions.</p>
 <p>Secondly, the joint absence of a species in two plots is hardly an indication for similarity.
-Suppose a plant species is absent from the driest (e.g., an extreme desert) and the most moist locations (e.g., a tree savanna) of our sampling.
+Suppose a plant species is absent from the driest (e.g., an extreme desert) and the most moistest locations (e.g., a tree savanna) of our sampling.
 Then we really should refrain from counting this as a similarity because it is very likely that the only thing these two completely different environmental settings have in common in terms of floristic composition is the shared absence of species (except for rare ubiquitous species).</p>
 <p>Non-metric multidimensional scaling (NMDS) is one popular dimension-reducing technique in ecology <span class="citation">(von Wehrden et al. <a href="#ref-vonwehrden_pluralism_2009">2009</a>)</span>.
 NMDS reduces the rank-based differences between the distances between objects in the original matrix and distances between the ordinated objects.
@@ -562,7 +562,7 @@ The lower the stress value, the better the ordination, i.e., the low-dimensional
 Stress values lower than 10 represent an excellent fit, stress values of around 15 are still good, and values greater than 20 represent a poor fit <span class="citation">(McCune, Grace, and Urban <a href="#ref-mccune_analysis_2002">2002</a>)</span>.
 In R, <code>metaMDS()</code> of the <strong>vegan</strong> package can execute a NMDS.
 As input, it expects a community matrix with the sites as rows and the species as columns.
-Often ordinations using presence-absence data yield better results (in terms of explained variance) though the prize is, of course, a less informative input matrix (see also exercises).
+Often ordinations using presence-absence data yield better results (in terms of explained variance) though the prize is, of course, a less informative input matrix (see also Exercises).
 <code>decostand()</code> converts numerical observations into presences and absences with 1 indicating the occurrence of a species and 0 the absence of a species.
 Ordination techniques such as NMDS require at least one observation per site.
 Hence, we need to dismiss all sites in which no species were found.</p>
@@ -655,12 +655,12 @@ for each split of the tree—in other words, that bagging should be done.
 <div id="mlr-building-blocks" class="section level3">
 <h3><span class="header-section-number">14.4.1</span> <strong>mlr</strong> building blocks</h3>
 <p>The code in this section largely follows the steps we have introduced in Section <a href="spatial-cv.html#svm">11.5.2</a>.
-The only differences are:</p>
+The only differences are the following:</p>
 <ol style="list-style-type: decimal">
 <li>The response variable is numeric, hence a regression task will replace the classification task of Section <a href="spatial-cv.html#svm">11.5.2</a>.</li>
 <li>Instead of the AUROC which can only be used for categorical response variables, we will use the root mean squared error (RMSE) as performance measure.</li>
 <li>We use a random forest model instead of a support vector machine which naturally goes along with different hyperparameters.</li>
-<li>We are leaving the assessment of a bias-reduced performance measure as an exercise to the reader (see exercises).
+<li>We are leaving the assessment of a bias-reduced performance measure as an exercise to the reader (see Exercises).
 Instead we show how to tune hyperparameters for (spatial) predictions.</li>
 </ol>
 <p>Remember that 125,500 models were necessary to retrieve bias-reduced performance estimates when using 100-repeated 5-fold spatial cross-validation and a random search of 50 iterations (see Section <a href="spatial-cv.html#svm">11.5.2</a>).
@@ -773,7 +773,7 @@ Figure 14.5: Predictive mapping of the floristic gradient clearly revealing dist
 </p>
 </div>
 <p>The predictive mapping clearly reveals distinct vegetation belts (Figure <a href="eco.html#fig:rf-pred">14.5</a>).
-Please refer to <span class="citation">J. Muenchow, Hauenstein, et al. (<a href="#ref-muenchow_soil_2013">2013</a>)</span> for a detailed descriptions of vegetation belts on <strong>lomas</strong> mountains.
+Please refer to <span class="citation">J. Muenchow, Hauenstein, et al. (<a href="#ref-muenchow_soil_2013">2013</a>)</span> for a detailed description of vegetation belts on <strong>lomas</strong> mountains.
 The blue color tones represent the so-called <em>Tillandsia</em>-belt.
 <em>Tillandsia</em> is a highly adapted genus especially found in high quantities at the sandy and quite desertic foot of <em>lomas</em> mountains.
 The yellow color tones refer to a herbaceous vegetation belt with a much higher plant cover compared to the <em>Tillandsia</em>-belt.
@@ -796,18 +796,18 @@ Since <strong>lomas</strong> mountains are heavily endangered, the prediction ma
 <li>It would be interesting to also model the second ordination axis, and to subsequently find an innovative way of visualizing jointly the modeled scores of the two axes in one prediction map.</li>
 <li>If we were interested in interpreting the model in an ecologically meaningful way, we should probably use (semi-)parametric models <span class="citation">(J. Muenchow, Bräuning, et al. <a href="#ref-muenchow_predictive_2013">2013</a>; Zuur et al. <a href="#ref-zuur_mixed_2009">2009</a>, <a href="#ref-zuur_beginners_2017">2017</a>)</span>.
 However, there are at least approaches that help to interpret machine learning models such as random forests (see, e.g., <a href="https://mlr-org.github.io/interpretable-machine-learning-iml-and-mlr/" class="uri">https://mlr-org.github.io/interpretable-machine-learning-iml-and-mlr/</a>).</li>
-<li>A sequential model-based optimization (SMBO) might be preferable to the here used random search for hyperparameter optimization <span class="citation">(Probst, Wright, and Boulesteix <a href="#ref-probst_hyperparameters_2018">2018</a>)</span>.</li>
+<li>A sequential model-based optimization (SMBO) might be preferable to the random search for hyperparameter optimization used in this chapter <span class="citation">(Probst, Wright, and Boulesteix <a href="#ref-probst_hyperparameters_2018">2018</a>)</span>.</li>
 </ul>
 <p>Finally, please note that random forest and other machine-learning models are frequently used in a setting with lots of observations and many predictors, much more than used in this chapter, and where it is unclear which variables and variable interactions contribute to explaining the response.
 Additionally, the relationships might be highly non-linear.
 In our use case, the relationship between response and predictors are pretty clear, there is only a slight amount of non-linearity and the number of observations and predictors is low.
-Hence, it might be worth to try a linear model.
-A linear model is much easier to explain and understand than a random forest model, and therefore to be preferred (law of parsimony), additionally it is computationally less demanding (see exercises).
+Hence, it might be worth trying a linear model.
+A linear model is much easier to explain and understand than a random forest model, and therefore to be preferred (law of parsimony), additionally it is computationally less demanding (see Exercises).
 If the linear model cannot cope with the degree of non-linearity present in the data, one could also try a generalized additive model (GAM).
 The point here is that the toolbox of a data scientist consists of more than one tool, and it is your responsibility to select the tool best suited for the task or purpose at hand.
 Here, we wanted to introduce the reader to random forest modeling and how to use the corresponding results for spatial predictions.
 For this purpose, a well-studied dataset with known relationships between response and predictors, is appropriate.
-However, this does not imply that the random forest model has returned the best result in terms of predictive performance (see exercises).</p>
+However, this does not imply that the random forest model has returned the best result in terms of predictive performance (see Exercises).</p>
 </div>
 <div id="exercises-10" class="section level2">
 <h2><span class="header-section-number">14.6</span> Exercises</h2>
