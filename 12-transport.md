@@ -101,8 +101,9 @@ These zone-level data are small but often vital for gaining a basic understandin
 ## Transport zones
 
 Although transport systems are primarily based on linear features and nodes --- including pathways and stations --- it often makes sense to start with areal data, to break continuous space into tangible units [@hollander_transport_2016].
-Two zone types will typically be of particular interest: the study region and origin (typically residential areas) and destination (typically containing 'trip attractors' such as schools and shops) zones.
-Often the geographic units of destinations are the geographic units that comprise the origins, but a different zoning system, such as '[Workplace Zones](https://data.gov.uk/dataset/workplace-zones-a-new-geography-for-workplace-statistics3)', may be appropriate to represent the increased density of trip destinations in central areas [@office_for_national_statistics_workplace_2014].
+In addition to the boundary defining the study area (Bristol in this case), two zone types are of particular interest to transport researchers: and origin and destination zones.
+Often, the same geographic units are used for origins and destinations.
+However, different zoning systems, such as '[Workplace Zones](https://data.gov.uk/dataset/workplace-zones-a-new-geography-for-workplace-statistics3)', may be appropriate to represent the increased density of trip destinations in areas with many 'trip attractors' such as schools and shops [@office_for_national_statistics_workplace_2014].
 
 The simplest way to define a study area is often the first matching boundary returned by OpenStreetMap, which can be obtained using **osmdata** with a command such as `bristol_region = osmdata::getbb("Bristol", format_out = "sf_polygon")`. This results in an `sf` object representing the bounds of the largest matching city region, either a rectangular polygon of the bounding box or a detailed polygonal boundary.^[
 In cases where the first match does not provide the right name, the country or region should be specified, for example `Bristol Tennessee` for a Bristol located in America.
@@ -499,7 +500,6 @@ The results demonstrate that each graph edge represents a segment: the segments 
 <!-- Todo (optional): make this section use potential cycle routes around Stokes Bradley not freeway data (RL) -->
 
 ```r
-g = ways_sln@g
 e = igraph::edge_betweenness(ways_sln@g)
 plot(ways_sln@sl$geometry, lwd = e / 500)
 ```
