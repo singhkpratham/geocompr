@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-03">
+<meta name="date" content="2019-01-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1018,8 +1018,9 @@ Here, we access a KML file from the web.
 This file contains more than one layer.
 <code>st_layers()</code> lists all available layers.
 We choose the first layer <code>Placemarks</code> and say so with the help of the <code>layer</code> parameter in <code>read_sf()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url =<span class="st"> &quot;https://developers.google.com/kml/documentation/KML_Samples.kml&quot;</span>
-<span class="kw">st_layers</span>(url)
+<pre class="sourceCode r"><code class="sourceCode r">u =<span class="st"> &quot;https://developers.google.com/kml/documentation/KML_Samples.kml&quot;</span>
+<span class="kw">download.file</span>(u, <span class="st">&quot;KML_Samples.kml&quot;</span>)
+<span class="kw">st_layers</span>(<span class="st">&quot;KML_Samples.kml&quot;</span>)
 <span class="co">#&gt; Driver: LIBKML </span>
 <span class="co">#&gt; Available layers:</span>
 <span class="co">#&gt;               layer_name geometry_type features fields</span>
@@ -1033,7 +1034,7 @@ We choose the first layer <code>Placemarks</code> and say so with the help of th
 <span class="co">#&gt; 8          Google Campus                      4     11</span>
 <span class="co">#&gt; 9       Extruded Polygon                      1     11</span>
 <span class="co">#&gt; 10 Absolute and Relative                      4     11</span>
-kml =<span class="st"> </span><span class="kw">read_sf</span>(url, <span class="dt">layer =</span> <span class="st">&quot;Placemarks&quot;</span>)</code></pre>
+kml =<span class="st"> </span><span class="kw">read_sf</span>(<span class="st">&quot;KML_Samples.kml&quot;</span>, <span class="dt">layer =</span> <span class="st">&quot;Placemarks&quot;</span>)</code></pre>
 <p>All the examples presented in this section so far have used the <strong>sf</strong> package for geographic data import.
 It is fast and flexible but it may be worth looking at other packages for specific file formats.
 An example is the <strong>geojsonsf</strong> package.

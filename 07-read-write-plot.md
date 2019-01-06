@@ -490,8 +490,9 @@ We choose the first layer `Placemarks` and say so with the help of the `layer` p
 
 
 ```r
-url = "https://developers.google.com/kml/documentation/KML_Samples.kml"
-st_layers(url)
+u = "https://developers.google.com/kml/documentation/KML_Samples.kml"
+download.file(u, "KML_Samples.kml")
+st_layers("KML_Samples.kml")
 #> Driver: LIBKML 
 #> Available layers:
 #>               layer_name geometry_type features fields
@@ -505,7 +506,7 @@ st_layers(url)
 #> 8          Google Campus                      4     11
 #> 9       Extruded Polygon                      1     11
 #> 10 Absolute and Relative                      4     11
-kml = read_sf(url, layer = "Placemarks")
+kml = read_sf("KML_Samples.kml", layer = "Placemarks")
 ```
 
 All the examples presented in this section so far have used the **sf** package for geographic data import.
