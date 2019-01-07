@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2019-01-06'
+date: '2019-01-07'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-01-06 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2019-01-07 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -200,10 +200,13 @@ Dozens more people contributed online, by raising and commenting on issues, and 
 The `#geocompr` hashtag will live on!
 
 We would like to thank John Kimmel from CRC Press, who has worked with us over two years to take our ideas from an early book plan into production via four rounds of peer review.
-The anonymous reviewers deserve special mention here: their detailed feedback and expertise substantially improved the book's structure and content.
+The reviewers deserve special mention here: their detailed feedback and expertise substantially improved the book's structure and content.
 
 We thank Patrick Schratz and Alexander Brenning from the University of Jena for fruitful discussions on and input into Chapters \@ref(spatial-cv) and \@ref(eco).
-We thank Emmanuel Blondel from the Food and Agriculture Organization of the United Nations for expert input into the section on web services; Michael Sumner for critical input into many areas of the book, especially the discussion of algorithms in Chapter 10; and Katy Gregg, who proof-read every chapter and greatly improved the readability of the book.
+We thank Emmanuel Blondel from the Food and Agriculture Organization of the United Nations for expert input into the section on web services;
+Michael Sumner for critical input into many areas of the book, especially the discussion of algorithms in Chapter 10;
+Tim Appelhans and David Cooley for key contributions to the visualization chapter (Chapter 8);
+and Katy Gregg, who proof-read every chapter and greatly improved the readability of the book.
 
 Countless others could be mentioned who contributed in myriad ways.
 The final thank you is for all the software developers who make geocomputation with R possible.
