@@ -452,6 +452,13 @@ cat_raster_wgs84 = projectRaster(cat_raster, crs = wgs84, method = "ngb")
 Many properties of the new object differ from the previous one, including the number of columns and rows (and therefore number of cells), resolution (transformed from meters into degrees), and extent, as illustrated in Table \@ref(tab:catraster) (note that the number of categories increases from 14 to 15 because of the addition of `NA` values, not because a new category has been created --- the land cover classes are preserved).
 
 
+```
+#> Warning: `data_frame()` is deprecated, use `tibble()`.
+#> This warning is displayed once per session.
+```
+
+
+
 Table: (\#tab:catraster)Key attributes in the original ('cat_raster') and projected ('cat_raster_wgs84') categorical raster datasets.
 
 CRS      nrow   ncol     ncell   resolution   unique_categories

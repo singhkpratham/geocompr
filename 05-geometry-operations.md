@@ -900,7 +900,7 @@ dplyr::select(zion_nlcd, ID, levels) %>%
 #>      ID key   Barren Cultivated Developed Forest Herbaceous Shrubland
 #>   <dbl> <chr>  <dbl>      <dbl>     <dbl>  <dbl>      <dbl>     <dbl>
 #> 1     1 leve…  98285         62      4205 298299        235    203701
-#> # ... with 1 more variable: Wetlands <dbl>
+#> # … with 1 more variable: Wetlands <dbl>
 ```
 
 <div class="figure" style="text-align: center">

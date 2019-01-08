@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-07">
+<meta name="date" content="2019-01-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -732,6 +732,8 @@ The final step is to reproject the raster with the <code>projectRaster()</code> 
 <pre class="sourceCode r"><code class="sourceCode r">wgs84 =<span class="st"> &quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>
 cat_raster_wgs84 =<span class="st"> </span><span class="kw">projectRaster</span>(cat_raster, <span class="dt">crs =</span> wgs84, <span class="dt">method =</span> <span class="st">&quot;ngb&quot;</span>)</code></pre>
 <p>Many properties of the new object differ from the previous one, including the number of columns and rows (and therefore number of cells), resolution (transformed from meters into degrees), and extent, as illustrated in Table <a href="reproj-geo-data.html#tab:catraster">6.1</a> (note that the number of categories increases from 14 to 15 because of the addition of <code>NA</code> values, not because a new category has been created — the land cover classes are preserved).</p>
+<pre><code>#&gt; Warning: `data_frame()` is deprecated, use `tibble()`.
+#&gt; This warning is displayed once per session.</code></pre>
 <table>
 <caption><span id="tab:catraster">Table 6.1: </span>Key attributes in the original (‘cat_raster’) and projected (‘cat_raster_wgs84’) categorical raster datasets.</caption>
 <thead>
