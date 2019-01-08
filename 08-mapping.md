@@ -530,7 +530,7 @@ The final map is created by combining and arranging these three maps:
 
 ```r
 us_states_map
-print(hawaii_map, vp = viewport(x = 0.4, y = 0.1, width = 0.2, height = 0.1))
+print(hawaii_map, vp = viewport(x = 0.35, y = 0.1, width = 0.2, height = 0.1))
 print(alaska_map, vp = viewport(x = 0.15, y = 0.15, width = 0.3, height = 0.3))
 ```
 
