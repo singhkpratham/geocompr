@@ -27,8 +27,8 @@ url: 'https\://geocompr.robinlovelace.net/'
 
 This is the online home of *Geocomputation with R*, a book on geographic data analysis, visualization and modeling.
 
-**Note**: This book has been published by [CRC Press](https://www.crcpress.com/9781138304512) in the [R Series](https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER). 
-The online version of this book is free to read here.
+**Note**: This book has now been published by CRC Press in the [R Series](https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER).
+You can buy the book from [CRC Press](https://www.crcpress.com/9781138304512), [Wordery](https://wordery.com/geocomputation-with-r-robin-lovelace-9781138304512), or [Amazon](https://www.amazon.com/Geocomputation-Chapman-Hall-Robin-Lovelace/dp/1138304514/).
 
 <p style="text-align: center;"><a href="https://www.crcpress.com/9781138304512"><img src="images/cover.png" alt="The geocompr book cover" /></a></p>
 
