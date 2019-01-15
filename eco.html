@@ -693,7 +693,7 @@ lrn_rf =<span class="st"> </span><span class="kw">makeLearner</span>(<span class
 Still, tuning often moderately improves model results, and thus is worth the effort <span class="citation">(Probst, Wright, and Boulesteix <a href="#ref-probst_hyperparameters_2018">2018</a>)</span>.
 Since we deal with geographic data, we will again make use of spatial cross-validation to tune the hyperparameters (see Sections <a href="spatial-cv.html#intro-cv">11.4</a> and <a href="spatial-cv.html#spatial-cv-with-mlr">11.5</a>).
 Specifically, we will use a five-fold spatial partitioning with only one repetition (<code>makeResampleDesc()</code>).
-In each of these spatial partitions, we run 50 models (<code>makeTuneControlRandom</code>) to find the optimal hyperparameter combination.</p>
+In each of these spatial partitions, we run 50 models (<code>makeTuneControlRandom()</code>) to find the optimal hyperparameter combination.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># spatial partitioning</span>
 perf_level =<span class="st"> </span><span class="kw">makeResampleDesc</span>(<span class="st">&quot;SpCV&quot;</span>, <span class="dt">iters =</span> <span class="dv">5</span>)
 <span class="co"># specifying random search</span>
