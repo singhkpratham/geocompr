@@ -10,7 +10,6 @@
 library(sf)
 library(raster)
 library(dplyr)
-
 library(spData)
 library(spDataLarge)
 ```
