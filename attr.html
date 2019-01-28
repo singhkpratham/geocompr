@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-27">
+<meta name="date" content="2019-01-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -953,7 +953,7 @@ Specific functions such as <code>boxplot()</code>, <code>density()</code>, <code
 These and other typical raster processing operations are part of the map algebra scheme, which are covered in the next chapter (Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <div class="rmdnote">
 <p>
-Some function names clash between packages (e.g., <code>select</code>, as discussed in a previous note). In addition to not loading packages by referring to functions verbosely (e.g., <code>dplyr::select()</code>), another way to prevent function names clashes is by unloading the offending package with <code>detach()</code>. The following command, for example, unloads the <strong>raster</strong> package (this can also be done in the <em>package</em> tab which resides by default in the right-bottom pane in RStudio): <code>detach(“package:raster”, unload = TRUE, force = TRUE)</code>. The <code>force</code> argument makes sure that the package will be detached even if other packages depend on it. This, however, may lead to a restricted usability of packages depending on the detached package, and is therefore not recommended.
+Some function names clash between packages (e.g., <code>select()</code>, as discussed in a previous note). In addition to not loading packages by referring to functions verbosely (e.g., <code>dplyr::select()</code>), another way to prevent function names clashes is by unloading the offending package with <code>detach()</code>. The following command, for example, unloads the <strong>raster</strong> package (this can also be done in the <em>package</em> tab which resides by default in the right-bottom pane in RStudio): <code>detach(“package:raster”, unload = TRUE, force = TRUE)</code>. The <code>force</code> argument makes sure that the package will be detached even if other packages depend on it. This, however, may lead to a restricted usability of packages depending on the detached package, and is therefore not recommended.
 </p>
 </div>
 </div>
