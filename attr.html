@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -583,8 +583,6 @@ It keeps only rows matching given criteria, e.g., only countries with a very hig
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Countries with a life expectancy longer than 82 years</span>
 world6 =<span class="st"> </span><span class="kw">filter</span>(world, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">82</span>)</code></pre>
 <p>The standard set of comparison operators can be used in the <code>filter()</code> function, as illustrated in Table <a href="attr.html#tab:operators">3.1</a>:</p>
-<pre><code>#&gt; Warning: `data_frame()` is deprecated, use `tibble()`.
-#&gt; This warning is displayed once per session.</code></pre>
 <table>
 <caption><span id="tab:operators">Table 3.1: </span>Comparison operators that return Booleans (TRUE/FALSE).</caption>
 <thead>

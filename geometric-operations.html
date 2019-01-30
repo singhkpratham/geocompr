@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -909,8 +909,8 @@ To retrieve a spatial output, we can use almost the same subsetting syntax.
 The only difference is that we have to make clear that we would like to keep the matrix structure by setting the <code>drop</code>-parameter to <code>FALSE</code>.
 This will return a raster object containing the cells whose midpoints overlap with <code>clip</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;elev&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spData&quot;</span>)
-clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, 
-              <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
+clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>,
+              <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
 elev[clip, drop =<span class="st"> </span><span class="ot">FALSE</span>]
 <span class="co">#&gt; class       : RasterLayer </span>
 <span class="co">#&gt; dimensions  : 2, 1, 2  (nrow, ncol, ncell)</span>
@@ -1047,14 +1047,14 @@ zion =<span class="st"> </span><span class="kw">st_read</span>(<span class="kw">
 zion =<span class="st"> </span><span class="kw">st_transform</span>(zion, <span class="kw">projection</span>(srtm))</code></pre>
 <p>We will use <code>crop()</code> from the <strong>raster</strong> package to crop the <code>srtm</code> raster.
 <code>crop()</code> reduces the rectangular extent of the object passed to its first argument based on the extent of the object passed to its second argument, as demonstrated in the command below (which generates Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(B) — note the smaller extent of the raster background):</p>
-<pre class="sourceCode r"><code class="sourceCode r">srtm_cropped =<span class="st"> </span><span class="kw">crop</span>(srtm, <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">srtm_cropped =<span class="st"> </span><span class="kw">crop</span>(srtm, zion)</code></pre>
 <p>Related to <code>crop()</code> is the <strong>raster</strong> function <code>mask()</code>, which sets values outside of the bounds of the object passed to its second argument to <code>NA</code>.
 The following command therefore masks every cell outside of the Zion National Park boundaries (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(C)):</p>
-<pre class="sourceCode r"><code class="sourceCode r">srtm_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">srtm_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion)</code></pre>
 <p>Changing the settings of <code>mask()</code> yields different results.
 Setting <code>maskvalue = 0</code>, for example, will set all pixels outside the national park to 0.
 Setting <code>inverse = TRUE</code> will mask everything <em>inside</em> the bounds of the park (see <code>?mask</code> for details) (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(D)).</p>
-<pre class="sourceCode r"><code class="sourceCode r">srtm_inv_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>), <span class="dt">inverse =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">srtm_inv_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion, <span class="dt">inverse =</span> <span class="ot">TRUE</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:cropmask"></span>
 <img src="figures/cropmask-1.png" alt="Illustration of raster cropping and raster masking." width="960" />
 <p class="caption">
@@ -1071,7 +1071,8 @@ The reverse of raster extraction — assigning raster cell values based on vecto
 For this purpose, we will use <code>zion_points</code>, which contain a sample of 30 locations within the Zion National Park (Figure <a href="geometric-operations.html#fig:pointextr">5.18</a>).
 <!-- They could represent places where soils properties were measured and we want to know what is the elevation of each point. -->
 The following command extracts elevation values from <code>srtm</code> and assigns the resulting vector to a new column (<code>elevation</code>) in the <code>zion_points</code> dataset:</p>
-<pre class="sourceCode r"><code class="sourceCode r">zion_points<span class="op">$</span>elevation =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, <span class="kw">as</span>(zion_points, <span class="st">&quot;Spatial&quot;</span>))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;zion_points&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)
+zion_points<span class="op">$</span>elevation =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, zion_points)</code></pre>
 <p>The <code>buffer</code> argument can be used to specify a buffer radius (in meters) around each point.
 The result of <code>raster::extract(srtm, zion_points, buffer = 1000)</code>, for example, is a list of vectors, each of which representing the values of cells inside the buffer associated with each point.
 In practice, this example is a special case of extraction with a polygon selector, described below.</p>
@@ -1089,8 +1090,8 @@ To demonstrate this, the code below creates <code>zion_transect</code>, a straig
 <span class="st">  </span><span class="kw">st_sf</span>()</code></pre>
 <p>The utility of extracting heights from a linear selector is illustrated by imagining that you are planning a hike.
 The method demonstrated below provides an ‘elevation profile’ of the route (the line does not need to be straight), useful for estimating how long it will take due to long climbs:</p>
-<pre class="sourceCode r"><code class="sourceCode r">transect =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, <span class="kw">as</span>(zion_transect, <span class="st">&quot;Spatial&quot;</span>),
-                           <span class="dt">along =</span> <span class="ot">TRUE</span>, <span class="dt">cellnumbers =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"> transect =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, zion_transect, 
+                            <span class="dt">along =</span> <span class="ot">TRUE</span>, <span class="dt">cellnumbers =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>Note the use of <code>along = TRUE</code> and <code>cellnumbers = TRUE</code> arguments to return cell IDs <em>along</em> the path.
 The result is a list containing a matrix of cell IDs in the first column and elevation values in the second.
 The number of list elements is equal to the number of lines or polygons from which we are extracting values.
@@ -1108,7 +1109,7 @@ Figure 5.19: Location of a line used for raster extraction (left) and the elevat
 <p>The final type of geographic vector object for raster extraction is <strong>polygons</strong>.
 Like lines and buffers, polygons tend to return many raster values per polygon.
 This is demonstrated in the command below, which results in a data frame with column names <code>ID</code> (the row number of the polygon) and <code>srtm</code> (associated elevation values):</p>
-<pre class="sourceCode r"><code class="sourceCode r">zion_srtm_values =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(<span class="dt">x =</span> srtm, <span class="dt">y =</span> <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>), <span class="dt">df =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"> zion_srtm_values =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(<span class="dt">x =</span> srtm, <span class="dt">y =</span> zion, <span class="dt">df =</span> <span class="ot">TRUE</span>) </code></pre>
 <p>Such results can be used to generate summary statistics for raster values per polygon, for example to characterize a single region or to compare many regions.
 The generation of summary statistics is demonstrated in the code below, which creates the object <code>zion_srtm_df</code> containing summary statistics for elevation values in Zion National Park (see Figure <a href="geometric-operations.html#fig:polyextr">5.20</a>(A)):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(zion_srtm_values, ID) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -1122,7 +1123,7 @@ The results provide useful summaries, for example that the maximum height in the
 Because there is only one polygon in the example a data frame with a single row is returned; however, the method works when multiple selector polygons are used.</p>
 <p>The same approach works for counting occurrences of categorical raster values within polygons.
 This is illustrated with a land cover dataset (<code>nlcd</code>) from the <strong>spDataLarge</strong> package in <a href="geometric-operations.html#fig:polyextr">5.20</a>(B), and demonstrated in the code below:</p>
-<pre class="sourceCode r"><code class="sourceCode r">zion_nlcd =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(nlcd, <span class="kw">as</span>(zion, <span class="st">&quot;Spatial&quot;</span>), <span class="dt">df =</span> <span class="ot">TRUE</span>, <span class="dt">factors =</span> <span class="ot">TRUE</span>)
+<pre class="sourceCode r"><code class="sourceCode r">zion_nlcd =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(nlcd, zion, <span class="dt">df =</span> <span class="ot">TRUE</span>, <span class="dt">factors =</span> <span class="ot">TRUE</span>) 
 dplyr<span class="op">::</span><span class="kw">select</span>(zion_nlcd, ID, levels) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(key, value, <span class="op">-</span>ID) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">group_by</span>(ID, key, value) <span class="op">%&gt;%</span>
@@ -1197,9 +1198,9 @@ raster_template2 =<span class="st"> </span><span class="kw">raster</span>(<span 
                          <span class="dt">crs =</span> <span class="kw">st_crs</span>(california)<span class="op">$</span>proj4string)</code></pre>
 <p>Line rasterization is demonstrated in the code below.
 In the resulting raster, all cells that are touched by a line get a value, as illustrated in Figure <a href="geometric-operations.html#fig:vector-rasterization2">5.22</a>(A).</p>
-<pre class="sourceCode r"><code class="sourceCode r">california_raster1 =<span class="st"> </span><span class="kw">rasterize</span>(<span class="kw">as</span>(california_borders, <span class="st">&quot;Spatial&quot;</span>), raster_template2)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">california_raster1 =<span class="st"> </span><span class="kw">rasterize</span>(california_borders, raster_template2) </code></pre>
 <p>Polygon rasterization, by contrast, selects only cells whose centroids are inside the selector polygon, as illustrated in Figure <a href="geometric-operations.html#fig:vector-rasterization2">5.22</a>(B).</p>
-<pre class="sourceCode r"><code class="sourceCode r">california_raster2 =<span class="st"> </span><span class="kw">rasterize</span>(<span class="kw">as</span>(california, <span class="st">&quot;Spatial&quot;</span>), raster_template2)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">california_raster2 =<span class="st"> </span><span class="kw">rasterize</span>(california, raster_template2) </code></pre>
 <!-- getCover? -->
 <!-- the fraction of each grid cell that is covered by the polygons-->
 <!-- ```{r, echo=FALSE, eval=FALSE} -->

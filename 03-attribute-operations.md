@@ -267,13 +267,6 @@ world6 = filter(world, lifeExp > 82)
 The standard set of comparison operators can be used in the `filter()` function, as illustrated in Table \@ref(tab:operators): 
 
 
-```
-#> Warning: `data_frame()` is deprecated, use `tibble()`.
-#> This warning is displayed once per session.
-```
-
-
-
 Table: (\#tab:operators)Comparison operators that return Booleans (TRUE/FALSE).
 
 Symbol      Name                            

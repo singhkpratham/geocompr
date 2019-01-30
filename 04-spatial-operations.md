@@ -617,8 +617,8 @@ Raster objects can also be subset with another raster object, as illustrated in 
 
 
 ```r
-clip = raster(nrows = 3, ncols = 3, res = 0.3, xmn = 0.9, xmx = 1.8, 
-              ymn = -0.45, ymx = 0.45, vals = rep(1, 9))
+clip = raster(xmn = 0.9, xmx = 1.8, ymn = -0.45, ymx = 0.45,
+              res = 0.3, vals = rep(1, 9))
 elev[clip]
 #> [1] 18 24
 # we can also use extract

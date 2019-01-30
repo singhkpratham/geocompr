@@ -174,7 +174,7 @@ Finally, we can extract the terrain attributes to our field observations (see al
 
 
 ```r
-random_points[, names(ep)] = raster::extract(ep, as(random_points, "Spatial"))
+random_points[, names(ep)] = raster::extract(ep, random_points)
 ```
 
 ## Reducing dimensionality {#nmds}

@@ -853,9 +853,6 @@ The new vector, `new_raster_values`, can serve as input for subsequent statistic
 
 `help("raster-package")` returns a full list of all available **raster** functions.
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">The current version of **raster** (2.6.7) is not fully compatible with `sf` objects.
-We therefore suggest converting `sf` objects to an intermediate `Spatial` class (from the **sp** package) for compatibility between raster and vector data, for example `crop(raster_obj, as(sf_object, "Spatial")` (see Section \@ref(raster-vector)).</div>\EndKnitrBlock{rmdnote}
-
 ### Basic map making {#basic-map-raster}
 
 Similar to the **sf** package, **raster** also provides `plot()` methods for its own classes.

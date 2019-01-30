@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1057,12 +1057,6 @@ head(new_raster_values)
 The new vector, `new_raster_values`, can serve as input for subsequent statistical operations.
 -->
 <p><code>help(&quot;raster-package&quot;)</code> returns a full list of all available <strong>raster</strong> functions.</p>
-
-<div class="rmdnote">
-The current version of <strong>raster</strong> (2.6.7) is not fully compatible with <code>sf</code> objects.
-We therefore suggest converting <code>sf</code> objects to an intermediate <code>Spatial</code> class (from the <strong>sp</strong> package) for compatibility between raster and vector data, for example <code>crop(raster_obj, as(sf_object, &quot;Spatial&quot;)</code> (see Section <a href="geometric-operations.html#raster-vector">5.4</a>).
-</div>
-
 </div>
 <div id="basic-map-raster" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Basic map making</h3>

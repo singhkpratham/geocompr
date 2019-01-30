@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -869,8 +869,8 @@ elev[id]
 raster<span class="op">::</span><span class="kw">extract</span>(elev, <span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="fl">0.1</span>))</code></pre>
 <p>It is convenient that both functions also accept objects of class <code>Spatial* Objects</code>.
 Raster objects can also be subset with another raster object, as illustrated in Figure <a href="spatial-operations.html#fig:raster-subset">4.7</a> (left panel) and demonstrated in the code chunk below:</p>
-<pre class="sourceCode r"><code class="sourceCode r">clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">nrows =</span> <span class="dv">3</span>, <span class="dt">ncols =</span> <span class="dv">3</span>, <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, 
-              <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
+<pre class="sourceCode r"><code class="sourceCode r">clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>,
+              <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
 elev[clip]
 <span class="co">#&gt; [1] 18 24</span>
 <span class="co"># we can also use extract</span>

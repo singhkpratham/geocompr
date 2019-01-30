@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-01-28">
+<meta name="date" content="2019-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -540,7 +540,7 @@ A log10-transformation makes the distribution more normal.</p>
 <p>As a convenience to the reader, we have added <code>ep</code> to <strong>spDataLarge</strong>:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;ep&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
 <p>Finally, we can extract the terrain attributes to our field observations (see also Section <a href="geometric-operations.html#raster-extraction">5.4.2</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r">random_points[, <span class="kw">names</span>(ep)] =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(ep, <span class="kw">as</span>(random_points, <span class="st">&quot;Spatial&quot;</span>))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">random_points[, <span class="kw">names</span>(ep)] =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(ep, random_points)</code></pre>
 </div>
 <div id="nmds" class="section level2">
 <h2><span class="header-section-number">14.3</span> Reducing dimensionality</h2>

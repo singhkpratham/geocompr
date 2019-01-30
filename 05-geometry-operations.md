@@ -569,8 +569,8 @@ This will return a raster object containing the cells whose midpoints overlap wi
 
 ```r
 data("elev", package = "spData")
-clip = raster(nrow = 3, ncol = 3, res = 0.3, xmn = 0.9, xmx = 1.8, 
-              ymn = -0.45, ymx = 0.45, vals = rep(1, 9))
+clip = raster(xmn = 0.9, xmx = 1.8, ymn = -0.45, ymx = 0.45,
+              res = 0.3, vals = rep(1, 9))
 elev[clip, drop = FALSE]
 #> class       : RasterLayer 
 #> dimensions  : 2, 1, 2  (nrow, ncol, ncell)
@@ -762,7 +762,7 @@ We will use `crop()` from the **raster** package to crop the `srtm` raster.
 
 
 ```r
-srtm_cropped = crop(srtm, as(zion, "Spatial"))
+srtm_cropped = crop(srtm, zion)
 ```
 
 Related to `crop()` is the **raster** function `mask()`, which sets values outside of the bounds of the object passed to its second argument to `NA`.
@@ -770,7 +770,7 @@ The following command therefore masks every cell outside of the Zion National Pa
 
 
 ```r
-srtm_masked = mask(srtm, as(zion, "Spatial"))
+srtm_masked = mask(srtm, zion)
 ```
 
 Changing the settings of `mask()` yields different results.
@@ -779,7 +779,7 @@ Setting `inverse = TRUE` will mask everything *inside* the bounds of the park (s
 
 
 ```r
-srtm_inv_masked = mask(srtm, as(zion, "Spatial"), inverse = TRUE)
+srtm_inv_masked = mask(srtm, zion, inverse = TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -800,7 +800,8 @@ The following command extracts elevation values from `srtm` and assigns the resu
 
 
 ```r
-zion_points$elevation = raster::extract(srtm, as(zion_points, "Spatial"))
+data("zion_points", package = "spDataLarge")
+zion_points$elevation = raster::extract(srtm, zion_points)
 ```
 
 
@@ -832,8 +833,8 @@ The method demonstrated below provides an 'elevation profile' of the route (the 
 
 
 ```r
-transect = raster::extract(srtm, as(zion_transect, "Spatial"),
-                           along = TRUE, cellnumbers = TRUE)
+ transect = raster::extract(srtm, zion_transect, 
+                            along = TRUE, cellnumbers = TRUE)
 ```
 
 Note the use of `along = TRUE` and `cellnumbers = TRUE` arguments to return cell IDs *along* the path. 
@@ -863,7 +864,7 @@ This is demonstrated in the command below, which results in a data frame with co
 
 
 ```r
-zion_srtm_values = raster::extract(x = srtm, y = as(zion, "Spatial"), df = TRUE)
+ zion_srtm_values = raster::extract(x = srtm, y = zion, df = TRUE) 
 ```
 
 Such results can be used to generate summary statistics for raster values per polygon, for example to characterize a single region or to compare many regions.
@@ -888,7 +889,7 @@ This is illustrated with a land cover dataset (`nlcd`) from the **spDataLarge** 
 
 
 ```r
-zion_nlcd = raster::extract(nlcd, as(zion, "Spatial"), df = TRUE, factors = TRUE)
+zion_nlcd = raster::extract(nlcd, zion, df = TRUE, factors = TRUE) 
 dplyr::select(zion_nlcd, ID, levels) %>% 
   tidyr::gather(key, value, -ID) %>%
   group_by(ID, key, value) %>%
@@ -993,14 +994,14 @@ In the resulting raster, all cells that are touched by a line get a value, as il
 
 
 ```r
-california_raster1 = rasterize(as(california_borders, "Spatial"), raster_template2)
+california_raster1 = rasterize(california_borders, raster_template2) 
 ```
 
 Polygon rasterization, by contrast, selects only cells whose centroids are inside the selector polygon, as illustrated in Figure \@ref(fig:vector-rasterization2)(B).
 
 
 ```r
-california_raster2 = rasterize(as(california, "Spatial"), raster_template2)
+california_raster2 = rasterize(california, raster_template2) 
 ```
 
 <!-- getCover? -->
