@@ -244,15 +244,15 @@ An obvious feature of the **tidyverse** is the tendency for packages to work in 
 There is no equivalent **geoverse**, but there are attempts at harmonization between packages hosted in the [r-spatial](https://github.com/r-spatial/discuss/issues/11) organization and a growing number of packages use **sf** (Table \@ref(tab:revdep)). 
 
 
-Table: (\#tab:revdep)The top 5 most downloaded packages that depend on sf, in terms of average number of downloads per day over the previous month. As of 2019-01-15 , there are  115  packages which import sf.
+Table: (\#tab:revdep)The top 5 most downloaded packages that depend on sf, in terms of average number of downloads per day over the previous month. As of 2019-01-29 , there are  117  packages which import sf.
 
 package    Downloads
 --------  ----------
-ggplot2        17258
-plotly          2466
-raster          1783
-spData          1019
-leaflet          936
+ggplot2        22593
+plotly          3628
+raster          2433
+leaflet         1391
+spData          1174
 
 ## The history of R-spatial
 
