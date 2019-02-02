@@ -1122,7 +1122,7 @@ The generation of summary statistics is demonstrated in the code below, which cr
 The results provide useful summaries, for example that the maximum height in the park is around 2,661 meters (other summary statistics, such as standard deviation, can also be calculated in this way).
 Because there is only one polygon in the example a data frame with a single row is returned; however, the method works when multiple selector polygons are used.</p>
 <p>The same approach works for counting occurrences of categorical raster values within polygons.
-This is illustrated with a land cover dataset (<code>nlcd</code>) from the <strong>spDataLarge</strong> package in <a href="geometric-operations.html#fig:polyextr">5.20</a>(B), and demonstrated in the code below:</p>
+This is illustrated with a land cover dataset (<code>nlcd</code>) from the <strong>spDataLarge</strong> package in Figure <a href="geometric-operations.html#fig:polyextr">5.20</a>(B), and demonstrated in the code below:</p>
 <pre class="sourceCode r"><code class="sourceCode r">zion_nlcd =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(nlcd, zion, <span class="dt">df =</span> <span class="ot">TRUE</span>, <span class="dt">factors =</span> <span class="ot">TRUE</span>) 
 dplyr<span class="op">::</span><span class="kw">select</span>(zion_nlcd, ID, levels) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>tidyr<span class="op">::</span><span class="kw">gather</span>(key, value, <span class="op">-</span>ID) <span class="op">%&gt;%</span>

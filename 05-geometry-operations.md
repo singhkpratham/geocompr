@@ -885,7 +885,7 @@ The results provide useful summaries, for example that the maximum height in the
 Because there is only one polygon in the example a data frame with a single row is returned; however, the method works when multiple selector polygons are used.
 
 The same approach works for counting occurrences of categorical raster values within polygons.
-This is illustrated with a land cover dataset (`nlcd`) from the **spDataLarge** package in \@ref(fig:polyextr)(B), and demonstrated in the code below:
+This is illustrated with a land cover dataset (`nlcd`) from the **spDataLarge** package in Figure \@ref(fig:polyextr)(B), and demonstrated in the code below:
 
 
 ```r
