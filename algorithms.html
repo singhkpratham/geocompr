@@ -587,9 +587,9 @@ A =<span class="st"> </span><span class="kw">vapply</span>(T_all, <span class="c
 <span class="st">        </span>x[<span class="dv">3</span>, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>(x[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>x[<span class="dv">2</span>, <span class="dv">2</span>]) ) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>
   }, <span class="dt">FUN.VALUE =</span> <span class="kw">double</span>(<span class="dv">1</span>))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:polycent"></span>
-<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The 'x' represents the area-weighted centroid in iterations 2 and 3." width="576" />
+<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3." width="576" />
 <p class="caption">
-Figure 10.3: Illustration of iterative centroid algorithm with triangles. The ‘x’ represents the area-weighted centroid in iterations 2 and 3.
+Figure 10.3: Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3.
 </p>
 </div>
 <p>We are now in a position to complete step 4 to calculate the total area with <code>sum(A)</code> and the centroid coordinates of the polygon with <code>weighted.mean(C[, 1], A)</code> and <code>weighted.mean(C[, 2], A)</code> (exercise for alert readers: verify these commands work).

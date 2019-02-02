@@ -144,7 +144,7 @@ data("lsl", package = "spDataLarge")
 data("ta", package = "spDataLarge")
 ```
 
-The first three rows of `lsl`, rounded to two significant digits can be found in Table \@ref(tab:lslsummary).
+The first three rows of `lsl`, rounded to two significant digits, can be found in Table \@ref(tab:lslsummary).
 
 
 Table: (\#tab:lslsummary)Structure of the lsl dataset.

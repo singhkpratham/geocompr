@@ -232,8 +232,8 @@ A = vapply(T_all, function(x) {
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The 'x' represents the area-weighted centroid in iterations 2 and 3." width="576" />
-<p class="caption">(\#fig:polycent)Illustration of iterative centroid algorithm with triangles. The 'x' represents the area-weighted centroid in iterations 2 and 3.</p>
+<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3." width="576" />
+<p class="caption">(\#fig:polycent)Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3.</p>
 </div>
 
 We are now in a position to complete step 4 to calculate the total area with `sum(A)` and the centroid coordinates of the polygon with `weighted.mean(C[, 1], A)` and `weighted.mean(C[, 2], A)` (exercise for alert readers: verify these commands work).
