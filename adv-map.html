@@ -805,8 +805,7 @@ Importantly, this map needs to clearly indicate the location of the main map, fo
 <pre class="sourceCode r"><code class="sourceCode r">nz_map =<span class="st"> </span><span class="kw">tm_shape</span>(nz) <span class="op">+</span><span class="st"> </span><span class="kw">tm_polygons</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">tm_shape</span>(nz_height) <span class="op">+</span><span class="st"> </span><span class="kw">tm_symbols</span>(<span class="dt">shape =</span> <span class="dv">2</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">tm_shape</span>(nz_region) <span class="op">+</span><span class="st"> </span><span class="kw">tm_borders</span>(<span class="dt">lwd =</span> <span class="dv">3</span>) </code></pre>
-<p>Finally, we combine the two maps.
-A viewport from the <strong>grid</strong> package can be used by stating a center location (<code>x</code> and <code>y</code>) and a size (<code>width</code> and <code>height</code>) of the inset map.</p>
+<p>Finally, we combine the two maps using the function <code>viewport()</code> from the <strong>grid</strong> package, the first arguments of which specify the center location (<code>x</code> and <code>y</code>) and a size (<code>width</code> and <code>height</code>) of the inset map.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(grid)
 nz_height_map
 <span class="kw">print</span>(nz_map, <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="fl">0.8</span>, <span class="fl">0.27</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">height =</span> <span class="fl">0.5</span>))</code></pre>
@@ -831,16 +830,16 @@ alaska_map =<span class="st"> </span><span class="kw">tm_shape</span>(alaska) <s
 <span class="st">  </span><span class="kw">tm_layout</span>(<span class="dt">title =</span> <span class="st">&quot;Alaska&quot;</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, <span class="dt">bg.color =</span> <span class="ot">NA</span>)</code></pre>
 <p>The final map is created by combining and arranging these three maps:</p>
 <pre class="sourceCode r"><code class="sourceCode r">us_states_map
-<span class="kw">print</span>(hawaii_map, <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.35</span>, <span class="dt">y =</span> <span class="fl">0.1</span>, <span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">height =</span> <span class="fl">0.1</span>))
-<span class="kw">print</span>(alaska_map, <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.15</span>, <span class="dt">y =</span> <span class="fl">0.15</span>, <span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">height =</span> <span class="fl">0.3</span>))</code></pre>
+<span class="kw">print</span>(hawaii_map, <span class="dt">vp =</span> grid<span class="op">::</span><span class="kw">viewport</span>(<span class="fl">0.35</span>, <span class="fl">0.1</span>, <span class="dt">width =</span> <span class="fl">0.2</span>, <span class="dt">height =</span> <span class="fl">0.1</span>))
+<span class="kw">print</span>(alaska_map, <span class="dt">vp =</span> grid<span class="op">::</span><span class="kw">viewport</span>(<span class="fl">0.15</span>, <span class="fl">0.15</span>, <span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">height =</span> <span class="fl">0.3</span>))</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:insetmap2"></span>
 <img src="figures/insetmap2-1.png" alt="Map of the United States." width="576" />
 <p class="caption">
 Figure 8.15: Map of the United States.
 </p>
 </div>
-<p>The code presented above is very compact and allows for creation of many similar maps, however, the map do not represent sizes and locations of Hawaii and Alaska well.
-See the <a href="https://geocompr.github.io/geocompkg/articles/us-map.html"><code>us-map</code></a> vignette from the <strong>geocompkg</strong> package for an alternative approach.</p>
+<p>The code presented above is compact and can be used as the basis for other inset maps but the results, in Figure <a href="adv-map.html#fig:insetmap2">8.15</a>, provide a poor representation of the locations of Hawaii and Alaska.
+For a more in-depth approach, see the <a href="https://geocompr.github.io/geocompkg/articles/us-map.html"><code>us-map</code></a> vignette from the <strong>geocompkg</strong>.</p>
 </div>
 </div>
 <div id="animated-maps" class="section level2">
