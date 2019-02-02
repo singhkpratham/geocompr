@@ -466,7 +466,7 @@ usa_parks =<span class="st"> </span><span class="kw">st_read</span>(<span class=
 <div id="geographic-data-packages" class="section level2">
 <h2><span class="header-section-number">7.3</span> Geographic data packages</h2>
 <p>A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table <a href="read-write.html#tab:datapackages">7.1</a>.
-These provide interfaces to one or more spatial libraries or geoportals and aim make data access even quicker from the command line.</p>
+These provide interfaces to one or more spatial libraries or geoportals and aim to make data access even quicker from the command line.</p>
 <!-- add sentinel2 package as soon as it is published on CRAN https://github.com/IVFL-BOKU/sentinel2-->
 <table>
 <caption><span id="tab:datapackages">Table 7.1: </span>Selected R packages for geographic data retrieval.</caption>
@@ -1097,7 +1097,7 @@ Luckily, <code>st_write</code> provides a <code>layer_options</code> argument th
 <p>The <code>layer_options</code> argument could be also used for many different purposes.
 One of them is to write spatial data to a text file.
 This can be done by specifying <code>GEOMETRY</code> inside of <code>layer_options</code>.
-It could be either <code>AS_XY</code> for simple point datasets (it creates two new columns for coordinates) or <code>AS_WKT</code> for more complex spatial data (one new column is created which contains the well-known-text representation of spatial objects).</p>
+It could be either <code>AS_XY</code> for simple point datasets (it creates two new columns for coordinates) or <code>AS_WKT</code> for more complex spatial data (one new column is created which contains the well-known text representation of spatial objects).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">st_write</span>(cycle_hire_xy, <span class="st">&quot;cycle_hire_xy.csv&quot;</span>, <span class="dt">layer_options =</span> <span class="st">&quot;GEOMETRY=AS_XY&quot;</span>)
 <span class="kw">st_write</span>(world_wkt, <span class="st">&quot;world_wkt.csv&quot;</span>, <span class="dt">layer_options =</span> <span class="st">&quot;GEOMETRY=AS_WKT&quot;</span>)</code></pre>
 </div>

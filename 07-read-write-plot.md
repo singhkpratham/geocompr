@@ -60,7 +60,7 @@ usa_parks = st_read(dsn = "nps_boundary.shp")
 ## Geographic data packages
 
 A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table \@ref(tab:datapackages).
-These provide interfaces to one or more spatial libraries or geoportals and aim make data access even quicker from the command line.
+These provide interfaces to one or more spatial libraries or geoportals and aim to make data access even quicker from the command line.
 
 <!-- add sentinel2 package as soon as it is published on CRAN https://github.com/IVFL-BOKU/sentinel2-->
 
@@ -613,7 +613,7 @@ write_sf(obj = world, dsn = "world.gpkg")
 The `layer_options` argument could be also used for many different purposes.
 One of them is to write spatial data to a text file.
 This can be done by specifying `GEOMETRY` inside of `layer_options`. 
-It could be either `AS_XY` for simple point datasets (it creates two new columns for coordinates) or `AS_WKT` for more complex spatial data (one new column is created which contains the well-known-text representation of spatial objects).
+It could be either `AS_XY` for simple point datasets (it creates two new columns for coordinates) or `AS_WKT` for more complex spatial data (one new column is created which contains the well-known text representation of spatial objects).
 
 
 ```r
