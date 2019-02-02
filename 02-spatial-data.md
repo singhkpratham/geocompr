@@ -415,7 +415,7 @@ By definition, a polygon has one exterior boundary (outer ring) and can have zer
 A polygon with a hole would be, for example, `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5), (2 4, 3 4, 3 3, 2 3, 2 4))`
 ]
 
-- Polygon without a hole - `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
+- Polygon without a hole: `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
 
 <div class="figure" style="text-align: center">
 <img src="figures/sfcs-1.png" alt="Illustration of point, linestring and polygon geometries." width="576" />
@@ -437,7 +437,7 @@ However, **sf** also allows multiple geometries to exist within a single feature
 <p class="caption">(\#fig:multis)Illustration of multi* geometries.</p>
 </div>
 
-Finally, a geometrycollection might contain any combination of geometries including (multi)points and linestrings (see Figure \@ref(fig:geomcollection)):
+Finally, a geometry collection can contain any combination of geometries including (multi)points and linestrings (see Figure \@ref(fig:geomcollection)):
 
 - Geometry collection: `GEOMETRYCOLLECTION (MULTIPOINT (5 2, 1 3, 3 4, 3 2), LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2))`
 
