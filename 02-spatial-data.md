@@ -178,7 +178,7 @@ names(world)
 #> [11] "geom"
 ```
 
-The contents of this `geom` column give `sf` objects their spatial powers: `world$geom` is a '[list-column](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html)' that contains all the coordinates of the country polygons.
+The contents of this `geom` column give `sf` objects their spatial powers: `world$geom` is a '[list column](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html)' that contains all the coordinates of the country polygons.
 The **sf** package provides a `plot()` method for visualizing geographic data:
 the following command creates Figure \@ref(fig:world-all).
 

@@ -549,7 +549,7 @@ We will use the <code>world</code> dataset provided by the <strong>spData</stron
 <span class="co">#&gt;  [1] &quot;iso_a2&quot;    &quot;name_long&quot; &quot;continent&quot; &quot;region_un&quot; &quot;subregion&quot;</span>
 <span class="co">#&gt;  [6] &quot;type&quot;      &quot;area_km2&quot;  &quot;pop&quot;       &quot;lifeExp&quot;   &quot;gdpPercap&quot;</span>
 <span class="co">#&gt; [11] &quot;geom&quot;</span></code></pre>
-<p>The contents of this <code>geom</code> column give <code>sf</code> objects their spatial powers: <code>world$geom</code> is a ‘<a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html">list-column</a>’ that contains all the coordinates of the country polygons.
+<p>The contents of this <code>geom</code> column give <code>sf</code> objects their spatial powers: <code>world$geom</code> is a ‘<a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html">list column</a>’ that contains all the coordinates of the country polygons.
 The <strong>sf</strong> package provides a <code>plot()</code> method for visualizing geographic data:
 the following command creates Figure <a href="spatial-class.html#fig:world-all">2.3</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(world)</code></pre>
