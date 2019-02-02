@@ -494,7 +494,7 @@ By default it uses the Visvalingam algorithm, which overcomes some limitations o
 The following code chunk uses this function to simplify <code>us_states2163</code>.
 The result has only 1% of the vertices of the input (set using the argument <code>keep</code>) but its number of objects remains intact because we set <code>keep_shapes = TRUE</code>:<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># proportion of points to retain (0-1; default 0.05)</span>
-us_states2163<span class="op">$</span>AREA =<span class="st"> </span><span class="kw">as.numeric</span>(us_states2163<span class="op">$</span>AREA)    
+us_states2163<span class="op">$</span>AREA =<span class="st"> </span><span class="kw">as.numeric</span>(us_states2163<span class="op">$</span>AREA)
 us_states_simp2 =<span class="st"> </span>rmapshaper<span class="op">::</span><span class="kw">ms_simplify</span>(us_states2163, <span class="dt">keep =</span> <span class="fl">0.01</span>,
                                           <span class="dt">keep_shapes =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>Finally, the visual comparison of the original dataset and the two simplified versions shows differences between the Douglas-Peucker (<code>st_simplify</code>) and Visvalingam (<code>ms_simplify</code>) algorithm outputs (Figure <a href="geometric-operations.html#fig:us-simp">5.2</a>):</p>
@@ -1375,7 +1375,7 @@ Using these objects:
 <hr />
 <ol start="19">
 <li id="fn19"><p>
-Simplification of multipolygon objects cane remove small internal polygons, even if the <code>keep_shapes</code> argument is set to TRUE. To prevent this, you need to set <code>explode = TRUE</code>. This option converts all mutlipolygons into separate polygons before its simplification.<a href="geometric-operations.html#fnref19" class="footnote-back">↩</a></p></li>
+Simplification of multipolygon objects can remove small internal polygons, even if the <code>keep_shapes</code> argument is set to TRUE. To prevent this, you need to set <code>explode = TRUE</code>. This option converts all mutlipolygons into separate polygons before its simplification.<a href="geometric-operations.html#fnref19" class="footnote-back">↩</a></p></li>
 <li id="fn20"><p>
 A description of how <code>st_point_on_surface()</code> works is provided at <a href="https://gis.stackexchange.com/q/76498" class="uri">https://gis.stackexchange.com/q/76498</a>.<a href="geometric-operations.html#fnref20" class="footnote-back">↩</a></p></li>
 <li id="fn21"><p>
