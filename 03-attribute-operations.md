@@ -269,13 +269,13 @@ The standard set of comparison operators can be used in the `filter()` function,
 
 Table: (\#tab:operators)Comparison operators that return Booleans (TRUE/FALSE).
 
-Symbol      Name                            
-----------  --------------------------------
-`==`        Equal to                        
-`!=`        Not equal to                    
-`>, <`      Greater/Less than               
-`>=, <=`    Greater/Less than or equal      
-`&, |, !`   Logical operators: And, Or, Not 
+Symbol          Name                            
+--------------  --------------------------------
+`==`            Equal to                        
+`!=`            Not equal to                    
+`>`, `<`        Greater/Less than               
+`>=`, `<=`      Greater/Less than or equal      
+`&`, `|`, `!`   Logical operators: And, Or, Not 
 
 **dplyr** works well with the ['pipe'](http://r4ds.had.co.nz/pipes.html) operator `%>%`, which takes its name from the Unix pipe `|` [@grolemund_r_2016].
 It enables expressive code: the output of a previous function becomes the first argument of the next function, enabling *chaining*.
