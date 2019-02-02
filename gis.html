@@ -548,20 +548,18 @@ Hence, it is faster to specify explicitly the path to your QGIS installation.
 Subsequently, <code>open_app()</code> sets all paths necessary to run QGIS from within R, and finally creates a so-called QGIS custom application (see <a href="http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/intro.html#using-pyqgis-in-custom-applications" class="uri">http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/intro.html#using-pyqgis-in-custom-applications</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">open_app</span>()</code></pre>
 <p>We are now ready for some QGIS geoprocessing from within R!
-The example below shows how to union polygons.
-Unfortunately, this will produce so-called slivers, tiny polygons resulting from overlaps between the inputs that frequently occur in real-world data.
+The example below shows how to unite polygons, a process that unfortunately produces so-called slivers, tiny polygons resulting from overlaps between the inputs that frequently occur in real-world data.
 We will see how to remove them.</p>
 <p>For the union, we use again the incongruent polygons we have already encountered in Section <a href="spatial-operations.html#spatial-aggr">4.2.5</a>.
 Both polygon datasets are available in the <strong>spData</strong> package, and for both we would like to use a geographic CRS (see also Chapter <a href="reproj-geo-data.html#reproj-geo-data">6</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;aggregating_zones&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spData&quot;</span>)
 incongr_wgs =<span class="st"> </span><span class="kw">st_transform</span>(incongruent, <span class="dv">4326</span>)
 aggzone_wgs =<span class="st"> </span><span class="kw">st_transform</span>(aggregating_zones, <span class="dv">4326</span>)</code></pre>
-<p>Now we need a QGIS geoalgorithm that unions polygons.
-<code>find_algorithms()</code> searches all QGIS geoalgorithms with the help of regular expressions.
+<p>To find an algorithm to do this work, <code>find_algorithms()</code> searches all QGIS geoalgorithms using regular expressions.
 Assuming that the short description of the function contains the word “union”, we can run:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">find_algorithms</span>(<span class="st">&quot;union&quot;</span>, <span class="dt">name_only =</span> <span class="ot">TRUE</span>)
 <span class="co">#&gt; [1] &quot;qgis:union&quot;        &quot;saga:fuzzyunionor&quot; &quot;saga:union&quot;</span></code></pre>
-<p>If you also want to have a short description for each geoalgorithm, set the <code>name_only</code>-parameter to <code>FALSE</code>.
+<p>Short descriptions for each geoalgorithm can also be provided, by setting <code>name_only = FALSE</code>.
 If one has no clue at all what the name of a geoalgorithm might be, one can leave the <code>search_term</code>-argument empty which will return a list of all available QGIS geoalgorithms.
 You can also find the algorithms in the <a href="https://docs.qgis.org/2.18/en/docs/user_manual/processing_algs/index.html">QGIS online documentation</a>.</p>
 <p>The next step is to find out how <code>qgis:union</code> can be used.
