@@ -60,8 +60,8 @@ seine_simp = st_simplify(seine, dTolerance = 2000)  # 2000 m
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/seine-simp-1.png" alt="Comparison of the original and simplified `seine` geometry." width="576" />
-<p class="caption">(\#fig:seine-simp)Comparison of the original and simplified `seine` geometry.</p>
+<img src="figures/seine-simp-1.png" alt="Comparison of the original and simplified geometry of the seine object." width="576" />
+<p class="caption">(\#fig:seine-simp)Comparison of the original and simplified geometry of the seine object.</p>
 </div>
 
 The resulting `seine_simp` object is a copy of the original `seine` but with fewer vertices.
