@@ -488,7 +488,7 @@ Let’s start by using base R functions to get a measure of the <code>world</cod
 <span class="kw">ncol</span>(world) <span class="co"># how many columns?</span>
 <span class="co">#&gt; [1] 11</span></code></pre>
 <p>Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world’s countries.
-Extracting the attribute data of an <code>sf</code> object is the same as removing its geometry:</p>
+Extracting the attribute data of an <code>sf</code> object is the same as removing its geometry (this can also be done with <code>st_drop_geometry(world)</code>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_df =<span class="st"> </span><span class="kw">st_set_geometry</span>(world, <span class="ot">NULL</span>)
 <span class="kw">class</span>(world_df)
 <span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre>

@@ -94,7 +94,7 @@ ncol(world) # how many columns?
 ```
 
 Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world's countries.
-Extracting the attribute data of an `sf` object is the same as removing its geometry:
+Extracting the attribute data of an `sf` object is the same as removing its geometry (this can also be done with `st_drop_geometry(world)`):
 
 
 ```r
