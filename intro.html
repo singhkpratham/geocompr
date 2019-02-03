@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-02-02">
+<meta name="date" content="2019-02-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -723,7 +723,7 @@ A key feature of <strong>raster</strong> is its ability to work with datasets th
 <strong>raster</strong> also supports map algebra (see Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <p>In parallel with these developments of class systems and methods came the support for R as an interface to dedicated GIS software.
 <strong>GRASS</strong> <span class="citation">(R. S. Bivand <a href="#ref-bivand_using_2000">2000</a>)</span> and follow-on packages <strong>spgrass6</strong> and <strong>rgrass7</strong> (for GRASS GIS 6 and 7, respectively) were prominent examples in this direction <span class="citation">(Bivand <a href="#ref-bivand_rgrass7_2016">2016</a><a href="#ref-bivand_rgrass7_2016">a</a>, <a href="#ref-bivand_spgrass6_2016">2016</a><a href="#ref-bivand_spgrass6_2016">b</a>)</span>.
-Other examples of bridges between R and GIS include <strong>RSAGA</strong> <span class="citation">(Brenning, Bangs, and Becker <a href="#ref-R-RSAGA">2018</a>, first published in 2008)</span>, <strong>ArcGIS</strong> <span class="citation">(A. Brenning <a href="#ref-brenning_arcgis_2012">2012</a><a href="#ref-brenning_arcgis_2012">a</a>, first published in 2008)</span>, and <strong>RQGIS</strong> <span class="citation">(Muenchow, Schratz, and Brenning <a href="#ref-muenchow_rqgis:_2017">2017</a>, first published in 2016)</span> (see Chapter <a href="gis.html#gis">9</a>).</p>
+Other examples of bridges between R and GIS include <strong>RSAGA</strong> <span class="citation">(Brenning, Bangs, and Becker <a href="#ref-R-RSAGA">2018</a>, first published in 2008)</span>, <strong>ArcGIS</strong> <span class="citation">(Brenning <a href="#ref-brenning_arcgis_2012">2012</a><a href="#ref-brenning_arcgis_2012">a</a>, first published in 2008)</span>, and <strong>RQGIS</strong> <span class="citation">(Muenchow, Schratz, and Brenning <a href="#ref-muenchow_rqgis:_2017">2017</a>, first published in 2016)</span> (see Chapter <a href="gis.html#gis">9</a>).</p>
 <p>Visualization was not a focus initially, with the bulk of R-spatial development focused on analysis and geographic operations.
 <strong>sp</strong> provided methods for map making using both the base and lattice plotting system but demand was growing for advanced map making capabilities, especially after the release of <strong>ggplot2</strong> in 2007.
 <strong>ggmap</strong> extended <strong>ggplot2</strong>’s spatial capabilities <span class="citation">(Kahle and Wickham <a href="#ref-kahle_ggmap_2013">2013</a>)</span>, by facilitating access to ‘basemap’ tiles from online services such as Google Maps.
@@ -732,7 +732,7 @@ Though <strong>ggmap</strong> facilitated map-making with <strong>ggplot2</stron
 While this works well for points it is computationally inefficient for lines and polygons, since each coordinate (vertex) is converted into a row, leading to huge data frames to represent complex geometries.
 <!-- This is especially disadvantageous if you need to deal with tens of thousands of polygons. -->
 <!-- With the introduction of simple features to R this limitation disappears, and it seems likely that this will make **ggplot2** the standard tool for the visualization of vector data.  -->
-Although geographic visualization tended to focus on vector data, raster visualization is supported in <strong>raster</strong> and received a boost with the release of <strong>rasterVis</strong>, which is described in a book on the subject of spatial and temporal data visualization <span class="citation">(<span class="citeproc-not-found" data-reference-id="lamigueiro_displaying_2018"><strong>???</strong></span>)</span>.
+Although geographic visualization tended to focus on vector data, raster visualization is supported in <strong>raster</strong> and received a boost with the release of <strong>rasterVis</strong>, which is described in a book on the subject of spatial and temporal data visualization <span class="citation">(Lamigueiro <a href="#ref-lamigueiro_displaying_2018">2018</a>)</span>.
 <!-- More recently, new packages aim at easing the creation of complex, high-quality maps with minimal code. -->
 <!-- The **tmap** package (released in 2014) might serve as an archetype for this kind of development [@R-tmap]. -->
 <!-- It facilitates the user-friendly creation of thematic maps with an intuitive command-line interface (see also [**mapmisc**](https://cran.r-project.org/package=mapmisc)) .  -->
@@ -768,10 +768,10 @@ As of 2018 map making in R is a hot topic with dedicated packages such as <stron
 <p>Pebesma, Edzer, Daniel Nüst, and Roger Bivand. 2012. “The R Software Environment in Reproducible Geoscientific Research.” <em>Eos, Transactions American Geophysical Union</em> 93 (16): 163–63. <a href="https://doi.org/10.1029/2012EO160003" class="uri">https://doi.org/10.1029/2012EO160003</a>.</p>
 </div>
 <div id="ref-longley_geocomputation_1998">
-<p>Longley, Paul A., Sue M. Brooks, Rachael McDonnell, and Bill MacMillan, eds. 1998. <em>Geocomputation: A Primer</em>. 1 edition. Chichester, Eng. ; New York: Wiley.</p>
+<p>Longley, Paul A., Sue M. Brooks, Rachael McDonnell, and Bill MacMillan, eds. 1998. <em>Geocomputation: A Primer</em>. Chichester, Eng. ; New York: Wiley.</p>
 </div>
 <div id="ref-openshaw_geocomputation_2000">
-<p>Openshaw, Stan, and Robert J. Abrahart, eds. 2000. <em>Geocomputation</em>. 1 edition. London ; New York: CRC Press.</p>
+<p>Openshaw, Stan, and Robert J. Abrahart, eds. 2000. <em>Geocomputation</em>. London ; New York: CRC Press.</p>
 </div>
 <div id="ref-longley_geographic_2015">
 <p>Longley, Paul. 2015. <em>Geographic Information Science &amp; Systems</em>. Fourth edition. Hoboken, NJ: Wiley.</p>
@@ -780,13 +780,13 @@ As of 2018 map making in R is a hot topic with dedicated packages such as <stron
 <p>Talbert, Richard J. A. 2014. <em>Ancient Perspectives: Maps and Their Place in Mesopotamia, Egypt, Greece, and Rome</em>. University of Chicago Press.</p>
 </div>
 <div id="ref-neteler_open_2008">
-<p>Neteler, Markus, and Helena Mitasova. 2008. <em>Open Source GIS: A GRASS GIS Approach</em>. 3. ed. New York, NY: Springer.</p>
+<p>Neteler, Markus, and Helena Mitasova. 2008. <em>Open Source GIS: A GRASS GIS Approach</em>. Third. New York, NY: Springer.</p>
 </div>
 <div id="ref-coppock_history_1991">
 <p>Coppock, J Terry, and David W Rhind. 1991. “The History of GIS.” <em>Geographical Information Systems: Principles and Applications, Vol. 1.</em> 1 (1): 21–43.</p>
 </div>
 <div id="ref-wulf_invention_2015">
-<p>Wulf, Andrea. 2015. <em>The Invention of Nature: Alexander von Humboldt’s New World</em>. First American Edition. New York: Alfred A. Knopf.</p>
+<p>Wulf, Andrea. 2015. <em>The Invention of Nature: Alexander von Humboldt’s New World</em>. New York: Alfred A. Knopf.</p>
 </div>
 <div id="ref-livingstone_geographical_1992">
 <p>Livingstone, David N. 1992. <em>The Geographical Tradition: Episodes in the History of a Contested Enterprise</em>. Oxford, UK ; Cambridge, USA: John Wiley &amp; Sons Ltd.</p>
@@ -804,7 +804,7 @@ As of 2018 map making in R is a hot topic with dedicated packages such as <stron
 <p>Chambers, John M. 2016. <em>Extending R</em>. CRC Press.</p>
 </div>
 <div id="ref-brzustowicz_data_2017">
-<p>Brzustowicz, Michael R. 2017. <em>Data Science with Java: [Practical Methods for Scientists and Engineers]</em>. First edition. Beijing Boston Farnham: OReilly.</p>
+<p>Brzustowicz, Michael R. 2017. <em>Data Science with Java: [Practical Methods for Scientists and Engineers]</em>. First. Beijing Boston Farnham: OReilly.</p>
 </div>
 <div id="ref-garrard_geoprocessing_2016">
 <p>Garrard, Chris. 2016. <em>Geoprocessing with Python</em>. Shelter Island, NY: Manning Publications.</p>
@@ -892,6 +892,9 @@ As of 2018 map making in R is a hot topic with dedicated packages such as <stron
 </div>
 <div id="ref-kahle_ggmap_2013">
 <p>Kahle, D, and Hadley Wickham. 2013. “Ggmap: Spatial Visualization with Ggplot2.” <em>The R Journal</em> 5: 144–61.</p>
+</div>
+<div id="ref-lamigueiro_displaying_2018">
+<p>Lamigueiro, Oscar Perpinan. 2018. <em>Displaying Time Series, Spatial, and Space-Time Data with R</em>. Second. Boca Raton: Chapman and Hall/CRC.</p>
 </div>
 </div>
 <div class="footnotes">
