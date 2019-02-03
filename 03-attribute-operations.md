@@ -94,11 +94,11 @@ ncol(world) # how many columns?
 ```
 
 Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world's countries.
-Extracting the attribute data of an `sf` object is the same as removing its geometry (this can also be done with `st_drop_geometry(world)`):
+Extracting the attribute data of an `sf` object is the same as removing its geometry:
 
 
 ```r
-world_df = st_set_geometry(world, NULL)
+world_df = st_drop_geometry(world)
 class(world_df)
 #> [1] "data.frame"
 ```
@@ -365,7 +365,7 @@ world %>%
   group_by(continent) %>% 
   summarize(pop = sum(pop, na.rm = TRUE), n_countries = n()) %>% 
   top_n(n = 3, wt = pop) %>%
-  st_set_geometry(value = NULL) 
+  st_drop_geometry() 
 ```
 
 
@@ -597,13 +597,13 @@ It is important to note that attribute data operations preserve the geometry of 
 As mentioned at the outset of the chapter, it can be useful to remove the geometry.
 To do this, you have to explicitly remove it because `sf` explicitly makes the geometry column sticky.
 This behavior ensures that data frame operations do not accidentally remove the geometry column.
-Hence, an approach such as `select(world, -geom)` will be unsuccessful and you should instead use `st_set_geometry()`.^[
+Hence, an approach such as `select(world, -geom)` will be unsuccessful and you should instead use `st_drop_geometry()`.^[
 `st_geometry(world_st) = NULL` also works to remove the geometry from `world`, but overwrites the original object.
 ]
 
 
 ```r
-world_data = world %>% st_set_geometry(NULL)
+world_data = world %>% st_drop_geometry()
 class(world_data)
 #> [1] "data.frame"
 ```

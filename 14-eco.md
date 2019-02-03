@@ -360,7 +360,7 @@ coords = sf::st_coordinates(rp) %>%
   rename(x = X, y = Y)
 # only keep response and predictors which should be used for the modeling
 rp = dplyr::select(rp, -id, -spri) %>%
-  st_set_geometry(NULL)
+  st_drop_geometry()
 ```
 
 Having constructed the input variables, we are all set for specifying the **mlr** building blocks (task, learner, and resampling).

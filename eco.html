@@ -681,7 +681,7 @@ coords =<span class="st"> </span>sf<span class="op">::</span><span class="kw">st
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y)
 <span class="co"># only keep response and predictors which should be used for the modeling</span>
 rp =<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(rp, <span class="op">-</span>id, <span class="op">-</span>spri) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>)</code></pre>
+<span class="st">  </span><span class="kw">st_drop_geometry</span>()</code></pre>
 <p>Having constructed the input variables, we are all set for specifying the <strong>mlr</strong> building blocks (task, learner, and resampling).
 We will use a regression task since the response variable is numeric.
 The learner is a random forest model implementation from the <strong>ranger</strong> package.</p>

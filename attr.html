@@ -488,8 +488,8 @@ Let’s start by using base R functions to get a measure of the <code>world</cod
 <span class="kw">ncol</span>(world) <span class="co"># how many columns?</span>
 <span class="co">#&gt; [1] 11</span></code></pre>
 <p>Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world’s countries.
-Extracting the attribute data of an <code>sf</code> object is the same as removing its geometry (this can also be done with <code>st_drop_geometry(world)</code>):</p>
-<pre class="sourceCode r"><code class="sourceCode r">world_df =<span class="st"> </span><span class="kw">st_set_geometry</span>(world, <span class="ot">NULL</span>)
+Extracting the attribute data of an <code>sf</code> object is the same as removing its geometry:</p>
+<pre class="sourceCode r"><code class="sourceCode r">world_df =<span class="st"> </span><span class="kw">st_drop_geometry</span>(world)
 <span class="kw">class</span>(world_df)
 <span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre>
 <p>This can be useful if the geometry column causes problems, e.g., by occupying large amounts of RAM, or to focus the attention on the attribute data.
@@ -667,7 +667,7 @@ The result is an <code>sf</code> object with a single row representing the world
 <span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pop =</span> <span class="kw">sum</span>(pop, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">n_countries =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">top_n</span>(<span class="dt">n =</span> <span class="dv">3</span>, <span class="dt">wt =</span> pop) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="dt">value =</span> <span class="ot">NULL</span>) </code></pre>
+<span class="st">  </span><span class="kw">st_drop_geometry</span>() </code></pre>
 <table>
 <caption><span id="tab:continents">Table 3.2: </span>The top 3 most populous continents, and the number of countries in each.</caption>
 <thead>
@@ -835,8 +835,8 @@ world <span class="op">%&gt;%</span><span class="st"> </span>
 As mentioned at the outset of the chapter, it can be useful to remove the geometry.
 To do this, you have to explicitly remove it because <code>sf</code> explicitly makes the geometry column sticky.
 This behavior ensures that data frame operations do not accidentally remove the geometry column.
-Hence, an approach such as <code>select(world, -geom)</code> will be unsuccessful and you should instead use <code>st_set_geometry()</code>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
-<pre class="sourceCode r"><code class="sourceCode r">world_data =<span class="st"> </span>world <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_set_geometry</span>(<span class="ot">NULL</span>)
+Hence, an approach such as <code>select(world, -geom)</code> will be unsuccessful and you should instead use <code>st_drop_geometry()</code>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
+<pre class="sourceCode r"><code class="sourceCode r">world_data =<span class="st"> </span>world <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_drop_geometry</span>()
 <span class="kw">class</span>(world_data)
 <span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre>
 </div>
