@@ -834,7 +834,7 @@ Figure 12.5: Illustration of a small route network, with segment thickness propo
 </p>
 </div>
 <p>One can also find the shortest route between origins and destinations using this graph representation of the route network.
-This is can be done with <code>sum_network_routes()</code> from <strong>stplanr</strong>, which undertakes ‘local routing’ (see Section <a href="transport.html#routes">12.5</a>).
+This can be done with functions such as <code>sum_network_routes()</code> from <strong>stplanr</strong>, which undertakes ‘local routing’ (see Section <a href="transport.html#routes">12.5</a>).
 <!-- The code below finds the shortest path between two nodes on the network --- -->
 <!-- 'shortest' with reference to the `weightfield` slot of `ways_sln` (route distance by default -->
 <!-- --- and returns a linestring (plot not shown):^[ -->
@@ -855,7 +855,7 @@ Clearly, the types of analysis presented here would need to be extended and comp
 However, each stage could be useful on its own, and feed into wider analyses.
 To summarize, these were: identifying short but car-dependent commuting routes (generated from desire lines) in Section <a href="transport.html#routes">12.5</a>; creating desire lines representing trips to rail stations in Section <a href="transport.html#nodes">12.6</a>; and analysis of transport systems at the route network using graph theory in Section <a href="transport.html#route-networks">12.7</a>.</p>
 <p>The final code chunk of this chapter combines these strands of analysis.
-It adds the car-dependent routes in <code>route_carshort</code> with a newly-created object, <code>route_rail</code> and creates a new column representing the amount of travel along the centroid-to-centroid desire lines they represent:</p>
+It adds the car-dependent routes in <code>route_carshort</code> with a newly created object, <code>route_rail</code> and creates a new column representing the amount of travel along the centroid-to-centroid desire lines they represent:</p>
 <pre class="sourceCode r"><code class="sourceCode r">route_rail =<span class="st"> </span>desire_rail <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">st_set_geometry</span>(<span class="st">&quot;leg_orig&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">line2route</span>(<span class="dt">route_fun =</span> route_osrm) <span class="op">%&gt;%</span><span class="st"> </span>
