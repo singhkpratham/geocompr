@@ -443,7 +443,7 @@ ncol(desire_rail)
 #> [1] 13
 ```
 
-As illustrated in Figure \@ref(fig:stations), the initial `desire_rail` lines now have three additional geometry list-columns representing travel from home to the origin station, from there to the destination, and finally from the destination station to the destination.
+As illustrated in Figure \@ref(fig:stations), the initial `desire_rail` lines now have three additional geometry list columns representing travel from home to the origin station, from there to the destination, and finally from the destination station to the destination.
 In this case, the destination leg is very short (walking distance) but the origin legs may be sufficiently far to justify investment in cycling infrastructure to encourage people to cycle to the stations on the outward leg of peoples' journey to work in the residential areas surrounding the three origin stations in Figure \@ref(fig:stations).
 
 <div class="figure" style="text-align: center">

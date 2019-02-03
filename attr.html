@@ -459,9 +459,9 @@ Section <a href="attr.html#summarizing-raster-objects">3.3.2</a> provides an ove
 <p>Geographic vector data in R are well supported by <code>sf</code>, a class which extends the <code>data.frame</code>.
 Thus <code>sf</code> objects have one column per attribute variable (such as ‘name’) and one row per observation, or <em>feature</em> (e.g., per bus station).
 <code>sf</code> objects also have a special column to contain geometry data, usually named <code>geometry</code>.
-The <code>geometry</code> column is special because it is a <em>list-column</em>, which can contain multiple geographic entities (points, lines, polygons) per row.
-In Chapter <a href="spatial-class.html#spatial-class">2</a> we saw how to perform <em>generic methods</em> such as <code>plot()</code> and <code>summary()</code> on <code>sf</code> objects.
-<strong>sf</strong> also provides methods that allow <code>sf</code> objects to behave like regular data frames:</p>
+The <code>geometry</code> column is special because it is a <em>list column</em>, which can contain multiple geographic entities (points, lines, polygons) per row.
+This was described in Chapter <a href="spatial-class.html#spatial-class">2</a>, which demonstrated how <em>generic methods</em> such as <code>plot()</code> and <code>summary()</code> work on <code>sf</code> objects.
+<strong>sf</strong> also provides methods that allow <code>sf</code> objects to behave like regular data frames, as illustrated by other <code>sf</code>-specific methods that were originally developed for data frames:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">methods</span>(<span class="dt">class =</span> <span class="st">&quot;sf&quot;</span>) <span class="co"># methods for sf objects, first 12 shown</span></code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#&gt;  [1] aggregate             cbind                 coerce               </span>
 <span class="co">#&gt;  [4] initialize            merge                 plot                 </span>
@@ -487,7 +487,7 @@ Let’s start by using base R functions to get a measure of the <code>world</cod
 <span class="co">#&gt; [1] 177</span>
 <span class="kw">ncol</span>(world) <span class="co"># how many columns?</span>
 <span class="co">#&gt; [1] 11</span></code></pre>
-<p>Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world’s countries.
+<p>Our dataset contains ten non-geographic columns (and one geometry list column) with almost 200 rows representing the world’s countries.
 Extracting the attribute data of an <code>sf</code> object is the same as removing its geometry:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_df =<span class="st"> </span><span class="kw">st_drop_geometry</span>(world)
 <span class="kw">class</span>(world_df)

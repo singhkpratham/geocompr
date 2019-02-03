@@ -542,7 +542,7 @@ Figure 2.2: Simple feature types fully supported by sf.
 The package is well documented, as can be seen on its website and in 6 vignettes, which can be loaded as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="dt">package =</span> <span class="st">&quot;sf&quot;</span>) <span class="co"># see which vignettes are available</span>
 <span class="kw">vignette</span>(<span class="st">&quot;sf1&quot;</span>)          <span class="co"># an introduction to the package</span></code></pre>
-<p>As the first vignette explains, simple feature objects in R are stored in a data frame, with geographic data occupying a special column, a ‘list-column’. This column is usually named ‘geom’ or ‘geometry’.
+<p>As the first vignette explains, simple feature objects in R are stored in a data frame, with geographic data occupying a special column, usually named ‘geom’ or ‘geometry’.
 We will use the <code>world</code> dataset provided by the <strong>spData</strong>, loaded at the beginning of this chapter (see <a href="https://nowosad.github.io/spData/">nowosad.github.io/spData</a> for a list of datasets loaded by the package).
 <code>world</code> is a spatial object containing spatial and attribute columns, the names of which are returned by the function <code>names()</code> (the last column contains the geographic information):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(world)
@@ -956,7 +956,7 @@ This results in an <code>sf</code> object, as demonstrated below (some output is
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(lnd_sf)
 <span class="co">#&gt; [1] &quot;sf&quot;         &quot;data.frame&quot;</span></code></pre>
 <p>The result shows that <code>sf</code> objects actually have two classes, <code>sf</code> and <code>data.frame</code>.
-Simple features are simply data frames (square tables), but with spatial attributes (usually stored in a special <code>geometry</code> list-column in the data frame).
+Simple features are simply data frames (square tables), but with spatial attributes stored in a list column, usually called <code>geometry</code>, as described in Section <a href="spatial-class.html#intro-sf">2.2.1</a>.
 This duality is central to the concept of simple features:
 most of the time a <code>sf</code> can be treated as and behaves like a <code>data.frame</code>.
 Simple features are, in essence, data frames with a spatial extension.</p>

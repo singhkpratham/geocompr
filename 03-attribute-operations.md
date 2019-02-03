@@ -49,9 +49,9 @@ Section \@ref(summarizing-raster-objects) provides an overview of 'global' raste
 Geographic vector data in R are well supported by `sf`, a class which extends the `data.frame`.
 Thus `sf` objects have one column per attribute variable (such as 'name') and one row per observation, or *feature* (e.g., per bus station).
 `sf` objects also have a special column to contain geometry data, usually named `geometry`.
-The `geometry` column is special because it is a *list-column*, which can contain multiple geographic entities (points, lines, polygons) per row.
-In Chapter \@ref(spatial-class) we saw how to perform *generic methods* such as `plot()` and `summary()` on `sf` objects.
-**sf** also provides methods that allow `sf` objects to behave like regular data frames:
+The `geometry` column is special because it is a *list column*, which can contain multiple geographic entities (points, lines, polygons) per row.
+This was described in Chapter \@ref(spatial-class), which demonstrated how *generic methods* such as `plot()` and `summary()` work on `sf` objects.
+**sf** also provides methods that allow `sf` objects to behave like regular data frames, as illustrated by other `sf`-specific methods that were originally developed for data frames:
 
 
 ```r
@@ -93,7 +93,7 @@ ncol(world) # how many columns?
 #> [1] 11
 ```
 
-Our dataset contains ten non-geographic columns (and one geometry list-column) with almost 200 rows representing the world's countries.
+Our dataset contains ten non-geographic columns (and one geometry list column) with almost 200 rows representing the world's countries.
 Extracting the attribute data of an `sf` object is the same as removing its geometry:
 
 
