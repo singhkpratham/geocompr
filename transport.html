@@ -502,7 +502,7 @@ These zone-level data are small but often vital for gaining a basic understandin
 <div id="transport-zones" class="section level2">
 <h2><span class="header-section-number">12.3</span> Transport zones</h2>
 <p>Although transport systems are primarily based on linear features and nodes — including pathways and stations — it often makes sense to start with areal data, to break continuous space into tangible units <span class="citation">(Hollander <a href="#ref-hollander_transport_2016">2016</a>)</span>.
-In addition to the boundary defining the study area (Bristol in this case), two zone types are of particular interest to transport researchers: and origin and destination zones.
+In addition to the boundary defining the study area (Bristol in this case), two zone types are of particular interest to transport researchers: origin and destination zones.
 Often, the same geographic units are used for origins and destinations.
 However, different zoning systems, such as ‘<a href="https://data.gov.uk/dataset/workplace-zones-a-new-geography-for-workplace-statistics3">Workplace Zones</a>’, may be appropriate to represent the increased density of trip destinations in areas with many ‘trip attractors’ such as schools and shops <span class="citation">(Office for National Statistics <a href="#ref-office_for_national_statistics_workplace_2014">2014</a>)</span>.</p>
 <p>The simplest way to define a study area is often the first matching boundary returned by OpenStreetMap, which can be obtained using <strong>osmdata</strong> with a command such as <code>bristol_region = osmdata::getbb(&quot;Bristol&quot;, format_out = &quot;sf_polygon&quot;)</code>. This results in an <code>sf</code> object representing the bounds of the largest matching city region, either a rectangular polygon of the bounding box or a detailed polygonal boundary.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a>
@@ -521,7 +521,7 @@ Such administrative zones can provide vital context to transport analysis, such 
 <p>The geographic resolution of these zones is important: small zones with high geographic resolution are usually preferable but their high number in large regions can have consequences for processing (especially for origin-destination analysis in which the number of possibilities increases as a non-linear function of the number of zones) <span class="citation">(Hollander <a href="#ref-hollander_transport_2016">2016</a>)</span>.</p>
 <div class="rmdnote">
 <p>
-Another issue with small zones is related to anonymity rules. To make it impossible to infer the identity of individuals in zones, detailed socio-demographic variables are often only available at low geographic resolution. Breakdowns of travel mode by age and sex, for example, are available at the Local Authority level in the UK, but not at the much higher Output Area level, each of which contains around 100 households. For further details, see www.ons.gov.uk/methodology/geography.
+Another issue with small zones is related to anonymity rules. To make it impossible to infer the identity of individuals in zones, detailed socio-demographic variables are often only available at a low geographic resolution. Breakdowns of travel mode by age and sex, for example, are available at the Local Authority level in the UK, but not at the much higher Output Area level, each of which contains around 100 households. For further details, see www.ons.gov.uk/methodology/geography.
 </p>
 </div>
 <p>The 102 zones used in this chapter are stored in <code>bristol_zones</code>, as illustrated in Figure <a href="transport.html#fig:zones">12.2</a>.
@@ -550,7 +550,7 @@ The first column is the ID of the zone of origin and the second column is the zo
 <li>Renamed the grouping variable <code>o</code> so it matches the ID column <code>geo_code</code> in the <code>bristol_zones</code> object.</li>
 </ul>
 <p>The resulting object <code>zones_attr</code> is a data frame with rows representing zones and an ID variable.
-We can verify that the IDs match those in the <code>zones</code> dataset using <code>%in%</code> operator as follows:</p>
+We can verify that the IDs match those in the <code>zones</code> dataset using the <code>%in%</code> operator as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(zones_attr<span class="op">$</span>geo_code <span class="op">%in%</span><span class="st"> </span>bristol_zones<span class="op">$</span>geo_code)
 <span class="co">#&gt;    Mode    TRUE </span>
 <span class="co">#&gt; logical     102</span></code></pre>
@@ -981,7 +981,7 @@ In cases where the first match does not provide the right name, the country or r
 the <code>_if</code> affix requires a <code>TRUE</code>/<code>FALSE</code> question to be asked of the variables, in this case ‘is it numeric?’ and only variables returning true are summarized.<a href="transport.html#fnref69" class="footnote-back">↩</a></p></li>
 <li id="fn70"><p>
 It would also be important to check that IDs match in the opposite direction on real data.
-This could be done by reversing the order of the ID’s in the commend — <code>summary(bristol_zones$geo_code %in% zones_attr$geo_code)</code> — or by using <code>setdiff()</code> as follows: <code>setdiff(bristol_zones$geo_code, zones_attr$geo_code)</code>.<a href="transport.html#fnref70" class="footnote-back">↩</a></p></li>
+This could be done by changing the order of the IDs in the <code>summary()</code> command — <code>summary(bristol_zones$geo_code %in% zones_attr$geo_code)</code> — or by using <code>setdiff()</code> as follows: <code>setdiff(bristol_zones$geo_code, zones_attr$geo_code)</code>.<a href="transport.html#fnref70" class="footnote-back">↩</a></p></li>
 <li id="fn71"><p>
 <code>od2line()</code> works by matching the IDs in the first two columns of the <code>bristol_od</code> object to the <code>zone_code</code> ID column in the geographic <code>zones_od</code> object.
 Note that the operation emits a warning because <code>od2line()</code> works by allocating the start and end points of each origin-destination pair to the <em>centroid</em> of its zone of origin and destination.

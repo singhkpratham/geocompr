@@ -101,7 +101,7 @@ These zone-level data are small but often vital for gaining a basic understandin
 ## Transport zones
 
 Although transport systems are primarily based on linear features and nodes --- including pathways and stations --- it often makes sense to start with areal data, to break continuous space into tangible units [@hollander_transport_2016].
-In addition to the boundary defining the study area (Bristol in this case), two zone types are of particular interest to transport researchers: and origin and destination zones.
+In addition to the boundary defining the study area (Bristol in this case), two zone types are of particular interest to transport researchers: origin and destination zones.
 Often, the same geographic units are used for origins and destinations.
 However, different zoning systems, such as '[Workplace Zones](https://data.gov.uk/dataset/workplace-zones-a-new-geography-for-workplace-statistics3)', may be appropriate to represent the increased density of trip destinations in areas with many 'trip attractors' such as schools and shops [@office_for_national_statistics_workplace_2014].
 
@@ -126,7 +126,7 @@ The geographic resolution of these zones is important: small zones with high geo
 
 
 <div class="rmdnote">
-<p>Another issue with small zones is related to anonymity rules. To make it impossible to infer the identity of individuals in zones, detailed socio-demographic variables are often only available at low geographic resolution. Breakdowns of travel mode by age and sex, for example, are available at the Local Authority level in the UK, but not at the much higher Output Area level, each of which contains around 100 households. For further details, see www.ons.gov.uk/methodology/geography.</p>
+<p>Another issue with small zones is related to anonymity rules. To make it impossible to infer the identity of individuals in zones, detailed socio-demographic variables are often only available at a low geographic resolution. Breakdowns of travel mode by age and sex, for example, are available at the Local Authority level in the UK, but not at the much higher Output Area level, each of which contains around 100 households. For further details, see www.ons.gov.uk/methodology/geography.</p>
 </div>
 
 The 102 zones used in this chapter are stored in `bristol_zones`, as illustrated in Figure \@ref(fig:zones).
@@ -172,7 +172,7 @@ the `_if` affix requires a `TRUE`/`FALSE` question to be asked of the variables,
 - Renamed the grouping variable `o` so it matches the ID column `geo_code` in the `bristol_zones` object.
 
 The resulting object `zones_attr` is a data frame with rows representing zones and an ID variable.
-We can verify that the IDs match those in the `zones` dataset using `%in%` operator as follows:
+We can verify that the IDs match those in the `zones` dataset using the `%in%` operator as follows:
 
 
 ```r
@@ -183,7 +183,7 @@ summary(zones_attr$geo_code %in% bristol_zones$geo_code)
 
 The results show that all 102 zones are present in the new object and that `zone_attr` is in a form that can be joined onto the zones.^[
 It would also be important to check that IDs match in the opposite direction on real data.
-This could be done by reversing the order of the ID's in the commend --- `summary(bristol_zones$geo_code %in% zones_attr$geo_code)` --- or by using `setdiff()` as follows: `setdiff(bristol_zones$geo_code, zones_attr$geo_code)`.
+This could be done by changing the order of the IDs in the `summary()` command --- `summary(bristol_zones$geo_code %in% zones_attr$geo_code)` --- or by using `setdiff()` as follows: `setdiff(bristol_zones$geo_code, zones_attr$geo_code)`.
 ]
 This is done using the joining function `left_join()` (note that `inner_join()` would produce here the same result):
 
