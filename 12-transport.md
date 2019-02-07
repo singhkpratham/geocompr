@@ -78,7 +78,7 @@ Bristol shows a high average income per capita but also contains areas of severe
 
 In terms of transport, Bristol is well served by rail and road links, and has a relatively high level of active travel.
 19% of its citizens cycle and 88% walk at least once per month according to the [Active People Survey](https://www.gov.uk/government/statistical-data-sets/how-often-and-time-spent-walking-and-cycling-at-local-authority-level-cw010#table-cw0103) (the national average is 15% and 81%, respectively).
-8% of the population said they cycled work in the 2011 census, compared with only 3% nationwide.
+8% of the population said they cycled to work in the 2011 census, compared with only 3% nationwide.
 
 
 
@@ -92,7 +92,7 @@ This high-level aim will be met via the following objectives:
 
 - Describe the geographical pattern of transport behavior in the city.
 - Identify key public transport nodes and routes along which cycling to rail stations could be encouraged, as the first stage in multi-model trips.
-- Analyze travel 'desire lines' to, to find where many people drive short distances.
+- Analyze travel 'desire lines', to find where many people drive short distances.
 - Identify cycle route locations that will encourage less car driving and more cycling. 
 
 To get the wheels rolling on the practical aspects of this chapter, we begin by loading zonal data on travel patterns.
