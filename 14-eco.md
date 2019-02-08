@@ -100,7 +100,7 @@ Visualizing the data helps to get more familiar with it, as shown in Figure \@re
 <p class="caption">(\#fig:sa-mongon)Study mask (polygon), location of the sampling sites (black points) and DEM in the background.</p>
 </div>
 
-The next step is to compute variables which we will not only need for the modeling and predictive mapping (see Section \@ref(predictive-mapping)) but also for aligning the NMDS axes with the main gradient in the study area, altitude and humidity, respectively (see Section \@ref(nmds)).
+The next step is to compute variables which we will not only need for the modeling and predictive mapping (see Section \@ref(predictive-mapping)) but also for aligning the Non-metric multidimensional scaling (NMDS) axes with the main gradient in the study area, altitude and humidity, respectively (see Section \@ref(nmds)).
 
 Specifically, we will compute catchment slope and catchment area from a digital elevation model using R-GIS bridges (see Chapter \@ref(gis)).
 Curvatures might also represent valuable predictors, in the Exercise section you can find out how they would change the modeling result.
@@ -244,7 +244,7 @@ A stress value of 9 represents a very good result, which means that the reduced 
 Overall, NMDS puts objects that are more similar (in terms of species composition) closer together in ordination space.
 However, as opposed to most other ordination techniques, the axes are arbitrary and not necessarily ordered by importance [@borcard_numerical_2011].
 However, we already know that humidity represents the main gradient in the study area [@muenchow_predictive_2013;@muenchow_rqgis:_2017].
-Since humidity is highly correlated with elevation, we rotate the NMDS in accordance with elevation (see also `?MDSrotate` for more details on rotating NMDS axes).
+Since humidity is highly correlated with elevation, we rotate the NMDS axes in accordance with elevation (see also `?MDSrotate` for more details on rotating NMDS axes).
 Plotting the result reveals that the first axis is, as intended, clearly associated with altitude (Figure \@ref(fig:xy-nmds)).
 
 
@@ -310,7 +310,7 @@ text(tree_mo, pretty = 0)
 </div>
 
 The resulting tree consists of three internal nodes and four terminal nodes (Figure \@ref(fig:tree)).
-The first internal node at the top of the tree assigns all observations which are below 328.5 m to the left and all other observations to the right branch.
+The first internal node at the top of the tree assigns all observations which are below 328.5 to the left and all other observations to the right branch.
 The observations falling into the left branch have a mean NMDS score of -1.198.
 Overall, we can interpret the tree as follows: the higher the elevation, the higher the NMDS score becomes.
 Decision trees have a tendency to overfit, that is they mirror too closely the input data including its noise which in turn leads to bad predictive performances [Section \@ref(intro-cv); @james_introduction_2013].

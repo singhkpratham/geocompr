@@ -816,7 +816,7 @@ To make it available in your environment either attach the <strong>spDataLarge</
 })</code></pre>
 <p>It is highly unlikely that there are no shops in any of our defined metropolitan areas.
 The following <code>if</code> condition simply checks if there is at least one shop for each region.
-If not, we would try to download the shops again for this/these specific region/s.</p>
+If not, we recommend to try to download the shops again for this/these specific region/s.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># checking if we have downloaded shops for each metropolitan area</span>
 ind =<span class="st"> </span><span class="kw">map</span>(shops, nrow) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>
 <span class="cf">if</span> (<span class="kw">any</span>(ind)) {
@@ -864,7 +864,7 @@ poi =<span class="st"> </span><span class="kw">reclassify</span>(poi, <span clas
 </div>
 <div id="identifying-suitable-locations" class="section level2">
 <h2><span class="header-section-number">13.7</span> Identifying suitable locations</h2>
-<p>The only steps that remain before combining all the layers are to add POI and delete the population from the raster stack.
+<p>The only steps that remain before combining all the layers are to add <code>poi</code> to the <code>reclass</code> raster stack and remove the population layer from it.
 The reasoning for the latter is twofold.
 First of all, we have already delineated metropolitan areas, that is areas where the population density is above average compared to the rest of Germany.
 Second, though it is advantageous to have many potential customers within a specific catchment area, the sheer number alone might not actually represent the desired target group.

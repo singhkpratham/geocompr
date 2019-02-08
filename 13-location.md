@@ -411,7 +411,7 @@ shops = map(metro_names, function(x) {
 
 It is highly unlikely that there are no shops in any of our defined metropolitan areas.
 The following `if` condition simply checks if there is at least one shop for each region.
-If not, we would try to download the shops again for this/these specific region/s.
+If not, we recommend to try to download the shops again for this/these specific region/s.
 
 
 ```r
@@ -481,7 +481,7 @@ names(poi) = "poi"
 
 ## Identifying suitable locations
 
-The only steps that remain before combining all the layers are to add POI and delete the population from the raster stack.
+The only steps that remain before combining all the layers are to add `poi` to the `reclass` raster stack and remove the population layer from it.
 The reasoning for the latter is twofold.
 First of all, we have already delineated metropolitan areas, that is areas where the population density is above average compared to the rest of Germany.
 Second, though it is advantageous to have many potential customers within a specific catchment area, the sheer number alone might not actually represent the desired target group.
