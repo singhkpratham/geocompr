@@ -796,7 +796,8 @@ The subsequent code chunk does this using a number of functions including:</p>
 <li><code>osmdata_sf()</code>, which converts the OSM data into spatial objects (of class <code>sf</code>).</li>
 <li><code>while()</code>, which tries repeatedly (three times in this case) to download the data if it fails the first time.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a>
 Before running this code: please consider it will download almost 2GB of data.
-To save time and resources, we have output into <strong>spDataLarge</strong> and should already be available in your environment as an object called <code>shops</code>.</li>
+To save time and resources, we have put the output named <code>shops</code> into <strong>spDataLarge</strong>.
+To make it available in your environment either attach the <strong>spDataLarge</strong> package or run <code>data(&quot;shops&quot;, package = &quot;spDataLarge&quot;)</code>.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">shops =<span class="st"> </span><span class="kw">map</span>(metro_names, <span class="cf">function</span>(x) {
   <span class="kw">message</span>(<span class="st">&quot;Downloading shops of: &quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
