@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-02-08">
+<meta name="date" content="2019-02-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -524,7 +524,7 @@ The rate of data produced is overwhelming.
 An autonomous vehicle, for example, can generate 100 GB of data per day <span class="citation">(The Economist <a href="#ref-theeconomist_autonomous_2016">2016</a>)</span>.
 Remote sensing data from satellites has become too large to analyze the corresponding data with a single computer, leading to initiatives such as <a href="http://r-spatial.org/2016/11/29/openeo.html">OpenEO</a>.</p>
 <p>This ‘geodata revolution’ drives demand for high performance computer hardware and efficient, scalable software to handle and extract signal from the noise, to understand and perhaps change the world.
-‘Geodatabases’ enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.
+Spatial databases enable storage and generation of manageable subsets from the vast geographic data stores, making interfaces for gaining knowledge from them vital tools for the future.
 R is one such tool, with advanced analysis, modeling and visualization capabilities.
 In this context the focus of the book is not on the language itself <span class="citation">(see Wickham <a href="#ref-wickham_advanced_2014">2014</a><a href="#ref-wickham_advanced_2014">a</a>)</span>.
 Instead we use R as a ‘tool for the trade’ for understanding the world, similar to Humboldt’s use of tools to gain a deep understanding of nature in all its complexity and interconnections <span class="citation">(see Wulf <a href="#ref-wulf_invention_2015">2015</a>)</span>.
@@ -723,7 +723,7 @@ A key feature of <strong>raster</strong> is its ability to work with datasets th
 <strong>raster</strong> also supports map algebra (see Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <p>In parallel with these developments of class systems and methods came the support for R as an interface to dedicated GIS software.
 <strong>GRASS</strong> <span class="citation">(R. S. Bivand <a href="#ref-bivand_using_2000">2000</a>)</span> and follow-on packages <strong>spgrass6</strong> and <strong>rgrass7</strong> (for GRASS GIS 6 and 7, respectively) were prominent examples in this direction <span class="citation">(Bivand <a href="#ref-bivand_rgrass7_2016">2016</a><a href="#ref-bivand_rgrass7_2016">a</a>, <a href="#ref-bivand_spgrass6_2016">2016</a><a href="#ref-bivand_spgrass6_2016">b</a>)</span>.
-Other examples of bridges between R and GIS include <strong>RSAGA</strong> <span class="citation">(Brenning, Bangs, and Becker <a href="#ref-R-RSAGA">2018</a>, first published in 2008)</span>, <strong>ArcGIS</strong> <span class="citation">(Brenning <a href="#ref-brenning_arcgis_2012">2012</a><a href="#ref-brenning_arcgis_2012">a</a>, first published in 2008)</span>, and <strong>RQGIS</strong> <span class="citation">(Muenchow, Schratz, and Brenning <a href="#ref-muenchow_rqgis:_2017">2017</a>, first published in 2016)</span> (see Chapter <a href="gis.html#gis">9</a>).</p>
+Other examples of bridges between R and GIS include <strong>RSAGA</strong> <span class="citation">(Brenning, Bangs, and Becker <a href="#ref-R-RSAGA">2018</a>, first published in 2008)</span>, <strong>RPyGeo</strong> <span class="citation">(Brenning <a href="#ref-brenning_arcgis_2012">2012</a><a href="#ref-brenning_arcgis_2012">a</a>, first published in 2008)</span>, and <strong>RQGIS</strong> <span class="citation">(Muenchow, Schratz, and Brenning <a href="#ref-muenchow_rqgis:_2017">2017</a>, first published in 2016)</span> (see Chapter <a href="gis.html#gis">9</a>).</p>
 <p>Visualization was not a focus initially, with the bulk of R-spatial development focused on analysis and geographic operations.
 <strong>sp</strong> provided methods for map making using both the base and lattice plotting system but demand was growing for advanced map making capabilities, especially after the release of <strong>ggplot2</strong> in 2007.
 <strong>ggmap</strong> extended <strong>ggplot2</strong>’s spatial capabilities <span class="citation">(Kahle and Wickham <a href="#ref-kahle_ggmap_2013">2013</a>)</span>, by facilitating access to ‘basemap’ tiles from online services such as Google Maps.
