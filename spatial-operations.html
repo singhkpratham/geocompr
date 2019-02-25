@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-02-11">
+<meta name="date" content="2019-02-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -805,8 +805,9 @@ For instance, if one intersection of <code>incongruent</code> and <code>aggregat
 This is implemented in <code>st_interpolate_aw()</code>, as demonstrated in the code chunk below.</p>
 <pre class="sourceCode r"><code class="sourceCode r">agg_aw =<span class="st"> </span><span class="kw">st_interpolate_aw</span>(incongruent[, <span class="st">&quot;value&quot;</span>], aggregating_zones,
                            <span class="dt">extensive =</span> <span class="ot">TRUE</span>)
-<span class="co">#&gt; Warning in st_interpolate_aw(incongruent[, &quot;value&quot;], aggregating_zones, :</span>
-<span class="co">#&gt; st_interpolate_aw assumes attributes are constant over areas of x</span>
+<span class="co">#&gt; Warning in st_interpolate_aw.sf(incongruent[, &quot;value&quot;],</span>
+<span class="co">#&gt; aggregating_zones, : st_interpolate_aw assumes attributes are constant over</span>
+<span class="co">#&gt; areas of x</span>
 <span class="co"># show the aggregated result</span>
 agg_aw<span class="op">$</span>value
 <span class="co">#&gt; [1] 19.6 25.7</span></code></pre>
@@ -980,9 +981,9 @@ Secondly, the <code>fun</code> parameter lets us specify the function we wish to
 Here, we choose the minimum, but any other summary function, including <code>sum()</code>, <code>mean()</code>, or <code>var()</code> can be used.</p>
 <pre class="sourceCode r"><code class="sourceCode r">r_focal =<span class="st"> </span><span class="kw">focal</span>(elev, <span class="dt">w =</span> <span class="kw">matrix</span>(<span class="dv">1</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>), <span class="dt">fun =</span> min)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:focal-example"></span>
-<img src="figures/04_focal_example.png" alt="Input raster (left) and resulting output raster (right) due to a focal operation - summing up 3-by-3 windows." width="475" />
+<img src="figures/04_focal_example.png" alt="Input raster (left) and resulting output raster (right) due to a focal operation - finding the minimum value in 3-by-3 moving windows." width="475" />
 <p class="caption">
-Figure 4.8: Input raster (left) and resulting output raster (right) due to a focal operation - summing up 3-by-3 windows.
+Figure 4.8: Input raster (left) and resulting output raster (right) due to a focal operation - finding the minimum value in 3-by-3 moving windows.
 </p>
 </div>
 <p>We can quickly check if the output meets our expectations.

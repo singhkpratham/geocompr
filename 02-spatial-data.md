@@ -766,6 +766,12 @@ Raster maps usually represent continuous phenomena such as elevation, temperatur
 Of course, we can represent discrete features such as soil or land-cover classes also with the help of a raster data model (Figure \@ref(fig:raster-intro-plot2)).
 Consequently, the discrete borders of these features become blurred, and depending on the spatial task a vector representation might be more suitable.
 
+
+```
+#> Warning: Detecting old grouped_df format, replacing `vars` attribute by
+#> `groups`
+```
+
 <div class="figure" style="text-align: center">
 <img src="figures/raster-intro-plot2-1.png" alt="Examples of continuous and categorical rasters." width="576" />
 <p class="caption">(\#fig:raster-intro-plot2)Examples of continuous and categorical rasters.</p>

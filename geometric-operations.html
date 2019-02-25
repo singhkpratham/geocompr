@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-02-11">
+<meta name="date" content="2019-02-25">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -912,14 +912,14 @@ This will return a raster object containing the cells whose midpoints overlap wi
 clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>,
               <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
 elev[clip, drop =<span class="st"> </span><span class="ot">FALSE</span>]
-<span class="co">#&gt; class       : RasterLayer </span>
-<span class="co">#&gt; dimensions  : 2, 1, 2  (nrow, ncol, ncell)</span>
-<span class="co">#&gt; resolution  : 0.5, 0.5  (x, y)</span>
-<span class="co">#&gt; extent      : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt; coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
-<span class="co">#&gt; data source : in memory</span>
-<span class="co">#&gt; names       : layer </span>
-<span class="co">#&gt; values      : 18, 24  (min, max)</span></code></pre>
+<span class="co">#&gt; class      : RasterLayer </span>
+<span class="co">#&gt; dimensions : 2, 1, 2  (nrow, ncol, ncell)</span>
+<span class="co">#&gt; resolution : 0.5, 0.5  (x, y)</span>
+<span class="co">#&gt; extent     : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt; crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
+<span class="co">#&gt; source     : memory</span>
+<span class="co">#&gt; names      : layer </span>
+<span class="co">#&gt; values     : 18, 24  (min, max)</span></code></pre>
 <p>For the same operation we can also use the <code>intersect()</code> and <code>crop()</code> command.</p>
 </div>
 <div id="extent-and-origin" class="section level3">
@@ -1055,6 +1055,8 @@ The following command therefore masks every cell outside of the Zion National Pa
 Setting <code>maskvalue = 0</code>, for example, will set all pixels outside the national park to 0.
 Setting <code>inverse = TRUE</code> will mask everything <em>inside</em> the bounds of the park (see <code>?mask</code> for details) (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(D)).</p>
 <pre class="sourceCode r"><code class="sourceCode r">srtm_inv_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion, <span class="dt">inverse =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>#&gt; Warning: Detecting old grouped_df format, replacing `vars` attribute by
+#&gt; `groups`</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:cropmask"></span>
 <img src="figures/cropmask-1.png" alt="Illustration of raster cropping and raster masking." width="960" />
 <p class="caption">
@@ -1114,6 +1116,15 @@ This is demonstrated in the command below, which results in a data frame with co
 The generation of summary statistics is demonstrated in the code below, which creates the object <code>zion_srtm_df</code> containing summary statistics for elevation values in Zion National Park (see Figure <a href="geometric-operations.html#fig:polyextr">5.20</a>(A)):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(zion_srtm_values, ID) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(srtm), <span class="kw">funs</span>(min, mean, max))
+<span class="co">#&gt; Warning: funs() is soft deprecated as of dplyr 0.8.0</span>
+<span class="co">#&gt; please use list() instead</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; # Before:</span>
+<span class="co">#&gt; funs(name = f(.)</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; # After: </span>
+<span class="co">#&gt; list(name = ~f(.))</span>
+<span class="co">#&gt; This warning is displayed once per session.</span>
 <span class="co">#&gt; # A tibble: 1 x 4</span>
 <span class="co">#&gt;      ID   min  mean   max</span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>

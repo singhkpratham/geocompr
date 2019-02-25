@@ -528,8 +528,9 @@ This is implemented in `st_interpolate_aw()`, as demonstrated in the code chunk 
 ```r
 agg_aw = st_interpolate_aw(incongruent[, "value"], aggregating_zones,
                            extensive = TRUE)
-#> Warning in st_interpolate_aw(incongruent[, "value"], aggregating_zones, :
-#> st_interpolate_aw assumes attributes are constant over areas of x
+#> Warning in st_interpolate_aw.sf(incongruent[, "value"],
+#> aggregating_zones, : st_interpolate_aw assumes attributes are constant over
+#> areas of x
 # show the aggregated result
 agg_aw$value
 #> [1] 19.6 25.7
@@ -770,8 +771,8 @@ r_focal = focal(elev, w = matrix(1, nrow = 3, ncol = 3), fun = min)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/04_focal_example.png" alt="Input raster (left) and resulting output raster (right) due to a focal operation - summing up 3-by-3 windows." width="475" />
-<p class="caption">(\#fig:focal-example)Input raster (left) and resulting output raster (right) due to a focal operation - summing up 3-by-3 windows.</p>
+<img src="figures/04_focal_example.png" alt="Input raster (left) and resulting output raster (right) due to a focal operation - finding the minimum value in 3-by-3 moving windows." width="475" />
+<p class="caption">(\#fig:focal-example)Input raster (left) and resulting output raster (right) due to a focal operation - finding the minimum value in 3-by-3 moving windows.</p>
 </div>
 
 We can quickly check if the output meets our expectations.
