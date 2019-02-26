@@ -782,12 +782,6 @@ Setting `inverse = TRUE` will mask everything *inside* the bounds of the park (s
 srtm_inv_masked = mask(srtm, zion, inverse = TRUE)
 ```
 
-
-```
-#> Warning: Detecting old grouped_df format, replacing `vars` attribute by
-#> `groups`
-```
-
 <div class="figure" style="text-align: center">
 <img src="figures/cropmask-1.png" alt="Illustration of raster cropping and raster masking." width="960" />
 <p class="caption">(\#fig:cropmask)Illustration of raster cropping and raster masking.</p>
