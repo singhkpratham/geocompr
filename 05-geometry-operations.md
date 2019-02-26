@@ -864,7 +864,7 @@ This is demonstrated in the command below, which results in a data frame with co
 
 
 ```r
- zion_srtm_values = raster::extract(x = srtm, y = zion, df = TRUE) 
+zion_srtm_values = raster::extract(x = srtm, y = zion, df = TRUE) 
 ```
 
 Such results can be used to generate summary statistics for raster values per polygon, for example to characterize a single region or to compare many regions.
@@ -873,16 +873,7 @@ The generation of summary statistics is demonstrated in the code below, which cr
 
 ```r
 group_by(zion_srtm_values, ID) %>% 
-  summarize_at(vars(srtm), funs(min, mean, max))
-#> Warning: funs() is soft deprecated as of dplyr 0.8.0
-#> please use list() instead
-#> 
-#> # Before:
-#> funs(name = f(.)
-#> 
-#> # After: 
-#> list(name = ~f(.))
-#> This warning is displayed once per session.
+  summarize_at(vars(srtm), list(~min, ~mean, ~max))
 #> # A tibble: 1 x 4
 #>      ID   min  mean   max
 #>   <dbl> <dbl> <dbl> <dbl>

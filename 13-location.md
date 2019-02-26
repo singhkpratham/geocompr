@@ -96,16 +96,7 @@ input = dplyr::select(census_de, x = x_mp_1km, y = y_mp_1km, pop = Einwohner,
                       women = Frauen_A, mean_age = Alter_D,
                       hh_size = HHGroesse_D)
 # set -1 and -9 to NA
-input_tidy = mutate_all(input, funs(ifelse(. %in% c(-1, -9), NA, .)))
-#> Warning: funs() is soft deprecated as of dplyr 0.8.0
-#> please use list() instead
-#> 
-#> # Before:
-#> funs(name = f(.)
-#> 
-#> # After: 
-#> list(name = ~f(.))
-#> This warning is displayed once per session.
+input_tidy = mutate_all(input, list(~ifelse(. %in% c(-1, -9), NA, .)))
 ```
 
 
