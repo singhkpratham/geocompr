@@ -133,8 +133,8 @@ input_ras
 #> extent : 4031000, 4673000, 2684000, 3552000 (xmin, xmax, ymin, ymax)
 #> coord. ref. : +proj=laea +lat_0=52 +lon_0=10
 #> names       :  pop, women, mean_age, hh_size 
-#> min values  :  127,     0,        0,       0 
-#> max values  : 8000,     3,        3,       3 
+#> min values  :    1,     1,        1,       1 
+#> max values  :    6,     5,        5,       5
 ```
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Note that we are using an equal-area projection (EPSG:3035; Lambert Equal Area Europe), i.e., a projected CRS where each grid cell has the same area, here 1000 x 1000 square meters. 
