@@ -860,10 +860,7 @@ One potential problem with the ease of developing prototypes with **shiny** is t
 For that reason, despite advocating **shiny**, we recommend starting with the longer established technology of a pen and paper as the first stage for interactive mapping projects.
 This way your prototype web applications should be limited not by technical considerations, but by your motivations and imagination.
 
-<div class="figure" style="text-align: center">
-<iframe src="https://bookdown.org/robinlovelace/coffeeapp/?showcase=0" width="576" height="400px"></iframe>
-<p class="caption">(\#fig:coffeeApp)coffeeApp, a simple web mapping application for exploring global coffee production in 2016 and 2017. Interactive version available online at geocompr.robinlovelace.net.</p>
-</div>
+
 
 ## Other mapping packages
 
