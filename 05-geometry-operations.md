@@ -239,7 +239,7 @@ R =
 \end{bmatrix}
 $$
 
-It rotates points in a counterclockwise direction.
+It rotates points in a clockwise direction.
 The rotation matrix can be implemented in R as:
 <!-- https://r-spatial.github.io/sf/articles/sf3.html#affine-transformations -->
 
