@@ -295,6 +295,7 @@ For real-world use one would use centroid values generated from projected data o
 
 ```r
 desire_lines = od2line(od_inter, zones_od)
+#> Creating centroids representing desire line start and end points.
 ```
 
 An illustration of the results is presented in Figure \@ref(fig:desire), a simplified version of which is created with the following command (see the code in `12-desire.R` to reproduce the figure exactly and Chapter \@ref(adv-map) for details on visualization with **tmap**):
