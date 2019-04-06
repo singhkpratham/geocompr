@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-04-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -648,7 +648,7 @@ This can be done with the base R function <code>aggregate()</code> as follows:</
 <span class="kw">class</span>(world_agg2)
 <span class="co">#&gt; [1] &quot;sf&quot;         &quot;data.frame&quot;</span></code></pre>
 <p>As illustrated above, an object of class <code>sf</code> is returned this time.
-<code>world_agg2</code> which is a spatial object containing 6 polygons representing the columns of the world.</p>
+<code>world_agg2</code> which is a spatial object containing 6 polygons representing the continents of the world.</p>
 <p><code>summarize()</code> is the <strong>dplyr</strong> equivalent of <code>aggregate()</code>.
 It usually follows <code>group_by()</code>, which specifies the grouping variable, as illustrated below:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_agg3 =<span class="st"> </span>world <span class="op">%&gt;%</span>
@@ -753,7 +753,7 @@ In the majority of cases where variable names are not the same, you have two opt
 world_coffee2 =<span class="st"> </span><span class="kw">left_join</span>(world, coffee_renamed, <span class="dt">by =</span> <span class="kw">c</span>(<span class="dt">name_long =</span> <span class="st">&quot;nm&quot;</span>))</code></pre>
 <p>Note that the name in the original object is kept, meaning that <code>world_coffee</code> and the new object <code>world_coffee2</code> are identical.
 Another feature of the result is that it has the same number of rows as the original dataset.
-Although there are only 47 rows of data in <code>coffee_data</code>, all 177 the country records are kept intact in <code>world_coffee</code> and <code>world_coffee2</code>:
+Although there are only 47 rows of data in <code>coffee_data</code>, all 177 country records are kept intact in <code>world_coffee</code> and <code>world_coffee2</code>:
 rows in the original dataset with no match are assigned <code>NA</code> values for the new coffee production variables.
 What if we only want to keep countries that have a match in the key variable?
 In that case an inner join can be used:</p>
@@ -794,7 +794,7 @@ The geometry column can only be used for creating maps and spatial operations if
 Fortunately, non-spatial data frames with a geometry list column (like <code>coffee_world</code>) can be coerced into an <code>sf</code> object as follows: <code>st_as_sf(coffee_world)</code>.
 </div>
 
-<p>This section covers the majority joining use cases.
+<p>This section covers the majority of joining use cases.
 For more information, we recommend <span class="citation">Grolemund and Wickham (<a href="#ref-grolemund_r_2016">2016</a>)</span>, the <a href="https://geocompr.github.io/geocompkg/articles/join.html">join vignette</a> in the <strong>geocompkg</strong> package that accompanies this book, and documentation of the <strong>data.table</strong> package.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
 Another type of join is a spatial join, covered in the next chapter (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).</p>
 </div>
@@ -810,7 +810,7 @@ world_new<span class="op">$</span>pop_dens =<span class="st"> </span>world_new<s
 <code>mutate()</code> adds new columns at the penultimate position in the <code>sf</code> object (the last one is reserved for the geometry):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">pop_dens =</span> pop <span class="op">/</span><span class="st"> </span>area_km2)</code></pre>
-<p>The difference between <code>mutate()</code> and <code>transmute()</code> is that the latter skips all other existing columns (except for the sticky geometry column):</p>
+<p>The difference between <code>mutate()</code> and <code>transmute()</code> is that the latter drops all other existing columns (except for the sticky geometry column):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">transmute</span>(<span class="dt">pop_dens =</span> pop <span class="op">/</span><span class="st"> </span>area_km2)</code></pre>
 <p><code>unite()</code> pastes together existing columns.
@@ -881,7 +881,7 @@ Use the function <code>levels()</code> for retrieving and adding new factor leve
 <span class="co">#&gt; 2  2  silt   moist</span>
 <span class="co">#&gt; 3  3  sand     dry</span></code></pre>
 <p>This behavior demonstrates that raster cells can only possess one value, an identifier which can be used to look up the attributes in the corresponding attribute table (stored in a slot named <code>attributes</code>).
-This is illustrated in command below, which returns the grain size and wetness of cell IDs 1, 11 and 35:</p>
+This is illustrated by the command below, which returns the grain size and wetness of cell IDs 1, 11 and 35:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">factorValues</span>(grain, grain[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">11</span>, <span class="dv">35</span>)])
 <span class="co">#&gt;   VALUE wetness</span>
 <span class="co">#&gt; 1  sand     dry</span>
@@ -904,7 +904,7 @@ Figure 3.2: Raster datasets with numeric (left) and categorical values (right).
 </ul>
 <p>Here, we only show the first two options since these can be considered non-spatial operations.
 If we need a spatial object to subset another or the output is a spatial object, we refer to this as spatial subsetting.
-Therefore, the latter two options will be shown in the next chapter (see Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a> in the next chapter).</p>
+Therefore, the latter two options will be shown in the next chapter (see Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>).</p>
 <p>The first two subsetting options are demonstrated in the commands below —
 both return the value of the top left pixel in the raster object <code>elev</code> (results not shown):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># row 1, column 1</span>
@@ -935,7 +935,7 @@ Multiple cells can also be modified in this way:</p>
 <h3><span class="header-section-number">3.3.2</span> Summarizing raster objects</h3>
 <p><strong>raster</strong> contains functions for extracting descriptive statistics for entire rasters.
 Printing a raster object to the console by typing its name returns minimum and maximum values of a raster.
-<code>summary()</code> provides common descriptive statistics (minimum, maximum, interquartile range and number of <code>NA</code>s).
+<code>summary()</code> provides common descriptive statistics (minimum, maximum, quartiles and number of <code>NA</code>s).
 Further summary operations such as the standard deviation (see below) or custom summary statistics can be calculated with <code>cellStats()</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cellStats</span>(elev, sd)</code></pre>
 

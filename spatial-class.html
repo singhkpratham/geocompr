@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-04-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1145,7 +1145,7 @@ r_brick =<span class="st"> </span><span class="kw">brick</span>(multi_raster_fil
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nlayers</span>(r_brick)
 <span class="co">#&gt; [1] 4</span></code></pre>
 <p>A <code>RasterStack</code> is similar to a <code>RasterBrick</code> in the sense that it consists also of multiple layers.
-However, in contrast to <code>RasterBrick</code>, <code>RasterStack</code> allows you to connect several raster objects stored in different files or multiply objects in memory.
+However, in contrast to <code>RasterBrick</code>, <code>RasterStack</code> allows you to connect several raster objects stored in different files or multiple objects in memory.
 More specifically, a <code>RasterStack</code> is a list of <code>RasterLayer</code> objects with the same extent and resolution.
 Hence, one way to create it is with the help of spatial objects already existing in R’s global environment.
 And again, one can simply specify a path to a file stored on disk.
@@ -1166,7 +1166,7 @@ r_stack
 <span class="co">#&gt; min values  :       1,      7550 </span>
 <span class="co">#&gt; max values  : 1610784,     19071</span></code></pre>
 <p>Another difference is that the processing time for <code>RasterBrick</code> objects is usually shorter than for <code>RasterStack</code> objects.</p>
-<p>Decision on which <code>Raster*</code> class should be used depends mostly on a character of input data.
+<p>Decision on which <code>Raster*</code> class should be used depends mostly on the character of input data.
 Processing of a single mulitilayer file or object is the most effective with <code>RasterBrick</code>, while <code>RasterStack</code> allows calculations based on many files, many <code>Raster*</code> objects, or both.</p>
 
 <div class="rmdnote">

@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-05">
+<meta name="date" content="2019-04-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -924,7 +924,7 @@ elev[clip, drop =<span class="st"> </span><span class="ot">FALSE</span>]
 </div>
 <div id="extent-and-origin" class="section level3">
 <h3><span class="header-section-number">5.3.2</span> Extent and origin</h3>
-<p>When merging or performing map algebra on rasters, their resolution, projection, origin and/or extent have to match. Otherwise, how should we add the values of one raster with a resolution of 0.2 decimal degrees to a second with a resolution of 1 decimal degree?
+<p>When merging or performing map algebra on rasters, their resolution, projection, origin and/or extent have to match. Otherwise, how should we add the values of one raster with a resolution of 0.2 decimal degrees to a second raster with a resolution of 1 decimal degree?
 The same problem arises when we would like to merge satellite imagery from different sensors with different projections and resolutions.
 We can deal with such mismatches by aligning the rasters.</p>
 <p>In the simplest case, two images only differ with regard to their extent.
@@ -948,7 +948,9 @@ Instead of telling the function how many rows or columns should be added (as don
 Here, we extend the <code>elev</code> object to the extent of <code>elev_2</code>.
 The newly added rows and column receive the default value of the <code>value</code> parameter, i.e., <code>NA</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">elev_<span class="dv">4</span> =<span class="st"> </span><span class="kw">extend</span>(elev, elev_<span class="dv">2</span>)</code></pre>
-<p>The origin is the point closest to (0, 0) if you moved towards it (starting from any given cell corner of the raster) in steps of x and y resolution.</p>
+<p>The origin of a raster is the cell corner closest to the coordinates (0, 0).
+The <code>origin()</code> function returns the coordinates of the origin.
+In the below example a cell corner exists with coordinates (0, 0), but that is not necessarily the case.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">origin</span>(elev_<span class="dv">4</span>)
 <span class="co">#&gt; [1] 0 0</span></code></pre>
 <p>If two rasters have different origins, their cells do not overlap completely which would make map algebra impossible.
@@ -1052,7 +1054,7 @@ zion =<span class="st"> </span><span class="kw">st_transform</span>(zion, <span 
 The following command therefore masks every cell outside of the Zion National Park boundaries (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(C)):</p>
 <pre class="sourceCode r"><code class="sourceCode r">srtm_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion)</code></pre>
 <p>Changing the settings of <code>mask()</code> yields different results.
-Setting <code>maskvalue = 0</code>, for example, will set all pixels outside the national park to 0.
+Setting <code>updatevalue = 0</code>, for example, will set all pixels outside the national park to 0.
 Setting <code>inverse = TRUE</code> will mask everything <em>inside</em> the bounds of the park (see <code>?mask</code> for details) (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(D)).</p>
 <pre class="sourceCode r"><code class="sourceCode r">srtm_inv_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion, <span class="dt">inverse =</span> <span class="ot">TRUE</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:cropmask"></span>
@@ -1236,7 +1238,7 @@ In R, vectorization refers to the possibility of replacing <code>for</code>-loop
 
 <p>The simplest form of vectorization is to convert the centroids of raster cells into points.
 <code>rasterToPoints()</code> does exactly this for all non-<code>NA</code> raster grid cells (Figure <a href="geometric-operations.html#fig:raster-vectorization1">5.23</a>).
-Setting the <code>spatial</code> parameter to <code>TRUE</code> ensures the output is a spatial object, not a matrix.</p>
+Setting the <code>spatial</code> parameter to <code>TRUE</code> is needed to get a spatial object instead of a matrix.</p>
 <pre class="sourceCode r"><code class="sourceCode r">elev_point =<span class="st"> </span><span class="kw">rasterToPoints</span>(elev, <span class="dt">spatial =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">st_as_sf</span>()</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:raster-vectorization1"></span>
