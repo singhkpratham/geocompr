@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-06">
+<meta name="date" content="2019-04-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1149,7 +1149,7 @@ If this is a problem, it is useful to know about alternatives and work-arounds, 
 <ul>
 <li><strong>Parallelization</strong>: this approach works when using many geographic vector selector objects by splitting them into groups and extracting cell values independently for each group (see <code>?raster::clusterR()</code> for details of this approach).
 <!-- tabularaster (ref to the vignette - https://cran.r-project.org/web/packages/tabularaster/vignettes/tabularaster-usage.html)--></li>
-<li>Use the <strong>velox</strong> package <span class="citation">(Hunziker <a href="#ref-hunziker_velox:_2017">2017</a>)</span>, which provides a fast method for extracting raster data that fits in memory (see the packages <a href="https://hunzikp.github.io/velox/extract.html"><code>extract</code></a> vignette for details).</li>
+<li>Use the <strong>velox</strong> package <span class="citation">(Hunziker <a href="#ref-hunziker_velox:_2017">2017</a>)</span>, which provides a fast method for extracting raster data that fits in memory (see the package’s <a href="https://hunzikp.github.io/velox/extract.html"><code>extract</code></a> vignette for details).</li>
 <li>Using <strong>R-GIS bridges</strong> (see Chapter <a href="gis.html#gis">9</a>): efficient calculation of raster statistics from polygons can be found in the SAGA function <code>saga:gridstatisticsforpolygons</code>, for example, which can be accessed via <strong>RQGIS</strong>.
 <!-- Methods similar to `raster::extract` can be found in GRASS GIS (e.g. v.rast.stats) -->
 <!-- https://grass.osgeo.org/grass74/manuals/v.rast.stats.html - test -->

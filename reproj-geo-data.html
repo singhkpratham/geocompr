@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-06">
+<meta name="date" content="2019-04-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -726,7 +726,7 @@ The <code>nlcd2011.tif</code> file provides information for a small area in Utah
 <span class="co">#&gt;  [1] 11 21 22 23 31 41 42 43 52 71 81 82 90 95</span></code></pre>
 <p>When reprojecting categorical rasters, the estimated values must be the same as those of the original.
 This could be done using the nearest neighbor method (<code>ngb</code>).
-This method assigns new cell values to the nearest cell center of the input raster.
+This method sets each new cell value to the value of the nearest cell (center) of the input raster.
 An example is reprojecting <code>cat_raster</code> to WGS84, a geographic CRS well suited for web mapping.
 The first step is to obtain the PROJ definition of this CRS, which can be done using the <a href="http://spatialreference.org/ref/epsg/wgs-84/">http://spatialreference.org</a> webpage.
 The final step is to reproject the raster with the <code>projectRaster()</code> function which, in the case of categorical data, uses the nearest neighbor method (<code>ngb</code>):</p>
@@ -786,10 +786,8 @@ con_raster_ea =<span class="st"> </span><span class="kw">projectRaster</span>(co
 <span class="co">#&gt;  +proj=laea +lat_0=37.32 +lon_0=-113.04 +ellps=WGS84</span></code></pre>
 <p>Raster reprojection on numeric variables also leads to small changes to values and spatial properties, such as the number of cells, resolution, and extent.
 These changes are demonstrated in Table <a href="reproj-geo-data.html#tab:rastercrs">6.2</a><a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>:</p>
-<pre><code>#&gt; Warning: `data_frame()` is deprecated, use `tibble()`.
-#&gt; This warning is displayed once per session.</code></pre>
 <table>
-<caption><span id="tab:rastercrs">Table 6.2: </span>Key attributes in the original (‘con_raster’) and projected (‘con_raster’) continuous raster datasets.</caption>
+<caption><span id="tab:rastercrs">Table 6.2: </span>Key attributes in the original (‘con_raster’) and projected (‘con_raster_ea’) continuous raster datasets.</caption>
 <thead>
 <tr class="header">
 <th align="left">CRS</th>
@@ -806,7 +804,7 @@ These changes are demonstrated in Table <a href="reproj-geo-data.html#tab:raster
 <td align="right">457</td>
 <td align="right">465</td>
 <td align="right">212505</td>
-<td align="right">31.5275</td>
+<td align="right">0.0008</td>
 <td align="right">1843</td>
 </tr>
 <tr class="even">
@@ -814,7 +812,7 @@ These changes are demonstrated in Table <a href="reproj-geo-data.html#tab:raster
 <td align="right">467</td>
 <td align="right">478</td>
 <td align="right">223226</td>
-<td align="right">0.0003</td>
+<td align="right">83.2000</td>
 <td align="right">1842</td>
 </tr>
 </tbody>
@@ -829,7 +827,7 @@ For instance, if we are interested in a density (points per grid cell or inhabit
 
 <p>There is more to learn about CRSs.
 An excellent resource in this area, also implemented in R, is the website R Spatial.
-Chapter 6 for this free online book is recommended reading — see: <a href="http://rspatial.org/spatial/rst/6-crs.html">rspatial.org/spatial/rst/6-crs.html</a></p>
+Chapter 6 for this free online book is recommended reading — see: <a href="http://rspatial.org/spatial/6-crs.html">rspatial.org/spatial/6-crs.html</a></p>
 </div>
 <div id="exercises-4" class="section level2">
 <h2><span class="header-section-number">6.7</span> Exercises</h2>

@@ -438,7 +438,7 @@ unique(cat_raster)
 
 When reprojecting categorical rasters, the estimated values must be the same as those of the original.
 This could be done using the nearest neighbor method (`ngb`).
-This method assigns new cell values to the nearest cell center of the input raster.
+This method sets each new cell value to the value of the nearest cell (center) of the input raster.
 An example is reprojecting `cat_raster` to WGS84, a geographic CRS well suited for web mapping.
 The first step is to obtain the PROJ definition of this CRS, which can be done using the [http://spatialreference.org](http://spatialreference.org/ref/epsg/wgs-84/) webpage. 
 The final step is to reproject the raster with the `projectRaster()` function which, in the case of categorical data, uses the nearest neighbor method (`ngb`):
@@ -499,19 +499,12 @@ This can have implications for file sizes when raster datasets are saved.
 ]:
 
 
-```
-#> Warning: `data_frame()` is deprecated, use `tibble()`.
-#> This warning is displayed once per session.
-```
-
-
-
-Table: (\#tab:rastercrs)Key attributes in the original ('con_raster') and projected ('con_raster') continuous raster datasets.
+Table: (\#tab:rastercrs)Key attributes in the original ('con_raster') and projected ('con_raster_ea') continuous raster datasets.
 
 CRS           nrow   ncol    ncell   resolution   mean
 -----------  -----  -----  -------  -----------  -----
-WGS84          457    465   212505      31.5275   1843
-Equal-area     467    478   223226       0.0003   1842
+WGS84          457    465   212505       0.0008   1843
+Equal-area     467    478   223226      83.2000   1842
 
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Of course, the limitations of 2D Earth projections apply as much to vector as to raster data.
@@ -521,7 +514,7 @@ For instance, if we are interested in a density (points per grid cell or inhabit
 
 There is more to learn about CRSs.
 An excellent resource in this area, also implemented in R, is the website R Spatial.
-Chapter 6 for this free online book is recommended reading --- see: [rspatial.org/spatial/rst/6-crs.html](http://rspatial.org/spatial/rst/6-crs.html)
+Chapter 6 for this free online book is recommended reading --- see: [rspatial.org/spatial/6-crs.html](http://rspatial.org/spatial/6-crs.html)
 
 ## Exercises
 
