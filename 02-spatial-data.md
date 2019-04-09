@@ -293,7 +293,7 @@ world_sp = as(world, Class = "Spatial")
 
 
 ```r
-world_sf = st_as_sf(world_sp, "sf")
+world_sf = st_as_sf(world_sp)
 ```
 
 ### Basic map making {#basic-map}
