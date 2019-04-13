@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2019-04-09'
+date: '2019-04-13'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-04-09 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2019-04-13 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -78,7 +78,8 @@ If you find the book useful, please support it by:
 - Recommending, [citing](https://github.com/Robinlovelace/geocompr/raw/master/cite-geocompr.bib) or [linking-to](https://geocompr.robinlovelace.net/) it
 - '[Starring](https://help.github.com/articles/about-stars/)' the [geocompr GitHub repository](https://github.com/robinlovelace/geocompr)
 - Reviewing it, e.g. on Amazon or [Goodreads](https://www.goodreads.com/book/show/42780859-geocomputation-with-r)
-- Buying a copy
+- Letting us know if you've found it useful, e.g. via the [#geocompr hashtag](https://twitter.com/hashtag/geocompr) on Twitter or via [GitHub](https://github.com/Robinlovelace/geocompr/issues/372) (see our [Guestbook on geocompr.github.io](https://geocompr.github.io/guestbook/))
+- [Buying](https://www.amazon.com/Geocomputation-Chapman-Hall-Robin-Lovelace/dp/1138304514/) a copy
 
 Further details can be found at [github.com/Robinlovelace/geocompr](https://github.com/Robinlovelace/geocompr#geocomputation-with-r).
 

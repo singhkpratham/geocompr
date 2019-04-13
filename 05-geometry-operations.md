@@ -572,14 +572,14 @@ data("elev", package = "spData")
 clip = raster(xmn = 0.9, xmx = 1.8, ymn = -0.45, ymx = 0.45,
               res = 0.3, vals = rep(1, 9))
 elev[clip, drop = FALSE]
-#> class      : RasterLayer 
-#> dimensions : 2, 1, 2  (nrow, ncol, ncell)
-#> resolution : 0.5, 0.5  (x, y)
-#> extent     : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)
-#> crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
-#> source     : memory
-#> names      : layer 
-#> values     : 18, 24  (min, max)
+#> class       : RasterLayer 
+#> dimensions  : 2, 1, 2  (nrow, ncol, ncell)
+#> resolution  : 0.5, 0.5  (x, y)
+#> extent      : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)
+#> coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
+#> data source : in memory
+#> names       : layer 
+#> values      : 18, 24  (min, max)
 ```
 
 For the same operation we can also use the `intersect()` and `crop()` command.

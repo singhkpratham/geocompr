@@ -25,7 +25,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
 
 
-<meta name="date" content="2019-04-09">
+<meta name="date" content="2019-04-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -912,14 +912,14 @@ This will return a raster object containing the cells whose midpoints overlap wi
 clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>,
               <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
 elev[clip, drop =<span class="st"> </span><span class="ot">FALSE</span>]
-<span class="co">#&gt; class      : RasterLayer </span>
-<span class="co">#&gt; dimensions : 2, 1, 2  (nrow, ncol, ncell)</span>
-<span class="co">#&gt; resolution : 0.5, 0.5  (x, y)</span>
-<span class="co">#&gt; extent     : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt; crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
-<span class="co">#&gt; source     : memory</span>
-<span class="co">#&gt; names      : layer </span>
-<span class="co">#&gt; values     : 18, 24  (min, max)</span></code></pre>
+<span class="co">#&gt; class       : RasterLayer </span>
+<span class="co">#&gt; dimensions  : 2, 1, 2  (nrow, ncol, ncell)</span>
+<span class="co">#&gt; resolution  : 0.5, 0.5  (x, y)</span>
+<span class="co">#&gt; extent      : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt; coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
+<span class="co">#&gt; data source : in memory</span>
+<span class="co">#&gt; names       : layer </span>
+<span class="co">#&gt; values      : 18, 24  (min, max)</span></code></pre>
 <p>For the same operation we can also use the <code>intersect()</code> and <code>crop()</code> command.</p>
 </div>
 <div id="extent-and-origin" class="section level3">
