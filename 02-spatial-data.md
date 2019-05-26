@@ -367,7 +367,7 @@ plot(st_geometry(world_cents), add = TRUE, cex = cex)
 
 The code above uses the function `st_centroid()` to convert one geometry type (polygons) to another (points) (see Chapter \@ref(geometric-operations)), the aesthetics of which are varied with the `cex` argument.
 
-**sf**'s plot method also has arguments specific to geographic data. `expandBB`, for example, can be used plot an `sf` object in context:
+**sf**'s plot method also has arguments specific to geographic data. `expandBB`, for example, can be used to plot an `sf` object in context:
 it takes a numeric vector of length four that expands the bounding box of the plot relative to zero in the following order: bottom, left, top, right.
 This is used to plot India in the context of its giant Asian neighbors, with an emphasis on China to the east, in the following code chunk, which generates Figure \@ref(fig:china) (see exercises below on adding text to plots):
 
@@ -765,6 +765,15 @@ The value might be numeric or categorical (Figure  \@ref(fig:raster-intro-plot):
 Raster maps usually represent continuous phenomena such as elevation, temperature, population density or spectral data (Figure \@ref(fig:raster-intro-plot2)).
 Of course, we can represent discrete features such as soil or land-cover classes also with the help of a raster data model (Figure \@ref(fig:raster-intro-plot2)).
 Consequently, the discrete borders of these features become blurred, and depending on the spatial task a vector representation might be more suitable.
+
+
+```
+#> Registered S3 methods overwritten by 'ggplot2':
+#>   method         from 
+#>   [.quosures     rlang
+#>   c.quosures     rlang
+#>   print.quosures rlang
+```
 
 <div class="figure" style="text-align: center">
 <img src="figures/raster-intro-plot2-1.png" alt="Examples of continuous and categorical rasters." width="576" />

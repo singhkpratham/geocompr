@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2019-04-24'
+date: '2019-05-26'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-04-24 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2019-05-26 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -155,13 +155,13 @@ Although R has a steep learning curve, the command-line approach advocated in th
 <!-- within a few months for most people, including programming novices. -->
 As you'll learn in subsequent chapters, R is an effective tool for tackling a wide range of geographic data challenges.
 We expect that, with practice, R will become the program of choice in your geospatial toolbox for many applications.
-Typing and executing commands at the command-line is, in many cases, faster than pointing-and-clicking around the graphical user interface (GUI) a desktop GIS.
+Typing and executing commands at the command-line is, in many cases, faster than pointing-and-clicking around the graphical user interface (GUI) of a desktop GIS.
 For some applications such as Spatial Statistics and modeling R may be the *only* realistic way to get the work done.
 
 As outlined in Section \@ref(why-use-r-for-geocomputation), there are many reasons for using R for geocomputation:
 R is well-suited to the interactive use required in many geographic data analysis workflows compared with other languages.
 R excels in the rapidly growing fields of Data Science (which includes data carpentry, statistical learning techniques and data visualization) and Big Data (via efficient interfaces to databases and distributed computing systems).
-Furthermore R enables a reproducible workflow: sharing scripts underlying your analysis will allow others to build-on your work.
+Furthermore R enables a reproducible workflow: sharing scripts underlying your analysis will allow others to build on your work.
 To ensure reproducibility in this book we have made its source code available at [github.com/Robinlovelace/geocompr](https://github.com/Robinlovelace/geocompr#geocomputation-with-r).
 There you will find script files in the `code/` folder that generate figures:
 when code generating a figure is not provided in the main text of the book, the name of the script file that generated it is provided in the caption (see for example the caption for Figure \@ref(fig:zones)).

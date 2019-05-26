@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Geometry operations | Geocomputation with R</title>
-  <meta name="description" content="5 Geometry operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="5 Geometry operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Geometry operations | Geocomputation with R" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="5 Geometry operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
-<meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow">
+<meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-04-24">
+<meta name="date" content="2019-05-26" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="spatial-operations.html">
@@ -496,7 +495,10 @@ The result has only 1% of the vertices of the input (set using the argument <cod
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># proportion of points to retain (0-1; default 0.05)</span>
 us_states2163<span class="op">$</span>AREA =<span class="st"> </span><span class="kw">as.numeric</span>(us_states2163<span class="op">$</span>AREA)
 us_states_simp2 =<span class="st"> </span>rmapshaper<span class="op">::</span><span class="kw">ms_simplify</span>(us_states2163, <span class="dt">keep =</span> <span class="fl">0.01</span>,
-                                          <span class="dt">keep_shapes =</span> <span class="ot">TRUE</span>)</code></pre>
+                                          <span class="dt">keep_shapes =</span> <span class="ot">TRUE</span>)
+<span class="co">#&gt; Registered S3 method overwritten by &#39;geojsonlint&#39;:</span>
+<span class="co">#&gt;   method         from </span>
+<span class="co">#&gt;   print.location dplyr</span></code></pre>
 <p>Finally, the visual comparison of the original dataset and the two simplified versions shows differences between the Douglas-Peucker (<code>st_simplify</code>) and Visvalingam (<code>ms_simplify</code>) algorithm outputs (Figure <a href="geometric-operations.html#fig:us-simp">5.2</a>):</p>
 <div class="figure" style="text-align: center"><span id="fig:us-simp"></span>
 <img src="figures/us-simp-1.png" alt="Polygon simplification in action, comparing the original geometry of the contiguous United States with simplified versions, generated with functions from sf (center) and rmapshaper (right) packages." width="576" />
@@ -912,14 +914,14 @@ This will return a raster object containing the cells whose midpoints overlap wi
 clip =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">xmn =</span> <span class="fl">0.9</span>, <span class="dt">xmx =</span> <span class="fl">1.8</span>, <span class="dt">ymn =</span> <span class="fl">-0.45</span>, <span class="dt">ymx =</span> <span class="fl">0.45</span>,
               <span class="dt">res =</span> <span class="fl">0.3</span>, <span class="dt">vals =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">9</span>))
 elev[clip, drop =<span class="st"> </span><span class="ot">FALSE</span>]
-<span class="co">#&gt; class       : RasterLayer </span>
-<span class="co">#&gt; dimensions  : 2, 1, 2  (nrow, ncol, ncell)</span>
-<span class="co">#&gt; resolution  : 0.5, 0.5  (x, y)</span>
-<span class="co">#&gt; extent      : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt; coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
-<span class="co">#&gt; data source : in memory</span>
-<span class="co">#&gt; names       : layer </span>
-<span class="co">#&gt; values      : 18, 24  (min, max)</span></code></pre>
+<span class="co">#&gt; class      : RasterLayer </span>
+<span class="co">#&gt; dimensions : 2, 1, 2  (nrow, ncol, ncell)</span>
+<span class="co">#&gt; resolution : 0.5, 0.5  (x, y)</span>
+<span class="co">#&gt; extent     : 1, 1.5, -0.5, 0.5  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt; crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 </span>
+<span class="co">#&gt; source     : memory</span>
+<span class="co">#&gt; names      : layer </span>
+<span class="co">#&gt; values     : 18, 24  (min, max)</span></code></pre>
 <p>For the same operation we can also use the <code>intersect()</code> and <code>crop()</code> command.</p>
 </div>
 <div id="extent-and-origin" class="section level3">
@@ -1057,6 +1059,11 @@ The following command therefore masks every cell outside of the Zion National Pa
 Setting <code>updatevalue = 0</code>, for example, will set all pixels outside the national park to 0.
 Setting <code>inverse = TRUE</code> will mask everything <em>inside</em> the bounds of the park (see <code>?mask</code> for details) (Figure <a href="geometric-operations.html#fig:cropmask">5.17</a>(D)).</p>
 <pre class="sourceCode r"><code class="sourceCode r">srtm_inv_masked =<span class="st"> </span><span class="kw">mask</span>(srtm, zion, <span class="dt">inverse =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>#&gt; Registered S3 methods overwritten by &#39;ggplot2&#39;:
+#&gt;   method         from 
+#&gt;   [.quosures     rlang
+#&gt;   c.quosures     rlang
+#&gt;   print.quosures rlang</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:cropmask"></span>
 <img src="figures/cropmask-1.png" alt="Illustration of raster cropping and raster masking." width="960" />
 <p class="caption">
@@ -1092,15 +1099,16 @@ To demonstrate this, the code below creates <code>zion_transect</code>, a straig
 <span class="st">  </span><span class="kw">st_sf</span>()</code></pre>
 <p>The utility of extracting heights from a linear selector is illustrated by imagining that you are planning a hike.
 The method demonstrated below provides an ‘elevation profile’ of the route (the line does not need to be straight), useful for estimating how long it will take due to long climbs:</p>
-<pre class="sourceCode r"><code class="sourceCode r"> transect =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, zion_transect, 
-                            <span class="dt">along =</span> <span class="ot">TRUE</span>, <span class="dt">cellnumbers =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">transect =<span class="st"> </span>raster<span class="op">::</span><span class="kw">extract</span>(srtm, zion_transect, 
+                           <span class="dt">along =</span> <span class="ot">TRUE</span>, <span class="dt">cellnumbers =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>Note the use of <code>along = TRUE</code> and <code>cellnumbers = TRUE</code> arguments to return cell IDs <em>along</em> the path.
 The result is a list containing a matrix of cell IDs in the first column and elevation values in the second.
 The number of list elements is equal to the number of lines or polygons from which we are extracting values.
 The subsequent code chunk first converts this tricky matrix-in-a-list object into a simple data frame, returns the coordinates associated with each extracted cell, and finds the associated distances along the transect (see <code>?geosphere::distGeo()</code> for details):</p>
 <pre class="sourceCode r"><code class="sourceCode r">transect_df =<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map_dfr</span>(transect, as_data_frame, <span class="dt">.id =</span> <span class="st">&quot;ID&quot;</span>)
 transect_coords =<span class="st"> </span><span class="kw">xyFromCell</span>(srtm, transect_df<span class="op">$</span>cell)
-transect_df<span class="op">$</span>dist =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">cumsum</span>(geosphere<span class="op">::</span><span class="kw">distGeo</span>(transect_coords)))    </code></pre>
+pair_dist =<span class="st"> </span>geosphere<span class="op">::</span><span class="kw">distGeo</span>(transect_coords)[<span class="op">-</span><span class="kw">nrow</span>(transect_coords)]
+transect_df<span class="op">$</span>dist =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">cumsum</span>(pair_dist)) </code></pre>
 <p>The resulting <code>transect_df</code> can be used to create elevation profiles, as illustrated in Figure <a href="geometric-operations.html#fig:lineextr">5.19</a>(B).</p>
 <div class="figure" style="text-align: center"><span id="fig:lineextr"></span>
 <img src="figures/lineextr-1.png" alt="Location of a line used for raster extraction (left) and the elevation along this line (right)." width="576" />
@@ -1115,7 +1123,7 @@ This is demonstrated in the command below, which results in a data frame with co
 <p>Such results can be used to generate summary statistics for raster values per polygon, for example to characterize a single region or to compare many regions.
 The generation of summary statistics is demonstrated in the code below, which creates the object <code>zion_srtm_df</code> containing summary statistics for elevation values in Zion National Park (see Figure <a href="geometric-operations.html#fig:polyextr">5.20</a>(A)):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(zion_srtm_values, ID) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(srtm), <span class="kw">list</span>(<span class="op">~</span>min, <span class="op">~</span>mean, <span class="op">~</span>max))
+<span class="st">  </span><span class="kw">summarize_at</span>(<span class="kw">vars</span>(srtm), <span class="kw">list</span>(<span class="op">~</span><span class="kw">min</span>(.), <span class="op">~</span><span class="kw">mean</span>(.), <span class="op">~</span><span class="kw">max</span>(.)))
 <span class="co">#&gt; # A tibble: 1 x 4</span>
 <span class="co">#&gt;      ID   min  mean   max</span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
@@ -1357,17 +1365,17 @@ Using these objects:
 <div id="ref-douglas_algorithms_1973">
 <p>Douglas, David H, and Thomas K Peucker. 1973. “Algorithms for the Reduction of the Number of Points Required to Represent a Digitized Line or Its Caricature.” <em>Cartographica: The International Journal for Geographic Information and Geovisualization</em> 10 (2): 112–22.</p>
 </div>
-<div id="ref-visvalingam_line_1993">
-<p>Visvalingam, M., and J. D. Whyatt. 1993. “Line Generalisation by Repeated Elimination of Points.” <em>The Cartographic Journal</em> 30 (1): 46–51. <a href="https://doi.org/10.1179/000870493786962263" class="uri">https://doi.org/10.1179/000870493786962263</a>.</p>
-</div>
 <div id="ref-grolemund_r_2016">
 <p>Grolemund, Garrett, and Hadley Wickham. 2016. <em>R for Data Science</em>. O’Reilly Media.</p>
+</div>
+<div id="ref-hunziker_velox:_2017">
+<p>Hunziker, Philipp. 2017. <em>Velox: Fast Raster Manipulation and Extraction</em>.</p>
 </div>
 <div id="ref-liu_essential_2009">
 <p>Liu, Jian-Guo, and Philippa J. Mason. 2009. <em>Essential Image Processing and GIS for Remote Sensing</em>. Chichester, West Sussex, UK, Hoboken, NJ: Wiley-Blackwell.</p>
 </div>
-<div id="ref-hunziker_velox:_2017">
-<p>Hunziker, Philipp. 2017. <em>Velox: Fast Raster Manipulation and Extraction</em>.</p>
+<div id="ref-visvalingam_line_1993">
+<p>Visvalingam, M., and J. D. Whyatt. 1993. “Line Generalisation by Repeated Elimination of Points.” <em>The Cartographic Journal</em> 30 (1): 46–51. <a href="https://doi.org/10.1179/000870493786962263" class="uri">https://doi.org/10.1179/000870493786962263</a>.</p>
 </div>
 <div id="ref-wickham_advanced_2014">
 <p>Wickham, Hadley. 2014a. <em>Advanced R</em>. CRC Press.</p>
