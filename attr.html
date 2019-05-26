@@ -660,13 +660,14 @@ This is illustrated below: the command calculates the Earth’s population (~7 b
 <p>In the previous code chunk <code>pop</code> and <code>n</code> are column names in the result.
 <code>sum()</code> and <code>n()</code> were the aggregating functions.
 The result is an <code>sf</code> object with a single row representing the world (this works thanks to the geometric operation ‘union’, as explained in Section <a href="geometric-operations.html#geometry-unions">5.2.6</a>).</p>
-<p>Let’s combine what we have learned so far about <strong>dplyr</strong> by chaining together functions to find the world’s 3 most populous continents (with <code>dplyr::top_n()</code> ) and the number of countries they contain (the result of this command is presented in Table <a href="attr.html#tab:continents">3.2</a>):</p>
+<p>Let’s combine what we have learned so far about <strong>dplyr</strong> by chaining together functions to find the world’s 3 most populous continents (with <code>dplyr::top_n()</code>) and the number of countries they contain. We can order the continents (rows) by decreasing population size for easier readability with <code>dplyr::arrange()</code> (the result of this command is presented in Table <a href="attr.html#tab:continents">3.2</a>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">world <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(pop, continent) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">pop =</span> <span class="kw">sum</span>(pop, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">n_countries =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">top_n</span>(<span class="dt">n =</span> <span class="dv">3</span>, <span class="dt">wt =</span> pop) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">st_drop_geometry</span>() </code></pre>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(pop)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">st_drop_geometry</span>()</code></pre>
 <table>
 <caption><span id="tab:continents">Table 3.2: </span>The top 3 most populous continents, and the number of countries in each.</caption>
 <thead>
