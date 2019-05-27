@@ -356,7 +356,8 @@ In the previous code chunk `pop` and `n` are column names in the result.
 `sum()` and `n()` were the aggregating functions.
 The result is an `sf` object with a single row representing the world (this works thanks to the geometric operation 'union', as explained in Section \@ref(geometry-unions)).
 
-Let's combine what we have learned so far about **dplyr** by chaining together functions to find the world's 3 most populous continents (with `dplyr::top_n()`) and the number of countries they contain. We can order the continents (rows) by decreasing population size for easier readability with `dplyr::arrange()` (the result of this command is presented in Table \@ref(tab:continents)):
+Let's combine what we have learned so far about **dplyr** by chaining together functions to find the world's 3 most populous continents (with `dplyr::top_n()`) and the number of countries they contain.
+We can order the continents (rows) by decreasing population size for easier readability with `dplyr::arrange()` (the result of this command is presented in Table \@ref(tab:continents)):
 
 
 ```r
@@ -374,8 +375,8 @@ Table: (\#tab:continents)The top 3 most populous continents, and the number of c
 
 continent           pop   n_countries
 ----------  -----------  ------------
-Africa       1154946633            51
 Asia         4311408059            47
+Africa       1154946633            51
 Europe        669036256            39
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">More details are provided in the help pages (which can be accessed via `?summarize` and `vignette(package = "dplyr")` and Chapter 5 of [R for Data Science](http://r4ds.had.co.nz/transform.html#grouped-summaries-with-summarize). </div>\EndKnitrBlock{rmdnote}
