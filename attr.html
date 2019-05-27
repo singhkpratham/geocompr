@@ -640,8 +640,7 @@ This can be done with the base R function <code>aggregate()</code> as follows:</
 <span class="kw">class</span>(world_agg1)
 <span class="co">#&gt; [1] &quot;data.frame&quot;</span></code></pre>
 <p>The result is a non-spatial data frame with six rows, one per continent, and two columns reporting the name and population of each continent (see Table <a href="attr.html#tab:continents">3.2</a> with results for the top 3 most populous continents).</p>
-<p><code>aggregate()</code> is a generic function which means that it behaves differently depending on its inputs.
-<strong>sf</strong> provides a function that can be called directly with <code>sf:::aggregate()</code> that is activated when a <code>by</code> argument is provided, rather than using the <code>~</code> to refer to the grouping variable:</p>
+<p><code>aggregate()</code> is a <a href="https://adv-r.hadley.nz/s3.html#s3-methods">generic function</a> which means that it behaves differently depending on its inputs. <strong>sf</strong> provides the method <code>aggregate.sf()</code> which is activated automatically when <code>x</code> is an <code>sf</code> object and a <code>by</code> argument is provided:</p>
 <pre class="sourceCode r"><code class="sourceCode r">world_agg2 =<span class="st"> </span><span class="kw">aggregate</span>(world[<span class="st">&quot;pop&quot;</span>], <span class="dt">by =</span> <span class="kw">list</span>(world<span class="op">$</span>continent),
                        <span class="dt">FUN =</span> sum, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
 <span class="kw">class</span>(world_agg2)
