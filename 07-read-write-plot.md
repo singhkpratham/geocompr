@@ -466,7 +466,7 @@ Instead of columns describing xy-coordinates, a single column can also contain t
 Well-known text (WKT), well-known binary (WKB), and the GeoJSON formats are examples of this.
 For instance, the `world_wkt.csv` file has a column named `WKT` representing polygons of the world's countries.
 We will again use the `options` parameter to indicate this.
-Here, we will use `read_sf()` which does exactly the same as `st_read()` except it does not print the driver name to the console and stores strings as characters instead of factors.
+Here, we will use `read_sf()`, the tidyverse-flavoured version of `st_read()`: strings are parsed as characters instead of factors and the resulting data frame is a [tibble](https://r4ds.had.co.nz/tibbles.html). The driver name is also not printed to the console.
 
 
 ```r
@@ -474,7 +474,7 @@ world_txt = system.file("misc/world_wkt.csv", package = "spData")
 world_wkt = read_sf(world_txt, options = "GEOM_POSSIBLE_NAMES=WKT")
 # the same as
 world_wkt = st_read(world_txt, options = "GEOM_POSSIBLE_NAMES=WKT", 
-                    quiet = TRUE, stringsAsFactors = FALSE)
+                    quiet = TRUE, stringsAsFactors = FALSE, as_tibble = TRUE)
 ```
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">Not all of the supported vector file formats store information about their coordinate reference system.
@@ -739,7 +739,7 @@ plot(world["lifeExp"])
 dev.off()
 ```
 
-Other available graphic devices include `pdf()`, `bmp()`, `jpeg()`, `png()`, and `tiff()`. 
+Other available graphic devices include `pdf()`, `bmp()`, `jpeg()`, and `tiff()`. 
 You can specify several properties of the output plot, including width, height and resolution.
 
 Additionally, several graphic packages provide their own functions to save a graphical output.
