@@ -23,7 +23,7 @@ library(spDataLarge)
 library(tmap)    # for static and interactive maps
 library(leaflet) # for interactive maps
 library(mapview) # for interactive maps
-library(ggplot2) # tidyverse vis package
+library(ggplot2) # tidyverse data visualization package
 library(shiny)   # for web applications
 ```
 
@@ -67,14 +67,13 @@ The generic `plot()` function is often the fastest way to create static maps fro
 Sometimes simplicity and speed are priorities, especially during the development phase of a project, and this is where `plot()` excels.
 The base R approach is also extensible, with `plot()` offering dozens of arguments.
 Another low-level approach is the **grid** package, which provides functions for low-level control of graphical outputs, --- see *R Graphics* [@murrell_r_2016], especially  Chapter [14](https://www.stat.auckland.ac.nz/~paul/RG2e/chapter14.html).
-The focus of this section, however, is making static maps with **tmap**.
+The focus of this section, however, is making static maps with **tmap**, emphasizing the important aesthetic and layout options.
 
 Why **tmap**?
 It is a powerful and flexible map-making package with sensible defaults.
 It has a concise syntax that allows for the creation of attractive maps with minimal code, which will be familiar to **ggplot2** users.
 Furthermore, **tmap** has a unique capability to generate static and interactive maps using the same code via `tmap_mode()`.
 It accepts a wider range of spatial classes (including `raster` objects) than alternatives such as **ggplot2**, as documented in vignettes [`tmap-getstarted`](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html) and [`tmap-changes-v2`](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-changes-v2.html) and an academic paper on the subject [@tennekes_tmap_2018].
-This section teaches how to make static maps with **tmap**, emphasizing the important aesthetic and layout options.
 
 ### tmap basics
 
@@ -107,7 +106,7 @@ Layers are added to represent `nz` visually, with `tm_fill()` and `tm_borders()`
 
 This is an intuitive approach to map making:
 the common task of *adding* new layers is undertaken by the addition operator `+`, followed by `tm_*()`.
-The asterisk (\*) refers to a wide range of layer types which have self-explanatory names including `fill`, `borders` (demonstrated above), `bubbles`, `text` and `raster` (see `help("tmap-element"` for a full list).
+The asterisk (\*) refers to a wide range of layer types which have self-explanatory names including `fill`, `borders` (demonstrated above), `bubbles`, `text` and `raster` (see `help("tmap-element")` for a full list).
 This layering is illustrated in the right panel of Figure \@ref(fig:tmshape), the result of adding a border *on top of* the fill layer.
 
 \BeginKnitrBlock{rmdnote}<div class="rmdnote">`qtm()` is a handy function for **q**uickly creating **t**map **m**aps (hence the snappy name).

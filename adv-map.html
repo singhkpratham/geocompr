@@ -434,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tmap)    <span class="co"># for static and interactive maps</span>
 <span class="kw">library</span>(leaflet) <span class="co"># for interactive maps</span>
 <span class="kw">library</span>(mapview) <span class="co"># for interactive maps</span>
-<span class="kw">library</span>(ggplot2) <span class="co"># tidyverse vis package</span>
+<span class="kw">library</span>(ggplot2) <span class="co"># tidyverse data visualization package</span>
 <span class="kw">library</span>(shiny)   <span class="co"># for web applications</span></code></pre>
 </div>
 <div id="introduction-5" class="section level2">
@@ -474,13 +474,12 @@ The generic <code>plot()</code> function is often the fastest way to create stat
 Sometimes simplicity and speed are priorities, especially during the development phase of a project, and this is where <code>plot()</code> excels.
 The base R approach is also extensible, with <code>plot()</code> offering dozens of arguments.
 Another low-level approach is the <strong>grid</strong> package, which provides functions for low-level control of graphical outputs, — see <em>R Graphics</em> <span class="citation">(Murrell <a href="#ref-murrell_r_2016">2016</a>)</span>, especially Chapter <a href="https://www.stat.auckland.ac.nz/~paul/RG2e/chapter14.html">14</a>.
-The focus of this section, however, is making static maps with <strong>tmap</strong>.</p>
+The focus of this section, however, is making static maps with <strong>tmap</strong>, emphasizing the important aesthetic and layout options.</p>
 <p>Why <strong>tmap</strong>?
 It is a powerful and flexible map-making package with sensible defaults.
 It has a concise syntax that allows for the creation of attractive maps with minimal code, which will be familiar to <strong>ggplot2</strong> users.
 Furthermore, <strong>tmap</strong> has a unique capability to generate static and interactive maps using the same code via <code>tmap_mode()</code>.
-It accepts a wider range of spatial classes (including <code>raster</code> objects) than alternatives such as <strong>ggplot2</strong>, as documented in vignettes <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html"><code>tmap-getstarted</code></a> and <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-changes-v2.html"><code>tmap-changes-v2</code></a> and an academic paper on the subject <span class="citation">(Tennekes <a href="#ref-tennekes_tmap_2018">2018</a>)</span>.
-This section teaches how to make static maps with <strong>tmap</strong>, emphasizing the important aesthetic and layout options.</p>
+It accepts a wider range of spatial classes (including <code>raster</code> objects) than alternatives such as <strong>ggplot2</strong>, as documented in vignettes <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html"><code>tmap-getstarted</code></a> and <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-changes-v2.html"><code>tmap-changes-v2</code></a> and an academic paper on the subject <span class="citation">(Tennekes <a href="#ref-tennekes_tmap_2018">2018</a>)</span>.</p>
 <div id="tmap-basics" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> tmap basics</h3>
 <p>Like <strong>ggplot2</strong>, <strong>tmap</strong> is based on the idea of a ‘grammar of graphics’ <span class="citation">(Wilkinson and Wills <a href="#ref-wilkinson_grammar_2005">2005</a>)</span>.
@@ -507,7 +506,7 @@ Figure 8.1: New Zealand’s shape plotted with fill (left), border (middle) and 
 Layers are added to represent <code>nz</code> visually, with <code>tm_fill()</code> and <code>tm_borders()</code> creating shaded areas (left panel) and border outlines (middle panel) in Figure <a href="adv-map.html#fig:tmshape">8.1</a>, respectively.</p>
 <p>This is an intuitive approach to map making:
 the common task of <em>adding</em> new layers is undertaken by the addition operator <code>+</code>, followed by <code>tm_*()</code>.
-The asterisk (*) refers to a wide range of layer types which have self-explanatory names including <code>fill</code>, <code>borders</code> (demonstrated above), <code>bubbles</code>, <code>text</code> and <code>raster</code> (see <code>help(&quot;tmap-element&quot;</code> for a full list).
+The asterisk (*) refers to a wide range of layer types which have self-explanatory names including <code>fill</code>, <code>borders</code> (demonstrated above), <code>bubbles</code>, <code>text</code> and <code>raster</code> (see <code>help(&quot;tmap-element&quot;)</code> for a full list).
 This layering is illustrated in the right panel of Figure <a href="adv-map.html#fig:tmshape">8.1</a>, the result of adding a border <em>on top of</em> the fill layer.</p>
 
 <div class="rmdnote">
