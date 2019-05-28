@@ -24,7 +24,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-05-27" />
+<meta name="date" content="2019-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,13 +482,12 @@ The following sections will demonstrate how the techniques learned during the fi
 <div id="tidy-the-input-data" class="section level2">
 <h2><span class="header-section-number">13.3</span> Tidy the input data</h2>
 <p>The German government provides gridded census data at either 1 km or 100 m resolution.
-The following code chunk downloads, unzips and reads in the 1 km data.</p>
+The following code chunk downloads, unzips and reads in the 1 km data.
+Please note that <code>census_de</code> is also available from the <strong>spDataLarge</strong> package (<code>data(&quot;census_de&quot;, package = &quot;spDataLarge&quot;</code>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">download.file</span>(<span class="st">&quot;https://tinyurl.com/ybtpkwxz&quot;</span>, 
               <span class="dt">destfile =</span> <span class="st">&quot;census.zip&quot;</span>, <span class="dt">mode =</span> <span class="st">&quot;wb&quot;</span>)
 <span class="kw">unzip</span>(<span class="st">&quot;census.zip&quot;</span>) <span class="co"># unzip the files</span>
 census_de =<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv2</span>(<span class="kw">list.files</span>(<span class="dt">pattern =</span> <span class="st">&quot;Gitter.csv&quot;</span>))</code></pre>
-<p>As a convenience to the reader, the corresponding data has been put into <strong>spDataLarge</strong> and can be accessed as follows</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;census_de&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
 <p>The <code>census_de</code> object is a data frame containing 13 variables for more than 300,000 grid cells across Germany.
 For our work, we only need a subset of these: Easting (<code>x</code>) and Northing (<code>y</code>), number of inhabitants (population; <code>pop</code>), mean average age (<code>mean_age</code>), proportion of women (<code>women</code>) and average household size (<code>hh_size</code>).
 These variables are selected and renamed from German into English in the code chunk below and summarized in Table <a href="location.html#tab:census-desc">13.1</a>.
@@ -730,9 +729,7 @@ coords =<span class="st"> </span><span class="kw">st_centroid</span>(metros_wgs)
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(revgeo)
 metro_names =<span class="st"> </span><span class="kw">revgeo</span>(<span class="dt">longitude =</span> coords[, <span class="dv">1</span>], <span class="dt">latitude =</span> coords[, <span class="dv">2</span>], 
                      <span class="dt">output =</span> <span class="st">&quot;frame&quot;</span>)</code></pre>
-<p>To make sure that the reader uses the exact same results, we have put them into <strong>spDataLarge</strong>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># attach metro_names from spDataLarge</span>
-<span class="kw">data</span>(<span class="st">&quot;metro_names&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
+<p>To make sure that the reader uses the exact same results, we have put them into <strong>spDataLarge</strong> as the object <code>metro_names</code>.</p>
 <table>
 <caption><span id="tab:metro-names">Table 13.2: </span>Result of the reverse geocoding.</caption>
 <thead>
@@ -796,7 +793,7 @@ The subsequent code chunk does this using a number of functions including:</p>
 <li><code>while()</code>, which tries repeatedly (three times in this case) to download the data if it fails the first time.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a>
 Before running this code: please consider it will download almost 2GB of data.
 To save time and resources, we have put the output named <code>shops</code> into <strong>spDataLarge</strong>.
-To make it available in your environment either attach the <strong>spDataLarge</strong> package or run <code>data(&quot;shops&quot;, package = &quot;spDataLarge&quot;)</code>.</li>
+To make it available in your environment ensure that the <strong>spDataLarge</strong> package is loaded, or run <code>data(&quot;shops&quot;, package = &quot;spDataLarge&quot;)</code>.</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r">shops =<span class="st"> </span><span class="kw">map</span>(metro_names, <span class="cf">function</span>(x) {
   <span class="kw">message</span>(<span class="st">&quot;Downloading shops of: &quot;</span>, x, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
@@ -831,8 +828,7 @@ shops =<span class="st"> </span><span class="kw">map</span>(shops, dplyr<span cl
 shops =<span class="st"> </span><span class="kw">do.call</span>(rbind, shops)</code></pre>
 <p>It would have been easier to simply use <code>map_dfr()</code>.
 Unfortunately, so far it does not work in harmony with <code>sf</code> objects.
-Please note that the <code>shops</code> object is also available in the <code>spDataLarge</code> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;shops&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</code></pre>
+Note: <code>shops</code> is provided in the <code>spDataLarge</code> package.</p>
 <p>The only thing left to do is to convert the spatial point object into a raster (see Section <a href="geometric-operations.html#rasterization">5.4.3</a>).
 The <code>sf</code> object, <code>shops</code>, is converted into a raster having the same parameters (dimensions, resolution, CRS) as the <code>reclass</code> object.
 Importantly, the <code>count()</code> function is used here to calculate the number of shops in each cell.</p>

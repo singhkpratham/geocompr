@@ -68,6 +68,8 @@ Although we have applied these steps to a specific case study, they could be gen
 
 The German government provides gridded census data at either 1 km or 100 m resolution.
 The following code chunk downloads, unzips and reads in the 1 km data.
+Please note that `census_de` is also available from the **spDataLarge** package (`data("census_de", package = "spDataLarge"`).
+
 
 
 ```r
@@ -75,13 +77,6 @@ download.file("https://tinyurl.com/ybtpkwxz",
               destfile = "census.zip", mode = "wb")
 unzip("census.zip") # unzip the files
 census_de = readr::read_csv2(list.files(pattern = "Gitter.csv"))
-```
-
-As a convenience to the reader, the corresponding data has been put into **spDataLarge** and can be accessed as follows
-
-
-```r
-data("census_de", package = "spDataLarge")
 ```
 
 The `census_de` object is a data frame containing 13 variables for more than 300,000 grid cells across Germany.
@@ -340,13 +335,7 @@ metro_names = revgeo(longitude = coords[, 1], latitude = coords[, 2],
                      output = "frame")
 ```
 
-To make sure that the reader uses the exact same results, we have put them into **spDataLarge**:
-
-
-```r
-# attach metro_names from spDataLarge
-data("metro_names", package = "spDataLarge")
-```
+To make sure that the reader uses the exact same results, we have put them into **spDataLarge** as the object `metro_names`.
 
 
 Table: (\#tab:metro-names)Result of the reverse geocoding.
@@ -388,7 +377,7 @@ The subsequent code chunk does this using a number of functions including:
 ]
 Before running this code: please consider it will download almost 2GB of data.
 To save time and resources, we have put the output named `shops` into **spDataLarge**.
-To make it available in your environment either attach the **spDataLarge** package or run `data("shops", package = "spDataLarge")`.
+To make it available in your environment ensure that the **spDataLarge** package is loaded, or run `data("shops", package = "spDataLarge")`.
 
 
 ```r
@@ -437,12 +426,7 @@ shops = do.call(rbind, shops)
 
 It would have been easier to simply use `map_dfr()`. 
 Unfortunately, so far it does not work in harmony with `sf` objects.
-Please note that the `shops` object is also available in the `spDataLarge` package:
-
-
-```r
-data("shops", package = "spDataLarge")
-```
+Note: `shops` is provided in the `spDataLarge` package.
 
 The only thing left to do is to convert the spatial point object into a raster (see Section \@ref(rasterization)).
 The `sf` object, `shops`, is converted into a raster having the same parameters (dimensions, resolution, CRS) as the `reclass` object.
