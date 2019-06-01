@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2019-05-28'
+date: '2019-06-01'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -30,7 +30,7 @@ This is the online home of *Geocomputation with R*, a book on geographic data an
 **Note**: This book has now been published by CRC Press in the [R Series](https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER).
 You can buy the book from [CRC Press](https://www.crcpress.com/9781138304512), [Wordery](https://wordery.com/geocomputation-with-r-robin-lovelace-9781138304512), or [Amazon](https://www.amazon.com/Geocomputation-Chapman-Hall-Robin-Lovelace/dp/1138304514/).
 
-<p style="text-align: center;"><a href="https://www.crcpress.com/9781138304512"><img src="images/cover.png" alt="The geocompr book cover" /></a></p>
+<a href="https://www.crcpress.com/9781138304512"><img src="images/cover.png" width="250" height="375" alt="The geocompr book cover" align="right" style="margin: 0 1em 0 1em" /></a>
 
 Inspired by [**bookdown**](https://github.com/rstudio/bookdown) and the Free and Open Source Software for Geospatial ([FOSS4G](http://foss4g.org/)) movement, this book is open source.
 This ensures its contents are reproducible and publicly accessible for people worldwide.
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-05-28 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2019-06-01 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
