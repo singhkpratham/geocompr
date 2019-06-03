@@ -109,7 +109,7 @@ the common task of *adding* new layers is undertaken by the addition operator `+
 The asterisk (\*) refers to a wide range of layer types which have self-explanatory names including `fill`, `borders` (demonstrated above), `bubbles`, `text` and `raster` (see `help("tmap-element")` for a full list).
 This layering is illustrated in the right panel of Figure \@ref(fig:tmshape), the result of adding a border *on top of* the fill layer.
 
-\BeginKnitrBlock{rmdnote}<div class="rmdnote">`qtm()` is a handy function for **q**uickly creating **t**map **m**aps (hence the snappy name).
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">`qtm()` is a handy function to create **q**uick **t**hematic **m**aps (hence the snappy name).
 It is concise and provides a good default visualization in many cases:
 `qtm(nz)`, for example, is equivalent to `tm_shape(nz) + tm_fill() + tm_borders()`.
 Further, layers can be added concisely using multiple `qtm()` calls, such as `qtm(nz) + qtm(nz_height)`.
