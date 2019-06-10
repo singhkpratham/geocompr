@@ -621,13 +621,13 @@ Figure 8.5: Illustration of settings that affect color settings. The results sho
 </div>
 <p>Another way to change color settings is by altering color break (or bin) settings.
 In addition to manually setting <code>breaks</code> <strong>tmap</strong> allows users to specify algorithms to automatically create breaks with the <code>style</code> argument.
-Six of the most useful break styles are illustrated in Figure <a href="adv-map.html#fig:break-styles">8.6</a> and described in the bullet points below:</p>
+Here are six of the most useful break styles:</p>
 <ul>
-<li><code>style = pretty</code>, the default setting, rounds breaks into whole numbers where possible and spaces them evenly.</li>
-<li><code>style = equal</code> divides input values into bins of equal range, and is appropriate for variables with a uniform distribution (not recommended for variables with a skewed distribution as the resulting map may end-up having little color diversity).</li>
-<li><code>style = quantile</code> ensures the same number of observations fall into each category (with the potential down side that bin ranges can vary widely).</li>
-<li><code>style = jenks</code> identifies groups of similar values in the data and maximizes the differences between categories.</li>
-<li><code>style = cont</code> (and <code>order</code>) present a large number of colors over continuous color field, and are particularly suited for continuous rasters (<code>order</code> can help visualize skewed distributions).</li>
+<li><code>style = pretty</code>, the default setting, rounds breaks into whole numbers where possible and spaces them evenly;</li>
+<li><code>style = equal</code> divides input values into bins of equal range and is appropriate for variables with a uniform distribution (not recommended for variables with a skewed distribution as the resulting map may end-up having little color diversity);</li>
+<li><code>style = quantile</code> ensures the same number of observations fall into each category (with the potential downside that bin ranges can vary widely);</li>
+<li><code>style = jenks</code> identifies groups of similar values in the data and maximizes the differences between categories;</li>
+<li><code>style = cont</code> (and <code>order</code>) present a large number of colors over continuous color fields and are particularly suited for continuous rasters (<code>order</code> can help visualize skewed distributions);</li>
 <li><code>style = cat</code> was designed to represent categorical values and assures that each category receives a unique color.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:break-styles"></span>
@@ -679,17 +679,17 @@ Therefore, it is important to use colorblind friendly palettes as often as possi
 <p>The map layout refers to the combination of all map elements into a cohesive map.
 Map elements include among others the objects to be mapped, the title, the scale bar, margins and aspect ratios, while the color settings covered in the previous section relate to the palette and break-points used to affect how the map looks.
 Both may result in subtle changes that can have an equally large impact on the impression left by your maps.</p>
-<p>Additional elements such as north arrows and scale bars have their own functions - <code>tm_compass()</code> and <code>tm_scale_bar()</code> (Figure <a href="adv-map.html#fig:na-sb">8.8</a>).</p>
+<p>Additional elements such as north arrows and scale bars have their own functions: <code>tm_compass()</code> and <code>tm_scale_bar()</code> (Figure <a href="adv-map.html#fig:na-sb">8.8</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">map_nz <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">tm_compass</span>(<span class="dt">type =</span> <span class="st">&quot;8star&quot;</span>, <span class="dt">position =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;top&quot;</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">tm_scale_bar</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>), <span class="dt">size =</span> <span class="dv">1</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:na-sb"></span>
-<img src="figures/na-sb-1.png" alt="Map with additional elements - a north arrow and scale bar." width="576" />
+<img src="figures/na-sb-1.png" alt="Map with additional elements --- a north arrow and scale bar." width="576" />
 <p class="caption">
-Figure 8.8: Map with additional elements - a north arrow and scale bar.
+Figure 8.8: Map with additional elements — a north arrow and scale bar.
 </p>
 </div>
-<p><strong>tmap</strong> also allows a wide variety of layout settings to be changed, some of which are illustrated in Figure <a href="adv-map.html#fig:layout1">8.9</a>, produced using the following code (see <code>args(tm_layout)</code> or <code>?tm_layout</code> for a full list):</p>
+<p><strong>tmap</strong> also allows a wide variety of layout settings to be changed, some of which, produced using the following code (see <code>args(tm_layout)</code> or <code>?tm_layout</code> for a full list), are illustrated in Figure <a href="adv-map.html#fig:layout1">8.9</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">map_nz <span class="op">+</span><span class="st"> </span><span class="kw">tm_layout</span>(<span class="dt">title =</span> <span class="st">&quot;New Zealand&quot;</span>)
 map_nz <span class="op">+</span><span class="st"> </span><span class="kw">tm_layout</span>(<span class="dt">scale =</span> <span class="dv">5</span>)
 map_nz <span class="op">+</span><span class="st"> </span><span class="kw">tm_layout</span>(<span class="dt">bg.color =</span> <span class="st">&quot;lightblue&quot;</span>)
@@ -701,7 +701,7 @@ Figure 8.9: Layout options specified by (from left to right) title, scale, bg.co
 </p>
 </div>
 <p>The other arguments in <code>tm_layout()</code> provide control over many more aspects of the map in relation to the canvas on which it is placed.
-Some useful layout settings are listed below (see Figure <a href="adv-map.html#fig:layout2">8.10</a> for illustrations of a selection of these):</p>
+Here are some useful layout settings (some of which are illustrated in Figure <a href="adv-map.html#fig:layout2">8.10</a>):</p>
 <ul>
 <li>Frame width (<code>frame.lwd</code>) and an option to allow double lines (<code>frame.double.line</code>).</li>
 <li>Margin settings including <code>outer.margin</code> and <code>inner.margin</code>.</li>
@@ -724,7 +724,7 @@ Figure 8.11: Illustration of selected color-related layout options.
 </p>
 </div>
 <p>Beyond the low-level control over layouts and colors, <strong>tmap</strong> also offers high-level styles, using the <code>tm_style()</code> function (representing the second meaning of ‘style’ in the package).
-Some styles such as <code>tm_style(&quot;cobalt&quot;)</code> result in stylized maps, while others such as <code>tm_style(&quot;gray&quot;)</code> make more subtle changes, as illustrated in Figure <a href="adv-map.html#fig:tmstyles">8.12</a>, created using code below (see <code>08-tmstyles.R</code>):</p>
+Some styles such as <code>tm_style(&quot;cobalt&quot;)</code> result in stylized maps, while others such as <code>tm_style(&quot;gray&quot;)</code> make more subtle changes, as illustrated in Figure <a href="adv-map.html#fig:tmstyles">8.12</a>, created using the code below (see <code>08-tmstyles.R</code>):</p>
 <pre class="sourceCode r"><code class="sourceCode r">map_nza <span class="op">+</span><span class="st"> </span><span class="kw">tm_style</span>(<span class="st">&quot;bw&quot;</span>)
 map_nza <span class="op">+</span><span class="st"> </span><span class="kw">tm_style</span>(<span class="st">&quot;classic&quot;</span>)
 map_nza <span class="op">+</span><span class="st"> </span><span class="kw">tm_style</span>(<span class="st">&quot;cobalt&quot;</span>)
@@ -757,22 +757,24 @@ This use case of faceted plot is illustrated in Figure <a href="adv-map.html#fig
 <!-- todo: describe data type (long) and nrow vs ncol -->
 <pre class="sourceCode r"><code class="sourceCode r">urb_<span class="dv">1970</span>_<span class="dv">2030</span> =<span class="st"> </span>urban_agglomerations <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1970</span>, <span class="dv">1990</span>, <span class="dv">2010</span>, <span class="dv">2030</span>))
-<span class="kw">tm_shape</span>(world) <span class="op">+</span><span class="st"> </span><span class="kw">tm_polygons</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">tm_shape</span>(urb_<span class="dv">1970</span>_<span class="dv">2030</span>) <span class="op">+</span><span class="st"> </span><span class="kw">tm_symbols</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">border.col =</span> <span class="st">&quot;white&quot;</span>,
-                                       <span class="dt">size =</span> <span class="st">&quot;population_millions&quot;</span>) <span class="op">+</span>
+
+<span class="kw">tm_shape</span>(world) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_polygons</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_shape</span>(urb_<span class="dv">1970</span>_<span class="dv">2030</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">tm_symbols</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">border.col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size =</span> <span class="st">&quot;population_millions&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">tm_facets</span>(<span class="dt">by =</span> <span class="st">&quot;year&quot;</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">free.coords =</span> <span class="ot">FALSE</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:urban-facet"></span>
-<img src="figures/urban-facet-1.png" alt="Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projects by the United Nations." width="576" />
+<img src="figures/urban-facet-1.png" alt="Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projections by the United Nations." width="576" />
 <p class="caption">
-Figure 8.13: Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projects by the United Nations.
+Figure 8.13: Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projections by the United Nations.
 </p>
 </div>
 <p>The preceding code chunk demonstrates key features of faceted maps created with <strong>tmap</strong>:</p>
 <ul>
 <li>Shapes that do not have a facet variable are repeated (the countries in <code>world</code> in this case).</li>
 <li>The <code>by</code> argument which varies depending on a variable (<code>year</code> in this case).</li>
-<li><code>nrow</code>/<code>ncol</code> setting specifying the number of rows and columns that facets should be arranged into.</li>
-<li>The <code>free.coords</code>-parameter specifying if each map has its own bounding box.</li>
+<li>The <code>nrow</code>/<code>ncol</code> setting specifying the number of rows and columns that facets should be arranged into.</li>
+<li>The <code>free.coords</code> parameter specifying if each map has its own bounding box.</li>
 </ul>
 <p>In addition to their utility for showing changing spatial relationships, faceted maps are also useful as the foundation for animated maps (see Section <a href="adv-map.html#animated-maps">8.3</a>).</p>
 </div>

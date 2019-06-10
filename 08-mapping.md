@@ -268,13 +268,13 @@ tm_shape(nz) + tm_polygons(col = "Median_income", palette = "BuGn")
 
 Another way to change color settings is by altering color break (or bin) settings.
 In addition to manually setting `breaks` **tmap** allows users to specify algorithms to automatically create breaks with the `style` argument.
-Six of the most useful break styles are illustrated in Figure \@ref(fig:break-styles) and described in the bullet points below:
+Here are six of the most useful break styles:
 
-- `style = pretty`, the default setting, rounds breaks into whole numbers where possible and spaces them evenly.
-- `style = equal` divides input values into bins of equal range, and is appropriate for variables with a uniform distribution (not recommended for variables with a skewed distribution as the resulting map may end-up having little color diversity).
-- `style = quantile` ensures the same number of observations fall into each category (with the potential down side that bin ranges can vary widely).
-- `style = jenks` identifies groups of similar values in the data and maximizes the differences between categories.
-- `style = cont` (and `order`) present a large number of colors over continuous color field, and are particularly suited for continuous rasters (`order` can help visualize skewed distributions).
+- `style = pretty`, the default setting, rounds breaks into whole numbers where possible and spaces them evenly;
+- `style = equal` divides input values into bins of equal range and is appropriate for variables with a uniform distribution (not recommended for variables with a skewed distribution as the resulting map may end-up having little color diversity);
+- `style = quantile` ensures the same number of observations fall into each category (with the potential downside that bin ranges can vary widely);
+- `style = jenks` identifies groups of similar values in the data and maximizes the differences between categories;
+- `style = cont` (and `order`) present a large number of colors over continuous color fields and are particularly suited for continuous rasters (`order` can help visualize skewed distributions);
 - `style = cat` was designed to represent categorical values and assures that each category receives a unique color.
 
 <div class="figure" style="text-align: center">
@@ -332,7 +332,7 @@ The map layout refers to the combination of all map elements into a cohesive map
 Map elements include among others the objects to be mapped, the title, the scale bar, margins and aspect ratios, while the color settings covered in the previous section relate to the palette and break-points used to affect how the map looks.
 Both may result in subtle changes that can have an equally large impact on the impression left by your maps.
 
-Additional elements such as north arrows and scale bars have their own functions - `tm_compass()` and `tm_scale_bar()` (Figure \@ref(fig:na-sb)).
+Additional elements such as north arrows and scale bars have their own functions: `tm_compass()` and `tm_scale_bar()` (Figure \@ref(fig:na-sb)).
 
 
 ```r
@@ -342,11 +342,11 @@ map_nz +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/na-sb-1.png" alt="Map with additional elements - a north arrow and scale bar." width="576" />
-<p class="caption">(\#fig:na-sb)Map with additional elements - a north arrow and scale bar.</p>
+<img src="figures/na-sb-1.png" alt="Map with additional elements --- a north arrow and scale bar." width="576" />
+<p class="caption">(\#fig:na-sb)Map with additional elements --- a north arrow and scale bar.</p>
 </div>
 
-**tmap** also allows a wide variety of layout settings to be changed, some of which are illustrated in Figure \@ref(fig:layout1), produced using the following code (see `args(tm_layout)` or `?tm_layout` for a full list):
+**tmap** also allows a wide variety of layout settings to be changed, some of which, produced using the following code (see `args(tm_layout)` or `?tm_layout` for a full list), are illustrated in Figure \@ref(fig:layout1):
 
 
 ```r
@@ -362,7 +362,7 @@ map_nz + tm_layout(frame = FALSE)
 </div>
 
 The other arguments in `tm_layout()` provide control over many more aspects of the map in relation to the canvas on which it is placed.
-Some useful layout settings are listed below (see Figure \@ref(fig:layout2) for illustrations of a selection of these):
+Here are some useful layout settings (some of which are illustrated in Figure \@ref(fig:layout2)):
 
 - Frame width (`frame.lwd`) and an option to allow double lines (`frame.double.line`).
 - Margin settings including `outer.margin` and `inner.margin`.
@@ -384,7 +384,7 @@ The impact of changing the color settings listed above is illustrated in Figure 
 </div>
 
 Beyond the low-level control over layouts and colors, **tmap** also offers high-level styles, using the `tm_style()` function (representing the second meaning of 'style' in the package).
-Some styles such as `tm_style("cobalt")` result in stylized maps, while others such as `tm_style("gray")` make more subtle changes, as illustrated in Figure \@ref(fig:tmstyles), created using code below (see `08-tmstyles.R`):
+Some styles such as `tm_style("cobalt")` result in stylized maps, while others such as `tm_style("gray")` make more subtle changes, as illustrated in Figure \@ref(fig:tmstyles), created using the code below (see `08-tmstyles.R`):
 
 
 ```r
@@ -422,23 +422,25 @@ This use case of faceted plot is illustrated in Figure \@ref(fig:urban-facet).
 ```r
 urb_1970_2030 = urban_agglomerations %>% 
   filter(year %in% c(1970, 1990, 2010, 2030))
-tm_shape(world) + tm_polygons() + 
-  tm_shape(urb_1970_2030) + tm_symbols(col = "black", border.col = "white",
-                                       size = "population_millions") +
+
+tm_shape(world) +
+  tm_polygons() +
+  tm_shape(urb_1970_2030) +
+  tm_symbols(col = "black", border.col = "white", size = "population_millions") +
   tm_facets(by = "year", nrow = 2, free.coords = FALSE)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="figures/urban-facet-1.png" alt="Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projects by the United Nations." width="576" />
-<p class="caption">(\#fig:urban-facet)Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projects by the United Nations.</p>
+<img src="figures/urban-facet-1.png" alt="Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projections by the United Nations." width="576" />
+<p class="caption">(\#fig:urban-facet)Faceted map showing the top 30 largest urban agglomerations from 1970 to 2030 based on population projections by the United Nations.</p>
 </div>
 
 The preceding code chunk demonstrates key features of faceted maps created with **tmap**:
 
 - Shapes that do not have a facet variable are repeated (the countries in `world` in this case).
 - The `by` argument which varies depending on a variable (`year` in this case).
-- `nrow`/`ncol` setting specifying the number of rows and columns that facets should be arranged into.
-- The `free.coords`-parameter specifying if each map has its own bounding box.
+- The `nrow`/`ncol` setting specifying the number of rows and columns that facets should be arranged into.
+- The `free.coords` parameter specifying if each map has its own bounding box.
 
 In addition to their utility for showing changing spatial relationships, faceted maps are also useful as the foundation for animated maps (see Section \@ref(animated-maps)).
 
