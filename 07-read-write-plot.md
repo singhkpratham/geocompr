@@ -749,9 +749,8 @@ You can save a `tmap` object to different graphic formats by specifying the obje
 
 ```r
 library(tmap)
-tmap_obj = tm_shape(world) +
-  tm_polygons(col = "lifeExp")
-tmap_save(tm  = tmap_obj, filename = "lifeExp_tmap.png")
+tmap_obj = tm_shape(world) + tm_polygons(col = "lifeExp")
+tmap_save(tm = tmap_obj, filename = "lifeExp_tmap.png")
 ```
 
 <!-- Note about that the `plot` function do not create an object -->

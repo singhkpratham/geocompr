@@ -1265,9 +1265,8 @@ You can specify several properties of the output plot, including width, height a
 For example, the <strong>tmap</strong> package has the <code>tmap_save()</code> function.
 You can save a <code>tmap</code> object to different graphic formats by specifying the object name and a file path to a new graphic file.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tmap)
-tmap_obj =<span class="st"> </span><span class="kw">tm_shape</span>(world) <span class="op">+</span>
-<span class="st">  </span><span class="kw">tm_polygons</span>(<span class="dt">col =</span> <span class="st">&quot;lifeExp&quot;</span>)
-<span class="kw">tmap_save</span>(<span class="dt">tm  =</span> tmap_obj, <span class="dt">filename =</span> <span class="st">&quot;lifeExp_tmap.png&quot;</span>)</code></pre>
+tmap_obj =<span class="st"> </span><span class="kw">tm_shape</span>(world) <span class="op">+</span><span class="st"> </span><span class="kw">tm_polygons</span>(<span class="dt">col =</span> <span class="st">&quot;lifeExp&quot;</span>)
+<span class="kw">tmap_save</span>(<span class="dt">tm =</span> tmap_obj, <span class="dt">filename =</span> <span class="st">&quot;lifeExp_tmap.png&quot;</span>)</code></pre>
 <!-- Note about that the `plot` function do not create an object -->
 <!-- ```{r} -->
 <!-- a = plot(world["lifeExp"]) -->
