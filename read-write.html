@@ -539,7 +539,7 @@ Although the quality is not as spatially consistent as many official datasets, O
 Further examples of <strong>osmdata</strong> in action are provided in Chapters <a href="gis.html#gis">9</a>, <a href="transport.html#transport">12</a> and <a href="location.html#location">13</a>.</p>
 <p>Sometimes, packages come with inbuilt datasets.
 These can be accessed in four ways: by attaching the package (if the package uses ‘lazy loading’ as <strong>spData</strong> does), with <code>data(dataset)</code>, by referring to the dataset with <code>pkg::dataset</code> or with <code>system.file()</code> to access raw data files.
-The following code chunk illustrates the latter two options using the <code>world</code> (already loaded by attaching its parent package with <code>library(spData)</code>):<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a></p>
+The following code chunk illustrates the latter two options using the <code>world</code> dataset (already loaded by attaching its parent package with <code>library(spData)</code>):<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a></p>
 <pre class="sourceCode r"><code class="sourceCode r">world2 =<span class="st"> </span>spData<span class="op">::</span>world
 world3 =<span class="st"> </span><span class="kw">st_read</span>(<span class="kw">system.file</span>(<span class="st">&quot;shapes/world.gpkg&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spData&quot;</span>))</code></pre>
 </div>
@@ -573,7 +573,7 @@ One can extract them programmatically using web technologies <span class="citati
 file =<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">fileext =</span> <span class="st">&quot;.gml&quot;</span>)
 httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> base_url, <span class="dt">query =</span> qf, httr<span class="op">::</span><span class="kw">write_disk</span>(file))
 fao_areas =<span class="st"> </span>sf<span class="op">::</span><span class="kw">read_sf</span>(file)</code></pre>
-<p>Note the use of <code>write_disc()</code> to ensure that the results are written to disk rather than loaded into memory, allowing them to be imported with <strong>sf</strong>.
+<p>Note the use of <code>write_disk()</code> to ensure that the results are written to disk rather than loaded into memory, allowing them to be imported with <strong>sf</strong>.
 This example shows how to gain low-level access to web services using <strong>httr</strong>, which can be useful for understanding how web services work.
 For many everyday tasks, however, a higher-level interface may be more appropriate, and a number of R packages, and tutorials, have been developed precisely for this purpose.</p>
 <p>Packages <strong>ows4R</strong>, <strong>rwfs</strong> and <strong>sos4R</strong> have been developed for working with OWS services in general, WFS and the sensor observation service (SOS) respectively.
