@@ -548,12 +548,14 @@ world3 =<span class="st"> </span><span class="kw">st_read</span>(<span class="kw
 <p>In an effort to standardize web APIs for accessing spatial data, the Open Geospatial Consortium (OGC) has created a number of specifications for web services (collectively known as OWS, which is short for OGC Web Services).
 These specifications include the Web Feature Service (WFS), Web Map Service (WMS), Web Map Tile Service (WMTS), the Web Coverage Service (WCS) and even a Wep Processing Service (WPS).
 Map servers such as PostGIS have adopted these protocols, leading to standardization of queries.
-Like other web APIs, OWS APIs use a ‘base URL’ and a ‘query string’ proceding a <code>?</code> to request data.</p>
+Like other web APIs, OWS APIs use a ‘base URL’, an ‘endpoint’ and ‘URL query arguments’ proceding a <code>?</code> to request data (see the <a href="https://httr.r-lib.org/articles/api-packages.html"><code>best-practices-api-packages</code></a> vignette in the <strong>httr</strong> package).</p>
 <p>There are many requests that can be made to a OWS service.
-One of the most fundamental is <code>getCapabilities</code>, demonstrated with the <strong>httr</strong> package to show how API queries can be constructed and dispatched, in this case to discover the capabilities of a service providing run by the Food and Agriculture Organization of the United Nations (FAO):</p>
-<pre class="sourceCode r"><code class="sourceCode r">base_url =<span class="st"> &quot;http://www.fao.org/figis/geoserver/wfs&quot;</span>
+One of the most fundamental is <code>getCapabilities</code>, demonstrated with <strong>httr</strong> below.
+The code chunk demonstrates how API queries can be constructed and dispatched, in this case to discover the capabilities of a service run by the Food and Agriculture Organization of the United Nations (FAO):</p>
+<pre class="sourceCode r"><code class="sourceCode r">base_url =<span class="st"> &quot;http://www.fao.org&quot;</span>
+endpoint =<span class="st"> &quot;/figis/geoserver/wfs&quot;</span>
 q =<span class="st"> </span><span class="kw">list</span>(<span class="dt">request =</span> <span class="st">&quot;GetCapabilities&quot;</span>)
-res =<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> base_url, <span class="dt">query =</span> q)
+res =<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(<span class="dt">url =</span> httr<span class="op">::</span><span class="kw">modify_url</span>(base_url, <span class="dt">path =</span> endpoint), <span class="dt">query =</span> q)
 res<span class="op">$</span>url
 <span class="co">#&gt; [1] &quot;http://www.fao.org/figis/geoserver/wfs?request=GetCapabilities&quot;</span></code></pre>
 <p>The above code chunk demonstrates how API requests can be constructed programmatically with the <code>GET()</code> function, which takes a base URL and a list of query parameters which can easily be extended.
@@ -562,7 +564,8 @@ As can be seen by executing <code>browseURL(res$url)</code>, the results can als
 One way of extracting the contents of the request is as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r">txt =<span class="st"> </span>httr<span class="op">::</span><span class="kw">content</span>(res, <span class="st">&quot;text&quot;</span>)
 xml =<span class="st"> </span>xml2<span class="op">::</span><span class="kw">read_xml</span>(txt)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#&gt; {xml_document} ...</span>
+<pre class="sourceCode r"><code class="sourceCode r">xml
+<span class="co">#&gt; {xml_document} ...</span>
 <span class="co">#&gt; [1] &lt;ows:ServiceIdentification&gt;\n  &lt;ows:Title&gt;GeoServer WFS...</span>
 <span class="co">#&gt; [2] &lt;ows:ServiceProvider&gt;\n  &lt;ows:ProviderName&gt;Food and Agr...</span>
 <span class="co">#&gt; ...</span></code></pre>
