@@ -1002,9 +1002,9 @@ Chapter <a href="gis.html#gis">9</a> shows how to access such GIS functionality 
 <div id="zonal-operations" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> Zonal operations</h3>
 <p><em>Zonal</em> operations are similar to focal operations.
-The difference is that zonal filters can take on any shape instead of a predefined rectangular window.
-Our grain size raster is a good example (Figure <a href="attr.html#fig:cont-raster">3.2</a>) because the different grain sizes are spread in an irregular fashion throughout the raster.</p>
-<p>To find the mean elevation for each grain size class, we can use the <code>zonal()</code> command.
+The difference is that zonal filters can take on any shape instead of a predefined rectangular window, i.e., the raster cells defining the filter do not have to be necessarily neighors.
+Our grain size raster is a good example (right panel of Figure <a href="attr.html#fig:cont-raster">3.2</a>) because the different grain sizes are spread in an irregular fashion throughout the raster.</p>
+<p>To find the mean elevation for each grain size class (left panel of Figure <a href="attr.html#fig:cont-raster">3.2</a>), we can use the <code>zonal()</code> command.
 This kind of operation is also known as <em>zonal statistics</em> in the GIS world.</p>
 <pre class="sourceCode r"><code class="sourceCode r">z =<span class="st"> </span><span class="kw">zonal</span>(elev, grain, <span class="dt">fun =</span> <span class="st">&quot;mean&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">as.data.frame</span>()
