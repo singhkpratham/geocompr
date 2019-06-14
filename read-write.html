@@ -548,7 +548,7 @@ world3 =<span class="st"> </span><span class="kw">st_read</span>(<span class="kw
 <p>In an effort to standardize web APIs for accessing spatial data, the Open Geospatial Consortium (OGC) has created a number of specifications for web services (collectively known as OWS, which is short for OGC Web Services).
 These specifications include the Web Feature Service (WFS), Web Map Service (WMS), Web Map Tile Service (WMTS), the Web Coverage Service (WCS) and even a Wep Processing Service (WPS).
 Map servers such as PostGIS have adopted these protocols, leading to standardization of queries.
-Like other web APIs, OWS APIs use a ‘base URL’, an ‘endpoint’ and ‘URL query arguments’ proceding a <code>?</code> to request data (see the <a href="https://httr.r-lib.org/articles/api-packages.html"><code>best-practices-api-packages</code></a> vignette in the <strong>httr</strong> package).</p>
+Like other web APIs, OWS APIs use a ‘base URL’, an ‘endpoint’ and ‘URL query arguments’ following a <code>?</code> to request data (see the <a href="https://httr.r-lib.org/articles/api-packages.html"><code>best-practices-api-packages</code></a> vignette in the <strong>httr</strong> package).</p>
 <p>There are many requests that can be made to a OWS service.
 One of the most fundamental is <code>getCapabilities</code>, demonstrated with <strong>httr</strong> below.
 The code chunk demonstrates how API queries can be constructed and dispatched, in this case to discover the capabilities of a service run by the Food and Agriculture Organization of the United Nations (FAO):</p>
