@@ -460,7 +460,7 @@ On the other hand, some of the transformations are splitting the single element 
 You can see that, for example, when you cast a multipoint consisting of five pairs of coordinates into a point.
 
 
-Table: (\#tab:sfs-st-cast)Geometry casting on simple feature geometries (see Section 2.1) with input type by row and output type by column. Values like (1) represent the number of features; NA means the operation is not possible.
+Table: (\#tab:sfs-st-cast)Geometry casting on simple feature objects (see Section 2.2) with input type by row and output type by column. Values like (1) represent the number of features; NA means the operation is not possible.
 Abbreviations: POI, LIN, POL and GC refer to POINT, LINESTRING, POLYGON and GEOMETRYCOLLECTION. The MULTI version of these geometry types is indicated by a preceding M, e.g., MPOI is the acronym for MULTIPOINT.
 
            POI   MPOI   LIN   MLIN   POL   MPOL   GC
