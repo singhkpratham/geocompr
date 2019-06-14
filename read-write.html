@@ -1235,14 +1235,11 @@ FLT8S
 </tr>
 </tbody>
 </table>
-<p>The file extension determines the output file when saving a <code>Raster*</code> object to disk.
-For example, the <code>.tif</code> extension will create a GeoTIFF file:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeRaster</span>(<span class="dt">x =</span> single_layer,
-            <span class="dt">filename =</span> <span class="st">&quot;my_raster.tif&quot;</span>,
-            <span class="dt">datatype =</span> <span class="st">&quot;INT2U&quot;</span>)</code></pre>
-<p>The file format native to the <strong>raster</strong> package is saved as <code>.grd</code> files, and is used by default when a file extension is invalid or missing.</p>
-<p>Some raster file formats come with additional options.
-You can use them with the <code>options</code> <a href="http://www.gdal.org/formats_list.html">parameter</a>.
+<p>By default, <code>writeRaster()</code> saves outputs in its native format as <code>.grd</code> files, when a file extension is invalid or missing.
+Other file formats can be specified by changing the extension of the output file name.
+Naming a file <code>*.tif</code> will create a GeoTIFF file, as demonstrated below:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeRaster</span>(single_layer, <span class="dt">filename =</span> <span class="st">&quot;my_raster.tif&quot;</span>, <span class="dt">datatype =</span> <span class="st">&quot;INT2U&quot;</span>)</code></pre>
+<p>Some raster file formats have additional options, that can be set by providing <a href="http://www.gdal.org/formats_list.html">GDAL parameters</a> to the <code>options</code> argument of <code>writeRaster()</code>.
 GeoTIFF files, for example, can be compressed using <code>COMPRESS</code>:
 <!-- GeoTIFF files, for example, can be compressed using the `COMPRESS` option^[Find out about GeoTIFF options under http://www.gdal.org/frmt_gtiff.html.]: --></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeRaster</span>(<span class="dt">x =</span> single_layer,
