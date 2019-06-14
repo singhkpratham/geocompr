@@ -988,7 +988,7 @@ Figure 5.15: Original raster (left). Aggregated raster (right).
 <p>By contrast, the<code>disaggregate()</code> function increases the resolution.
 However, we have to specify a method on how to fill the new cells.
 The <code>disaggregate()</code> function provides two methods.
-The first (nearest neighbor, <code>method = &quot;&quot;</code>) simply gives all output cells the value of the nearest input cell, and hence duplicates values which leads to a blocky output image.</p>
+The first (<code>method = &quot;&quot;</code>) simply gives all output cells the value of the input cell, and hence duplicates values which leads to a blocky output image.</p>
 <p>The <code>bilinear</code> method, in turn, is an interpolation technique that uses the four nearest pixel centers of the input image (salmon colored points in Figure <a href="geometric-operations.html#fig:bilinear">5.16</a>) to compute an average weighted by distance (arrows in Figure <a href="geometric-operations.html#fig:bilinear">5.16</a> as the value of the output cell - square in the upper left corner in Figure <a href="geometric-operations.html#fig:bilinear">5.16</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">dem_disagg =<span class="st"> </span><span class="kw">disaggregate</span>(dem_agg, <span class="dt">fact =</span> <span class="dv">5</span>, <span class="dt">method =</span> <span class="st">&quot;bilinear&quot;</span>)
 <span class="kw">identical</span>(dem, dem_disagg)
