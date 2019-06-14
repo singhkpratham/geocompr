@@ -1240,8 +1240,8 @@ For example, the <code>.tif</code> extension will create a GeoTIFF file:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeRaster</span>(<span class="dt">x =</span> single_layer,
             <span class="dt">filename =</span> <span class="st">&quot;my_raster.tif&quot;</span>,
             <span class="dt">datatype =</span> <span class="st">&quot;INT2U&quot;</span>)</code></pre>
-<p>The file format native to the <strong>raster</strong> package is saved as <code>.grd</code> files, and is by default when a file extension is invalid or missing.
-Some raster file formats come with additional options.
+<p>The file format native to the <strong>raster</strong> package is saved as <code>.grd</code> files, and is used by default when a file extension is invalid or missing.</p>
+<p>Some raster file formats come with additional options.
 You can use them with the <code>options</code> <a href="http://www.gdal.org/formats_list.html">parameter</a>.
 GeoTIFF files, for example, can be compressed using <code>COMPRESS</code>:
 <!-- GeoTIFF files, for example, can be compressed using the `COMPRESS` option^[Find out about GeoTIFF options under http://www.gdal.org/frmt_gtiff.html.]: --></p>
