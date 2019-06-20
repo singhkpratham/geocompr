@@ -282,8 +282,8 @@ Table \@ref(tab:formats) presents some basic information about selected and ofte
   </tr>
   <tr>
    <td style="text-align:left;"> GeoTIFF </td>
-   <td style="text-align:left;width: 7em; "> .tiff </td>
-   <td style="text-align:left;width: 14em; "> Popular raster format similar to `.tif` format but stores raster header. </td>
+   <td style="text-align:left;width: 7em; "> .tif/.tiff </td>
+   <td style="text-align:left;width: 14em; "> Popular raster format. A TIFF file containing additional spatial metadata. </td>
    <td style="text-align:left;"> Raster </td>
    <td style="text-align:left;width: 7em; "> Open </td>
   </tr>
