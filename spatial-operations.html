@@ -1002,14 +1002,11 @@ Chapter <a href="gis.html#gis">9</a> shows how to access such GIS functionality 
 <div id="zonal-operations" class="section level3">
 <h3><span class="header-section-number">4.3.5</span> Zonal operations</h3>
 <p>Just like focal operations, <em>zonal</em> operations apply an aggregation function to multiple raster cells.
-<!-- Several aspects distinguish zonal from focal operations:
-- A (rectangular) window of neighboring raster cells (e.g., 3x3 cells) usually defines the spatial filter of focal operations.  -->
 However, a second raster, usually a categorical raster, defines the <em>zonal filters</em> (or ‘zones’) in the case of zonal operations as opposed to a predefined neighborhood window in the case of focal operations (see previous Section).
 Consequently, the raster cells defining the zonal filter do not necessarily have to be neighbors.
-<!--Hence zonal filters can take on many more shapes than spatial filters, which always consist of neighbouring cells (in a rectangular or other configuration).-->
 Our grain size raster is a good example (right panel of Figure <a href="attr.html#fig:cont-raster">3.2</a>) because the different grain sizes are spread in an irregular fashion throughout the raster.
 Finally, the result of a zonal operation is a summary table grouped by zone which is why this operation is also known as <em>zonal statistics</em> in the GIS world.
-By contrast, focal operations return a raster.</p>
+This is in contrast to focal operations which return a raster object (see previous Section).</p>
 <p>For example, to find the mean elevation for each grain size class (Figure <a href="attr.html#fig:cont-raster">3.2</a>), we use the <code>zonal()</code> function.</p>
 <pre class="sourceCode r"><code class="sourceCode r">z =<span class="st"> </span><span class="kw">zonal</span>(elev, grain, <span class="dt">fun =</span> <span class="st">&quot;mean&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">as.data.frame</span>()
