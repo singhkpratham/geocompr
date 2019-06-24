@@ -24,7 +24,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-06-21" />
+<meta name="date" content="2019-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -236,7 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.4" data-path="spatial-operations.html"><a href="spatial-operations.html#focal-operations"><i class="fa fa-check"></i><b>4.3.4</b> Focal operations</a></li>
 <li class="chapter" data-level="4.3.5" data-path="spatial-operations.html"><a href="spatial-operations.html#zonal-operations"><i class="fa fa-check"></i><b>4.3.5</b> Zonal operations</a></li>
 <li class="chapter" data-level="4.3.6" data-path="spatial-operations.html"><a href="spatial-operations.html#global-operations-and-distances"><i class="fa fa-check"></i><b>4.3.6</b> Global operations and distances</a></li>
-<li class="chapter" data-level="4.3.7" data-path="spatial-operations.html"><a href="spatial-operations.html#merging-rasters"><i class="fa fa-check"></i><b>4.3.7</b> Merging rasters</a></li>
+<li class="chapter" data-level="4.3.7" data-path="spatial-operations.html"><a href="spatial-operations.html#map-algebra-counterparts-in-vector-processing"><i class="fa fa-check"></i><b>4.3.7</b> Map algebra counterparts in vector processing</a></li>
+<li class="chapter" data-level="4.3.8" data-path="spatial-operations.html"><a href="spatial-operations.html#merging-rasters"><i class="fa fa-check"></i><b>4.3.8</b> Merging rasters</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="spatial-operations.html"><a href="spatial-operations.html#exercises-2"><i class="fa fa-check"></i><b>4.4</b> Exercises</a></li>
 </ul></li>
@@ -446,7 +447,7 @@ These are covered in Section <a href="spatial-operations.html#topological-relati
 <p>Another unique aspect of spatial objects is distance.
 All spatial objects are related through space and distance calculations, covered in Section <a href="spatial-operations.html#distance-relations">4.2.6</a>, can be used to explore the strength of this relationship.</p>
 <p>Spatial operations also apply to raster objects.
-Spatial subsetting of raster objects is covered in Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>; merging several raster ‘tiles’ into a single object is covered in Section <a href="spatial-operations.html#merging-rasters">4.3.7</a>.
+Spatial subsetting of raster objects is covered in Section <a href="spatial-operations.html#spatial-raster-subsetting">4.3.1</a>; merging several raster ‘tiles’ into a single object is covered in Section <a href="spatial-operations.html#merging-rasters">4.3.8</a>.
 For many applications, the most important spatial operation on raster objects is <em>map algebra</em>, as we will see in Sections <a href="spatial-operations.html#map-algebra">4.3.2</a> to <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.
 Map algebra is also the prerequisite for distance calculations on rasters, a technique which is covered in Section <a href="spatial-operations.html#global-operations-and-distances">4.3.6</a>.</p>
 
@@ -1027,6 +1028,9 @@ For example, one might want to compute the distance to the nearest coast (see al
 We might also want to consider topography, that means, we are not only interested in the pure distance but would like also to avoid the crossing of mountain ranges when going to the coast.
 To do so, we can weight the distance with elevation so that each additional altitudinal meter ‘prolongs’ the Euclidean distance.
 Visibility and viewshed computations also belong to the family of global operations (in the exercises of Chapter <a href="gis.html#gis">9</a>, you will compute a viewshed raster).</p>
+</div>
+<div id="map-algebra-counterparts-in-vector-processing" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> Map algebra counterparts in vector processing</h3>
 <p>Many map algebra operations have a counterpart in vector processing <span class="citation">(Liu and Mason <a href="#ref-liu_essential_2009">2009</a>)</span>.
 Computing a distance raster (zonal operation) while only considering a maximum distance (logical focal operation) is the equivalent to a vector buffer operation (Section <a href="geometric-operations.html#clipping">5.2.5</a>).
 Reclassifying raster data (either local or zonal function depending on the input) is equivalent to dissolving vector data (Section <a href="spatial-operations.html#spatial-joining">4.2.3</a>).
@@ -1041,7 +1045,7 @@ However, zonal operations might be the better raster equivalent compared to chan
 Zonal operations can dissolve the cells of one raster in accordance with the zones (categories) of another raster using an aggregation function (see above).</p>
 </div>
 <div id="merging-rasters" class="section level3">
-<h3><span class="header-section-number">4.3.7</span> Merging rasters</h3>
+<h3><span class="header-section-number">4.3.8</span> Merging rasters</h3>
 <p>Suppose we would like to compute the NDVI (see Section <a href="spatial-operations.html#local-operations">4.3.3</a>), and additionally want to compute terrain attributes from elevation data for observations within a study area.
 Such computations rely on remotely sensed information.
 The corresponding imagery is often divided into scenes covering a specific spatial extent.
