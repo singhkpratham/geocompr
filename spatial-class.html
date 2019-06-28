@@ -24,7 +24,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-06-24" />
+<meta name="date" content="2019-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -457,15 +457,12 @@ The necessary packages can be ‘loaded’ (technically they are attached) with 
 <div id="intro-spatial-class" class="section level2">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <p>This chapter will provide brief explanations of the fundamental geographic data models: vector and raster.
-We will introduce the theory behind each data model and the disciplines in which they predominate, before demonstrating their implementation in R.
-<!-- Vector and raster models are vital to geospatial analysis [@longley_geographic_2015]. --></p>
+We will introduce the theory behind each data model and the disciplines in which they predominate, before demonstrating their implementation in R.</p>
 <p>The <em>vector data model</em> represents the world using points, lines and polygons.
 These have discrete, well-defined borders, meaning that vector datasets usually have a high level of precision (but not necessarily accuracy as we will see in Section <a href="spatial-class.html#units">2.5</a>).
 The <em>raster data model</em> divides the surface up into cells of constant size.
 Raster datasets are the basis of background images used in web-mapping and have been a vital source of geographic data since the origins of aerial photography and satellite-based remote sensing devices.
-Rasters aggregate spatially specific features to a given resolution, meaning that they are consistent over space and scalable (many worldwide raster datasets are available).
-<!-- The downside of this is that small features can be blurred or lost. (commented - too specific) -->
-<!-- todo: add figure(s) showing raster data and blurring? --></p>
+Rasters aggregate spatially specific features to a given resolution, meaning that they are consistent over space and scalable (many worldwide raster datasets are available).</p>
 <p>Which to use?
 The answer likely depends on your domain of application:</p>
 <ul>
