@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Introduction | Geocomputation with R</title>
   <meta name="description" content="1 Introduction | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Introduction | Geocomputation with R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-06-28" />
+<meta name="date" content="2019-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,7 +79,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -539,13 +538,13 @@ This means R can be used as a ‘bridge’ to a wide range of geospatial program
 <p>Another example showing R’s flexibility and evolving geographic capabilities is interactive map making.
 As we’ll see in Chapter <a href="adv-map.html#adv-map">8</a>, the statement that R has “limited interactive [plotting] facilities” <span class="citation">(Bivand, Pebesma, and Gómez-Rubio <a href="#ref-bivand_applied_2013">2013</a>)</span> is no longer true.
 This is demonstrated by the following code chunk, which creates Figure <a href="intro.html#fig:interactive">1.1</a> (the functions that generate the plot are covered in Section <a href="adv-map.html#interactive-maps">8.4</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
-popup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Robin&quot;</span>, <span class="st">&quot;Jakub&quot;</span>, <span class="st">&quot;Jannes&quot;</span>)
-<span class="kw">leaflet</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;NASAGIBS.ViirsEarthAtNight2012&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">23</span>, <span class="dv">11</span>),
-             <span class="dt">lat =</span> <span class="kw">c</span>(<span class="dv">52</span>, <span class="dv">53</span>, <span class="dv">49</span>), 
-             <span class="dt">popup =</span> popup)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(leaflet)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">popup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Robin&quot;</span>, <span class="st">&quot;Jakub&quot;</span>, <span class="st">&quot;Jannes&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">leaflet</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">addProviderTiles</span>(<span class="st">&quot;NASAGIBS.ViirsEarthAtNight2012&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">23</span>, <span class="dv">11</span>),</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">             <span class="dt">lat =</span> <span class="kw">c</span>(<span class="dv">52</span>, <span class="dv">53</span>, <span class="dv">49</span>), </a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">             <span class="dt">popup =</span> popup)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:interactive"></span>
 <div id="htmlwidget-9b841de324d41155df19" style="width:100%;height:355.968px;" class="leaflet html-widget"></div>
 <script type="application/json" data-for="htmlwidget-9b841de324d41155df19">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["NASAGIBS.ViirsEarthAtNight2012",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[52,53,49],[-3,23,11],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Robin","Jakub","Jannes"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[49,53],"lng":[-3,23]}},"evals":[],"jsHooks":[]}</script>

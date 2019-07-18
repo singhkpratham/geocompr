@@ -484,6 +484,11 @@ This can be verified with `identical(st_geometry(nz), st_geometry(nz_avheight))`
 The result of the previous operation is illustrated in Figure \@ref(fig:spatial-aggregation).
 The same result can also be generated using the 'tidy' functions `group_by()` and `summarize()` (used in combination with `st_join()`):
 
+
+```
+#> Warning: Values have found that are higher than the highest break
+```
+
 <div class="figure" style="text-align: center">
 <img src="figures/spatial-aggregation-1.png" alt="Average height of the top 101 high points across the regions of New Zealand." width="50%" />
 <p class="caption">(\#fig:spatial-aggregation)Average height of the top 101 high points across the regions of New Zealand.</p>
@@ -509,6 +514,12 @@ Often this is the case for administrative boundary data, whereby larger units --
 This is problematic for spatial aggregation (and other spatial operations) illustrated in Figure \@ref(fig:areal-example).
 Areal interpolation overcomes this issue by transferring values from one set of areal units to another.
 Algorithms developed for this task include area weighted and 'pycnophylactic' areal interpolation methods [@tobler_smooth_1979].
+
+
+```
+#> Warning: Values have found that are less than the lowest break
+#> Warning: Values have found that are higher than the highest break
+```
 
 <div class="figure" style="text-align: center">
 <img src="figures/areal-example-1.png" alt="Illustration of congruent (left) and incongruent (right) areal units with respect to larger aggregating zones (translucent blue borders)." width="100%" />
