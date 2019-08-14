@@ -24,7 +24,7 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-07-18" />
+<meta name="date" content="2019-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -789,11 +789,10 @@ Second, <code>linkGRASS7()</code> establishes a connection to GRASS 7.</p>
 Luckily, the convenience function <code>writeVECT()</code> does this for us.
 (Use <code>writeRAST()</code> in the case of raster data.)
 In our case we add the street and cycle hire point data while using only the first attribute column, and name them also <code>london_streets</code> and <code>points</code>.
-Note that we are converting the <strong>sf</strong>-objects into objects of class <code>Spatial*</code>.
-In time, <strong>rgrass7</strong> will also work with <strong>sf</strong>-objects.</p>
-<!-- in time we can also use sf- and raster-objects with rgrass7, Roger has already implemented this in the rgrass7 developer version -->
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">writeVECT</span>(<span class="dt">SDF =</span> <span class="kw">as</span>(london_streets, <span class="st">&quot;Spatial&quot;</span>), <span class="dt">vname =</span> <span class="st">&quot;london_streets&quot;</span>)</a>
-<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">writeVECT</span>(<span class="dt">SDF =</span> <span class="kw">as</span>(points[, <span class="dv">1</span>], <span class="st">&quot;Spatial&quot;</span>), <span class="dt">vname =</span> <span class="st">&quot;points&quot;</span>)</a></code></pre></div>
+To use <strong>sf</strong>-objects with <strong>rgrass7</strong>, we have to run <code>use_sf()</code> first (note: the code below assumes you are running <strong>rgrass7</strong> 0.2.1 or above).</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">use_sf</span>()</a>
+<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">writeVECT</span>(<span class="dt">SDF =</span> london_streets, <span class="dt">vname =</span> <span class="st">&quot;london_streets&quot;</span>)</a>
+<a class="sourceLine" id="cb334-3" data-line-number="3"><span class="kw">writeVECT</span>(<span class="dt">SDF =</span> points[, <span class="dv">1</span>], <span class="dt">vname =</span> <span class="st">&quot;points&quot;</span>)</a></code></pre></div>
 <p>To perform our network analysis, we need a topological clean street network.
 GRASS’s <code>v.clean</code> takes care of the removal of duplicates, small angles and dangles, among others.
 Here, we break lines at each intersection to ensure that the subsequent routing algorithm can actually turn right or left at an intersection, and save the output in a GRASS object named <code>streets_clean</code>.
