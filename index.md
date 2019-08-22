@@ -2,7 +2,7 @@
 --- 
 title: 'Geocomputation with R'
 author: 'Robin Lovelace, Jakub Nowosad, Jannes Muenchow'
-date: '2019-08-21'
+date: '2019-08-22'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
@@ -39,7 +39,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-08-21 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+The version of the book you are reading now was built on 2019-08-22 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
 
 ## How to contribute? {-}
 
@@ -198,7 +198,7 @@ On the other hand, we embed the shown methods into the bigger field of GIScience
 
 
 
-Many thanks to everyone who contributed directly and indirectly via the code hosting and collaboration site GitHub, including the following people who contributed direct via pull requests: [katygregg](https://github.com/katygregg), [florisvdh](https://github.com/florisvdh), [prosoitos](https://github.com/prosoitos), [erstearns](https://github.com/erstearns), [eyesofbambi](https://github.com/eyesofbambi), [tyluRp](https://github.com/tyluRp), [marcosci](https://github.com/marcosci), [giocomai](https://github.com/giocomai), [mdsumner](https://github.com/mdsumner), [rsbivand](https://github.com/rsbivand), [pat-s](https://github.com/pat-s), [gisma](https://github.com/gisma), [ateucher](https://github.com/ateucher), [annakrystalli](https://github.com/annakrystalli), [gavinsimpson](https://github.com/gavinsimpson), [Henrik-P](https://github.com/Henrik-P), [Himanshuteli](https://github.com/Himanshuteli), [yutannihilation](https://github.com/yutannihilation), [jbixon13](https://github.com/jbixon13), [katiejolly](https://github.com/katiejolly), [layik](https://github.com/layik), [mvl22](https://github.com/mvl22), [nickbearman](https://github.com/nickbearman), [ganes1410](https://github.com/ganes1410), [richfitz](https://github.com/richfitz), [SymbolixAU](https://github.com/SymbolixAU), [wdearden](https://github.com/wdearden).
+Many thanks to everyone who contributed directly and indirectly via the code hosting and collaboration site GitHub, including the following people who contributed direct via pull requests: [prosoitos](https://github.com/prosoitos), [florisvdh](https://github.com/florisvdh), [katygregg](https://github.com/katygregg), [erstearns](https://github.com/erstearns), [eyesofbambi](https://github.com/eyesofbambi), [tyluRp](https://github.com/tyluRp), [marcosci](https://github.com/marcosci), [giocomai](https://github.com/giocomai), [mdsumner](https://github.com/mdsumner), [rsbivand](https://github.com/rsbivand), [pat-s](https://github.com/pat-s), [gisma](https://github.com/gisma), [ateucher](https://github.com/ateucher), [annakrystalli](https://github.com/annakrystalli), [kant](https://github.com/kant), [gavinsimpson](https://github.com/gavinsimpson), [Henrik-P](https://github.com/Henrik-P), [Himanshuteli](https://github.com/Himanshuteli), [yutannihilation](https://github.com/yutannihilation), [jbixon13](https://github.com/jbixon13), [katiejolly](https://github.com/katiejolly), [layik](https://github.com/layik), [mvl22](https://github.com/mvl22), [nickbearman](https://github.com/nickbearman), [ganes1410](https://github.com/ganes1410), [richfitz](https://github.com/richfitz), [SymbolixAU](https://github.com/SymbolixAU).
 Special thanks to Marco Sciaini, who not only created the front cover image, but also published the code that generated it (see `frontcover.R` in the book's GitHub repo). 
 Dozens more people contributed online, by raising and commenting on issues, and by providing feedback via social media.
 The `#geocompr` hashtag will live on!
