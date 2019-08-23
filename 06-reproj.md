@@ -20,6 +20,8 @@ Section \@ref(crs-intro) introduced coordinate reference systems (CRSs) and demo
 This chapter goes further.
 It highlights issues that can arise when using inappropriate CRSs and how to *transform* data from one CRS to another.
 
+\index{CRS!geographic} 
+\index{CRS!projected} 
 As illustrated in Figure \@ref(fig:vectorplots), there are two types of CRSs: *geographic* ('lon/lat', with units in degrees longitude and latitude) and *projected* (typically with units of meters from a datum).
 This has consequences.
 Many geometry operations in **sf**, for example, assume their inputs have a projected CRS, because the GEOS functions they are based on assume projected data.
@@ -128,6 +130,7 @@ The subsequent sections go into more depth, exploring which CRS to use and the d
 
 ## When to reproject?
 
+\index{CRS!reprojection} 
 The previous section showed how to set the CRS manually, with `st_set_crs(london, 4326)`.
 In real world applications, however, CRSs are usually set automatically when data is read-in.
 The main task involving CRSs is often to *transform* objects, from one CRS into another.
@@ -173,6 +176,8 @@ st_distance(london2, london_proj)
 
 ## Which CRS to use?
 
+\index{CRS!reprojection} 
+\index{projection!World Geodetic System}
 The question of *which CRS* is tricky, and there is rarely a 'right' answer:
 "There exist no all-purpose projections, all involve distortion when far from the center of the specified frame" [@bivand_applied_2013].
 
@@ -196,6 +201,11 @@ When deciding on a custom CRS, we recommend the following:^[
 Many thanks to an anonymous reviewer whose comments formed the basis of this advice.
 ]
 
+\index{projection!Lambert azimuthal equal-area}
+\index{projection!Azimuthal equidistant}
+\index{projection!Lambert conformal conic}
+\index{projection!Stereographic}
+\index{projection!Universal Transverse Mercator}
 - A Lambert azimuthal equal-area ([LAEA](https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection)) projection for a custom local projection (set `lon_0` and `lat_0` to the center of the study area), which is an equal-area projection at all locations but distorts shapes beyond thousands of kilometres.
 -  Azimuthal equidistant ([AEQD](https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection)) projections for a specifically accurate straight-line distance between a point and the centre point of the local projection.
 - Lambert conformal conic ([LCC](https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection)) projections for regions covering thousands of kilometres, with the cone set to keep distance and area properties reasonable between the secant lines.
@@ -244,10 +254,14 @@ Another approach to automatically select a projected CRS specific to a local dat
 This involves creating a custom CRS (with no EPSG code) with units of meters based on the centerpoint of a dataset.
 This approach should be used with caution: no other datasets will be compatible with the custom CRS created and results may not be accurate when used on extensive datasets covering hundreds of kilometers.
 
-The principles outlined in this section apply equally to vector and raster datasets. Some features of CRS transformation however are unique to each geographic data model. We will cover the particularities of vector data transformation in Section \@ref(reproj-vec-geom) and those of raster transformation in Section \@ref(reprojecting-raster-geometries).
+The principles outlined in this section apply equally to vector and raster datasets.
+Some features of CRS transformation however are unique to each geographic data model.
+We will cover the particularities of vector data transformation in Section \@ref(reproj-vec-geom) and those of raster transformation in Section \@ref(reprojecting-raster-geometries).
 
 ## Reprojecting vector geometries {#reproj-vec-geom}
 
+\index{CRS!reprojection} 
+\index{vector!reprojection} 
 Chapter \@ref(spatial-class) demonstrated how vector geometries are made-up of points, and how points form the basis of more complex objects such as lines and polygons.
 Reprojecting vectors thus consists of transforming the coordinates of these points.
 This is illustrated by `cycle_hire_osm`, an `sf` object from **spData** that represents cycle hire locations across London.
@@ -304,6 +318,7 @@ To access and modify it explicitly, use the `st_crs` function, for example, `st_
 
 ## Modifying map projections
 
+\index{CRS!proj4string} 
 Established CRSs captured by EPSG codes are well-suited for many applications.
 However in some cases it is desirable to create a new CRS, using a custom `proj4string`.
 This system allows a very wide range of projections to be created, as we'll see in some of the custom map projections in this section.
@@ -324,7 +339,7 @@ world_mollweide = st_transform(world, crs = "+proj=moll")
 <!-- plot(world_mollweide$geom, graticule = TRUE) -->
 
 <div class="figure" style="text-align: center">
-<img src="figures/mollproj-1.png" alt="Mollweide projection of the world." width="576" />
+<img src="figures/mollproj-1.png" alt="Mollweide projection of the world." width="100%" />
 <p class="caption">(\#fig:mollproj)Mollweide projection of the world.</p>
 </div>
 
@@ -342,7 +357,7 @@ world_wintri = lwgeom::st_transform_proj(world, crs = "+proj=wintri")
 <!-- plot(world_wintri$geom, graticule = TRUE) -->
 
 <div class="figure" style="text-align: center">
-<img src="images/wintriproj-1.png" alt="Winkel tripel projection of the world." width="576" />
+<img src="images/wintriproj-1.png" alt="Winkel tripel projection of the world." width="100%" />
 <p class="caption">(\#fig:wintriproj)Winkel tripel projection of the world.</p>
 </div>
 
@@ -365,7 +380,7 @@ world_laea1 = st_transform(world,
 <!-- plot(world_laea1$geom, graticule = TRUE) -->
 
 <div class="figure" style="text-align: center">
-<img src="figures/laeaproj1-1.png" alt="Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0." width="576" />
+<img src="figures/laeaproj1-1.png" alt="Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0." width="100%" />
 <p class="caption">(\#fig:laeaproj1)Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0.</p>
 </div>
 
@@ -381,7 +396,7 @@ world_laea2 = st_transform(world,
 <!-- plot(world_laea2$geom, graticule = TRUE) -->
 
 <div class="figure" style="text-align: center">
-<img src="figures/laeaproj2-1.png" alt="Lambert azimuthal equal-area projection of the world centered on New York City." width="576" />
+<img src="figures/laeaproj2-1.png" alt="Lambert azimuthal equal-area projection of the world centered on New York City." width="100%" />
 <p class="caption">(\#fig:laeaproj2)Lambert azimuthal equal-area projection of the world centered on New York City.</p>
 </div>
 
@@ -398,6 +413,7 @@ More information on CRS modifications can be found in the [Using PROJ](https://p
 
 ## Reprojecting raster geometries
 
+\index{raster!reprojection} 
 The projection concepts described in the previous section apply equally to rasters.
 However, there are important differences in reprojection of vectors and rasters:
 transforming a vector object involves changing the coordinates of every vertex but this does not apply to raster data.
@@ -452,7 +468,7 @@ cat_raster_wgs84 = projectRaster(cat_raster, crs = wgs84, method = "ngb")
 Many properties of the new object differ from the previous one, including the number of columns and rows (and therefore number of cells), resolution (transformed from meters into degrees), and extent, as illustrated in Table \@ref(tab:catraster) (note that the number of categories increases from 14 to 15 because of the addition of `NA` values, not because a new category has been created --- the land cover classes are preserved).
 
 
-Table: (\#tab:catraster)Key attributes in the original ('cat_raster') and projected ('cat_raster_wgs84') categorical raster datasets.
+Table: (\#tab:catraster)Key attributes in the original ('cat\_raster') and projected ('cat\_raster\_wgs84') categorical raster datasets.
 
 CRS      nrow   ncol     ncell   resolution   unique_categories
 ------  -----  -----  --------  -----------  ------------------
@@ -499,7 +515,7 @@ This can have implications for file sizes when raster datasets are saved.
 ]:
 
 
-Table: (\#tab:rastercrs)Key attributes in the original ('con_raster') and projected ('con_raster_ea') continuous raster datasets.
+Table: (\#tab:rastercrs)Key attributes in the original ('con\_raster') and projected ('con\_raster\_ea') continuous raster datasets.
 
 CRS           nrow   ncol    ncell   resolution   mean
 -----------  -----  -----  -------  -----------  -----

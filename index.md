@@ -6,8 +6,6 @@ date: '2019-08-23'
 knit: bookdown::render_book
 site: bookdown::bookdown_site
 documentclass: krantz
-lot: yes
-lof: yes
 monofont: "Source Code Pro"
 monofontoptions: "Scale=0.7"
 bibliography:
@@ -19,6 +17,8 @@ description: "Geocomputation with R is for people who want to analyze, visualize
 github-repo: "Robinlovelace/geocompr"
 cover-image: "images/cover.png"
 url: 'https\://geocompr.robinlovelace.net/'
+colorlinks: yes
+graphics: yes
 ---
 
 
@@ -27,10 +27,12 @@ url: 'https\://geocompr.robinlovelace.net/'
 
 This is the online home of *Geocomputation with R*, a book on geographic data analysis, visualization and modeling.
 
+
 <a href="https://www.crcpress.com/9781138304512"><img src="images/cover.png" width="250" height="375" alt="The geocompr book cover" align="right" style="margin: 0 1em 0 1em" /></a>
   
 **Note**: This book has now been published by CRC Press in the [R Series](https://www.crcpress.com/Chapman--HallCRC-The-R-Series/book-series/CRCTHERSER).
 You can buy the book from [CRC Press](https://www.crcpress.com/9781138304512), [Wordery](https://wordery.com/geocomputation-with-r-robin-lovelace-9781138304512), or [Amazon](https://www.amazon.com/Geocomputation-Chapman-Hall-Robin-Lovelace/dp/1138304514/).
+
 
 Inspired by [**bookdown**](https://github.com/rstudio/bookdown) and the Free and Open Source Software for Geospatial ([FOSS4G](http://foss4g.org/)) movement, this book is open source.
 This ensures its contents are reproducible and publicly accessible for people worldwide.
@@ -39,7 +41,7 @@ The online version of the book is hosted at [geocompr.robinlovelace.net](https:/
 
 [![Build Status](https://travis-ci.org/Robinlovelace/geocompr.svg?branch=master)](https://travis-ci.org/Robinlovelace/geocompr)
 
-The version of the book you are reading now was built on 2019-08-23 and was built on [Travis](https://travis-ci.org/Robinlovelace/geocompr).
+<!--The version of the book you are reading now was built on `r Sys.Date()` and was built `r if(is_on_travis) "on [Travis](https://travis-ci.org/Robinlovelace/geocompr)" else "locally"`.-->
 
 ## How to contribute? {-}
 
@@ -84,6 +86,8 @@ If you find the book useful, please support it by:
 Further details can be found at [github.com/Robinlovelace/geocompr](https://github.com/Robinlovelace/geocompr#geocomputation-with-r).
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
+
 
 # Foreword {-}
 
@@ -161,7 +165,7 @@ For some applications such as Spatial Statistics and modeling R may be the *only
 As outlined in Section \@ref(why-use-r-for-geocomputation), there are many reasons for using R for geocomputation:
 R is well-suited to the interactive use required in many geographic data analysis workflows compared with other languages.
 R excels in the rapidly growing fields of Data Science (which includes data carpentry, statistical learning techniques and data visualization) and Big Data (via efficient interfaces to databases and distributed computing systems).
-Furthermore R enables a reproducible workflow: sharing scripts underlying your analysis will allow others to build on your work.
+Furthermore R enables a reproducible workflow: sharing scripts underlying your analysis will allow others to build-on your work.
 To ensure reproducibility in this book we have made its source code available at [github.com/Robinlovelace/geocompr](https://github.com/Robinlovelace/geocompr#geocomputation-with-r).
 There you will find script files in the `code/` folder that generate figures:
 when code generating a figure is not provided in the main text of the book, the name of the script file that generated it is provided in the caption (see for example the caption for Figure \@ref(fig:zones)).
@@ -198,7 +202,7 @@ On the other hand, we embed the shown methods into the bigger field of GIScience
 
 
 
-Many thanks to everyone who contributed directly and indirectly via the code hosting and collaboration site GitHub, including the following people who contributed direct via pull requests: [prosoitos](https://github.com/prosoitos), [florisvdh](https://github.com/florisvdh), [katygregg](https://github.com/katygregg), [erstearns](https://github.com/erstearns), [eyesofbambi](https://github.com/eyesofbambi), [tyluRp](https://github.com/tyluRp), [marcosci](https://github.com/marcosci), [giocomai](https://github.com/giocomai), [mdsumner](https://github.com/mdsumner), [rsbivand](https://github.com/rsbivand), [pat-s](https://github.com/pat-s), [gisma](https://github.com/gisma), [ateucher](https://github.com/ateucher), [annakrystalli](https://github.com/annakrystalli), [kant](https://github.com/kant), [gavinsimpson](https://github.com/gavinsimpson), [Henrik-P](https://github.com/Henrik-P), [Himanshuteli](https://github.com/Himanshuteli), [yutannihilation](https://github.com/yutannihilation), [jbixon13](https://github.com/jbixon13), [katiejolly](https://github.com/katiejolly), [layik](https://github.com/layik), [mvl22](https://github.com/mvl22), [nickbearman](https://github.com/nickbearman), [ganes1410](https://github.com/ganes1410), [richfitz](https://github.com/richfitz), [SymbolixAU](https://github.com/SymbolixAU).
+Many thanks to everyone who contributed directly and indirectly via the code hosting and collaboration site GitHub, including the following people who contributed direct via pull requests: prosoitos, florisvdh, katygregg, erstearns, eyesofbambi, tyluRp, marcosci, giocomai, mdsumner, rsbivand, pat-s, gisma, ateucher, annakrystalli, kant, gavinsimpson, Henrik-P, Himanshuteli, yutannihilation, jbixon13, katiejolly, layik, mvl22, nickbearman, ganes1410, richfitz, SymbolixAU.
 Special thanks to Marco Sciaini, who not only created the front cover image, but also published the code that generated it (see `frontcover.R` in the book's GitHub repo). 
 Dozens more people contributed online, by raising and commenting on issues, and by providing feedback via social media.
 The `#geocompr` hashtag will live on!

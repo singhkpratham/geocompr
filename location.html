@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 Geomarketing | Geocomputation with R</title>
-  <meta name="description" content="13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 13 Geomarketing | Geocomputation with R</title>
+  <meta name="description" content="Chapter 13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 Geomarketing | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 13 Geomarketing | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 Geomarketing | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 13 Geomarketing | Geocomputation with R" />
   
-  <meta name="twitter:description" content="13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 13 Geomarketing | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="location" class="section level1">
-<h1><span class="header-section-number">13</span> Geomarketing</h1>
+<h1><span class="header-section-number">Chapter 13</span> Geomarketing</h1>
 <div id="prerequisites-11" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <ul>
@@ -499,7 +499,7 @@ Further, <code>mutate_all()</code> is used to convert values -1 and -9 (meaning 
 <a class="sourceLine" id="cb421-5" data-line-number="5"><span class="co"># set -1 and -9 to NA</span></a>
 <a class="sourceLine" id="cb421-6" data-line-number="6">input_tidy =<span class="st"> </span><span class="kw">mutate_all</span>(input, <span class="kw">list</span>(<span class="op">~</span><span class="kw">ifelse</span>(. <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">-9</span>), <span class="ot">NA</span>, .)))</a></code></pre></div>
 <table>
-<caption><span id="tab:census-desc">Table 13.1: </span>Categories for each variable in census data from Datensatzbeschreibung…xlsx located in the downloaded file census.zip (see Figure 13.1 for their spatial distribution).</caption>
+<caption><span id="tab:census-desc">TABLE 13.1: </span>Categories for each variable in census data from Datensatzbeschreibung…xlsx located in the downloaded file census.zip (see Figure 13.1 for their spatial distribution).</caption>
 <thead>
 <tr class="header">
 <th align="center">class</th>
@@ -579,9 +579,9 @@ Be careful with geographic CRS where grid cell areas constantly decrease in pole
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:census-stack"></span>
-<img src="figures/08_census_stack.png" alt="Gridded German census data of 2011 (see Table 13.1 for a description of the classes)." width="765" />
+<img src="figures/08_census_stack.png" alt="Gridded German census data of 2011 (see Table 13.1 for a description of the classes)." width="100%" />
 <p class="caption">
-Figure 13.1: Gridded German census data of 2011 (see Table 13.1 for a description of the classes).
+FIGURE 13.1: Gridded German census data of 2011 (see Table 13.1 for a description of the classes).
 </p>
 </div>
 <!-- find out about new lines in headings + blank cells-->
@@ -708,9 +708,9 @@ st_centroid(metros) %>%
 ```
 -->
 <div class="figure" style="text-align: center"><span id="fig:metro-areas"></span>
-<img src="figures/08_metro_areas.png" alt="The aggregated population raster (resolution: 20 km) with the identified metropolitan areas (golden polygons) and the corresponding names." width="450" />
+<img src="figures/08_metro_areas.png" alt="The aggregated population raster (resolution: 20 km) with the identified metropolitan areas (golden polygons) and the corresponding names." width="100%" />
 <p class="caption">
-Figure 13.2: The aggregated population raster (resolution: 20 km) with the identified metropolitan areas (golden polygons) and the corresponding names.
+FIGURE 13.2: The aggregated population raster (resolution: 20 km) with the identified metropolitan areas (golden polygons) and the corresponding names.
 </p>
 </div>
 <p>The resulting eight metropolitan areas suitable for bike shops (Figure <a href="location.html#fig:metro-areas">13.2</a>; see also <code>code/13-location-jm.R</code> for creating the figure) are still missing a name.
@@ -731,7 +731,7 @@ By default, it uses the Photon API.
 <a class="sourceLine" id="cb432-3" data-line-number="3">                     <span class="dt">output =</span> <span class="st">&quot;frame&quot;</span>)</a></code></pre></div>
 <p>To make sure that the reader uses the exact same results, we have put them into <strong>spDataLarge</strong> as the object <code>metro_names</code>.</p>
 <table>
-<caption><span id="tab:metro-names">Table 13.2: </span>Result of the reverse geocoding.</caption>
+<caption><span id="tab:metro-names">TABLE 13.2: </span>Result of the reverse geocoding.</caption>
 <thead>
 <tr class="header">
 <th align="left">city</th>
@@ -782,7 +782,8 @@ Umlauts like <code>ü</code> might lead to trouble further on, for example when 
 </div>
 <div id="points-of-interest" class="section level2">
 <h2><span class="header-section-number">13.6</span> Points of interest</h2>
-<p>The <strong>osmdata</strong> package provides easy-to-use access to OSM data (see also Section <a href="read-write.html#retrieving-data">7.2</a>).
+<p>
+The <strong>osmdata</strong> package provides easy-to-use access to OSM data (see also Section <a href="read-write.html#retrieving-data">7.2</a>).
 Instead of downloading shops for the whole of Germany, we restrict the query to the defined metropolitan areas, reducing computational load and providing shop locations only in areas of interest.
 The subsequent code chunk does this using a number of functions including:</p>
 <ul>
@@ -875,10 +876,10 @@ With clean data, the final step — calculating a final score by summing all ras
 <a class="sourceLine" id="cb440-2" data-line-number="2">result =<span class="st"> </span><span class="kw">sum</span>(reclass)</a></code></pre></div>
 <p>For instance, a score greater than 9 might be a suitable threshold indicating raster cells where a bike shop could be placed (Figure <a href="location.html#fig:bikeshop-berlin">13.3</a>; see also <code>code/13-location-jm.R</code>).</p>
 <div class="figure" style="text-align: center"><span id="fig:bikeshop-berlin"></span>
-<div id="htmlwidget-841de324d41155df19a0" style="width:576px;height:355.968px;" class="leaflet html-widget"></div>
+<div id="htmlwidget-841de324d41155df19a0" style="width:100%;height:355.968px;" class="leaflet html-widget"></div>
 <script type="application/json" data-for="htmlwidget-841de324d41155df19a0">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addRasterImage","args":["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAM0lEQVRYhe3SMQ0AMAwEsQcb/hTSuQSaVLIR3HAJAADfqfR0wm1dEC9VevcCq+MAAIBhB20vBvBK3JZrAAAAAElFTkSuQmCC",[[52.696600856383,13.0820026147986],[52.3210740877061,13.6981591380976]],0.8,null,null,null]},{"method":"addLegend","args":[{"colors":["darkgreen"],"labels":["potential locations"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"unknown","title":"Legend","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[52.3210740877061,52.696600856383],"lng":[13.0820026147986,13.6981591380976]}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
-Figure 13.3: Suitable areas (i.e., raster cells with a score &gt; 9) in accordance with our hypothetical survey for bike stores in Berlin.
+FIGURE 13.3: Suitable areas (i.e., raster cells with a score &gt; 9) in accordance with our hypothetical survey for bike stores in Berlin.
 </p>
 </div>
 </div>

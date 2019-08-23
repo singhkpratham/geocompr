@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Attribute data operations | Geocomputation with R</title>
-  <meta name="description" content="3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 3 Attribute data operations | Geocomputation with R</title>
+  <meta name="description" content="Chapter 3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Attribute data operations | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 3 Attribute data operations | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Attribute data operations | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 3 Attribute data operations | Geocomputation with R" />
   
-  <meta name="twitter:description" content="3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 3 Attribute data operations | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="attr" class="section level1">
-<h1><span class="header-section-number">3</span> Attribute data operations</h1>
+<h1><span class="header-section-number">Chapter 3</span> Attribute data operations</h1>
 <div id="prerequisites-1" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <ul>
@@ -478,6 +478,7 @@ This enables geometries imported from spatial databases to have a variety of nam
 
 <p><code>sf</code> objects also support <code>tibble</code> and <code>tbl</code> classes used in the tidyverse, allowing ‘tidy’ data analysis workflows for spatial data.
 Thus <strong>sf</strong> enables the full power of R’s data analysis capabilities to be unleashed on geographic data.
+
 Before using these capabilities it is worth re-capping how to discover the basic properties of vector data objects.
 Let’s start by using base R functions to get a measure of the <code>world</code> dataset:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">dim</span>(world) <span class="co"># it is a 2 dimensional object, with rows and columns</span></a>
@@ -501,7 +502,8 @@ Tidyverse compatibility is an advantage of <strong>sf</strong> over its predeces
 <h3><span class="header-section-number">3.2.1</span> Vector attribute subsetting</h3>
 <p>Base R subsetting functions include <code>[</code>, <code>subset()</code> and <code>$</code>.
 <strong>dplyr</strong> subsetting functions include <code>select()</code>, <code>filter()</code>, and <code>pull()</code>.
-Both sets of functions preserve the spatial components of attribute data in <code>sf</code> objects.</p>
+Both sets of functions preserve the spatial components of attribute data in <code>sf</code> objects.
+</p>
 <p>The <code>[</code> operator can subset both rows and columns.
 You use indices to specify the elements you wish to extract from an object, e.g., <code>object[i, j]</code>, with <code>i</code> and <code>j</code> typically being numbers or logical vectors — <code>TRUE</code>s and <code>FALSE</code>s — representing rows and columns (they can also be character strings, indicating row or column names).
 <!-- you can also use `[`(world, 1:6, 1) -->
@@ -583,7 +585,7 @@ It keeps only rows matching given criteria, e.g., only countries with a very hig
 <a class="sourceLine" id="cb76-2" data-line-number="2">world6 =<span class="st"> </span><span class="kw">filter</span>(world, lifeExp <span class="op">&gt;</span><span class="st"> </span><span class="dv">82</span>)</a></code></pre></div>
 <p>The standard set of comparison operators can be used in the <code>filter()</code> function, as illustrated in Table <a href="attr.html#tab:operators">3.1</a>:</p>
 <table>
-<caption><span id="tab:operators">Table 3.1: </span>Comparison operators that return Booleans (TRUE/FALSE).</caption>
+<caption><span id="tab:operators">TABLE 3.1: </span>Comparison operators that return Booleans (TRUE/FALSE).</caption>
 <thead>
 <tr class="header">
 <th align="left">Symbol</th>
@@ -631,7 +633,9 @@ The alternative to <code>%&gt;%</code> is nested function calls, which is harder
 </div>
 <div id="vector-attribute-aggregation" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Vector attribute aggregation</h3>
-<p>Aggregation operations summarize datasets by a ‘grouping variable’, typically an attribute column (spatial aggregation is covered in the next chapter).
+<p>
+
+Aggregation operations summarize datasets by a ‘grouping variable’, typically an attribute column (spatial aggregation is covered in the next chapter).
 An example of attribute aggregation is calculating the number of people per continent based on country-level data (one row per country).
 The <code>world</code> dataset contains the necessary ingredients: the columns <code>pop</code> and <code>continent</code>, the population and the grouping variable, respectively.
 The aim is to find the <code>sum()</code> of country populations for each continent.
@@ -670,7 +674,7 @@ We can order the continents (rows) by decreasing population size for easier read
 <a class="sourceLine" id="cb83-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(pop)) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb83-7" data-line-number="7"><span class="st">  </span><span class="kw">st_drop_geometry</span>()</a></code></pre></div>
 <table>
-<caption><span id="tab:continents">Table 3.2: </span>The top 3 most populous continents, and the number of countries in each.</caption>
+<caption><span id="tab:continents">TABLE 3.2: </span>The top 3 most populous continents, and the number of countries in each.</caption>
 <thead>
 <tr class="header">
 <th align="left">continent</th>
@@ -713,7 +717,9 @@ Joins do this by combining tables based on a shared ‘key’ variable.
 These function names follow conventions used in the database language <a href="http://r4ds.had.co.nz/relational-data.html">SQL</a> <span class="citation">(Grolemund and Wickham <a href="#ref-grolemund_r_2016">2016</a>, Chapter 13)</span>; using them to join non-spatial datasets to <code>sf</code> objects is the focus of this section.
 <strong>dplyr</strong> join functions work the same on data frames and <code>sf</code> objects, the only important difference being the <code>geometry</code> list column.
 The result of data joins can be either an <code>sf</code> or <code>data.frame</code> object.
-The most common type of attribute join on spatial data takes an <code>sf</code> object as the first argument and adds columns to it from a <code>data.frame</code> specified as the second argument.</p>
+The most common type of attribute join on spatial data takes an <code>sf</code> object as the first argument and adds columns to it from a <code>data.frame</code> specified as the second argument.
+
+</p>
 <p>To demonstrate joins, we will combine data on coffee production with the <code>world</code> dataset.
 The coffee data is in a data frame called <code>coffee_data</code> from the <strong>spData</strong> package (see <code>?coffee_data</code> for details).
 It has 3 columns:
@@ -736,9 +742,9 @@ This can be plotted as a map, as illustrated in Figure <a href="attr.html#fig:co
 <a class="sourceLine" id="cb85-8" data-line-number="8"><span class="co">#&gt; [13] &quot;geom&quot;</span></a>
 <a class="sourceLine" id="cb85-9" data-line-number="9"><span class="kw">plot</span>(world_coffee[<span class="st">&quot;coffee_production_2017&quot;</span>])</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:coffeemap"></span>
-<img src="figures/coffeemap-1.png" alt="World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization." width="576" />
+<img src="figures/coffeemap-1.png" alt="World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization." width="100%" />
 <p class="caption">
-Figure 3.1: World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization.
+FIGURE 3.1: World coffee production (thousand 60-kg bags) by country, 2017. Source: International Coffee Organization.
 </p>
 </div>
 <p>For joining to work, a ‘key variable’ must be supplied in both datasets.
@@ -846,7 +852,8 @@ Hence, an approach such as <code>select(world, -geom)</code> will be unsuccessfu
 <h2><span class="header-section-number">3.3</span> Manipulating raster objects</h2>
 <p>In contrast to the vector data model underlying simple features (which represents points, lines and polygons as discrete entities in space), raster data represent continuous surfaces.
 This section shows how raster objects work by creating them <em>from scratch</em>, building on Section <a href="spatial-class.html#an-introduction-to-raster">2.3.1</a>.
-Because of their unique structure, subsetting and other operations on raster datasets work in a different way, as demonstrated in Section <a href="attr.html#raster-subsetting">3.3.1</a>.</p>
+Because of their unique structure, subsetting and other operations on raster datasets work in a different way, as demonstrated in Section <a href="attr.html#raster-subsetting">3.3.1</a>.
+</p>
 <p>The following code recreates the raster dataset used in Section <a href="spatial-class.html#raster-classes">2.3.3</a>, the result of which is illustrated in Figure <a href="attr.html#fig:cont-raster">3.2</a>.
 This demonstrates how the <code>raster()</code> function works to create an example raster named <code>elev</code> (representing elevations).</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">elev =<span class="st"> </span><span class="kw">raster</span>(<span class="dt">nrows =</span> <span class="dv">6</span>, <span class="dt">ncols =</span> <span class="dv">6</span>, <span class="dt">res =</span> <span class="fl">0.5</span>,</a>
@@ -889,14 +896,15 @@ This is illustrated by the command below, which returns the grain size and wetne
 <a class="sourceLine" id="cb103-4" data-line-number="4"><span class="co">#&gt; 2  silt   moist</span></a>
 <a class="sourceLine" id="cb103-5" data-line-number="5"><span class="co">#&gt; 3  clay     wet</span></a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:cont-raster"></span>
-<img src="figures/cont-raster-1.png" alt="Raster datasets with numeric (left) and categorical values (right)." width="672" />
+<img src="figures/cont-raster-1.png" alt="Raster datasets with numeric (left) and categorical values (right)." width="100%" />
 <p class="caption">
-Figure 3.2: Raster datasets with numeric (left) and categorical values (right).
+FIGURE 3.2: Raster datasets with numeric (left) and categorical values (right).
 </p>
 </div>
 <div id="raster-subsetting" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Raster subsetting</h3>
-<p>Raster subsetting is done with the base R operator <code>[</code>, which accepts a variety of inputs:</p>
+<p>Raster subsetting is done with the base R operator <code>[</code>, which accepts a variety of inputs:
+</p>
 <ul>
 <li>Row-column indexing</li>
 <li>Cell IDs</li>
@@ -937,7 +945,8 @@ Multiple cells can also be modified in this way:</p>
 <p><strong>raster</strong> contains functions for extracting descriptive statistics for entire rasters.
 Printing a raster object to the console by typing its name returns minimum and maximum values of a raster.
 <code>summary()</code> provides common descriptive statistics (minimum, maximum, quartiles and number of <code>NA</code>s).
-Further summary operations such as the standard deviation (see below) or custom summary statistics can be calculated with <code>cellStats()</code>.</p>
+Further summary operations such as the standard deviation (see below) or custom summary statistics can be calculated with <code>cellStats()</code>.
+</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">cellStats</span>(elev, sd)</a></code></pre></div>
 
 <div class="rmdnote">
@@ -947,7 +956,8 @@ If you provide the <code>summary()</code> and <code>cellStats()</code> functions
 <p>Raster value statistics can be visualized in a variety of ways.
 Specific functions such as <code>boxplot()</code>, <code>density()</code>, <code>hist()</code> and <code>pairs()</code> work also with raster objects, as demonstrated in the histogram created with the command below (not shown):</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="kw">hist</span>(elev)</a></code></pre></div>
-<p>In case a visualization function does not work with raster objects, one can extract the raster data to be plotted with the help of <code>values()</code> or <code>getValues()</code>.</p>
+<p>In case a visualization function does not work with raster objects, one can extract the raster data to be plotted with the help of <code>values()</code> or <code>getValues()</code>.
+</p>
 <p>Descriptive raster statistics belong to the so-called global raster operations.
 These and other typical raster processing operations are part of the map algebra scheme, which are covered in the next chapter (Section <a href="spatial-operations.html#map-algebra">4.3.2</a>).</p>
 <div class="rmdnote">

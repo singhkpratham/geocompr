@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Reprojecting geographic data | Geocomputation with R</title>
-  <meta name="description" content="6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 6 Reprojecting geographic data | Geocomputation with R</title>
+  <meta name="description" content="Chapter 6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Reprojecting geographic data | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 6 Reprojecting geographic data | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Reprojecting geographic data | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 6 Reprojecting geographic data | Geocomputation with R" />
   
-  <meta name="twitter:description" content="6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 6 Reprojecting geographic data | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="reproj-geo-data" class="section level1">
-<h1><span class="header-section-number">6</span> Reprojecting geographic data</h1>
+<h1><span class="header-section-number">Chapter 6</span> Reprojecting geographic data</h1>
 <div id="prerequisites-4" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <ul>
@@ -434,7 +434,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Section <a href="spatial-class.html#crs-intro">2.4</a> introduced coordinate reference systems (CRSs) and demonstrated their importance.
 This chapter goes further.
 It highlights issues that can arise when using inappropriate CRSs and how to <em>transform</em> data from one CRS to another.</p>
-<p>As illustrated in Figure <a href="spatial-class.html#fig:vectorplots">2.1</a>, there are two types of CRSs: <em>geographic</em> (‘lon/lat’, with units in degrees longitude and latitude) and <em>projected</em> (typically with units of meters from a datum).
+<p>
+
+As illustrated in Figure <a href="spatial-class.html#fig:vectorplots">2.1</a>, there are two types of CRSs: <em>geographic</em> (‘lon/lat’, with units in degrees longitude and latitude) and <em>projected</em> (typically with units of meters from a datum).
 This has consequences.
 Many geometry operations in <strong>sf</strong>, for example, assume their inputs have a projected CRS, because the GEOS functions they are based on assume projected data.
 To deal with this issue <strong>sf</strong> provides the function <code>st_is_longlat()</code> to check.
@@ -498,7 +500,7 @@ every part of the buffer’s border is equidistant to London.</p>
 <div class="figure" style="text-align: center"><span id="fig:crs-buf"></span>
 <img src="figures/crs-buf-1.png" alt="Buffers around London with a geographic (left) and projected (right) CRS. The gray outline represents the UK coastline." width="45%" /><img src="figures/crs-buf-2.png" alt="Buffers around London with a geographic (left) and projected (right) CRS. The gray outline represents the UK coastline." width="45%" />
 <p class="caption">
-Figure 6.1: Buffers around London with a geographic (left) and projected (right) CRS. The gray outline represents the UK coastline.
+FIGURE 6.1: Buffers around London with a geographic (left) and projected (right) CRS. The gray outline represents the UK coastline.
 </p>
 </div>
 <p>The importance of CRSs (primarily whether they are projected or geographic) has been demonstrated using the example of London.
@@ -506,7 +508,8 @@ The subsequent sections go into more depth, exploring which CRS to use and the d
 </div>
 <div id="when-to-reproject" class="section level2">
 <h2><span class="header-section-number">6.2</span> When to reproject?</h2>
-<p>The previous section showed how to set the CRS manually, with <code>st_set_crs(london, 4326)</code>.
+<p>
+The previous section showed how to set the CRS manually, with <code>st_set_crs(london, 4326)</code>.
 In real world applications, however, CRSs are usually set automatically when data is read-in.
 The main task involving CRSs is often to <em>transform</em> objects, from one CRS into another.
 But when should data be transformed? And into which CRS?
@@ -531,7 +534,9 @@ It may come as a surprise that <code>london</code> and <code>london2</code> are 
 </div>
 <div id="which-crs-to-use" class="section level2">
 <h2><span class="header-section-number">6.3</span> Which CRS to use?</h2>
-<p>The question of <em>which CRS</em> is tricky, and there is rarely a ‘right’ answer:
+<p>
+
+The question of <em>which CRS</em> is tricky, and there is rarely a ‘right’ answer:
 “There exist no all-purpose projections, all involve distortion when far from the center of the specified frame” <span class="citation">(Bivand, Pebesma, and Gómez-Rubio <a href="#ref-bivand_applied_2013">2013</a>)</span>.</p>
 <p>For <strong>geographic CRSs</strong>, the answer is often <a href="https://en.wikipedia.org/wiki/World_Geodetic_System#A_new_World_Geodetic_System:_WGS_84">WGS84</a>, not only for web mapping, but also because GPS datasets and thousands of raster and vector datasets are provided in this CRS by default.
 WGS84 is the most common CRS in the world, so it is worth knowing its EPSG code: 4326.
@@ -547,12 +552,15 @@ Custom CRSs with local parameters can be created for a region of interest and mu
 ‘Geodesic calculations’ can provide a fall-back if no CRSs are appropriate (see <a href="https://proj.org/geodesic.html">proj.org/geodesic.html</a>).
 Regardless of the projected CRS used, the results may not be accurate for geometries covering hundreds of kilometers.</p>
 <p>When deciding on a custom CRS, we recommend the following:<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
-<ul>
-<li>A Lambert azimuthal equal-area (<a href="https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection">LAEA</a>) projection for a custom local projection (set <code>lon_0</code> and <code>lat_0</code> to the center of the study area), which is an equal-area projection at all locations but distorts shapes beyond thousands of kilometres.</li>
-<li>Azimuthal equidistant (<a href="https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection">AEQD</a>) projections for a specifically accurate straight-line distance between a point and the centre point of the local projection.</li>
-<li>Lambert conformal conic (<a href="https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection">LCC</a>) projections for regions covering thousands of kilometres, with the cone set to keep distance and area properties reasonable between the secant lines.</li>
-<li>Stereographic (<a href="https://en.wikipedia.org/wiki/Stereographic_projection">STERE</a>) projections for polar regions, but taking care not to rely on area and distance calculations thousands of kilometres from the center.</li>
-</ul>
+<p>
+
+
+
+
+- A Lambert azimuthal equal-area (<a href="https://en.wikipedia.org/wiki/Lambert_azimuthal_equal-area_projection">LAEA</a>) projection for a custom local projection (set <code>lon_0</code> and <code>lat_0</code> to the center of the study area), which is an equal-area projection at all locations but distorts shapes beyond thousands of kilometres.
+- Azimuthal equidistant (<a href="https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection">AEQD</a>) projections for a specifically accurate straight-line distance between a point and the centre point of the local projection.
+- Lambert conformal conic (<a href="https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection">LCC</a>) projections for regions covering thousands of kilometres, with the cone set to keep distance and area properties reasonable between the secant lines.
+- Stereographic (<a href="https://en.wikipedia.org/wiki/Stereographic_projection">STERE</a>) projections for polar regions, but taking care not to rely on area and distance calculations thousands of kilometres from the center.</p>
 <p>A commonly used default is Universal Transverse Mercator (<a href="https://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system">UTM</a>), a set of CRSs that divides the Earth into 60 longitudinal wedges and 20 latitudinal segments.
 The transverse Mercator projection used by UTM CRSs is conformal but distorts areas and distances with increasing severity with distance from the center of the UTM zone.
 Documentation from the GIS software Manifold therefore suggests restricting the longitudinal extent of projects using UTM zones to 6 degrees from the central meridian (source: <a href="http://www.manifold.net/doc/mfd9/universal_transverse_mercator_projection.htm">manifold.net</a>).</p>
@@ -578,11 +586,15 @@ All UTM projections have the same datum (WGS84) and their EPSG codes run sequent
 <p>Another approach to automatically select a projected CRS specific to a local dataset is to create an azimuthal equidistant (<a href="https://en.wikipedia.org/wiki/Azimuthal_equidistant_projection">AEQD</a>) projection for the center-point of the study area.
 This involves creating a custom CRS (with no EPSG code) with units of meters based on the centerpoint of a dataset.
 This approach should be used with caution: no other datasets will be compatible with the custom CRS created and results may not be accurate when used on extensive datasets covering hundreds of kilometers.</p>
-<p>The principles outlined in this section apply equally to vector and raster datasets. Some features of CRS transformation however are unique to each geographic data model. We will cover the particularities of vector data transformation in Section <a href="reproj-geo-data.html#reproj-vec-geom">6.4</a> and those of raster transformation in Section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>.</p>
+<p>The principles outlined in this section apply equally to vector and raster datasets.
+Some features of CRS transformation however are unique to each geographic data model.
+We will cover the particularities of vector data transformation in Section <a href="reproj-geo-data.html#reproj-vec-geom">6.4</a> and those of raster transformation in Section <a href="reproj-geo-data.html#reprojecting-raster-geometries">6.6</a>.</p>
 </div>
 <div id="reproj-vec-geom" class="section level2">
 <h2><span class="header-section-number">6.4</span> Reprojecting vector geometries</h2>
-<p>Chapter <a href="spatial-class.html#spatial-class">2</a> demonstrated how vector geometries are made-up of points, and how points form the basis of more complex objects such as lines and polygons.
+<p>
+
+Chapter <a href="spatial-class.html#spatial-class">2</a> demonstrated how vector geometries are made-up of points, and how points form the basis of more complex objects such as lines and polygons.
 Reprojecting vectors thus consists of transforming the coordinates of these points.
 This is illustrated by <code>cycle_hire_osm</code>, an <code>sf</code> object from <strong>spData</strong> that represents cycle hire locations across London.
 The previous section showed how the CRS of vector data can be queried with <code>st_crs()</code>.
@@ -620,7 +632,8 @@ To access and modify it explicitly, use the <code>st_crs</code> function, for ex
 </div>
 <div id="modifying-map-projections" class="section level2">
 <h2><span class="header-section-number">6.5</span> Modifying map projections</h2>
-<p>Established CRSs captured by EPSG codes are well-suited for many applications.
+<p>
+Established CRSs captured by EPSG codes are well-suited for many applications.
 However in some cases it is desirable to create a new CRS, using a custom <code>proj4string</code>.
 This system allows a very wide range of projections to be created, as we’ll see in some of the custom map projections in this section.
 <!-- as we mentioned in Section \@ref(crs-in-r). --></p>
@@ -631,9 +644,9 @@ To use this projection, we need to specify it using the <code>proj4string</code>
 <!-- plot(world_mollweide$geom) -->
 <!-- plot(world_mollweide$geom, graticule = TRUE) -->
 <div class="figure" style="text-align: center"><span id="fig:mollproj"></span>
-<img src="figures/mollproj-1.png" alt="Mollweide projection of the world." width="576" />
+<img src="figures/mollproj-1.png" alt="Mollweide projection of the world." width="100%" />
 <p class="caption">
-Figure 6.2: Mollweide projection of the world.
+FIGURE 6.2: Mollweide projection of the world.
 </p>
 </div>
 <p>On the other hand, when mapping the world, it is often desirable to have as little distortion as possible for all spatial properties (area, direction, distance).
@@ -643,9 +656,9 @@ One of the most popular projections to achieve this is the Winkel tripel project
 <!-- plot(world_wintri$geom) -->
 <!-- plot(world_wintri$geom, graticule = TRUE) -->
 <div class="figure" style="text-align: center"><span id="fig:wintriproj"></span>
-<img src="images/wintriproj-1.png" alt="Winkel tripel projection of the world." width="576" />
+<img src="images/wintriproj-1.png" alt="Winkel tripel projection of the world." width="100%" />
 <p class="caption">
-Figure 6.3: Winkel tripel projection of the world.
+FIGURE 6.3: Winkel tripel projection of the world.
 </p>
 </div>
 
@@ -663,9 +676,9 @@ The below code transforms the coordinates to the Lambert azimuthal equal-area pr
 <!-- plot(world_laea1$geom) -->
 <!-- plot(world_laea1$geom, graticule = TRUE) -->
 <div class="figure" style="text-align: center"><span id="fig:laeaproj1"></span>
-<img src="figures/laeaproj1-1.png" alt="Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0." width="576" />
+<img src="figures/laeaproj1-1.png" alt="Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0." width="100%" />
 <p class="caption">
-Figure 6.4: Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0.
+FIGURE 6.4: Lambert azimuthal equal-area projection of the world centered on longitude and latitude of 0.
 </p>
 </div>
 <p>We can change the PROJ parameters, for example the center of the projection, using the <code>+lon_0</code> and <code>+lat_0</code> parameters.
@@ -675,9 +688,9 @@ The code below gives the map centered on New York City (Figure <a href="reproj-g
 <!-- plot(world_laea2$geom) -->
 <!-- plot(world_laea2$geom, graticule = TRUE) -->
 <div class="figure" style="text-align: center"><span id="fig:laeaproj2"></span>
-<img src="figures/laeaproj2-1.png" alt="Lambert azimuthal equal-area projection of the world centered on New York City." width="576" />
+<img src="figures/laeaproj2-1.png" alt="Lambert azimuthal equal-area projection of the world centered on New York City." width="100%" />
 <p class="caption">
-Figure 6.5: Lambert azimuthal equal-area projection of the world centered on New York City.
+FIGURE 6.5: Lambert azimuthal equal-area projection of the world centered on New York City.
 </p>
 </div>
 <p>More information on CRS modifications can be found in the <a href="https://proj.org/usage/index.html">Using PROJ</a> documentation.</p>
@@ -692,7 +705,8 @@ Figure 6.5: Lambert azimuthal equal-area projection of the world centered on New
 </div>
 <div id="reprojecting-raster-geometries" class="section level2">
 <h2><span class="header-section-number">6.6</span> Reprojecting raster geometries</h2>
-<p>The projection concepts described in the previous section apply equally to rasters.
+<p>
+The projection concepts described in the previous section apply equally to rasters.
 However, there are important differences in reprojection of vectors and rasters:
 transforming a vector object involves changing the coordinates of every vertex but this does not apply to raster data.
 Rasters are composed of rectangular cells of the same size (expressed by map units, such as degrees or meters), so it is impossible to transform coordinates of pixels separately.
@@ -731,7 +745,7 @@ The final step is to reproject the raster with the <code>projectRaster()</code> 
 <a class="sourceLine" id="cb230-2" data-line-number="2">cat_raster_wgs84 =<span class="st"> </span><span class="kw">projectRaster</span>(cat_raster, <span class="dt">crs =</span> wgs84, <span class="dt">method =</span> <span class="st">&quot;ngb&quot;</span>)</a></code></pre></div>
 <p>Many properties of the new object differ from the previous one, including the number of columns and rows (and therefore number of cells), resolution (transformed from meters into degrees), and extent, as illustrated in Table <a href="reproj-geo-data.html#tab:catraster">6.1</a> (note that the number of categories increases from 14 to 15 because of the addition of <code>NA</code> values, not because a new category has been created — the land cover classes are preserved).</p>
 <table>
-<caption><span id="tab:catraster">Table 6.1: </span>Key attributes in the original (‘cat_raster’) and projected (‘cat_raster_wgs84’) categorical raster datasets.</caption>
+<caption><span id="tab:catraster">TABLE 6.1: </span>Key attributes in the original (‘cat_raster’) and projected (‘cat_raster_wgs84’) categorical raster datasets.</caption>
 <thead>
 <tr class="header">
 <th align="left">CRS</th>
@@ -784,7 +798,7 @@ The following commands create a text string representing the Oblique Lambert azi
 <p>Raster reprojection on numeric variables also leads to small changes to values and spatial properties, such as the number of cells, resolution, and extent.
 These changes are demonstrated in Table <a href="reproj-geo-data.html#tab:rastercrs">6.2</a><a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>:</p>
 <table>
-<caption><span id="tab:rastercrs">Table 6.2: </span>Key attributes in the original (‘con_raster’) and projected (‘con_raster_ea’) continuous raster datasets.</caption>
+<caption><span id="tab:rastercrs">TABLE 6.2: </span>Key attributes in the original (‘con_raster’) and projected (‘con_raster_ea’) continuous raster datasets.</caption>
 <thead>
 <tr class="header">
 <th align="left">CRS</th>

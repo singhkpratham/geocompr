@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Scripts, algorithms and functions | Geocomputation with R</title>
-  <meta name="description" content="10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 10 Scripts, algorithms and functions | Geocomputation with R</title>
+  <meta name="description" content="Chapter 10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Scripts, algorithms and functions | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 10 Scripts, algorithms and functions | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Scripts, algorithms and functions | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 10 Scripts, algorithms and functions | Geocomputation with R" />
   
-  <meta name="twitter:description" content="10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 10 Scripts, algorithms and functions | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="algorithms" class="section level1">
-<h1><span class="header-section-number">10</span> Scripts, algorithms and functions</h1>
+<h1><span class="header-section-number">Chapter 10</span> Scripts, algorithms and functions</h1>
 <div id="prerequisites-8" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <p>This chapter primarily uses base R; the <strong>sf</strong> package is used to check the result of an algorithm we will develop.
@@ -470,15 +470,15 @@ Saved scripts can be called and executed in their entirety with <code>source()</
 There are, however, some conventions worth following:</p>
 <ul>
 <li>Write the script in order: just like the script of a film, scripts should have a clear order such as ‘setup’, ‘data processing’ and ‘save results’ (roughly equivalent to ‘beginning’, ‘middle’ and ‘end’ in a film).</li>
-<li>Add comments to the script so other people (and your future self) can understand it. At a minimum, a comment should state the purpose of the script (see Figure <a href="algorithms.html#fig:codecheck">10.1</a>) and (for long scripts) divide it into sections. This can be done in RStudio, for example, with the shortcut <code>Ctrl+Shift+R</code>, which creates ‘foldable’ code section headings.</li>
-<li>Above all, scripts should be reproducible: self-contained scripts that will work on any computer are more useful than scripts that only run on your computer, on a good day. This involves attaching required packages at the beginning, reading-in data from persistent sources (such as a reliable website) and ensuring that previous steps have been taken.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a></li>
+<li><p>Add comments to the script so other people (and your future self) can understand it. At a minimum, a comment should state the purpose of the script (see Figure <a href="algorithms.html#fig:codecheck">10.1</a>) and (for long scripts) divide it into sections. This can be done in RStudio, for example, with the shortcut <code>Ctrl+Shift+R</code>, which creates ‘foldable’ code section headings.</p></li>
+<li><p>Above all, scripts should be reproducible: self-contained scripts that will work on any computer are more useful than scripts that only run on your computer, on a good day. This involves attaching required packages at the beginning, reading-in data from persistent sources (such as a reliable website) and ensuring that previous steps have been taken.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a></p></li>
 </ul>
 <p>It is hard to enforce reproducibility in R scripts, but there are tools that can help.
-By default, RStudio ‘code-checks’ R scripts and underlines faulty code with a red wavy line, as illustrated below:</p>
+By default, RStudio  ‘code-checks’ R scripts and underlines faulty code with a red wavy line, as illustrated below:</p>
 <div class="figure" style="text-align: center"><span id="fig:codecheck"></span>
-<img src="figures/codecheck.png" alt="Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19." width="370" />
+<img src="figures/codecheck.png" alt="Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19." width="100%" />
 <p class="caption">
-Figure 10.1: Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19.
+FIGURE 10.1: Code checking in RStudio. This example, from the script 10-centroid-alg.R, highlights an unclosed curly bracket on line 19.
 </p>
 </div>
 
@@ -487,6 +487,7 @@ A useful tool for reproducibility is the <strong>reprex</strong> package.
 Its main function <code>reprex()</code> tests lines of R code to check if they are reproducible, and provides markdown output to facilitate communication on sites such as GitHub.
 See the web page reprex.tidyverse.org for details.
 </div>
+
 
 <p>The contents of this section apply to any type of R script.
 A particular consideration with scripts for geocomputation is that they tend to have external dependencies, such as the QGIS dependency to run code in Chapter <a href="gis.html#gis">9</a>, and require input data in a specific format.
@@ -547,9 +548,9 @@ The code below shows how this can be done by creating a single triangle (<code>T
 <a class="sourceLine" id="cb351-5" data-line-number="5"><span class="co"># find centroid (drop = FALSE preserves classes, resulting in a matrix):</span></a>
 <a class="sourceLine" id="cb351-6" data-line-number="6">C1 =<span class="st"> </span>(T1[<span class="dv">1</span>, , <span class="dt">drop =</span> <span class="ot">FALSE</span>] <span class="op">+</span><span class="st"> </span>T1[<span class="dv">2</span>, , <span class="dt">drop =</span> <span class="ot">FALSE</span>] <span class="op">+</span><span class="st"> </span>T1[<span class="dv">3</span>, , <span class="dt">drop =</span> <span class="ot">FALSE</span>]) <span class="op">/</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:polymat"></span>
-<img src="figures/polymat-1.png" alt="Illustration of polygon centroid calculation problem." width="576" />
+<img src="figures/polymat-1.png" alt="Illustration of polygon centroid calculation problem." width="100%" />
 <p class="caption">
-Figure 10.2: Illustration of polygon centroid calculation problem.
+FIGURE 10.2: Illustration of polygon centroid calculation problem.
 </p>
 </div>
 <p>Step 3 is to find the area of each triangle, so a <em>weighted mean</em> accounting for the disproportionate impact of large triangles is accounted for.
@@ -586,9 +587,9 @@ This requires <em>iteration</em> to create all triangles representing the polygo
 <a class="sourceLine" id="cb353-12" data-line-number="12"><span class="st">        </span>x[<span class="dv">3</span>, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>(x[<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>x[<span class="dv">2</span>, <span class="dv">2</span>]) ) <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
 <a class="sourceLine" id="cb353-13" data-line-number="13">  }, <span class="dt">FUN.VALUE =</span> <span class="kw">double</span>(<span class="dv">1</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:polycent"></span>
-<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3." width="576" />
+<img src="figures/polycent-1.png" alt="Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3." width="100%" />
 <p class="caption">
-Figure 10.3: Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3.
+FIGURE 10.3: Illustration of iterative centroid algorithm with triangles. The X represents the area-weighted centroid in iterations 2 and 3.
 </p>
 </div>
 <p>We are now in a position to complete step 4 to calculate the total area with <code>sum(A)</code> and the centroid coordinates of the polygon with <code>weighted.mean(C[, 1], A)</code> and <code>weighted.mean(C[, 2], A)</code> (exercise for alert readers: verify these commands work).

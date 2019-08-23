@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Statistical learning | Geocomputation with R</title>
-  <meta name="description" content="11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 11 Statistical learning | Geocomputation with R</title>
+  <meta name="description" content="Chapter 11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Statistical learning | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 11 Statistical learning | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Statistical learning | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 11 Statistical learning | Geocomputation with R" />
   
-  <meta name="twitter:description" content="11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 11 Statistical learning | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,11 +417,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="spatial-cv" class="section level1">
-<h1><span class="header-section-number">11</span> Statistical learning</h1>
+<h1><span class="header-section-number">Chapter 11</span> Statistical learning</h1>
 <div id="prerequisites-9" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <p>This chapter assumes proficiency with geographic data analysis, for example gained by studying the contents and working-through the exercises in Chapters <a href="spatial-class.html#spatial-class">2</a> to <a href="reproj-geo-data.html#reproj-geo-data">6</a>.
-A familiarity with generalized linear regression and machine learning is highly recommended <span class="citation">(for example from Zuur et al. <a href="#ref-zuur_mixed_2009">2009</a>; James et al. <a href="#ref-james_introduction_2013">2013</a>)</span>.</p>
+A familiarity with generalized linear models (GLM) and machine learning is highly recommended <span class="citation">(for example from Zuur et al. <a href="#ref-zuur_mixed_2009">2009</a>; James et al. <a href="#ref-james_introduction_2013">2013</a>)</span>.</p>
 <p>The chapter uses the following packages:<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a></p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1"><span class="kw">library</span>(sf)</a>
 <a class="sourceLine" id="cb364-2" data-line-number="2"><span class="kw">library</span>(raster)</a>
@@ -454,7 +454,7 @@ Machine learning is conducive to tasks such as the prediction of future customer
 <!-- ^[In this case we do not have too worry too much about possible model misspecifications since we explicitly do not want to do statistical inference.] -->
 <p>This chapter is based on a case study: the (spatial) prediction of landslides.
 This application links to the applied nature of geocomputation, defined in Chapter <a href="intro.html#intro">1</a>, and illustrates how machine learning borrows from the field of statistics when the sole aim is prediction.
-Therefore, this chapter first introduces modeling and cross-validation concepts with the help of a Generalized Linear Model <span class="citation">(GLM; Zuur et al. <a href="#ref-zuur_mixed_2009">2009</a>)</span>.
+Therefore, this chapter first introduces modeling and cross-validation concepts with the help of a Generalized Linear Model  <span class="citation">(Zuur et al. <a href="#ref-zuur_mixed_2009">2009</a>)</span>.
 Building on this, the chapter implements a more typical machine learning algorithm, namely a Support Vector Machine (SVM).
 The models’ <strong>predictive performance</strong> will be assessed using spatial cross-validation (CV), which accounts for the fact that geographic data is special.</p>
 <p>CV determines a model’s ability to generalize to new data, by splitting a dataset (repeatedly) into training and test sets.
@@ -496,11 +496,12 @@ The 1360 non-landslide points were sampled randomly from the study area, with th
 <a class="sourceLine" id="cb367-7" data-line-number="7">  <span class="dt">ymx =</span> dem<span class="op">$</span>header<span class="op">$</span>yllcorner <span class="op">+</span><span class="st"> </span>dem<span class="op">$</span>header<span class="op">$</span>nrows <span class="op">*</span><span class="st"> </span>dem<span class="op">$</span>header<span class="op">$</span>cellsize</a>
 <a class="sourceLine" id="cb367-8" data-line-number="8">  )</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lsl-map"></span>
-<img src="figures/lsl-map-1.png" alt="Landslide initiation points (red) and points unaffected by landsliding (blue) in Southern Ecuador." width="576" />
+<img src="figures/lsl-map-1.png" alt="Landslide initiation points (red) and points unaffected by landsliding (blue) in Southern Ecuador." width="100%" />
 <p class="caption">
-Figure 11.1: Landslide initiation points (red) and points unaffected by landsliding (blue) in Southern Ecuador.
+FIGURE 11.1: Landslide initiation points (red) and points unaffected by landsliding (blue) in Southern Ecuador.
 </p>
 </div>
+
 <p>To model landslide susceptibility, we need some predictors.
 Terrain attributes are frequently associated with landsliding <span class="citation">(Muenchow, Brenning, and Richter <a href="#ref-muenchow_geomorphic_2012">2012</a>)</span>, and these can be computed from the digital elevation model (<code>dem</code>) using R-GIS bridges (see Chapter <a href="gis.html#gis">9</a>).
 We leave it as an exercise to the reader to compute the following terrain attribute rasters and extract the corresponding values to our landslide/non-landslide data frame (see exercises; we also provide the resulting data frame via the <strong>spDataLarge</strong> package, see further below):</p>
@@ -519,7 +520,7 @@ Hence, if you have not computed the predictors yourself, attach the correspondin
 <a class="sourceLine" id="cb368-4" data-line-number="4"><span class="kw">data</span>(<span class="st">&quot;ta&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</a></code></pre></div>
 <p>The first three rows of <code>lsl</code>, rounded to two significant digits, can be found in Table <a href="spatial-cv.html#tab:lslsummary">11.1</a>.</p>
 <table>
-<caption><span id="tab:lslsummary">Table 11.1: </span>Structure of the lsl dataset.</caption>
+<caption><span id="tab:lslsummary">TABLE 11.1: </span>Structure of the lsl dataset.</caption>
 <thead>
 <tr class="header">
 <th align="right">x</th>
@@ -613,9 +614,9 @@ In addition to a model object (<code>fit</code>), this function also expects a r
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="co"># making the prediction</span></a>
 <a class="sourceLine" id="cb372-2" data-line-number="2">pred =<span class="st"> </span>raster<span class="op">::</span><span class="kw">predict</span>(ta, <span class="dt">model =</span> fit, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:lsl-susc"></span>
-<img src="figures/lsl-susc-1.png" alt="Spatial prediction of landslide susceptibility using a GLM." width="576" />
+<img src="figures/lsl-susc-1.png" alt="Spatial prediction of landslide susceptibility using a GLM." width="100%" />
 <p class="caption">
-Figure 11.2: Spatial prediction of landslide susceptibility using a GLM.
+FIGURE 11.2: Spatial prediction of landslide susceptibility using a GLM.
 </p>
 </div>
 <p>Here, when making predictions we neglect spatial autocorrelation since we assume that on average the predictive accuracy remains the same with or without spatial autocorrelation structures.
@@ -675,15 +676,16 @@ It is important to note that spatial CV reduces the bias introduced by spatial a
 This is because there are still a few points in the test and training data which are still neighbors (@brenning_spatial_2012; see second row of \@ref(fig:partitioning)).
 --></p>
 <div class="figure" style="text-align: center"><span id="fig:partitioning"></span>
-<img src="figures/13_partitioning.png" alt="Spatial visualization of selected test and training observations for cross-validation of one repetition. Random (upper row) and spatial partitioning (lower row)." width="708" />
+<img src="figures/13_partitioning.png" alt="Spatial visualization of selected test and training observations for cross-validation of one repetition. Random (upper row) and spatial partitioning (lower row)." width="100%" />
 <p class="caption">
-Figure 11.3: Spatial visualization of selected test and training observations for cross-validation of one repetition. Random (upper row) and spatial partitioning (lower row).
+FIGURE 11.3: Spatial visualization of selected test and training observations for cross-validation of one repetition. Random (upper row) and spatial partitioning (lower row).
 </p>
 </div>
 </div>
 <div id="spatial-cv-with-mlr" class="section level2">
 <h2><span class="header-section-number">11.5</span> Spatial CV with <strong>mlr</strong></h2>
-<p>There are dozens of packages for statistical learning, as described for example in the <a href="https://CRAN.R-project.org/view=MachineLearning">CRAN machine learning task view</a>.
+<p>
+There are dozens of packages for statistical learning, as described for example in the <a href="https://CRAN.R-project.org/view=MachineLearning">CRAN machine learning task view</a>.
 Getting acquainted with each of these packages, including how to undertake cross-validation and hyperparameter tuning, can be a time-consuming process.
 Comparing model results from different packages can be even more laborious.
 The <strong>mlr</strong> package was developed to address these issues.
@@ -694,9 +696,9 @@ It acts as a ‘meta-package’, providing a unified interface to popular superv
 The standardized <strong>mlr</strong> interface is based on eight ‘building blocks’.
 As illustrated in Figure <a href="spatial-cv.html#fig:building-blocks">11.4</a>, these have a clear order.</p>
 <div class="figure" style="text-align: center"><span id="fig:building-blocks"></span>
-<img src="figures/13_ml_abstraction_crop.png" alt="Basic building blocks of the mlr package. Source: http://bit.ly/2tcb2b7. (Permission to reuse this figure was kindly granted.)" width="862" />
+<img src="figures/13_ml_abstraction_crop.png" alt="Basic building blocks of the mlr package. Source: http://bit.ly/2tcb2b7. (Permission to reuse this figure was kindly granted.)" width="100%" />
 <p class="caption">
-Figure 11.4: Basic building blocks of the mlr package. Source: <a href="http://bit.ly/2tcb2b7" class="uri">http://bit.ly/2tcb2b7</a>. (Permission to reuse this figure was kindly granted.)
+FIGURE 11.4: Basic building blocks of the mlr package. Source: <a href="http://bit.ly/2tcb2b7" class="uri">http://bit.ly/2tcb2b7</a>. (Permission to reuse this figure was kindly granted.)
 </p>
 </div>
 <p>The <strong>mlr</strong> modeling process consists of three main stages.
@@ -728,7 +730,7 @@ For a specific task, we can run:</p>
 <a class="sourceLine" id="cb375-3" data-line-number="3"><span class="st">  </span>head</a></code></pre></div>
 <table>
 <caption>
-<span id="tab:lrns">Table 11.2: </span>Sample of available learners for binomial tasks in the mlr package.
+<span id="tab:lrns">TABLE 11.2: </span>Sample of available learners for binomial tasks in the mlr package.
 </caption>
 <thead>
 <tr>
@@ -891,9 +893,9 @@ I really don't understand why I have to load spatialcv.Rdata here a third time..
 <p>To put these results in perspective, let us compare them with AUROC values from a 100-repeated 5-fold non-spatial cross-validation (Figure <a href="spatial-cv.html#fig:boxplot-cv">11.5</a>; the code for the non-spatial cross-validation is not shown here but will be explored in the exercise section).
 As expected, the spatially cross-validated result yields lower AUROC values on average than the conventional cross-validation approach, underlining the over-optimistic predictive performance due to spatial autocorrelation of the latter.</p>
 <div class="figure" style="text-align: center"><span id="fig:boxplot-cv"></span>
-<img src="figures/boxplot-cv-1.png" alt="Boxplot showing the difference in AUROC values between spatial and conventional 100-repeated 5-fold cross-validation." width="576" />
+<img src="figures/boxplot-cv-1.png" alt="Boxplot showing the difference in AUROC values between spatial and conventional 100-repeated 5-fold cross-validation." width="100%" />
 <p class="caption">
-Figure 11.5: Boxplot showing the difference in AUROC values between spatial and conventional 100-repeated 5-fold cross-validation.
+FIGURE 11.5: Boxplot showing the difference in AUROC values between spatial and conventional 100-repeated 5-fold cross-validation.
 </p>
 </div>
 </div>
@@ -944,9 +946,9 @@ The next step is new, however: to tune the hyperparameters.
 Using the same data for the performance assessment and the tuning would potentially lead to overoptimistic results <span class="citation">(Cawley and Talbot <a href="#ref-cawley_overfitting_2010">2010</a>)</span>.
 This can be avoided using nested spatial CV.</p>
 <div class="figure" style="text-align: center"><span id="fig:inner-outer"></span>
-<img src="figures/13_cv.png" alt="Schematic of hyperparameter tuning and performance estimation levels in CV. (Figure was taken from Schratz et al. (2018). Permission to reuse it  was kindly granted.)" width="500" />
+<img src="figures/13_cv.png" alt="Schematic of hyperparameter tuning and performance estimation levels in CV. (Figure was taken from Schratz et al. (2018). Permission to reuse it  was kindly granted.)" width="100%" />
 <p class="caption">
-Figure 11.6: Schematic of hyperparameter tuning and performance estimation levels in CV. (Figure was taken from Schratz et al. (2018). Permission to reuse it was kindly granted.)
+FIGURE 11.6: Schematic of hyperparameter tuning and performance estimation levels in CV. (Figure was taken from Schratz et al. (2018). Permission to reuse it was kindly granted.)
 </p>
 </div>
 <p>This means that we split each fold again into five spatially disjoint subfolds which are used to determine the optimal hyperparameters (<code>tune_level</code> object in the code chunk below; see Figure <a href="spatial-cv.html#fig:inner-outer">11.6</a> for a visual representation).

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Geographic data I/O | Geocomputation with R</title>
-  <meta name="description" content="7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <title>Chapter 7 Geographic data I/O | Geocomputation with R</title>
+  <meta name="description" content="Chapter 7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Geographic data I/O | Geocomputation with R" />
+  <meta property="og:title" content="Chapter 7 Geographic data I/O | Geocomputation with R" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://geocompr.robinlovelace.net/" />
   <meta property="og:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
-  <meta property="og:description" content="7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta property="og:description" content="Chapter 7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="github-repo" content="Robinlovelace/geocompr" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Geographic data I/O | Geocomputation with R" />
+  <meta name="twitter:title" content="Chapter 7 Geographic data I/O | Geocomputation with R" />
   
-  <meta name="twitter:description" content="7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
+  <meta name="twitter:description" content="Chapter 7 Geographic data I/O | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
   <meta name="twitter:image" content="https://geocompr.robinlovelace.net/images/cover.png" />
 
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="read-write" class="section level1">
-<h1><span class="header-section-number">7</span> Geographic data I/O</h1>
+<h1><span class="header-section-number">Chapter 7</span> Geographic data I/O</h1>
 <div id="prerequisites-5" class="section level2 unnumbered">
 <h2>Prerequisites</h2>
 <p>This chapter requires the following packages:</p>
@@ -444,12 +444,14 @@ The final Section <a href="read-write.html#visual-outputs">7.8</a> demonstrates 
 </div>
 <div id="retrieving-data" class="section level2">
 <h2><span class="header-section-number">7.2</span> Retrieving open data</h2>
-<p>A vast and ever-increasing amount of geographic data is available on the internet, much of which is free to access and use (with appropriate credit given to its providers).
+<p>
+A vast and ever-increasing amount of geographic data is available on the internet, much of which is free to access and use (with appropriate credit given to its providers).
 In some ways there is now <em>too much</em> data, in the sense that there are often multiple places to access the same dataset.
 Some datasets are of poor quality.
 In this context, it is vital to know where to look, so the first section covers some of the most important sources.
 Various ‘geoportals’ (web services providing geospatial datasets such as <a href="https://catalog.data.gov/dataset?metadata_type=geospatial">Data.gov</a>) are a good place to start, providing a wide range of data but often only for specific locations (as illustrated in the updated <a href="https://en.wikipedia.org/wiki/Geoportal">Wikipedia page</a> on the topic).</p>
-<p>Some global geoportals overcome this issue.
+<p>
+Some global geoportals overcome this issue.
 The <a href="http://www.geoportal.org/">GEOSS portal</a> and the <a href="https://scihub.copernicus.eu/">Copernicus Open Access Hub</a>, for example, contain many raster datasets with global coverage.
 A wealth of vector datasets can be accessed from the National Aeronautics and Space Administration agency (NASA), <a href="http://sedac.ciesin.columbia.edu/">SEDAC</a> portal and the European Union’s <a href="http://inspire-geoportal.ec.europa.eu/">INSPIRE geoportal</a>, with global and regional coverage.</p>
 <p>Most geoportals provide a graphical interface allowing datasets to be queried based on characteristics such as spatial and temporal extent, the United States Geological Services’ <a href="https://earthexplorer.usgs.gov/">EarthExplorer</a> being a prime example.
@@ -464,11 +466,12 @@ Files hosted on static URLs can be downloaded with <code>download.file()</code>,
 </div>
 <div id="geographic-data-packages" class="section level2">
 <h2><span class="header-section-number">7.3</span> Geographic data packages</h2>
-<p>A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table <a href="read-write.html#tab:datapackages">7.1</a>.
+<p>
+A multitude of R packages have been developed for accessing geographic data, some of which are presented in Table <a href="read-write.html#tab:datapackages">7.1</a>.
 These provide interfaces to one or more spatial libraries or geoportals and aim to make data access even quicker from the command line.</p>
 <!-- add sentinel2 package as soon as it is published on CRAN https://github.com/IVFL-BOKU/sentinel2-->
 <table>
-<caption><span id="tab:datapackages">Table 7.1: </span>Selected R packages for geographic data retrieval.</caption>
+<caption><span id="tab:datapackages">TABLE 7.1: </span>Selected R packages for geographic data retrieval.</caption>
 <thead>
 <tr class="header">
 <th align="left">Package</th>
@@ -545,7 +548,8 @@ The following code chunk illustrates the latter two options using the <code>worl
 </div>
 <div id="geographic-web-services" class="section level2">
 <h2><span class="header-section-number">7.4</span> Geographic web services</h2>
-<p>In an effort to standardize web APIs for accessing spatial data, the Open Geospatial Consortium (OGC) has created a number of specifications for web services (collectively known as OWS, which is short for OGC Web Services).
+<p>
+In an effort to standardize web APIs for accessing spatial data, the Open Geospatial Consortium (OGC) has created a number of specifications for web services (collectively known as OWS, which is short for OGC Web Services).
 These specifications include the Web Feature Service (WFS), Web Map Service (WMS), Web Map Tile Service (WMTS), the Web Coverage Service (WCS) and even a Wep Processing Service (WPS).
 Map servers such as PostGIS have adopted these protocols, leading to standardization of queries.
 Like other web APIs, OWS APIs use a ‘base URL’, an ‘endpoint’ and ‘URL query arguments’ following a <code>?</code> to request data (see the <a href="https://httr.r-lib.org/articles/api-packages.html"><code>best-practices-api-packages</code></a> vignette in the <strong>httr</strong> package).</p>
@@ -591,17 +595,19 @@ For further information on the topic, we recommend examples from European Centre
 </div>
 <div id="file-formats" class="section level2">
 <h2><span class="header-section-number">7.5</span> File formats</h2>
-<p>Geographic datasets are usually stored as files or in spatial databases.
+<p>
+Geographic datasets are usually stored as files or in spatial databases.
 File formats can either store vector or raster data, while spatial databases such as <a href="https://trac.osgeo.org/postgis/wiki/WKTRaster">PostGIS</a> can store both (see also Section <a href="gis.html#postgis">9.6.2</a>).
 Today the variety of file formats may seem bewildering but there has been much consolidation and standardization since the beginnings of GIS software in the 1960s when the first widely distributed program (<a href="https://news.harvard.edu/gazette/story/2011/10/the-invention-of-gis/">SYMAP</a>) for spatial analysis was created at Harvard University <span class="citation">(Coppock and Rhind <a href="#ref-coppock_history_1991">1991</a>)</span>.</p>
-<p>GDAL (which should be pronounced “goo-dal”, with the double “o” making a reference to object-orientation), the Geospatial Data Abstraction Library, has resolved many issues associated with incompatibility between geographic file formats since its release in 2000.
+<p>
+GDAL (which should be pronounced “goo-dal”, with the double “o” making a reference to object-orientation), the Geospatial Data Abstraction Library, has resolved many issues associated with incompatibility between geographic file formats since its release in 2000.
 GDAL provides a unified and high-performance interface for reading and writing of many raster and vector data formats.
 Many open and proprietary GIS programs, including GRASS, ArcGIS and QGIS, use GDAL behind their GUIs for doing the legwork of ingesting and spitting out geographic data in appropriate formats.</p>
 <p>GDAL provides access to more than 200 vector and raster data formats.
 Table <a href="read-write.html#tab:formats">7.2</a> presents some basic information about selected and often used spatial file formats.</p>
 <table>
 <caption>
-<span id="tab:formats">Table 7.2: </span>Selected spatial file formats.
+<span id="tab:formats">TABLE 7.2: </span>Selected spatial file formats.
 </caption>
 <thead>
 <tr>
@@ -795,6 +801,7 @@ Open
 </tr>
 </tbody>
 </table>
+
 <p>An important development ensuring the standardization and open-sourcing of file formats was the founding of the Open Geospatial Consortium (<a href="http://www.opengeospatial.org/">OGC</a>) in 1994.
 Beyond defining the simple features data model (see Section <a href="spatial-class.html#intro-sf">2.2.1</a>), the OGC also coordinates the development of open standards, for example as used in file formats such as KML and GeoPackage.
 Open file formats of the kind endorsed by the OGC have several advantages over proprietary formats: the standards are published, ensure transparency and open up the possibility for users to further develop and adjust the file formats to their specific needs.</p>
@@ -818,7 +825,8 @@ Moreover, there are many R packages containing a wide range of geographic data o
 All of them load the data into R or, more precisely, assign objects to your workspace, stored in RAM accessible from the <a href="http://adv-r.had.co.nz/Environments.html"><code>.GlobalEnv</code></a> of the R session.</p>
 <div id="vector-data-1" class="section level3">
 <h3><span class="header-section-number">7.6.1</span> Vector data</h3>
-<p>Spatial vector data comes in a wide variety of file formats, most of which can be read-in via the <strong>sf</strong> function <code>st_read()</code>.
+<p>
+Spatial vector data comes in a wide variety of file formats, most of which can be read-in via the <strong>sf</strong> function <code>st_read()</code>.
 Behind the scenes this calls GDAL.
 To find out which data formats <strong>sf</strong> supports, run <code>st_drivers()</code>.
 Here, we show only the first five drivers (see Table <a href="read-write.html#tab:drivers">7.3</a>):</p>
@@ -826,7 +834,7 @@ Here, we show only the first five drivers (see Table <a href="read-write.html#ta
 <a class="sourceLine" id="cb245-2" data-line-number="2"><span class="kw">head</span>(sf_drivers, <span class="dt">n =</span> <span class="dv">5</span>)</a></code></pre></div>
 <table>
 <caption>
-<span id="tab:drivers">Table 7.3: </span>Sample of available drivers for reading/writing vector data (it could vary between different GDAL versions).
+<span id="tab:drivers">TABLE 7.3: </span>Sample of available drivers for reading/writing vector data (it could vary between different GDAL versions).
 </caption>
 <thead>
 <tr>
@@ -1045,7 +1053,8 @@ A <a href="https://github.com/ATFutures/geobench">benchmark</a> suggests it is a
 </div>
 <div id="raster-data-1" class="section level3">
 <h3><span class="header-section-number">7.6.2</span> Raster data</h3>
-<p>Similar to vector data, raster data comes in many file formats with some of them supporting even multilayer files.
+<p>
+Similar to vector data, raster data comes in many file formats with some of them supporting even multilayer files.
 <strong>raster</strong>’s <code>raster()</code> command reads in a single layer.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">raster_filepath =<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;raster/srtm.tif&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;spDataLarge&quot;</span>)</a>
 <a class="sourceLine" id="cb250-2" data-line-number="2">single_layer =<span class="st"> </span><span class="kw">raster</span>(raster_filepath)</a></code></pre></div>
@@ -1067,6 +1076,7 @@ Depending on the data type (vector or raster), object class (e.g., <code>multipo
 The next two sections will demonstrate how to do this.</p>
 <div id="vector-data-2" class="section level3">
 <h3><span class="header-section-number">7.7.1</span> Vector data</h3>
+
 <p>The counterpart of <code>st_read()</code> is <code>st_write()</code>.
 It allows you to write <strong>sf</strong> objects to a wide range of geographic vector file formats, including the most common such as <code>.geojson</code>, <code>.shp</code> and <code>.gpkg</code>.
 Based on the file name, <code>st_write()</code> decides automatically which driver to use.
@@ -1105,9 +1115,11 @@ It could be either <code>AS_XY</code> for simple point datasets (it creates two 
 </div>
 <div id="raster-data-2" class="section level3">
 <h3><span class="header-section-number">7.7.2</span> Raster data</h3>
-<p>The <code>writeRaster()</code> function saves <code>Raster*</code> objects to files on disk.
+<p>
+The <code>writeRaster()</code> function saves <code>Raster*</code> objects to files on disk.
 The function expects input regarding output data type and file format, but also accepts GDAL options specific to a selected file format (see <code>?writeRaster</code> for more details).</p>
-<p>The <strong>raster</strong> package offers nine data types when saving a raster: LOG1S, INT1S, INT1U, INT2S, INT2U, INT4S, INT4U, FLT4S, and FLT8S.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a>
+<p>
+The <strong>raster</strong> package offers nine data types when saving a raster: LOG1S, INT1S, INT1U, INT2S, INT2U, INT4S, INT4U, FLT4S, and FLT8S.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a>
 The data type determines the bit representation of the raster object written to disk (Table <a href="read-write.html#tab:datatypes">7.4</a>).
 Which data type to use depends on the range of the values of your raster object.
 The more values a data type can represent, the larger the file will get on disk.
@@ -1118,7 +1130,7 @@ While this works in most cases, the size of the output file will be unnecessaril
 Therefore, we would recommend to use the data type that needs the least storage space, but is still able to represent all values (check the range of values with the <code>summary()</code> function).</p>
 <table>
 <caption>
-<span id="tab:datatypes">Table 7.4: </span>Data types supported by the raster package.
+<span id="tab:datatypes">TABLE 7.4: </span>Data types supported by the raster package.
 </caption>
 <thead>
 <tr>
@@ -1254,7 +1266,8 @@ GeoTIFF files, for example, can be compressed using <code>COMPRESS</code>:
 </div>
 <div id="visual-outputs" class="section level2">
 <h2><span class="header-section-number">7.8</span> Visual outputs</h2>
-<p>R supports many different static and interactive graphics formats.
+<p>
+R supports many different static and interactive graphics formats.
 The most general method to save a static plot is to open a graphic device, create a plot, and close it, for example:</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb261-1" data-line-number="1"><span class="kw">png</span>(<span class="dt">filename =</span> <span class="st">&quot;lifeExp.png&quot;</span>, <span class="dt">width =</span> <span class="dv">500</span>, <span class="dt">height =</span> <span class="dv">350</span>)</a>
 <a class="sourceLine" id="cb261-2" data-line-number="2"><span class="kw">plot</span>(world[<span class="st">&quot;lifeExp&quot;</span>])</a>
