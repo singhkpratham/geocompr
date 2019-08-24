@@ -350,7 +350,7 @@ For a specific task, we can run:
 ```r
 listLearners(task, warn.missing.packages = FALSE) %>%
   dplyr::select(class, name, short.name, package) %>%
-  head
+  head()
 ```
 
 <table>

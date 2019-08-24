@@ -345,9 +345,7 @@ Additional elements such as north arrows\index{tmap (package)!north arrows} and 
 ```r
 map_nz + 
   tm_compass(type = "8star", position = c("left", "top")) +
-  tm_scale_bar(breaks = c(0, 100, 200), size = 1)
-#> Warning: The argument size of tm_scale_bar is deprecated. It has been
-#> renamed to text.size
+  tm_scale_bar(breaks = c(0, 100, 200), text.size = 1)
 ```
 
 <div class="figure" style="text-align: center">

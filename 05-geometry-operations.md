@@ -109,9 +109,6 @@ Simplification of multipolygon objects can remove small internal polygons, even 
 us_states2163$AREA = as.numeric(us_states2163$AREA)
 us_states_simp2 = rmapshaper::ms_simplify(us_states2163, keep = 0.01,
                                           keep_shapes = TRUE)
-#> Registered S3 method overwritten by 'geojsonlint':
-#>   method         from 
-#>   print.location dplyr
 ```
 
 Finally, the visual comparison of the original dataset and the two simplified versions shows differences between the Douglas-Peucker (`st_simplify`) and Visvalingam (`ms_simplify`) algorithm outputs (Figure \@ref(fig:us-simp)):
