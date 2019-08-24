@@ -252,7 +252,7 @@ od_top5 = bristol_od %>%
 ```
 
 
-Table: (\#tab:od)Sample of the origin-destination data stored in the data frame object `bristol\_od`. These represent the top 5 most common desire lines between zones in the study area.
+Table: (\#tab:od)Sample of the top 5 origin-destination pairs in the Bristol OD data frame, representing travel desire lines between zones in the study area.
 
 o           d             all   bicycle   foot   car_driver   train
 ----------  ----------  -----  --------  -----  -----------  ------
