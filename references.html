@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | Geocomputation with R</title>
   <meta name="description" content="References | Geocomputation with R is for people who want to analyze, visualize and model geographic data with open source software. It is based on R, a statistical programming language that has powerful data processing, visualization, and geospatial capabilities. The book equips you with the knowledge and skills to tackle a wide range of issues manifested in geographic data, including those with scientific, societal, and environmental implications. This book will interest people from many backgrounds, especially Geographic Information Systems (GIS) users interested in applying their domain-specific knowledge in a powerful open source language for data science, and R users interested in extending their skills to handle spatial data." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | Geocomputation with R" />
   <meta property="og:type" content="book" />
@@ -24,14 +24,14 @@
 <meta name="author" content="Robin Lovelace, Jakub Nowosad, Jannes Muenchow" />
 
 
-<meta name="date" content="2019-08-26" />
+<meta name="date" content="2019-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="conclusion.html">
+<link rel="prev" href="conclusion.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -601,9 +601,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hunziker, Philipp. 2017. <em>Velox: Fast Raster Manipulation and Extraction</em>.</p>
 </div>
 <div>
-<p>Jafari, Ehsan, Mason D. Gemar, Natalia Ruiz Juri, and Jennifer Duthie. 2015. “Investigation of Centroid Connector Placement for Advanced Traffic Assignment Models with Added Network Detail.” <em>Transportation Research Record: Journal of the Transportation Research Board</em> 2498 (June): 19–26. <a href="https://doi.org/10.3141/2498-03" class="uri">https://doi.org/10.3141/2498-03</a>.</p>
-</div>
-<div>
 <p>James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani, eds. 2013. <em>An Introduction to Statistical Learning: With Applications in R</em>. Springer Texts in Statistics 103. New York: Springer.</p>
 </div>
 <div>
@@ -760,7 +757,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Rowlingson, B. S, and P. J Diggle. 1993. “Splancs: Spatial Point Pattern Analysis Code in S-Plus.” <em>Computers &amp; Geosciences</em> 19 (5): 627–55. <a href="https://doi.org/10.1016/0098-3004(93)90099-Q" class="uri">https://doi.org/10.1016/0098-3004(93)90099-Q</a>.</p>
 </div>
 <div>
-<p>Schratz, Patrick, Jannes Muenchow, Eugenia Iturritxa, Jakob Richter, and Alexander Brenning. 2018. “Performance Evaluation and Hyperparameter Tuning of Statistical and Machine-Learning Models Using Spatial Data.” <em>arXiv:1803.11266 [Cs, Stat]</em>, March. <a href="http://arxiv.org/abs/1803.11266" class="uri">http://arxiv.org/abs/1803.11266</a>.</p>
+<p>Schratz, Patrick, J. Muenchow, Eugenia Iturritxa, Jakob Richter, and A. Brenning. 2018. “Performance Evaluation and Hyperparameter Tuning of Statistical and Machine-Learning Models Using Spatial Data.”</p>
 </div>
 <div>
 <p>Sherman, Gary. 2008. <em>Desktop GIS: Mapping the Planet with Open Source Tools</em>. Pragmatic Bookshelf.</p>
@@ -1138,8 +1135,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
