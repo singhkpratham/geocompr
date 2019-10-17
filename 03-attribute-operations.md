@@ -102,7 +102,7 @@ Extracting the attribute data of an `sf` object is the same as removing its geom
 ```r
 world_df = st_drop_geometry(world)
 class(world_df)
-#> [1] "data.frame"
+#> [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 This can be useful if the geometry column causes problems, e.g., by occupying large amounts of RAM, or to focus the attention on the attribute data.
@@ -413,7 +413,7 @@ A 'left join', which preserves the first dataset, merges `world` with `coffee_da
 world_coffee = left_join(world, coffee_data)
 #> Joining, by = "name_long"
 class(world_coffee)
-#> [1] "sf"         "data.frame"
+#> [1] "sf"         "tbl_df"     "tbl"        "data.frame"
 ```
 
 Because the input datasets share a 'key variable' (`name_long`) the join worked without using the `by` argument (see `?left_join` for details).
@@ -428,8 +428,8 @@ names(world_coffee)
 #>  [5] "subregion"              "type"                  
 #>  [7] "area_km2"               "pop"                   
 #>  [9] "lifeExp"                "gdpPercap"             
-#> [11] "coffee_production_2016" "coffee_production_2017"
-#> [13] "geom"
+#> [11] "geom"                   "coffee_production_2016"
+#> [13] "coffee_production_2017"
 plot(world_coffee["coffee_production_2017"])
 ```
 
@@ -615,7 +615,7 @@ Hence, an approach such as `select(world, -geom)` will be unsuccessful and you s
 ```r
 world_data = world %>% st_drop_geometry()
 class(world_data)
-#> [1] "data.frame"
+#> [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ## Manipulating raster objects

@@ -577,10 +577,8 @@ The speed of the writing process depends also on the driver.
 
 ```r
 st_write(obj = world, dsn = "world.gpkg")
-#> Writing layer `world' to data source `world.gpkg' using driver `GPKG'
-#> features:       177
-#> fields:         10
-#> geometry type:  Multi Polygon
+#> Updating layer `world' to data source `world.gpkg' using driver `GPKG'
+#> Writing 177 features with 10 fields and geometry type Multi Polygon.
 ```
 
 **Note**: if you try to write to the same data source again, the function will fail:

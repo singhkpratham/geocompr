@@ -486,6 +486,8 @@ This function is demonstrated below using a subset of the `bristol_ways` object 
 ```r
 ways_freeway = bristol_ways %>% filter(maxspeed == "70 mph") 
 ways_sln = SpatialLinesNetwork(ways_freeway)
+#> Warning in SpatialLinesNetwork.sf(ways_freeway): Graph composed of multiple
+#> subgraphs, consider cleaning it with sln_clean_graph().
 slotNames(ways_sln)
 #> [1] "sl"          "g"           "nb"          "weightfield"
 weightfield(ways_sln)
